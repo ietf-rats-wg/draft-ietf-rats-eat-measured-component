@@ -3,7 +3,7 @@ v: 3
 
 title: EAT Measured Component
 abbrev: "EAT Measured Component"
-docname: draft-fft-rats-eat-measured-component-latest
+docname: draft-ietf-rats-eat-measured-component-latest
 category: std
 consensus: true
 submissionType: IETF
