@@ -5,14 +5,14 @@
 Remote ATtestation ProcedureS                                   S. Frost
 Internet-Draft                                                       Arm
 Intended status: Standards Track                              T. Fossati
-Expires: 3 January 2025                                           Linaro
+Expires: 13 April 2025                                            Linaro
                                                            H. Tschofenig
                                                                  Siemens
-                                                             2 July 2024
+                                                         10 October 2024
 
 
                          EAT Measured Component
-              draft-fft-rats-eat-measured-component-latest
+             draft-ietf-rats-eat-measured-component-latest
 
 Abstract
 
@@ -52,7 +52,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 3 January 2025.
+   This Internet-Draft will expire on 13 April 2025.
 
 Copyright Notice
 
@@ -472,39 +472,39 @@ Table of Contents
 
    [I-D.ietf-cbor-cddl-modules]
               Bormann, C. and B. Moran, "CDDL Module Structure", Work in
-              Progress, Internet-Draft, draft-ietf-cbor-cddl-modules-02,
-              4 March 2024, <https://datatracker.ietf.org/doc/html/
-              draft-ietf-cbor-cddl-modules-02>.
+              Progress, Internet-Draft, draft-ietf-cbor-cddl-modules-03,
+              1 September 2024, <https://datatracker.ietf.org/doc/html/
+              draft-ietf-cbor-cddl-modules-03>.
 
    [I-D.ietf-cbor-cddl-more-control]
               Bormann, C., "More Control Operators for CDDL", Work in
               Progress, Internet-Draft, draft-ietf-cbor-cddl-more-
-              control-05, 12 June 2024,
+              control-06, 21 July 2024,
               <https://datatracker.ietf.org/doc/html/draft-ietf-cbor-
-              cddl-more-control-05>.
+              cddl-more-control-06>.
 
    [I-D.ietf-rats-corim]
               Birkholz, H., Fossati, T., Deshpande, Y., Smith, N., and
               W. Pan, "Concise Reference Integrity Manifest", Work in
-              Progress, Internet-Draft, draft-ietf-rats-corim-04, 4
-              March 2024, <https://datatracker.ietf.org/doc/html/draft-
-              ietf-rats-corim-04>.
+              Progress, Internet-Draft, draft-ietf-rats-corim-05, 8 July
+              2024, <https://datatracker.ietf.org/doc/html/draft-ietf-
+              rats-corim-05>.
 
    [I-D.ietf-rats-eat]
               Lundblade, L., Mandyam, G., O'Donoghue, J., and C.
               Wallace, "The Entity Attestation Token (EAT)", Work in
-              Progress, Internet-Draft, draft-ietf-rats-eat-28, 25 June
-              2024, <https://datatracker.ietf.org/doc/html/draft-ietf-
-              rats-eat-28>.
+              Progress, Internet-Draft, draft-ietf-rats-eat-31, 6
+              September 2024, <https://datatracker.ietf.org/doc/html/
+              draft-ietf-rats-eat-31>.
 
    [IANA.core-parameters]
               IANA, "Constrained RESTful Environments (CoRE)
               Parameters",
-              <http://www.iana.org/assignments/core-parameters>.
+              <https://www.iana.org/assignments/core-parameters>.
 
    [IANA.media-types]
               IANA, "Media Types",
-              <http://www.iana.org/assignments/media-types>.
+              <https://www.iana.org/assignments/media-types>.
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -537,9 +537,9 @@ Table of Contents
               Tschofenig, H., Frost, S., Brossard, M., Shaw, A. L., and
               T. Fossati, "Arm's Platform Security Architecture (PSA)
               Attestation Token", Work in Progress, Internet-Draft,
-              draft-tschofenig-rats-psa-token-23, 24 June 2024,
+              draft-tschofenig-rats-psa-token-24, 23 September 2024,
               <https://datatracker.ietf.org/doc/html/draft-tschofenig-
-              rats-psa-token-23>.
+              rats-psa-token-24>.
 
    [RFC9393]  Birkholz, H., Fitzgerald-McKay, J., Schmidt, C., and D.
               Waltermire, "Concise Software Identification Tags",
