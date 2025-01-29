@@ -1,17 +1,17 @@
-# A Measured Component Claim for EAT
+# EAT Measured Component
 
-This is the working area for the individual Internet-Draft, "A Measured Component Claim for EAT".
+This is the working area for the IETF [RATS Working Group](https://datatracker.ietf.org/group/rats/documents/) Internet-Draft, "EAT Measured Component".
 
-* [Editor's Copy](https://thomas-fossati.github.io/draft-fft-rats-eat-measured-component/#go.draft-fft-rats-eat-measured-component.html)
-* [Datatracker Page](https://datatracker.ietf.org/doc/draft-fft-rats-eat-measured-component)
-* [Individual Draft](https://datatracker.ietf.org/doc/html/draft-fft-rats-eat-measured-component)
-* [Compare Editor's Copy to Individual Draft](https://thomas-fossati.github.io/draft-fft-rats-eat-measured-component/#go.draft-fft-rats-eat-measured-component.diff)
+* [Editor's Copy](https://ietf-rats-wg.github.io/draft-ietf-rats-eat-measured-component/#go.draft-ietf-rats-eat-measured-component.html)
+* [Datatracker Page](https://datatracker.ietf.org/doc/draft-ietf-rats-eat-measured-component)
+* [Working Group Draft](https://datatracker.ietf.org/doc/html/draft-ietf-rats-eat-measured-component)
+* [Compare Editor's Copy to Working Group Draft](https://ietf-rats-wg.github.io/draft-ietf-rats-eat-measured-component/#go.draft-ietf-rats-eat-measured-component.diff)
 
 
 ## Contributing
 
 See the
-[guidelines for contributions](https://github.com/thomas-fossati/draft-fft-rats-eat-measured-component/blob/main/CONTRIBUTING.md).
+[guidelines for contributions](https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/blob/main/CONTRIBUTING.md).
 
 Contributions can be made by creating pull requests.
 The GitHub interface supports creating pull requests using the Edit (✏) button.
