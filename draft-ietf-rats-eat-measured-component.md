@@ -113,16 +113,18 @@ The data model is inspired by the "PSA software component" claim ({{Section 4.4.
 
 ~~~ cddl
 {::include cddl/mc.cddl}
+
+{::include cddl/labels.cddl}
 ~~~
 
 {:vspace}
-`id (index 1)`
+"id" (index 1)
 : The measured component identifier encoded according to the format described in {{component-id}}.
 
-`measurement (index 2)`
+"measurement" (index 2)
 : Digest value and algorithm, encoded using CoRIM digest format ({{Section 1.3.8 of -corim}}).
 
-`signers (index 3)`
+"signers" (index 3)
 : One or more signing entities, see {{signer}}.
 
 ### Component Identifier {#component-id}
