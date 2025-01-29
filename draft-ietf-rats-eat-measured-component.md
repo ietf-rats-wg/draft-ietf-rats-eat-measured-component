@@ -105,6 +105,8 @@ The information model of a "measured component" is described in {{tab-mc-info-el
 | Signers | One or more unique identifiers of entities signing the measured component. | OPTIONAL |
 {: #tab-mc-info-elems title="Measured Component Information Elements"}
 
+The format SHOULD also allow a limited amount of extensibility to accommodate profile-specific semantics.
+
 # Data Model
 
 The data model is inspired by the "PSA software component" claim ({{Section 4.4.1 of -psa-token}}), which has been refactored to take into account the recommendations about new EAT claims design in {{Appendix E of -rats-eat}}.
@@ -126,6 +128,9 @@ The data model is inspired by the "PSA software component" claim ({{Section 4.4.
 
 "signers" (index 3)
 : One or more signing entities, see {{signer}}.
+
+`profile-flags`
+: a 64-bit field with profile-defined semantics, see {{profile-flags}}.
 
 ### Component Identifier {#component-id}
 
@@ -160,6 +165,17 @@ If it is used, the profile MUST also specify what each of the entries in the `si
 ~~~ cddl
 {::include cddl/signer.cddl}
 ~~~
+
+### Profile Flags {#profile-flags}
+
+This field contains at most 64-bit of profile-defined semantics.
+
+~~~ cddl
+{::include cddl/profile-flags.cddl}
+~~~
+
+If an EAT profile ({{Section 6 of -rats-eat}}) uses measured components, it MUST specify whether the `profile-flags` field is used.
+If it is used, the profile MUST also specify how to interpret the 64 bits.
 
 ## EAT `measurements-format` Extensions
 

@@ -4,4 +4,5 @@ measured-component = {
   id-label => component-id
   measurement-label => corim.digest
   ? signers-label => [ + signer-type ]
+  ? flags-label => profile-flags
 }

@@ -2,6 +2,7 @@ measured-component = {
   id-label => component-id
   measurement-label => corim.digest
   ? signers-label => [ + signer-type ]
+  ? flags-label => profile-flags
 }
 
 signer-type = bytes
@@ -25,9 +26,12 @@ corim.digest = [
   val: bytes
 ]
 
+profile-flags = bytes .size 4
+
 id-label = JC<"id", 1>
 measurement-label = JC<"measurements", 2>
 signers-label = JC<"signers", 3>
+flags-label = JC<"flags", 4>
 
 ; TODO import from rfc9711
 
