@@ -116,13 +116,13 @@ The data model is inspired by the "PSA software component" claim ({{Section 4.4.
 ~~~
 
 {:vspace}
-`id`
+`id (index 1)`
 : The measured component identifier encoded according to the format described in {{component-id}}.
 
-`measurement`
+`measurement (index 2)`
 : Digest value and algorithm, encoded using CoRIM digest format ({{Section 1.3.8 of -corim}}).
 
-`signers`
+`signers (index 3)`
 : One or more signing entities, see {{signer}}.
 
 ### Component Identifier {#component-id}
