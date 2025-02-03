@@ -1,3 +1,3 @@
 # Automatically generated CODEOWNERS
 # Regenerate with `make update-codeowners`
-draft-fft-rats-eat-measured-component.md
+draft-ietf-rats-eat-measured-component.md Simon.Frost@arm.com Thomas.Fossati@linaro.org Hannes.Tschofenig@siemens.com

@@ -18,7 +18,7 @@ CLEANFILES += $(wildcard *.pretty)
 CLEANFILES += $(MCEAT_CDDL)
 CLEANFILES += $(MCEAT_CBOR_EXAMPLES)
 
-clean: ; -rm -f $(CLEANFILES)
+clean:: ; -rm -f $(CLEANFILES)
 .PHONY: clean
 
 check-examples: $(CBOR_EXAMPLES) $(CDDL)
