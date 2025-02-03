@@ -5,10 +5,10 @@
 Remote ATtestation ProcedureS                                   S. Frost
 Internet-Draft                                                       Arm
 Intended status: Standards Track                              T. Fossati
-Expires: 13 April 2025                                            Linaro
+Expires: 7 August 2025                                            Linaro
                                                            H. Tschofenig
                                                                  Siemens
-                                                         10 October 2024
+                                                         3 February 2025
 
 
                          EAT Measured Component
@@ -52,11 +52,11 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 13 April 2025.
+   This Internet-Draft will expire on 7 August 2025.
 
 Copyright Notice
 
-   Copyright (c) 2024 IETF Trust and the persons identified as the
+   Copyright (c) 2025 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -222,16 +222,24 @@ Table of Contents
 4.1.2.  Signer
 
    A signer is an entity that digitally signs the measured component.
-   For example, as in UEFI Secure Boot [UEFI2] and Arm Trusted Board
-   Boot [TBBR-CLIENT].  A signer is associated with a public key.  It
-   could be an X.509 certificate, a raw public key, a public key
-   thumbprint, or some other identifier that can be uniquely associated
-   with the signing entity.  In some cases, multiple parties may need to
-   sign a component to indicate their endorsement or approval.  This
-   could include roles such as a firmware update system, fleet owner, or
-   third-party auditor.  The specific purpose of each signature may
-   depend on the deployment, and the order of signers within the array
-   could indicate meaning.
+   Typically, the signature is verified during installation or when the
+   measured component is executed by the boot ROM, operating system, or
+   application launcher.  For example, as in UEFI Secure Boot [UEFI2]
+   and Arm Trusted Board Boot [TBBR-CLIENT].  Another example may be the
+   controlling entity in an app store.  It is important to note that a
+   signer is different from the identity of the manufacturer of the
+   component, such as would be found in a manifest like a payload
+   CoSWID.
+
+   A signer is associated with a public key.  It could be an X.509
+   certificate, a raw public key, a public key thumbprint, or some other
+   identifier that can be uniquely associated with the signing entity.
+   In some cases, multiple parties may need to sign a component to
+   indicate their endorsement or approval.  This could include roles
+   such as a firmware update system, fleet owner, or third-party
+   auditor.  The specific purpose of each signature may depend on the
+   deployment, and the order of signers within the array could indicate
+   meaning.
 
    If an EAT profile (Section 6 of [I-D.ietf-rats-eat]) uses measured
    components, it MUST specify whether the signers field is used.  If it
@@ -477,18 +485,19 @@ Table of Contents
               draft-ietf-cbor-cddl-modules-03>.
 
    [I-D.ietf-cbor-cddl-more-control]
-              Bormann, C., "More Control Operators for CDDL", Work in
-              Progress, Internet-Draft, draft-ietf-cbor-cddl-more-
-              control-06, 21 July 2024,
+              Bormann, C., "Concise Data Definition Language (CDDL):
+              Additional Control Operators for the Conversion and
+              Processing of Text", Work in Progress, Internet-Draft,
+              draft-ietf-cbor-cddl-more-control-08, 9 January 2025,
               <https://datatracker.ietf.org/doc/html/draft-ietf-cbor-
-              cddl-more-control-06>.
+              cddl-more-control-08>.
 
    [I-D.ietf-rats-corim]
               Birkholz, H., Fossati, T., Deshpande, Y., Smith, N., and
               W. Pan, "Concise Reference Integrity Manifest", Work in
-              Progress, Internet-Draft, draft-ietf-rats-corim-05, 8 July
-              2024, <https://datatracker.ietf.org/doc/html/draft-ietf-
-              rats-corim-05>.
+              Progress, Internet-Draft, draft-ietf-rats-corim-06, 18
+              October 2024, <https://datatracker.ietf.org/doc/html/
+              draft-ietf-rats-corim-06>.
 
    [I-D.ietf-rats-eat]
               Lundblade, L., Mandyam, G., O'Donoghue, J., and C.
