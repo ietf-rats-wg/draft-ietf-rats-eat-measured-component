@@ -1,7 +1,8 @@
-;# import digest from RFCYYYY as corim
+;# import corim.digest from RFCYYYY as corim
 
-measured-component = [
-  id:           component-id
-  measurement:  corim.digest
-  ? signers:    [ + signer-type ]
-]
+measured-component = {
+  id-label => component-id
+  measurement-label => corim.digest
+  ? signers-label => [ + signer-type ]
+  ? flags-label => profile-flags
+}

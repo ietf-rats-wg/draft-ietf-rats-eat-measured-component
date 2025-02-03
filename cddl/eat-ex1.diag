@@ -3,26 +3,26 @@
     [
       65000, / using a CoAP C-F from the experimental range /
       <<
-        [
-          / id / [
+        {
+          / id / 1: [
             / name / "boot loader X",
             / version / [
               "1.2.3rc2",
               16384 / semver /
             ]
           ],
-          / measurement / [
+          / measurement / 2: [
             / alg / "sha-256",
             / val / h'3996003d486fb91ffb056f7d03f2b2992b215b31db
                       e7af4b373431fc7d319da3'
           ],
-          / signers / [
+          / signers / 3: [
             h'492e9b676c21f6012b1ceeb9032feb4141a880797355f66750
               15ec59c51ca1ec',
             h'4277bb97ba7b51577a0d38151d3e08b40bdf946753f5b5bdeb
               814d6ff57a8a5e'
           ]
-        ]
+        }
       >>
     ]
   ]

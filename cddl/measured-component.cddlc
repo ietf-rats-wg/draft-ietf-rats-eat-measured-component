@@ -1,8 +1,9 @@
-measured-component = [
-  id:           component-id
-  measurement:  corim.digest
-  ? signers:    [ + signer-type ]
-]
+measured-component = {
+  id-label => component-id
+  measurement-label => corim.digest
+  ? signers-label => [ + signer-type ]
+  ? flags-label => profile-flags
+}
 
 signer-type = bytes
 
@@ -11,7 +12,7 @@ component-id = [
   ? version: version
 ]
 
-;# import $version-scheme from rfc9393 as coswid
+;# import coswid.$version-scheme from rfc9393 as coswid
 
 version = [
   val:      text 
@@ -24,3 +25,16 @@ corim.digest = [
   alg: (int / text)
   val: bytes
 ]
+
+profile-flags = bytes .size 4
+
+id-label = JC<"id", 1>
+measurement-label = JC<"measurements", 2>
+signers-label = JC<"signers", 3>
+flags-label = JC<"flags", 4>
+
+; TODO import from rfc9711
+
+JSON-ONLY<J> = J .feature "json"
+CBOR-ONLY<C> = C .feature "cbor"
+JC<J,C> = JSON-ONLY<J> / CBOR-ONLY<C>
