@@ -197,7 +197,7 @@ Note the use of the "native" and "tunnel" formats from {{fig-eat-plug}}, and how
 | `content-type` (CoAP C-F equivalent) | `content-format` |
 |--|--|
 | `application/measured-component+cbor` | `mc-cbor` |
-| `application/measured-component+json` | `tstr .b64u mc-json` |
+| `application/measured-component+json` | `mc-json` |
 {: #tab-mf-cbor title="measurement-format for EAT CWT"}
 
 ## `measurements-format` for JSON EAT
