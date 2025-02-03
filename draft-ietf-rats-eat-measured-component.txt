@@ -278,16 +278,16 @@ Table of Contents
    $measurements-body-json EAT sockets to add support for measured-
    components to the Measurements claim.
 
-   mc-cbor = bstr .cbor measured-component
-   mc-json = tstr .json measured-component
+   mc-cbor = bytes .cbor measured-component
+   mc-json = text .json measured-component
 
    ; EAT CBOR (`.feature "cbor"`)
-   $measurements-body-cbor /= mc-cbor            ; native
-   $measurements-body-cbor /= tstr .b64u mc-json ; tunnel
+   $measurements-body-cbor /= mc-cbor ; native
+   $measurements-body-cbor /= mc-json ; tunnel
 
    ; EAT JSON (`.feature "json"`)
    $measurements-body-json /= mc-json            ; native
-   $measurements-body-json /= tstr .b64u mc-cbor ; tunnel
+   $measurements-body-json /= text .b64u mc-cbor ; tunnel
 
                 Figure 1: EAT measurements-format Extensions
 
@@ -305,13 +305,13 @@ Table of Contents
    how the associated CoAP Content-Format is used to describe the
    original serialization.
 
-       +=====================================+====================+
-       | content-type (CoAP C-F equivalent)  | content-format     |
-       +=====================================+====================+
-       | application/measured-component+cbor | mc-cbor            |
-       +-------------------------------------+--------------------+
-       | application/measured-component+json | tstr .b64u mc-json |
-       +-------------------------------------+--------------------+
+         +=====================================+================+
+         | content-type (CoAP C-F equivalent)  | content-format |
+         +=====================================+================+
+         | application/measured-component+cbor | mc-cbor        |
+         +-------------------------------------+----------------+
+         | application/measured-component+json | mc-json        |
+         +-------------------------------------+----------------+
 
                  Table 2: measurement-format for EAT CWT
 

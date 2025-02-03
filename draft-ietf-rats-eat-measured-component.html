@@ -1466,16 +1466,16 @@ If it is used, the profile <span class="bcp14">MUST</span> also specify how to i
 <figure id="figure-1">
           <div class="lang-cddl sourcecode" id="section-4.2-2.1">
 <pre>
-mc-cbor = bstr .cbor measured-component
-mc-json = tstr .json measured-component
+mc-cbor = bytes .cbor measured-component
+mc-json = text .json measured-component
 
 ; EAT CBOR (`.feature "cbor"`)
-$measurements-body-cbor /= mc-cbor            ; native
-$measurements-body-cbor /= tstr .b64u mc-json ; tunnel
+$measurements-body-cbor /= mc-cbor ; native
+$measurements-body-cbor /= mc-json ; tunnel
 
 ; EAT JSON (`.feature "json"`)
 $measurements-body-json /= mc-json            ; native
-$measurements-body-json /= tstr .b64u mc-cbor ; tunnel
+$measurements-body-json /= text .b64u mc-cbor ; tunnel
 </pre>
 </div>
 <figcaption><a href="#figure-1" class="selfRef">Figure 1</a>:
@@ -1518,7 +1518,7 @@ $measurements-body-json /= tstr .b64u mc-cbor ; tunnel
                 <code>application/measured-component+json</code>
 </td>
               <td class="text-left" rowspan="1" colspan="1">
-                <code>tstr .b64u mc-json</code>
+                <code>mc-json</code>
 </td>
             </tr>
           </tbody>
