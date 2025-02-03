@@ -77,6 +77,7 @@ Table of Contents
      4.1.  The measured-component Data Item
        4.1.1.  Component Identifier
        4.1.2.  Signer
+       4.1.3.  Profile Flags
      4.2.  EAT measurements-format Extensions
      4.3.  measurements-format for CBOR EAT
      4.4.  measurements-format for JSON EAT
@@ -175,6 +176,9 @@ Table of Contents
 
               Table 1: Measured Component Information Elements
 
+   The format SHOULD also allow a limited amount of extensibility to
+   accommodate profile-specific semantics.
+
 4.  Data Model
 
    The data model is inspired by the "PSA software component" claim
@@ -184,24 +188,32 @@ Table of Contents
 
 4.1.  The measured-component Data Item
 
-   ;# import digest from RFCYYYY as corim
+   ;# import corim.digest from RFCYYYY as corim
 
-   measured-component = [
-     id:           component-id
-     measurement:  corim.digest
-     ? signers:    [ + signer-type ]
-   ]
+   measured-component = {
+     id-label => component-id
+     measurement-label => corim.digest
+     ? signers-label => [ + signer-type ]
+     ? flags-label => profile-flags
+   }
 
-   id
+   id-label = JC<"id", 1>
+   measurement-label = JC<"measurements", 2>
+   signers-label = JC<"signers", 3>
+
+   "id" (index 1):
       The measured component identifier encoded according to the format
       described in Section 4.1.1.
 
-   measurement
+   "measurement" (index 2):
       Digest value and algorithm, encoded using CoRIM digest format
       (Section 1.3.8 of [I-D.ietf-rats-corim]).
 
-   signers
+   "signers" (index 3):
       One or more signing entities, see Section 4.1.2.
+
+   "profile-flags" (index 4):
+      a 64-bit field with profile-defined semantics, see Section 4.1.3.
 
 4.1.1.  Component Identifier
 
@@ -248,6 +260,17 @@ Table of Contents
    signer-type.
 
    signer-type = bytes
+
+4.1.3.  Profile Flags
+
+   This field contains at most 64-bit of profile-defined semantics.
+
+   profile-flags = bytes .size 4
+
+   If an EAT profile (Section 6 of [I-D.ietf-rats-eat]) uses measured
+   components, it MUST specify whether the profile-flags field is used.
+   If it is used, the profile MUST also specify how to interpret the 64
+   bits.
 
 4.2.  EAT measurements-format Extensions
 
@@ -314,26 +337,27 @@ Table of Contents
    The example in Figure 2 is a measured component with all the fields
    populated.
 
-   [
-     / id / [
+   {
+     / id / 1: [
        / name / "boot loader X",
        / version / [
          "1.2.3rc2",
          16384 / semver /
        ]
      ],
-     / measurement / [
+     / measurement / 2: [
        / alg / "sha-256",
        / val / h'3996003d486fb91ffb056f7d03f2b2992b215b31dbe7af4b37
                  3431fc7d319da3'
      ],
-     / signers / [
+     / signers / 3: [
        h'492e9b676c21f6012b1ceeb9032feb4141a880797355f6675015ec59c5
          1ca1ec',
        h'4277bb97ba7b51577a0d38151d3e08b40bdf946753f5b5bdeb814d6ff5
          7a8a5e'
-     ]
-   ]
+     ],
+     / profile-flags / 4: h'00000101'
+   }
 
                    Figure 2: Complete Measured Component
 
@@ -353,26 +377,26 @@ Table of Contents
        [
          65000, / using a CoAP C-F from the experimental range /
          <<
-           [
-             / id / [
+           {
+             / id / 1: [
                / name / "boot loader X",
                / version / [
                  "1.2.3rc2",
                  16384 / semver /
                ]
              ],
-             / measurement / [
+             / measurement / 2: [
                / alg / "sha-256",
                / val / h'3996003d486fb91ffb056f7d03f2b2992b215b31db
                          e7af4b373431fc7d319da3'
              ],
-             / signers / [
+             / signers / 3: [
                h'492e9b676c21f6012b1ceeb9032feb4141a880797355f66750
                  15ec59c51ca1ec',
                h'4277bb97ba7b51577a0d38151d3e08b40bdf946753f5b5bdeb
                  814d6ff57a8a5e'
              ]
-           ]
+           }
          >>
        ]
      ]
