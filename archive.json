@@ -1,0 +1,683 @@
+{
+  "magic": "E!vIA5L86J2I",
+  "timestamp": "2025-02-04T00:41:16.824360+00:00",
+  "repo": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+  "labels": [
+    {
+      "name": "bug",
+      "description": "Something isn't working",
+      "color": "d73a4a"
+    },
+    {
+      "name": "documentation",
+      "description": "Improvements or additions to documentation",
+      "color": "0075ca"
+    },
+    {
+      "name": "duplicate",
+      "description": "This issue or pull request already exists",
+      "color": "cfd3d7"
+    },
+    {
+      "name": "enhancement",
+      "description": "New feature or request",
+      "color": "a2eeef"
+    },
+    {
+      "name": "good first issue",
+      "description": "Good for newcomers",
+      "color": "7057ff"
+    },
+    {
+      "name": "help wanted",
+      "description": "Extra attention is needed",
+      "color": "008672"
+    },
+    {
+      "name": "invalid",
+      "description": "This doesn't seem right",
+      "color": "e4e669"
+    },
+    {
+      "name": "question",
+      "description": "Further information is requested",
+      "color": "d876e3"
+    },
+    {
+      "name": "wontfix",
+      "description": "This will not be worked on",
+      "color": "ffffff"
+    },
+    {
+      "name": "needs-wg-input",
+      "description": "Issue needs to be presented and discussed in the WG",
+      "color": "e99695"
+    }
+  ],
+  "issues": [
+    {
+      "number": 1,
+      "id": "I_kwDOLP05f86DKJQG",
+      "title": "Carl's review comments",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/issues/1",
+      "state": "CLOSED",
+      "author": "thomas-fossati",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "* [x] Is the title of the draft too general? Given the installation focus, using generic \"measured components\" name seems a bit broad.\r\n\r\n> Note: scope has been expanded to address #2 \r\n\r\n* [x] Adding a few words about native and tunnel would be good\r\n\r\n* [x] In the Component Version row in Table 1, it may be worth including a reference to https://semver.org/\r\n* [x] Do we need an explicit \"component type\" field (e.g., code, config)? As long as \"component name\" provides a clue for what to do with these fields then maybe \"component type\" is unneeded. That could be clarified\r\n* [x] How would one know what to do with the signer and countersigners fields?\r\n\r\n> Note: I transplanted the relevant portions of Simon's email to clarify this aspect",
+      "createdAt": "2024-03-21T15:19:29Z",
+      "updatedAt": "2024-04-05T20:20:01Z",
+      "closedAt": "2024-04-05T20:19:50Z",
+      "comments": [
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@carl-wallace, thanks for your review.  I think I have addressed all your comments in the [editor's copy](https://thomas-fossati.github.io/draft-fft-rats-eat-measured-component/draft-fft-rats-eat-measured-component.html).",
+          "createdAt": "2024-04-02T02:37:48Z",
+          "updatedAt": "2024-04-02T02:37:48Z"
+        },
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Hearing no pushback I am going to close this.  @carl-wallace, if you think otherwise, please reopen the issue.",
+          "createdAt": "2024-04-05T20:19:50Z",
+          "updatedAt": "2024-04-05T20:20:01Z"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "id": "I_kwDOLP05f86Drj0x",
+      "title": "Digest value definition",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/issues/2",
+      "state": "CLOSED",
+      "author": "laurencelundblade",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "I don't think the digest value should be restricted to things in memory or to start up time.\r\n\r\nSeems like this could be used for RTIC (Run Time Integrity Check) which is something that can get run before every transaction or such.\r\n\r\nAlso, you might want to measure parts of the file system, registers or other.\r\n",
+      "createdAt": "2024-03-26T20:19:40Z",
+      "updatedAt": "2024-03-30T14:18:35Z",
+      "closedAt": "2024-03-30T14:18:35Z",
+      "comments": [
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Good point.\r\n\r\nI am not against expanding applicability.  That said, the one concern I have is whether `tstr` is sufficient to carry *all* possible component identifiers.",
+          "createdAt": "2024-03-28T14:27:34Z",
+          "updatedAt": "2024-03-28T14:27:34Z"
+        },
+        {
+          "author": "laurencelundblade",
+          "authorAssociation": "NONE",
+          "body": "I'm personally OK with tstr for the name. Keep it simple until there's a reason to do more.\r\n\r\nMostly, I'm interested in rewording so that it can be used for RTIC and other than the traditional measured boot.",
+          "createdAt": "2024-03-28T18:13:12Z",
+          "updatedAt": "2024-03-28T18:13:12Z"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "id": "I_kwDOLP05f86DrlT-",
+      "title": "Make signer optional",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/issues/3",
+      "state": "CLOSED",
+      "author": "laurencelundblade",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "It is completely OK to rely on EAT's signing mechanism to authenticate the measurements.",
+      "createdAt": "2024-03-26T20:23:00Z",
+      "updatedAt": "2024-04-05T20:19:05Z",
+      "closedAt": "2024-04-05T20:19:04Z",
+      "comments": [
+        {
+          "author": "laurencelundblade",
+          "authorAssociation": "NONE",
+          "body": "I think I misunderstood ckt. It's not about signing the measurement. It's about authorizing install, right? Probably should call it something very different and describe that in a big way. Still might want it optional. A bit confused...",
+          "createdAt": "2024-03-26T20:33:13Z",
+          "updatedAt": "2024-03-26T20:33:13Z"
+        },
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> I think I misunderstood ckt. It's not about signing the measurement. It's about authorizing install, right?\r\n\r\nYes, exactly.\r\n\r\nSemantically, it is equivalent to Open-DICE's [Authority Data](https://pigweed.googlesource.com/open-dice/+/refs/heads/main/docs/specification.md#input-values), i.e., a thumbprint of the verified boot trusted authority.\r\n\r\n> Probably should call it something very different and describe that in a big way.\r\n\r\nMakes sense.  Do you have any suggestions for the naming?\r\n\r\n> Still might want it optional.\r\n\r\n+1\r\n\r\n",
+          "createdAt": "2024-03-28T14:21:17Z",
+          "updatedAt": "2024-03-28T14:21:17Z"
+        },
+        {
+          "author": "laurencelundblade",
+          "authorAssociation": "NONE",
+          "body": "You're trying to name some company or person (a legal entity), right? How about what EAT OEM ID did? EAT OEM ID is just trying to name a legal entity.  You could add CKT, or CKT could one way to make a random ID.",
+          "createdAt": "2024-03-28T18:18:25Z",
+          "updatedAt": "2024-03-28T18:18:25Z"
+        },
+        {
+          "author": "laurencelundblade",
+          "authorAssociation": "NONE",
+          "body": "And call it \"installing entity\" or such rather than signer.\r\n\r\nI guess you've thought about it, but your adding another legal entity into the mix here in addition to SW manufacturer, HW manufacturer... Is that what you want to do?  Seems like you'd want to know the SW manufacturer of the component just as much as who installed it.",
+          "createdAt": "2024-03-28T18:21:10Z",
+          "updatedAt": "2024-03-28T18:21:10Z"
+        },
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> You're trying to name some company or person (a legal entity), right? How about what EAT OEM ID did? EAT OEM ID is just trying to name a legal entity. You could add CKT, or CKT could one way to make a random ID.\r\n\r\nIn PSA the Signer ID represents the identity of the signer of the firmware component's manifest.  So, yes, it is _\"some company or person\"_, which in PSA's secure boot model is reduced to the thumbprint of a public key.\r\n\r\nI am happy to extend the type to include other applicable types, i.e.:\r\n```\r\nsigners: [ + signer-type ]\r\n\r\nsigner-type /= ckt\r\nsigner-type /= TODO\r\n```\r\nand I like the idea of reusing something already specified, but my reading of EAT is that the semantics of `oemid` are limited to HW manufacturing entities.  What we need here is an OEM ID for software entities :-)\r\n\r\n\r\n",
+          "createdAt": "2024-03-30T17:10:56Z",
+          "updatedAt": "2024-03-30T17:10:56Z"
+        },
+        {
+          "author": "laurencelundblade",
+          "authorAssociation": "NONE",
+          "body": "So I'm thinking of this a bit generally outside of TCG and PSA stuff. That's right, isn't it? There's no requirement that it be used in those contexts, right?  If so, the signer/installer gets interpreted in a variety of contexts.\r\n\r\nIt's not very clear to me what signer/installer is. If the end user installs an app, are they the installer? If the component is the chip HW fuse block area, is the device OEM the installer? Who's the installer if you're measuring part of the file system.\r\n\r\nI assume the installer is distinct from the manufacturer of what is being measured because you're not calling it SW_manufacturer. \r\n\r\nMaybe you can say more about how the sender should create the signer/installer and what the receiver should do when it gets it.\r\n",
+          "createdAt": "2024-03-30T18:19:42Z",
+          "updatedAt": "2024-03-30T18:19:42Z"
+        },
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> So I'm thinking of this a bit generally outside of TCG and PSA stuff. That's right, isn't it? There's no requirement that it be used in those contexts, right? If so, the signer/installer gets interpreted in a variety of contexts.\r\n\r\n(In the future) we want to use this as a replacement for PSA software measurements, so we'd like to be able to losslessly map our current semantics onto it.\r\nBut yes, we also want this to be generally useful, otherwise we wouldn't have started this :-)\r\nOne easy (and reasonable) thing is to make signer(s) optional, so if you don't need it you can just forget it even exists.  This would cover the RTIC and file system object use cases, as well as non-signed software components.\r\nAnother is to allow signer(s) to have different types.\r\nFirst, though, we need to agree on the high-level semantics of the field.\r\nIt seems to me the most natural mapping is to \"code signing\", where the code signer can be identified via an X.509 cert, a raw public key or a thumbprint thereof, a COSE Key, etc.\r\nWould that work for you?\r\n\r\n> I assume the installer is distinct from the manufacturer of what is being measured \r\n\r\nIn general, yes.\r\n \r\n> Maybe you can say more about how the sender should create the signer/installer and what the receiver should do when it gets it.\r\n\r\nSure, that shouldn't be too hard.\r\n\r\n",
+          "createdAt": "2024-03-30T21:51:20Z",
+          "updatedAt": "2024-03-30T21:51:20Z"
+        },
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@laurencelundblade thanks for the discussion so far.  After giving it some more thought, I have made some tentative changes to address your comments.  In a nutshell: [signers are now optional](https://thomas-fossati.github.io/draft-fft-rats-eat-measured-component/draft-fft-rats-eat-measured-component.html#name-measured-component-informat) (i.e., your initial point), and any specific encoding requirements are [on the EAT profile](https://thomas-fossati.github.io/draft-fft-rats-eat-measured-component/draft-fft-rats-eat-measured-component.html#section-4.1.2) that uses measured components.",
+          "createdAt": "2024-04-01T11:15:02Z",
+          "updatedAt": "2024-04-01T11:15:02Z"
+        },
+        {
+          "author": "laurencelundblade",
+          "authorAssociation": "NONE",
+          "body": "I'd like to see some text explaining that the EAT signature will often be the way measurements are protected and authenticated. I think this is a major use case for measured components. It is an efficient way to secure measurements.\r\n\r\nCoSWIDs can be unsigned, so we're already doing that in EAT measurements, but it is not discussed. The discussion of [signed/unsigned manifests](https://www.ietf.org/archive/id/draft-ietf-rats-eat-25.html#name-manifests-software-manifest) in EAT is an example of what should have been there for measurements.\r\n\r\n",
+          "createdAt": "2024-04-04T20:18:32Z",
+          "updatedAt": "2024-04-04T20:18:32Z"
+        },
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Closing this as Laurence's original point (i.e., to make signers optional) has been addressed.  The discussion on clarifying what the semantics for `signers` is has moved to #6 ",
+          "createdAt": "2024-04-05T20:19:04Z",
+          "updatedAt": "2024-04-05T20:19:04Z"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "id": "I_kwDOLP05f86DrmVi",
+      "title": "Signing seems underspecified",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/issues/4",
+      "state": "CLOSED",
+      "author": "laurencelundblade",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "ckt is just a key ID, right? If you want signing, you need to bring in COSE like CoSWID does.\r\n\r\nAlso seems like a bit of a challenge to all support JOSE / JWS.",
+      "createdAt": "2024-03-26T20:25:12Z",
+      "updatedAt": "2024-03-28T14:28:22Z",
+      "closedAt": "2024-03-28T14:28:21Z",
+      "comments": [
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Closing this based on https://github.com/thomas-fossati/draft-fft-rats-eat-measured-component/issues/3#issuecomment-2021416501",
+          "createdAt": "2024-03-28T14:28:21Z",
+          "updatedAt": "2024-03-28T14:28:21Z"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "id": "I_kwDOLP05f86EShrB",
+      "title": "Add security and privacy considerations",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/issues/5",
+      "state": "CLOSED",
+      "author": "thomas-fossati",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Component ID (name and version):\r\n  * could give an attacker insight (S)\r\n  * could reveal private information (P)\r\n\r\nThe requirement on the component's name stability potentially enables correlation (P).",
+      "createdAt": "2024-04-02T02:43:45Z",
+      "updatedAt": "2024-04-02T02:51:22Z",
+      "closedAt": "2024-04-02T02:51:22Z",
+      "comments": []
+    },
+    {
+      "number": 6,
+      "id": "I_kwDOLP05f86EtM2H",
+      "title": "How do signers work?",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/issues/6",
+      "state": "CLOSED",
+      "author": "laurencelundblade",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "There is a signer field and a section on signers mentioning UEFI, X.509 and such, but there is no mention of any signing scheme or format. If there is to be a non-EAT signature on some measured components there has to be a signing data structure.\r\n\r\nYou can put signed CoSWIDs in EAT, so there is one way to have independently signed measurements, but the point of measured components is to not use CoSWID, right?\r\n\r\n",
+      "createdAt": "2024-04-04T20:23:52Z",
+      "updatedAt": "2025-02-03T14:53:03Z",
+      "closedAt": "2025-02-03T14:53:03Z",
+      "comments": [
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> There is a signer field and a section on signers mentioning UEFI, X.509 and such, but there is no mention of any signing scheme or format. If there is to be a non-EAT signature on some measured components there has to be a signing data structure.\r\n\r\nThere are two separate signatures:\r\n\r\n1. On the *installed* component.  This is made by a vetted supply chain entity and verified during secure boot by the relevant cryptographic RoT - e.g., the key hierarchy rooted in the ROTPK (Arm's TBBR), or PK (UEFI).\r\n1. On the *measured* component.  This is made by the RTR that signs the (EAT) evidence - e.g., the IAK (Arm PSA), or CPAK (Arm CCA).\r\n\r\nFrom the point of view of the latter, the specific signing scheme and format used by the former are irrelevant.  The only important thing is to be able to somehow track the identity of the (installed component's) \"signer\" and report it to the verifier.\r\n",
+          "createdAt": "2024-04-05T04:18:52Z",
+          "updatedAt": "2024-04-05T04:18:52Z"
+        },
+        {
+          "author": "laurencelundblade",
+          "authorAssociation": "NONE",
+          "body": "OK. It's making some sense again, but it is probably impossible to understand from the current text and/or without a large amount of context about UEFI or such. If this is to be interpreted in the UEFI context, then the text should probably say that in a strong way and provide the necessary references and such.\r\n\r\nLet me ask this way.  When Qualcomm designed the Brew app download system, we required each app be signed by the vendor/developer of the app. For example, we would require that Byte Dance sign the TikTok app. But then, Qualcomm who ran the App Store, would sign it again to indicate the developer and app had been vetted and was OK to run on commercial phones. The phone only checked for the second signature. The first signature was for protection and authentication while the app was being developed and approved. I think the \"signer\" here is like the Qualcomm signature. It's the entity that approves running on the device. It's not the vendor of the component. Is that right?\r\n\r\n(Also, my knowledge of UEFI is limited...)\r\n\r\n\r\n\r\n\r\n",
+          "createdAt": "2024-04-05T18:13:50Z",
+          "updatedAt": "2024-04-05T18:13:50Z"
+        },
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> OK. It's making some sense again, but it is probably impossible to understand from the current text and/or without a large amount of context about UEFI or such. If this is to be interpreted in the UEFI context, then the text should probably say that in a strong way and provide the necessary references and such.\r\n\r\nUEFI's secure boot is certainly a motivating use case (and so is Arm's TBBR), but the concept is more generic than those specific instances.  In fact, your Brew example is yet another possibility, like any other \"code signing\" scheme.\r\n \r\n> Let me ask this way. When Qualcomm designed the Brew app download system, we required each app be signed by the vendor/developer of the app. For example, we would require that Byte Dance sign the TikTok app. But then, Qualcomm who ran the App Store, would sign it again to indicate the developer and app had been vetted and was OK to run on commercial phones. The phone only checked for the second signature. The first signature was for protection and authentication while the app was being developed and approved. I think the \"signer\" here is like the Qualcomm signature. It's the entity that approves running on the device. It's not the vendor of the component. Is that right?\r\n\r\nIt is right.  However, if the original developer's signature was not removed (and could also be measured during boot), it could, in principle, be added to the `signers` array alongside Qualcomm's.\r\n \r\n> (Also, my knowledge of UEFI is limited...)\r\n\r\nWhoever claims complete knowledge of UEFI is a liar :-)\r\n",
+          "createdAt": "2024-04-05T19:41:57Z",
+          "updatedAt": "2024-04-06T04:13:44Z"
+        },
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "body": "What kind of explanatory text would you like to see in the \"Signer\" section?",
+          "createdAt": "2024-04-05T19:43:11Z",
+          "updatedAt": "2024-04-05T19:43:11Z"
+        },
+        {
+          "author": "laurencelundblade",
+          "authorAssociation": "NONE",
+          "body": "I'll never tell a lie about UEFI. Other things...\r\n\r\nSomething like this for the text?\r\n\r\n> The signer field identifies the entity that gave permission to install and/or run the component.  An example of this is the signer of secure boot components in UEFI or other secured boot schemes. It may also be the controlling entity in an app store. Typically the permission mechanism is by a signature that is evaluated by the boot ROM, OS or app launcher so the field is named \"signer\".\r\n> \r\n> It is never the identity of the manufacturer of the component such as you would find in a manifest like a payload CoSWID.\r\n\r\nThis begs the question about what name space the signer comes from and how the recipient of a measured component knows what to do with the signer field. Maybe you just say that this is out of scope.\r\n\r\n\r\n\r\n\r\n\r\n",
+          "createdAt": "2024-04-11T20:25:30Z",
+          "updatedAt": "2024-04-11T20:25:30Z"
+        },
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> I'll never tell a lie about UEFI. Other things...\n> \n> Something like this for the text?\n> \n> > The signer field identifies the entity that gave permission to install and/or run the component.  An example of this is the signer of secure boot components in UEFI or other secured boot schemes. It may also be the controlling entity in an app store. Typically the permission mechanism is by a signature that is evaluated by the boot ROM, OS or app launcher so the field is named \"signer\".\n> > It is never the identity of the manufacturer of the component such as you would find in a manifest like a payload CoSWID.\n> \n> This begs the question about what name space the signer comes from and how the recipient of a measured component knows what to do with the signer field. Maybe you just say that this is out of scope.\n\nThansk @laurencelundblade .  I'll fit your proposed text in.",
+          "createdAt": "2025-01-29T15:49:33Z",
+          "updatedAt": "2025-01-29T15:49:33Z"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "id": "I_kwDOLP05f86MqOsD",
+      "title": "Can EAT profiles extend a measured component?",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/issues/7",
+      "state": "CLOSED",
+      "author": "thomas-fossati",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Can EAT profiles extend a measured component?  Or is it immutable?",
+      "createdAt": "2024-06-18T13:32:19Z",
+      "updatedAt": "2025-02-03T16:21:26Z",
+      "closedAt": "2025-02-03T16:21:24Z",
+      "comments": [
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Noting that _some_ profile-specific behaviour is already possible around the [\"signers\"](https://www.ietf.org/archive/id/draft-ietf-rats-eat-measured-component-00.html#section-4.1.2-2) attribute.\n\nIssue #12 tries to carve out a general purpose (albeit minimal) profile-specific extension space.",
+          "createdAt": "2025-01-29T14:08:45Z",
+          "updatedAt": "2025-01-29T14:10:20Z"
+        },
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Addressed in #12",
+          "createdAt": "2025-02-03T16:21:24Z",
+          "updatedAt": "2025-02-03T16:21:24Z"
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "id": "I_kwDOLP05f86QTXOo",
+      "title": "Filesystem Object",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/issues/8",
+      "state": "OPEN",
+      "author": "hannestschofenig",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Is the use of a file system object a use case we want to support? If so, we need to be more precise of how this works. \r\n\r\nE.g. COSWID supports file system item but do we want to reuse the concept from there?",
+      "createdAt": "2024-07-20T17:52:56Z",
+      "updatedAt": "2025-02-03T17:52:43Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I don't think measured components should replicate CoSWID functionality.\r\n\r\nThe `file-entry` and `directory-entry` structures defined in [Section 2.9.2 of RFC9393](https://www.rfc-editor.org/rfc/rfc9393.html#section-2.9.2) are way too complex - i.e., they have too much cruft attached, and are recursive in nature.\r\n\r\nConceptually, what we need to borrow from CoSWID is something like `fs-name`, but fully qualified, as a component name.\r\n\r\nFor example:\r\n```\r\n[\r\n  / id / [\r\n    / name / \"/etc/service.conf\"\r\n  ],\r\n  / measurement / [\r\n    / alg / \"sha-256\",\r\n    / val / h'3996003d486fb91ffb056f7d03f2b2992b215b31dbe7af4b37\r\n              3431fc7d319da3'\r\n  ]\r\n]\r\n```\r\n",
+          "createdAt": "2024-07-24T07:54:28Z",
+          "updatedAt": "2024-07-24T08:18:11Z"
+        },
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@hannestschofenig what should we do with this?\n\nDo you want to add text that explains how the `name` could be used to identify a file system object, as in my comment above?",
+          "createdAt": "2025-02-03T17:52:42Z",
+          "updatedAt": "2025-02-03T17:52:42Z"
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "id": "I_kwDOLP05f86QnXYx",
+      "title": "JSON tunnelling is superfluous",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/issues/9",
+      "state": "CLOSED",
+      "author": "thomas-fossati",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Carsten comment:\r\n\r\n> Thomas: You tried to justify base64url-encoding data into CBOR with \u201cescaping complications\u201d.\r\n> There is no escaping in CBOR.\r\n> I would say that any CBOR format that carries around base64url-encoded byte strings is deeply confused.\r\n> Just carry around the byte string.",
+      "createdAt": "2024-07-23T22:42:48Z",
+      "updatedAt": "2025-02-03T17:48:35Z",
+      "closedAt": "2025-02-03T17:48:35Z",
+      "comments": []
+    },
+    {
+      "number": 10,
+      "id": "I_kwDOLP05f86TADZM",
+      "title": "add (optional) SVNs to the mix?",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/issues/10",
+      "state": "OPEN",
+      "author": "thomas-fossati",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [
+        "needs-wg-input"
+      ],
+      "body": "There are use cases where the measurement is (or comprises) an SVN.",
+      "createdAt": "2024-08-14T16:12:05Z",
+      "updatedAt": "2025-02-03T17:55:04Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "body": "This is probably worth WG discussion.",
+          "createdAt": "2025-02-03T17:53:24Z",
+          "updatedAt": "2025-02-03T17:53:24Z"
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "id": "I_kwDOLP05f86bYNsZ",
+      "title": "Measurement extensions for CoRIM?",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/issues/11",
+      "state": "OPEN",
+      "author": "deeglaze",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [
+        "wontfix"
+      ],
+      "body": "I'm trying to wrap my head around how we translate this into environment + measurements that reference values can say anything about.\r\n\r\nI don't know why measured-component is preferable to a cmw. I don't even see a signature, just signers, so you're looking instead at not a named COSE_Sign1 object, but a payload and authority description that have no provable relevance to each other.\r\n\r\nIs the idea that the signer of the EAT has somehow been delegated the authority to speak for these signers?",
+      "createdAt": "2024-10-23T00:31:56Z",
+      "updatedAt": "2025-02-03T17:50:17Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Apparently, the signer field has managed to confuse more than one intelligent person :-)\n\nLaurence has proposed some text in #6 that I have just integrated in #13.\n\nPlease, have a look at the PR and see if the additional prose clarifies your understanding of the \"signer\" idea.",
+          "createdAt": "2025-01-29T17:07:40Z",
+          "updatedAt": "2025-01-29T17:07:40Z"
+        },
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "body": "The way to plug it into CoRIM is to add the CBOR MC to the `$$measurement-values-map-extension`.",
+          "createdAt": "2025-01-29T17:10:13Z",
+          "updatedAt": "2025-01-29T17:10:13Z"
+        },
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Added the \"wontfix\" label as this issue is going to be worked on in the context of CoRIM.",
+          "createdAt": "2025-02-03T17:50:16Z",
+          "updatedAt": "2025-02-03T17:50:16Z"
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "id": "I_kwDOLP05f86n-7WH",
+      "title": "User defined flags",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/issues/12",
+      "state": "CLOSED",
+      "author": "thomas-fossati",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "It'd be useful to allow some (limited) extensibility to MCs.\n\nOne way to do that, while also trying to minimise intrusiveness, is to add an optional \"profile-flags\" attribute to the MC that EAT profiles can decide to include in the MC and populate with custom values matching their private semantics.\n\nSomething like:\n\n```\nprofile-flags uint64 .bits pflags\n\npflags = &(\n  // ...\n)\n```\n\nAn alternative to this design is to add an extensible socket to the MC.\nThis would allow open-ended extensibility.\nHowever, it'd also go against the \"simple design\" principle which is an integral feature of MCs.\n\n\nSee also #7 ",
+      "createdAt": "2025-01-29T13:53:17Z",
+      "updatedAt": "2025-02-03T15:27:19Z",
+      "closedAt": "2025-02-03T15:27:19Z",
+      "comments": []
+    },
+    {
+      "number": 14,
+      "id": "I_kwDOLP05f86oBRVF",
+      "title": "The top-level MC should be a map",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/issues/14",
+      "state": "CLOSED",
+      "author": "thomas-fossati",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "To allow more flexibility in the assembly (especially with optional fields), the top-level MC should be a map rather than an array.",
+      "createdAt": "2025-01-29T18:12:17Z",
+      "updatedAt": "2025-02-03T15:27:19Z",
+      "closedAt": "2025-02-03T15:27:19Z",
+      "comments": []
+    }
+  ],
+  "pulls": [
+    {
+      "number": 13,
+      "id": "PR_kwDOLP05f86JYe7-",
+      "title": "add clarification around signers by Laurence",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/pull/13",
+      "state": "MERGED",
+      "author": "thomas-fossati",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Fix #6 ",
+      "createdAt": "2025-01-29T15:51:27Z",
+      "updatedAt": "2025-02-03T14:53:07Z",
+      "baseRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "baseRefName": "main",
+      "baseRefOid": "adfe1c8e06cf42503a2f6f64187c5af4f7355192",
+      "headRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "headRefName": "signer-clar",
+      "headRefOid": "85c3aa43548d06a8601f57cfadc8c82502e33df0",
+      "closedAt": "2025-02-03T14:53:02Z",
+      "mergedAt": "2025-02-03T14:53:02Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "1af7e60881cdae590beb3f23909865c8900780e2"
+      },
+      "comments": [
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "body": "cc @SimonFrost-Arm",
+          "createdAt": "2025-01-29T15:52:57Z",
+          "updatedAt": "2025-01-29T15:52:57Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOLP05f86aYnkl",
+          "commit": {
+            "abbreviatedOid": "85c3aa4"
+          },
+          "author": "SimonFrost-Arm",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "LGTM",
+          "createdAt": "2025-02-03T14:51:27Z",
+          "updatedAt": "2025-02-03T14:51:27Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 15,
+      "id": "PR_kwDOLP05f86JZhzt",
+      "title": "top-level MC as map/object",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/pull/15",
+      "state": "CLOSED",
+      "author": "thomas-fossati",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Fix #14 ",
+      "createdAt": "2025-01-29T18:14:21Z",
+      "updatedAt": "2025-02-03T15:31:28Z",
+      "baseRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "baseRefName": "main",
+      "baseRefOid": "d15eb97b064cdf73eaf6aee4805928473c2c8719",
+      "headRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "headRefName": "codepoints",
+      "headRefOid": "d15eb97b064cdf73eaf6aee4805928473c2c8719",
+      "closedAt": "2025-02-03T15:28:31Z",
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "body": "cc @simonfrost-arm",
+          "createdAt": "2025-01-29T22:35:02Z",
+          "updatedAt": "2025-01-29T22:35:02Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOLP05f86aYoq5",
+          "commit": {
+            "abbreviatedOid": "f7b536c"
+          },
+          "author": "SimonFrost-Arm",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "LGTM",
+          "createdAt": "2025-02-03T14:53:03Z",
+          "updatedAt": "2025-02-03T14:53:03Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 16,
+      "id": "PR_kwDOLP05f86JZoCX",
+      "title": "add a profile flags field",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/pull/16",
+      "state": "MERGED",
+      "author": "thomas-fossati",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Fix #12",
+      "createdAt": "2025-01-29T18:30:19Z",
+      "updatedAt": "2025-02-03T15:27:21Z",
+      "baseRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "baseRefName": "main",
+      "baseRefOid": "1af7e60881cdae590beb3f23909865c8900780e2",
+      "headRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "headRefName": "flags",
+      "headRefOid": "cb619ca715328df59595613ce761350afdb985fb",
+      "closedAt": "2025-02-03T15:27:18Z",
+      "mergedAt": "2025-02-03T15:27:17Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "d15eb97b064cdf73eaf6aee4805928473c2c8719"
+      },
+      "comments": [
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "body": "cc @SimonFrost-Arm\r\n",
+          "createdAt": "2025-01-29T18:30:51Z",
+          "updatedAt": "2025-01-29T18:30:51Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOLP05f86aYqW_",
+          "commit": {
+            "abbreviatedOid": "1b5ef57"
+          },
+          "author": "SimonFrost-Arm",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "LGTM",
+          "createdAt": "2025-02-03T14:55:28Z",
+          "updatedAt": "2025-02-03T15:24:37Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 17,
+      "id": "PR_kwDOLP05f86J4D3P",
+      "title": "remove extra b64u wrapping for JSON in CBOR",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/pull/17",
+      "state": "MERGED",
+      "author": "thomas-fossati",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Fix #9",
+      "createdAt": "2025-02-03T16:37:02Z",
+      "updatedAt": "2025-02-03T17:48:43Z",
+      "baseRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "baseRefName": "main",
+      "baseRefOid": "d15eb97b064cdf73eaf6aee4805928473c2c8719",
+      "headRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "headRefName": "no-escape",
+      "headRefOid": "1dd8efa8c67a464d77c880385090b65489744304",
+      "closedAt": "2025-02-03T17:48:34Z",
+      "mergedAt": "2025-02-03T17:48:34Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "ede43437b46aaabc5717fceddb5185eab4695aa1"
+      },
+      "comments": [
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "body": "cc @simonfrost-arm",
+          "createdAt": "2025-02-03T16:37:23Z",
+          "updatedAt": "2025-02-03T16:37:23Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOLP05f86aaKJL",
+          "commit": {
+            "abbreviatedOid": "1dd8efa"
+          },
+          "author": "SimonFrost-Arm",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "LGTM",
+          "createdAt": "2025-02-03T17:14:10Z",
+          "updatedAt": "2025-02-03T17:14:10Z",
+          "comments": []
+        }
+      ]
+    }
+  ]
+}
