@@ -1,0 +1,3 @@
+bytes-b64u = text .b64u bytes
+bytes4 = bytes .size 4
+bytes4-b64u = text .b64u bytes4

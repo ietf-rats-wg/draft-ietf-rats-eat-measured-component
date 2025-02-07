@@ -1,1 +1,1 @@
-profile-flags = bytes .size 4
+flags-type = eat.JC<bytes4-b64u, bytes4>

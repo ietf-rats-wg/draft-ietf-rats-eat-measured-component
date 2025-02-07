@@ -111,6 +111,12 @@ The format SHOULD also allow a limited amount of extensibility to accommodate pr
 
 The data model is inspired by the "PSA software component" claim ({{Section 4.4.1 of -psa-token}}), which has been refactored to take into account the recommendations about new EAT claims design in {{Appendix E of -rats-eat}}.
 
+### Common Types
+
+~~~ cddl
+{::include cddl/common-types.cddl}
+~~~
+
 ## The `measured-component` Data Item
 
 ~~~ cddl

@@ -1,8 +1,12 @@
-;# import corim.digest from RFCYYYY as corim
+;# import corim.digest from rfcYYYY as corim
+;# import eat.JC from rfc9711 as eat
 
 measured-component = {
   id-label => component-id
   measurement-label => corim.digest
   ? signers-label => [ + signer-type ]
-  ? flags-label => profile-flags
+  ? flags-label => flags-type
 }
+
+signer-type = eat.JC<bytes-b64u, bytes>
+flags-type = eat.JC<bytes4-b64u, bytes4>

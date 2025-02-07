@@ -1,6 +1,11 @@
-;# import sw-version-type from RFCXXXX as eat
-
 component-id = [
   name:      text
-  ? version: eat.sw-version-type
+  ? version: version
+]
+
+;# import coswid.$version-scheme from rfc9393 as coswid
+
+version = [
+  val:      text
+  ? scheme: coswid.$version-scheme
 ]

@@ -6,6 +6,7 @@ SHELL := /bin/bash
 CDDL := measured-component.cddl
 DIAG_EXAMPLES := $(wildcard ex*.diag)
 CBOR_EXAMPLES := $(DIAG_EXAMPLES:.diag=.cbor)
+JSON_EXAMPLES := $(wildcard ex*.json)
 
 all: check-schema check-examples mceat-check-examples
 
@@ -21,12 +22,16 @@ CLEANFILES += $(MCEAT_CBOR_EXAMPLES)
 clean:: ; -rm -f $(CLEANFILES)
 .PHONY: clean
 
-check-examples: $(CBOR_EXAMPLES) $(CDDL)
+check-examples: $(JSON_EXAMPLES) $(CBOR_EXAMPLES) $(CDDL)
 	@for f in $(CBOR_EXAMPLES); do \
 		echo ">> validating $$f against $(CDDL)" ; \
 		cddl $(CDDL) validate $$f &>/dev/null || exit 1 ; \
 		echo ">> saving prettified CBOR to $${f%.cbor}.pretty" ; \
 		cbor2pretty.rb $$f > $${f%.cbor}.pretty ; \
+	done
+	@for f in $(JSON_EXAMPLES); do \
+		echo ">> validating $$f against $(CDDL)" ; \
+		cddl $(CDDL) validate $$f &>/dev/null || exit 1 ; \
 	done
 .PHONY: check-examples
 
