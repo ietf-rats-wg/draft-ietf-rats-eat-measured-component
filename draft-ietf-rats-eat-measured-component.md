@@ -212,8 +212,11 @@ Note the use of the "native" and "tunnel" formats from {{fig-eat-plug}}, and how
 
 # Examples
 
-(The examples are CBOR only.
-JSON examples will be added in a future version of this document.)
+> **NOTE:**
+> The examples are CBOR only.
+> JSON examples will be added in a future version of this document.
+>
+> Tracking issue: https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/issues/18
 
 The example in {{ex-1}} is a measured component with all the fields populated.
 
