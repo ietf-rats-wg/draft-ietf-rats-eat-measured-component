@@ -5,10 +5,10 @@
 Remote ATtestation ProcedureS                                   S. Frost
 Internet-Draft                                                       Arm
 Intended status: Standards Track                              T. Fossati
-Expires: 7 August 2025                                            Linaro
+Expires: 11 August 2025                                           Linaro
                                                            H. Tschofenig
                                                                  Siemens
-                                                         3 February 2025
+                                                         7 February 2025
 
 
                          EAT Measured Component
@@ -52,7 +52,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 7 August 2025.
+   This Internet-Draft will expire on 11 August 2025.
 
 Copyright Notice
 
@@ -331,8 +331,11 @@ Table of Contents
 
 5.  Examples
 
-   (The examples are CBOR only.  JSON examples will be added in a future
-   version of this document.)
+      *NOTE:* The examples are CBOR only.  JSON examples will be added
+      in a future version of this document.
+
+      Tracking issue: https://github.com/ietf-rats-wg/draft-ietf-rats-
+      eat-measured-component/issues/18
 
    The example in Figure 2 is a measured component with all the fields
    populated.
