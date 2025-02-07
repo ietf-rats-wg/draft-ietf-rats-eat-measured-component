@@ -331,9 +331,11 @@ Table of Contents
 
 5.  Examples
 
-      The examples are CBOR only.  JSON examples will be added in a
-      future version of this document. https://github.com/ietf-rats-wg/
-      draft-ietf-rats-eat-measured-component/issues/18
+      *NOTE:* The examples are CBOR only.  JSON examples will be added
+      in a future version of this document.
+
+      Tracking issue: https://github.com/ietf-rats-wg/draft-ietf-rats-
+      eat-measured-component/issues/18
 
    The example in Figure 2 is a measured component with all the fields
    populated.
