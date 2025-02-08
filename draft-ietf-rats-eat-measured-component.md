@@ -62,8 +62,7 @@ entity:
 
 --- abstract
 
-A measured component is a measurable object of an attester's target environment, that is, an object whose state can be sampled and digested.
-Examples of measured components include the invariant part of firmware that is loaded in memory at startup time, a run-time integrity check, a file system object, or a CPU register.
+A measured component refers to an object within the attester's target environment, whose state can be inspected and digested. A digest is typically computed through a cryptographic hash function. Examples of measured components include firmware stored in flash memory, software loaded into memory at start time, data stored in a file system, or values in a CPU register.
 
 This document defines a "measured component" format that can be used with the EAT `Measurements` claim.
 
