@@ -9,8 +9,9 @@
 <meta content="Thomas Fossati" name="author">
 <meta content="Hannes Tschofenig" name="author">
 <meta content="
-       A measured component is a measurable object of an attester's target environment, that is, an object whose state can be sampled and digested.
-Examples of measured components include the invariant part of firmware that is loaded in memory at startup time, a run-time integrity check, a file system object, or a CPU register. 
+       A measured component refers to an object within the attester's target environment, whose state can be inspected and digested.
+A digest is typically computed through a cryptographic hash function.
+Examples of measured components include firmware stored in flash memory, software loaded into memory at start time, data stored in a file system, or values in a CPU register. 
        This document defines a &quot;measured component&quot; format that can be used with the EAT  Measurements  claim. 
     " name="description">
 <meta content="xml2rfc 3.26.0" name="generator">
@@ -1095,8 +1096,9 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <h1 id="title">EAT Measured Component</h1>
 <section id="section-abstract">
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
-<p id="section-abstract-1">A measured component is a measurable object of an attester's target environment, that is, an object whose state can be sampled and digested.
-Examples of measured components include the invariant part of firmware that is loaded in memory at startup time, a run-time integrity check, a file system object, or a CPU register.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+<p id="section-abstract-1">A measured component refers to an object within the attester's target environment, whose state can be inspected and digested.
+A digest is typically computed through a cryptographic hash function.
+Examples of measured components include firmware stored in flash memory, software loaded into memory at start time, data stored in a file system, or values in a CPU register.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 <p id="section-abstract-2">This document defines a "measured component" format that can be used with the EAT <code>Measurements</code> claim.<a href="#section-abstract-2" class="pilcrow">¶</a></p>
 </section>
 <section class="note rfcEditorRemove" id="section-note.1">
