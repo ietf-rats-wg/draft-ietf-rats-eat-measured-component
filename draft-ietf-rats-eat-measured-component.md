@@ -25,8 +25,9 @@ author:
    organization: Linaro
    email: Thomas.Fossati@linaro.org
  - name: Hannes Tschofenig
-   organization: Siemens
-   email: Hannes.Tschofenig@siemens.com
+   org: University of Applied Sciences Bonn-Rhein-Sieg
+   abbrev: H-BRS
+   email: Hannes.Tschofenig@gmx.net
 
 normative:
   RFC7252: coap
