@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-02-06T00:41:56.250161+00:00",
+  "timestamp": "2025-02-09T00:44:26.859461+00:00",
   "repo": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
   "labels": [
     {
@@ -478,6 +478,38 @@
       "updatedAt": "2025-02-03T15:27:19Z",
       "closedAt": "2025-02-03T15:27:19Z",
       "comments": []
+    },
+    {
+      "number": 18,
+      "id": "I_kwDOLP05f86pKOSV",
+      "title": "Add JSON examples",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/issues/18",
+      "state": "OPEN",
+      "author": "thomas-fossati",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Currently, the document has CBOR examples only.  We should add some equivalent JSON examples.\n",
+      "createdAt": "2025-02-07T12:20:52Z",
+      "updatedAt": "2025-02-07T12:20:52Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 21,
+      "id": "I_kwDOLP05f86pNFSN",
+      "title": "CDDL sync",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/issues/21",
+      "state": "OPEN",
+      "author": "thomas-fossati",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Things to consider:\n\n1. `corim.digest` won't be available in time, and even if it were, since it's CBOR-only, we'd need to add the JSON counterpart...\n2. the EAT types (`JC`, and `sw-version-type`) will hopefully become available automatically via the `cddl(1)` tool once 9711 is published.\n",
+      "createdAt": "2025-02-07T18:05:11Z",
+      "updatedAt": "2025-02-08T05:52:55Z",
+      "closedAt": null,
+      "comments": []
     }
   ],
   "pulls": [
@@ -675,6 +707,172 @@
           "body": "LGTM",
           "createdAt": "2025-02-03T17:14:10Z",
           "updatedAt": "2025-02-03T17:14:10Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 19,
+      "id": "PR_kwDOLP05f86KaX8C",
+      "title": "JSON examples tracking issue",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/pull/19",
+      "state": "MERGED",
+      "author": "thomas-fossati",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-02-07T12:25:10Z",
+      "updatedAt": "2025-02-07T12:25:57Z",
+      "baseRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "baseRefName": "main",
+      "baseRefOid": "ede43437b46aaabc5717fceddb5185eab4695aa1",
+      "headRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "headRefName": "json-ex-tracking-issue",
+      "headRefOid": "0c8a893f030ff74e17b924e53b515f0c930e7fc1",
+      "closedAt": "2025-02-07T12:25:53Z",
+      "mergedAt": "2025-02-07T12:25:53Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "e7efddec5b15774f80dd21ffffed4b0fdc1be84a"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 20,
+      "id": "PR_kwDOLP05f86Kc5-I",
+      "title": "JSON examples",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/pull/20",
+      "state": "OPEN",
+      "author": "thomas-fossati",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "add JSON examples + misc CDDL fixes\r\n\r\nFix #18 ",
+      "createdAt": "2025-02-07T18:00:18Z",
+      "updatedAt": "2025-02-07T18:01:17Z",
+      "baseRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "baseRefName": "main",
+      "baseRefOid": "e7efddec5b15774f80dd21ffffed4b0fdc1be84a",
+      "headRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "headRefName": "json-ex",
+      "headRefOid": "c47d0a259f147a312c2e8b303117ce00c3ca03c7",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "body": "cc @simonfrost-arm",
+          "createdAt": "2025-02-07T18:01:15Z",
+          "updatedAt": "2025-02-07T18:01:15Z"
+        }
+      ],
+      "reviews": []
+    },
+    {
+      "number": 22,
+      "id": "PR_kwDOLP05f86KhO0i",
+      "title": "Author Info Update",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/pull/22",
+      "state": "MERGED",
+      "author": "hannestschofenig",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-02-08T14:00:56Z",
+      "updatedAt": "2025-02-08T18:48:05Z",
+      "baseRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "baseRefName": "main",
+      "baseRefOid": "e7efddec5b15774f80dd21ffffed4b0fdc1be84a",
+      "headRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "headRefName": "hannestschofenig-patch-1",
+      "headRefOid": "7380abd63b764de6c65157f9b4947964e4ad7814",
+      "closedAt": "2025-02-08T18:44:45Z",
+      "mergedAt": "2025-02-08T18:44:45Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "6520e35c51fa74670a110906f1b3f2369d0533f5"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOLP05f86bNe-0",
+          "commit": {
+            "abbreviatedOid": "7380abd"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-02-08T18:44:39Z",
+          "updatedAt": "2025-02-08T18:44:39Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 23,
+      "id": "PR_kwDOLP05f86KhPlP",
+      "title": "Text changes in the abstract",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/pull/23",
+      "state": "MERGED",
+      "author": "hannestschofenig",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-02-08T14:09:08Z",
+      "updatedAt": "2025-02-08T18:47:41Z",
+      "baseRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "baseRefName": "main",
+      "baseRefOid": "e7efddec5b15774f80dd21ffffed4b0fdc1be84a",
+      "headRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "headRefName": "hannestschofenig-patch-2",
+      "headRefOid": "e5e2f1add9ca2c4caba1f60ade7ae3e68b408069",
+      "closedAt": "2025-02-08T18:47:36Z",
+      "mergedAt": "2025-02-08T18:47:36Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "92df2c4ca2b6004ca0c6232ad0b9fdb4b09fa957"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOLP05f86bNfBk",
+          "commit": {
+            "abbreviatedOid": "5647062"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-02-08T18:45:55Z",
+          "updatedAt": "2025-02-08T18:45:55Z",
+          "comments": [
+            {
+              "originalPosition": 6,
+              "body": "doing one sentence per line\r\n\r\n```suggestion\r\nA measured component refers to an object within the attester's target environment, whose state can be inspected and digested.\r\nA digest is typically computed through a cryptographic hash function.\r\nExamples of measured components include firmware stored in flash memory, software loaded into memory at start time, data stored in a file system, or values in a CPU register.\r\n```\r\n```suggestion\r\nA measured component refers to an object within the attester's target environment, whose state can be inspected and digested. A digest is typically computed through a cryptographic hash function. Examples of measured components include firmware stored in flash memory, software loaded into memory at start time, data stored in a file system, or values in a CPU register.\r\n```",
+              "createdAt": "2025-02-08T18:45:55Z",
+              "updatedAt": "2025-02-08T18:45:56Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOLP05f86bNfCc",
+          "commit": {
+            "abbreviatedOid": "e5e2f1a"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-02-08T18:46:31Z",
+          "updatedAt": "2025-02-08T18:46:31Z",
           "comments": []
         }
       ]
