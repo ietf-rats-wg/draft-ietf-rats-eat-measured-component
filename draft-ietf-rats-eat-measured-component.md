@@ -218,12 +218,6 @@ Note the use of the "native" and "tunnel" formats from {{fig-eat-plug}}, and how
 
 # Examples
 
-> **NOTE:**
-> The examples are CBOR only.
-> JSON examples will be added in a future version of this document.
->
-> Tracking issue: https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/issues/18
-
 The example in {{ex-1}} is a measured component with all the fields populated.
 
 ~~~ cbor-edn
@@ -233,14 +227,25 @@ The example in {{ex-1}} is a measured component with all the fields populated.
 
 The example in {{ex-eat-1}} is the same measured component as above but used as the format of a `measurements` claim in a EAT claims-set.
 
-Note that the example uses a CoAP Content-Format value from the experimental range (65000), which will change to the value assigned by IANA for the `application/measured-component+cbor` Content-Format.
+The example uses TBD1 as the `content-type` value of the `measurements-format` entry.
+(This will change to the value assigned by IANA to the `mc+cbor` Content-Format.)
 
-Note also that the array contains only one measured component, but additional entries could be added if the measured TCB is made of multiple, individually measured components.
+Note that the array contains only one measured component, but additional entries could be added if the measured TCB is made of multiple, individually measured components.
 
 ~~~ cbor-edn
-{::include cddl/eat-ex1.diag}
+{::include cddl/eat-ex1.diag.in}
 ~~~
-{: #ex-eat-1 title="EAT Measurements Claim using a Measured Component"}
+{: #ex-eat-1 title="EAT Measurements Claim using a Measured Component (CBOR)"}
+
+The example in {{ex-eat-2}} illustrates the inclusion of a JSON measured component inside a JSON EAT.
+
+The example uses TBD2 as the `content-type` value of the `measurements-format` entry.
+(This will change to the value assigned by IANA to the `mc+json` Content-Format.)
+
+~~~ cbor-edn
+{::include-fold cddl/eat-ex1-json.diag.in}
+~~~
+{: #ex-eat-2 title="EAT Measurements Claim using a Measured Component (JSON)"}
 
 # Security and Privacy Considerations {#seccons}
 

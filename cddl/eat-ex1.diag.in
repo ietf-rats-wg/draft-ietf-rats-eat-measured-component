@@ -1,7 +1,7 @@
 {
   273: [
     [
-      65000, / using a CoAP C-F from the experimental range /
+      TBD1, / mc+cbor /
       <<
         {
           / id / 1: [
