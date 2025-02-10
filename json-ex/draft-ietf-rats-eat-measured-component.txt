@@ -5,10 +5,10 @@
 Remote ATtestation ProcedureS                                   S. Frost
 Internet-Draft                                                       Arm
 Intended status: Standards Track                              T. Fossati
-Expires: 11 August 2025                                           Linaro
+Expires: 14 August 2025                                           Linaro
                                                            H. Tschofenig
                                                                  Siemens
-                                                         7 February 2025
+                                                        10 February 2025
 
 
                          EAT Measured Component
@@ -52,7 +52,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 11 August 2025.
+   This Internet-Draft will expire on 14 August 2025.
 
 Copyright Notice
 
@@ -348,12 +348,6 @@ Table of Contents
 
 5.  Examples
 
-      *NOTE:* The examples are CBOR only.  JSON examples will be added
-      in a future version of this document.
-
-      Tracking issue: https://github.com/ietf-rats-wg/draft-ietf-rats-
-      eat-measured-component/issues/18
-
    The example in Figure 2 is a measured component with all the fields
    populated.
 
@@ -384,18 +378,18 @@ Table of Contents
    The example in Figure 3 is the same measured component as above but
    used as the format of a measurements claim in a EAT claims-set.
 
-   Note that the example uses a CoAP Content-Format value from the
-   experimental range (65000), which will change to the value assigned
-   by IANA for the application/measured-component+cbor Content-Format.
+   The example uses TBD1 as the content-type value of the measurements-
+   format entry.  (This will change to the value assigned by IANA to the
+   mc+cbor Content-Format.)
 
-   Note also that the array contains only one measured component, but
+   Note that the array contains only one measured component, but
    additional entries could be added if the measured TCB is made of
    multiple, individually measured components.
 
    {
      273: [
        [
-         65000, / using a CoAP C-F from the experimental range /
+         TBD1, / mc+cbor /
          <<
            {
              / id / 1: [
@@ -422,7 +416,31 @@ Table of Contents
      ]
    }
 
-        Figure 3: EAT Measurements Claim using a Measured Component
+     Figure 3: EAT Measurements Claim using a Measured Component (CBOR)
+
+   The example in Figure 4 illustrates the inclusion of a JSON measured
+   component inside a JSON EAT.
+
+   The example uses TBD2 as the content-type value of the measurements-
+   format entry.  (This will change to the value assigned by IANA to the
+   mc+json Content-Format.)
+
+   =============== NOTE: '\' line wrapping per RFC 8792 ================
+
+   {
+     "measurements": [
+       [
+         TBD2, / mc+json /
+         "{ \"id\": [ \"boot loader X\", [ \"1.2.3rc2\", 16384 ] ], \"\
+   measurement\": [ \"sha-256\", \"\
+   OZYAPUhvuR_7BW99A_KymSshWzHb569LNzQx_H0xnaM\" ], \"signers\": [ \"\
+   SS6bZ2wh9gErHO65Ay_rQUGogHlzVfZnUBXsWcUcoew\", \"\
+                      Qne7l7p7UVd6DTgVHT4ItAvflGdT9bW964FNb_V6il4\" ] }"
+       ]
+     ]
+   }
+
+     Figure 4: EAT Measurements Claim using a Measured Component (JSON)
 
 6.  Security and Privacy Considerations
 
