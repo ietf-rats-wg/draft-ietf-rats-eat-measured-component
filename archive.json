@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-02-09T00:44:26.859461+00:00",
+  "timestamp": "2025-02-11T00:41:50.257734+00:00",
   "repo": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
   "labels": [
     {
@@ -751,13 +751,13 @@
       "labels": [],
       "body": "add JSON examples + misc CDDL fixes\r\n\r\nFix #18 ",
       "createdAt": "2025-02-07T18:00:18Z",
-      "updatedAt": "2025-02-07T18:01:17Z",
+      "updatedAt": "2025-02-10T13:15:07Z",
       "baseRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
       "baseRefName": "main",
       "baseRefOid": "e7efddec5b15774f80dd21ffffed4b0fdc1be84a",
       "headRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
       "headRefName": "json-ex",
-      "headRefOid": "c47d0a259f147a312c2e8b303117ce00c3ca03c7",
+      "headRefOid": "acdcd56ee144972a8d47e92638dc1099e38ef162",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
@@ -876,6 +876,32 @@
           "comments": []
         }
       ]
+    },
+    {
+      "number": 24,
+      "id": "PR_kwDOLP05f86Kriys",
+      "title": "Slightly rephrase the security considerations",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/pull/24",
+      "state": "OPEN",
+      "author": "thomas-fossati",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-02-10T17:09:38Z",
+      "updatedAt": "2025-02-10T17:09:38Z",
+      "baseRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "baseRefName": "main",
+      "baseRefOid": "92df2c4ca2b6004ca0c6232ad0b9fdb4b09fa957",
+      "headRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "headRefName": "sec-cons-rephrase",
+      "headRefOid": "03167e0c6d5f8070ca838a66ef6f489266732f3d",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
     }
   ]
 }
