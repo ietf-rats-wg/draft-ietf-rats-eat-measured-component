@@ -241,7 +241,7 @@ Note also that the array contains only one measured component, but additional en
 # Security and Privacy Considerations {#seccons}
 
 The Name and Version of a component can give an attacker detailed information about the software running on a device and its configuration settings.
-This information may also reveal private details about the device.
+This information could offer an attacker valuable insights.
 Additionally, the stability requirement of the component's Name could potentially allow for tracking.
 
 # IANA Considerations
