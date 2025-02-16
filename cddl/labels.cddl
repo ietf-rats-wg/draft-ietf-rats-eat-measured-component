@@ -1,3 +1,4 @@
-id-label = JC<"id", 1>
-measurement-label = JC<"measurements", 2>
-signers-label = JC<"signers", 3>
+id-label = eat.JC<"id", 1>
+measurement-label = eat.JC<"measurement", 2>
+signers-label = eat.JC<"signers", 3>
+flags-label = eat.JC<"flags", 4>

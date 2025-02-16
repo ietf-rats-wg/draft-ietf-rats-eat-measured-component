@@ -2,10 +2,8 @@ measured-component = {
   id-label => component-id
   measurement-label => corim.digest
   ? signers-label => [ + signer-type ]
-  ? flags-label => profile-flags
+  ? flags-label => flags-type
 }
-
-signer-type = bytes
 
 component-id = [
   name:      text
@@ -15,26 +13,30 @@ component-id = [
 ;# import coswid.$version-scheme from rfc9393 as coswid
 
 version = [
-  val:      text 
+  val:      text
   ? scheme: coswid.$version-scheme
 ]
 
-; eventually: ";#import digest from rfcxxxx as corim"
-
 corim.digest = [
   alg: (int / text)
-  val: bytes
+  val: digest-value-type
 ]
 
-profile-flags = bytes .size 4
+signer-type = eat.JC<bytes-b64u, bytes>
+flags-type = eat.JC<bytes4-b64u, bytes4>
+digest-value-type = eat.JC<bytes-b64u, bytes>
 
-id-label = JC<"id", 1>
-measurement-label = JC<"measurements", 2>
-signers-label = JC<"signers", 3>
-flags-label = JC<"flags", 4>
+bytes-b64u = text .b64u bytes
+bytes4 = bytes .size 4
+bytes4-b64u = text .b64u bytes4
+
+id-label = eat.JC<"id", 1>
+measurement-label = eat.JC<"measurement", 2>
+signers-label = eat.JC<"signers", 3>
+flags-label = eat.JC<"flags", 4>
 
 ; TODO import from rfc9711
 
-JSON-ONLY<J> = J .feature "json"
-CBOR-ONLY<C> = C .feature "cbor"
-JC<J,C> = JSON-ONLY<J> / CBOR-ONLY<C>
+eat.JSON-ONLY<J> = J .feature "json"
+eat.CBOR-ONLY<C> = C .feature "cbor"
+eat.JC<J,C> = eat.JSON-ONLY<J> / eat.CBOR-ONLY<C>
