@@ -75,13 +75,14 @@ Table of Contents
    2.  Conventions and Definitions
    3.  Information Model
    4.  Data Model
-     4.1.  The measured-component Data Item
-       4.1.1.  Component Identifier
-       4.1.2.  Signer
-       4.1.3.  Profile Flags
-     4.2.  EAT measurements-format Extensions
-     4.3.  measurements-format for CBOR EAT
-     4.4.  measurements-format for JSON EAT
+     4.1.   Common Types
+     4.2.  The measured-component Data Item
+       4.2.1.  Component Identifier
+       4.2.2.  Signer
+       4.2.3.  Profile Flags
+     4.3.  EAT measurements-format Extensions
+     4.4.  measurements-format for CBOR EAT
+     4.5.  measurements-format for JSON EAT
    5.  Examples
    6.  Security and Privacy Considerations
    7.  IANA Considerations
@@ -187,42 +188,58 @@ Table of Contents
    refactored to take into account the recommendations about new EAT
    claims design in Appendix E of [I-D.ietf-rats-eat].
 
-4.1.  The measured-component Data Item
+4.1.   Common Types
 
-   ;# import corim.digest from RFCYYYY as corim
+   bytes-b64u = text .b64u bytes
+   bytes4 = bytes .size 4
+   bytes4-b64u = text .b64u bytes4
+
+4.2.  The measured-component Data Item
+
+   ;# import corim.digest from rfcYYYY as corim
+   ;# import eat.JC from rfc9711 as eat
 
    measured-component = {
      id-label => component-id
      measurement-label => corim.digest
      ? signers-label => [ + signer-type ]
-     ? flags-label => profile-flags
+     ? flags-label => flags-type
    }
 
-   id-label = JC<"id", 1>
-   measurement-label = JC<"measurements", 2>
-   signers-label = JC<"signers", 3>
+   signer-type = eat.JC<bytes-b64u, bytes>
+   flags-type = eat.JC<bytes4-b64u, bytes4>
+
+   id-label = eat.JC<"id", 1>
+   measurement-label = eat.JC<"measurement", 2>
+   signers-label = eat.JC<"signers", 3>
+   flags-label = eat.JC<"flags", 4>
 
    "id" (index 1):
       The measured component identifier encoded according to the format
-      described in Section 4.1.1.
+      described in Section 4.2.1.
 
    "measurement" (index 2):
       Digest value and algorithm, encoded using CoRIM digest format
       (Section 1.3.8 of [I-D.ietf-rats-corim]).
 
    "signers" (index 3):
-      One or more signing entities, see Section 4.1.2.
+      One or more signing entities, see Section 4.2.2.
 
    "profile-flags" (index 4):
-      a 64-bit field with profile-defined semantics, see Section 4.1.3.
+      a 64-bit field with profile-defined semantics, see Section 4.2.3.
 
-4.1.1.  Component Identifier
-
-   ;# import sw-version-type from RFCXXXX as eat
+4.2.1.  Component Identifier
 
    component-id = [
      name:      text
-     ? version: eat.sw-version-type
+     ? version: version
+   ]
+
+   ;# import coswid.$version-scheme from rfc9393 as coswid
+
+   version = [
+     val:      text
+     ? scheme: coswid.$version-scheme
    ]
 
    name  A string that provides a human readable identifier for the
@@ -232,7 +249,7 @@ Table of Contents
    version  A compound version data item that reuses encoding and
       semantics of [I-D.ietf-rats-eat] sw-version-type.
 
-4.1.2.  Signer
+4.2.2.  Signer
 
    A signer is an entity that digitally signs the measured component.
    Typically, the signature is verified during installation or when the
@@ -260,20 +277,20 @@ Table of Contents
    the signers array represents, and how to interpret the corresponding
    signer-type.
 
-   signer-type = bytes
+   signer-type = eat.JC<bytes-b64u, bytes>
 
-4.1.3.  Profile Flags
+4.2.3.  Profile Flags
 
    This field contains at most 64-bit of profile-defined semantics.
 
-   profile-flags = bytes .size 4
+   flags-type = eat.JC<bytes4-b64u, bytes4>
 
    If an EAT profile (Section 6 of [I-D.ietf-rats-eat]) uses measured
    components, it MUST specify whether the profile-flags field is used.
    If it is used, the profile MUST also specify how to interpret the 64
    bits.
 
-4.2.  EAT measurements-format Extensions
+4.3.  EAT measurements-format Extensions
 
    The CDDL in Figure 1 extends the $measurements-body-cbor and
    $measurements-body-json EAT sockets to add support for measured-
@@ -297,7 +314,7 @@ Table of Contents
    serialization (e.g., they are both CBOR), and a "tunnel"
    representation that is used when the serializations differ.
 
-4.3.  measurements-format for CBOR EAT
+4.4.  measurements-format for CBOR EAT
 
    The entries in Table 2 are the allowed content-type / content-format
    pairs when the measured-component is carried in a CBOR EAT.
@@ -316,7 +333,7 @@ Table of Contents
 
                  Table 2: measurement-format for EAT CWT
 
-4.4.  measurements-format for JSON EAT
+4.5.  measurements-format for JSON EAT
 
    Table 3 is the equivalent of Table 2 for JSON-serialized EAT.
 
@@ -331,12 +348,6 @@ Table of Contents
                  Table 3: measurement-format for EAT JWT
 
 5.  Examples
-
-      *NOTE:* The examples are CBOR only.  JSON examples will be added
-      in a future version of this document.
-
-      Tracking issue: https://github.com/ietf-rats-wg/draft-ietf-rats-
-      eat-measured-component/issues/18
 
    The example in Figure 2 is a measured component with all the fields
    populated.
@@ -368,18 +379,18 @@ Table of Contents
    The example in Figure 3 is the same measured component as above but
    used as the format of a measurements claim in a EAT claims-set.
 
-   Note that the example uses a CoAP Content-Format value from the
-   experimental range (65000), which will change to the value assigned
-   by IANA for the application/measured-component+cbor Content-Format.
+   The example uses TBD1 as the content-type value of the measurements-
+   format entry.  (This will change to the value assigned by IANA to the
+   mc+cbor Content-Format.)
 
-   Note also that the array contains only one measured component, but
+   Note that the array contains only one measured component, but
    additional entries could be added if the measured TCB is made of
    multiple, individually measured components.
 
    {
      273: [
        [
-         65000, / using a CoAP C-F from the experimental range /
+         TBD1, / mc+cbor /
          <<
            {
              / id / 1: [
@@ -406,7 +417,31 @@ Table of Contents
      ]
    }
 
-        Figure 3: EAT Measurements Claim using a Measured Component
+     Figure 3: EAT Measurements Claim using a Measured Component (CBOR)
+
+   The example in Figure 4 illustrates the inclusion of a JSON measured
+   component inside a JSON EAT.
+
+   The example uses TBD2 as the content-type value of the measurements-
+   format entry.  (This will change to the value assigned by IANA to the
+   mc+json Content-Format.)
+
+   =============== NOTE: '\' line wrapping per RFC 8792 ================
+
+   {
+     "measurements": [
+       [
+         TBD2, / mc+json /
+         "{ \"id\": [ \"boot loader X\", [ \"1.2.3rc2\", 16384 ] ], \"\
+   measurement\": [ \"sha-256\", \"\
+   OZYAPUhvuR_7BW99A_KymSshWzHb569LNzQx_H0xnaM\" ], \"signers\": [ \"\
+   SS6bZ2wh9gErHO65Ay_rQUGogHlzVfZnUBXsWcUcoew\", \"\
+                      Qne7l7p7UVd6DTgVHT4ItAvflGdT9bW964FNb_V6il4\" ] }"
+       ]
+     ]
+   }
+
+     Figure 4: EAT Measurements Claim using a Measured Component (JSON)
 
 6.  Security and Privacy Considerations
 
