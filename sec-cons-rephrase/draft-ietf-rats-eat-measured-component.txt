@@ -5,10 +5,10 @@
 Remote ATtestation ProcedureS                                   S. Frost
 Internet-Draft                                                       Arm
 Intended status: Standards Track                              T. Fossati
-Expires: 14 August 2025                                           Linaro
+Expires: 20 August 2025                                           Linaro
                                                            H. Tschofenig
                                                                    H-BRS
-                                                        10 February 2025
+                                                        16 February 2025
 
 
                          EAT Measured Component
@@ -53,7 +53,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 14 August 2025.
+   This Internet-Draft will expire on 20 August 2025.
 
 Copyright Notice
 
@@ -412,9 +412,9 @@ Table of Contents
 
    The Name and Version of a component can give an attacker detailed
    information about the software running on a device and its
-   configuration settings.  This information may also reveal private
-   details about the device.  Additionally, the stability requirement of
-   the component's Name could potentially allow for tracking.
+   configuration settings.  This information could offer an attacker
+   valuable insights.  Additionally, the stability requirement of the
+   component's Name could potentially allow for tracking.
 
 7.  IANA Considerations
 
