@@ -1,15 +1,10 @@
 {
   / id / 1: [
-    / name / "boot loader X",
-    / version / [
-      "1.2.3rc2",
-      16384 / semver /
-    ]
+    / name / "/boot/loader.bin"
   ],
   / measurement / 2: [
-    / alg / "sha-256",
-    / val / h'3996003d486fb91ffb056f7d03f2b2992b215b31dbe7af4b37
-              3431fc7d319da3'
-  ],
-  / profile-flags / 4: h'00000101'
+    / alg / "sha-384",
+    / val / h'66ec2fb4e02d8c8b3eee320e750d9389d66c52c51db11cc6
+              9cc5e410816283ed60ba573795f5fcc85e513af57b3f6def'
+  ]
 }
