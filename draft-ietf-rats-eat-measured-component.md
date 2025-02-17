@@ -249,6 +249,13 @@ The example uses TBD2 as the `content-type` value of the `measurements-format` e
 ~~~
 {: #ex-eat-2 title="EAT Measurements Claim using a Measured Component (JSON)"}
 
+The example in {{ex-2}} is a measured component representing a boot loader identified by its path name:
+
+~~~ cbor-edn
+{::include cddl/ex2.diag}
+~~~
+{: #ex-2 title="Measured Component using File Path as Identifier"}
+
 # Security and Privacy Considerations {#seccons}
 
 The Name and Version of a component can give an attacker detailed information about the software running on a device and its configuration settings.
