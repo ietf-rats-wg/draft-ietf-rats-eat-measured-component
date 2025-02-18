@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-02-16T00:45:46.050884+00:00",
+  "timestamp": "2025-02-18T00:41:41.507236+00:00",
   "repo": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
   "labels": [
     {
@@ -393,9 +393,9 @@
       "labels": [
         "needs-wg-input"
       ],
-      "body": "There are use cases where the measurement is (or comprises) an SVN.",
+      "body": "There are specific use cases where the measurement includes a Security Version Number (SVN). \n\n(For context, the SVN is an anti-rollback counter utilized in certain attestation schemes, such as Intel TDX and AMD SEV-SNP.)\n\nThere was a brief discussion in the context of EAT (see [EAT#111](https://github.com/ietf-rats-wg/eat/issues/111)), but it was ultimately not pursued. \nOne reason it may have been dropped is that its \"natural\" scope relates more to the measured component (i.e., a portion of the overall TCB) rather than a global level (the entire TCB). This makes it less suitable as a separate claim.",
       "createdAt": "2024-08-14T16:12:05Z",
-      "updatedAt": "2025-02-03T17:55:04Z",
+      "updatedAt": "2025-02-17T08:20:50Z",
       "closedAt": null,
       "comments": [
         {
@@ -404,6 +404,20 @@
           "body": "This is probably worth WG discussion.",
           "createdAt": "2025-02-03T17:53:24Z",
           "updatedAt": "2025-02-03T17:53:24Z"
+        },
+        {
+          "author": "hannestschofenig",
+          "authorAssociation": "COLLABORATOR",
+          "body": "It's always valuable to receive feedback from the group. If the hash is included, there should theoretically be no need to report additional information. However, it seems to be done regardless. This makes it difficult to completely ignore. In my opinion, offering it as an optional feature doesn't hurt.",
+          "createdAt": "2025-02-16T18:08:14Z",
+          "updatedAt": "2025-02-16T18:08:14Z"
+        },
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "body": "If we want to add it, we have a few options:\n\n* as an alternative to digest:\n\n```\n(digest / svn)\n```\n\n* Both digest and SVN are possible, even one alongside the other:\n\n```\nnon-empty<(?digest, ?svn)>\n```\n\n* Digest is mandatory and possibly complemented by SVN:\n\n```\n(digest, ?svn)\n```\n",
+          "createdAt": "2025-02-17T08:20:48Z",
+          "updatedAt": "2025-02-17T08:20:48Z"
         }
       ]
     },
@@ -484,15 +498,15 @@
       "id": "I_kwDOLP05f86pKOSV",
       "title": "Add JSON examples",
       "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/issues/18",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "thomas-fossati",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Currently, the document has CBOR examples only.  We should add some equivalent JSON examples.\n",
       "createdAt": "2025-02-07T12:20:52Z",
-      "updatedAt": "2025-02-07T12:20:52Z",
-      "closedAt": null,
+      "updatedAt": "2025-02-16T19:26:07Z",
+      "closedAt": "2025-02-16T19:26:07Z",
       "comments": []
     },
     {
@@ -507,9 +521,17 @@
       "labels": [],
       "body": "Things to consider:\n\n1. `corim.digest` won't be available in time, and even if it were, since it's CBOR-only, we'd need to add the JSON counterpart...\n2. the EAT types (`JC`, and `sw-version-type`) will hopefully become available automatically via the `cddl(1)` tool once 9711 is published.\n",
       "createdAt": "2025-02-07T18:05:11Z",
-      "updatedAt": "2025-02-08T05:52:55Z",
+      "updatedAt": "2025-02-16T17:58:00Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "hannestschofenig",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Relying on the constantly evolving list of new CDDL features, which are not yet implemented in validation tools or code generators, is obviously risky.\n\nI cannot really give a good recommendation on what to do there because there are also benefits in using these features.",
+          "createdAt": "2025-02-16T17:57:59Z",
+          "updatedAt": "2025-02-16T17:57:59Z"
+        }
+      ]
     }
   ],
   "pulls": [
@@ -744,24 +766,26 @@
       "id": "PR_kwDOLP05f86Kc5-I",
       "title": "JSON examples",
       "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/pull/20",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "thomas-fossati",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "add JSON examples + misc CDDL fixes\r\n\r\nFix #18 ",
       "createdAt": "2025-02-07T18:00:18Z",
-      "updatedAt": "2025-02-10T13:15:07Z",
+      "updatedAt": "2025-02-16T19:26:11Z",
       "baseRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
       "baseRefName": "main",
       "baseRefOid": "e7efddec5b15774f80dd21ffffed4b0fdc1be84a",
       "headRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
       "headRefName": "json-ex",
       "headRefOid": "acdcd56ee144972a8d47e92638dc1099e38ef162",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2025-02-16T19:26:06Z",
+      "mergedAt": "2025-02-16T19:26:06Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "a7afdd1a4d8a8258b6b36adb7a3cbe686654b768"
+      },
       "comments": [
         {
           "author": "thomas-fossati",
@@ -771,7 +795,21 @@
           "updatedAt": "2025-02-07T18:01:15Z"
         }
       ],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOLP05f86cJTbW",
+          "commit": {
+            "abbreviatedOid": "acdcd56"
+          },
+          "author": "hannestschofenig",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "I could not find any problems with the proposed nit-fixes and examples.",
+          "createdAt": "2025-02-16T17:55:34Z",
+          "updatedAt": "2025-02-16T17:55:34Z",
+          "comments": []
+        }
+      ]
     },
     {
       "number": 22,
@@ -882,25 +920,90 @@
       "id": "PR_kwDOLP05f86Kriys",
       "title": "Slightly rephrase the security considerations",
       "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/pull/24",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "thomas-fossati",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2025-02-10T17:09:38Z",
-      "updatedAt": "2025-02-10T17:09:38Z",
+      "updatedAt": "2025-02-16T19:25:52Z",
       "baseRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
       "baseRefName": "main",
       "baseRefOid": "92df2c4ca2b6004ca0c6232ad0b9fdb4b09fa957",
       "headRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
       "headRefName": "sec-cons-rephrase",
-      "headRefOid": "03167e0c6d5f8070ca838a66ef6f489266732f3d",
+      "headRefOid": "b1d0bc9748ed8ebfa8e8fe756c6fd0af013c9b3d",
+      "closedAt": "2025-02-16T19:25:52Z",
+      "mergedAt": "2025-02-16T19:25:52Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "b6e1d665328948c4f8dc81a583ae952095f77fc5"
+      },
+      "comments": [
+        {
+          "author": "hannestschofenig",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Looks good, Thomas.",
+          "createdAt": "2025-02-16T17:54:24Z",
+          "updatedAt": "2025-02-16T17:54:24Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOLP05f86cJTTA",
+          "commit": {
+            "abbreviatedOid": "03167e0"
+          },
+          "author": "hannestschofenig",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-02-16T17:52:04Z",
+          "updatedAt": "2025-02-16T17:52:05Z",
+          "comments": [
+            {
+              "originalPosition": 8,
+              "body": "```suggestion\r\nThis information could offer an attacker valuable insights.\r\n```",
+              "createdAt": "2025-02-16T17:52:04Z",
+              "updatedAt": "2025-02-16T17:53:16Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 25,
+      "id": "PR_kwDOLP05f86LbEDZ",
+      "title": "add example using file system object as component id",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/pull/25",
+      "state": "OPEN",
+      "author": "thomas-fossati",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Fix #8",
+      "createdAt": "2025-02-17T08:38:55Z",
+      "updatedAt": "2025-02-17T08:39:25Z",
+      "baseRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "baseRefName": "main",
+      "baseRefOid": "a7afdd1a4d8a8258b6b36adb7a3cbe686654b768",
+      "headRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "headRefName": "fs",
+      "headRefOid": "28184fbb0ed296d10ec3f1178343117a8d077735",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
-      "comments": [],
+      "comments": [
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "body": "cc @simonfrost-arm",
+          "createdAt": "2025-02-17T08:39:24Z",
+          "updatedAt": "2025-02-17T08:39:24Z"
+        }
+      ],
       "reviews": []
     }
   ]
