@@ -5,10 +5,10 @@
 Remote ATtestation ProcedureS                                   S. Frost
 Internet-Draft                                                       Arm
 Intended status: Standards Track                              T. Fossati
-Expires: 20 August 2025                                           Linaro
+Expires: 23 August 2025                                           Linaro
                                                            H. Tschofenig
                                                                    H-BRS
-                                                        16 February 2025
+                                                        19 February 2025
 
 
                          EAT Measured Component
@@ -53,7 +53,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 20 August 2025.
+   This Internet-Draft will expire on 23 August 2025.
 
 Copyright Notice
 
@@ -191,8 +191,8 @@ Table of Contents
 4.1.   Common Types
 
    bytes-b64u = text .b64u bytes
-   bytes4 = bytes .size 4
-   bytes4-b64u = text .b64u bytes4
+   bytes8 = bytes .size 8
+   bytes8-b64u = text .b64u bytes8
 
 4.2.  The measured-component Data Item
 
@@ -207,7 +207,7 @@ Table of Contents
    }
 
    signer-type = eat.JC<bytes-b64u, bytes>
-   flags-type = eat.JC<bytes4-b64u, bytes4>
+   flags-type = eat.JC<bytes8-b64u, bytes8>
 
    id-label = eat.JC<"id", 1>
    measurement-label = eat.JC<"measurement", 2>
@@ -283,7 +283,7 @@ Table of Contents
 
    This field contains at most 64-bit of profile-defined semantics.
 
-   flags-type = eat.JC<bytes4-b64u, bytes4>
+   flags-type = eat.JC<bytes8-b64u, bytes8>
 
    If an EAT profile (Section 6 of [I-D.ietf-rats-eat]) uses measured
    components, it MUST specify whether the profile-flags field is used.
@@ -371,7 +371,7 @@ Table of Contents
        h'4277bb97ba7b51577a0d38151d3e08b40bdf946753f5b5bdeb814d6ff5
          7a8a5e'
      ],
-     / profile-flags / 4: h'00000101'
+     / profile-flags / 4: h'0000000000000101'
    }
 
                    Figure 2: Complete Measured Component
