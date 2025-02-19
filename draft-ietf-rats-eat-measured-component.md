@@ -102,7 +102,7 @@ The information model of a "measured component" is described in {{tab-mc-info-el
 |----|-------------|-------------------|
 | Component Name | The name given to the measured component. It is important that this name remains consistent across different releases to allow for better tracking of the same measured item across updates. When combined with a consistent versioning scheme, it enables better signaling from the appraisal procedure to the relying parties. | REQUIRED |
 | Component Version | A value representing the specific release or development version of the measured component.  Using [Semantic Versioning](https://semver.org/spec/v2.0.0.html) is RECOMMENDED. | OPTIONAL |
-| Digest Value | Hash of the measured component. | REQUIRED |
+| Digest Value | Hash of the measured component computed using the indicated Digest Algorithm. | REQUIRED |
 | Digest Algorithm | Hash algorithm used to compute the Digest Value. | REQUIRED |
 | Signers | One or more unique identifiers of entities signing the measured component. | OPTIONAL |
 {: #tab-mc-info-elems title="Measured Component Information Elements"}
@@ -155,7 +155,7 @@ The data model is inspired by the "PSA software component" claim ({{Section 4.4.
 
 ### Signer {#signer}
 
-A signer is an entity that digitally signs the measured component.
+A signer is an entity that digitally signed the measured component.
 Typically, the signature is verified during installation or when the measured component is executed by the boot ROM, operating system, or application launcher.
 For example, as in UEFI Secure Boot {{UEFI2}} and Arm Trusted Board Boot {{TBBR-CLIENT}}.
 Another example may be the controlling entity in an app store.
