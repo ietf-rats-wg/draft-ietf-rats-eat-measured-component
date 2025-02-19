@@ -165,8 +165,9 @@ Table of Contents
      |           | (https://semver.org/spec/           |             |
      |           | v2.0.0.html) is RECOMMENDED.        |             |
      +-----------+-------------------------------------+-------------+
-     | Digest    | Hash of the measured component.     | REQUIRED    |
-     | Value     |                                     |             |
+     | Digest    | Hash of the measured component      | REQUIRED    |
+     | Value     | computed using the indicated Digest |             |
+     |           | Algorithm.                          |             |
      +-----------+-------------------------------------+-------------+
      | Digest    | Hash algorithm used to compute the  | REQUIRED    |
      | Algorithm | Digest Value.                       |             |
@@ -251,7 +252,7 @@ Table of Contents
 
 4.2.2.  Signer
 
-   A signer is an entity that digitally signs the measured component.
+   A signer is an entity that digitally signed the measured component.
    Typically, the signature is verified during installation or when the
    measured component is executed by the boot ROM, operating system, or
    application launcher.  For example, as in UEFI Secure Boot [UEFI2]
