@@ -23,12 +23,12 @@ corim.digest = [
 ]
 
 signer-type = eat.JC<bytes-b64u, bytes>
-flags-type = eat.JC<bytes4-b64u, bytes4>
+flags-type = eat.JC<bytes8-b64u, bytes8>
 digest-value-type = eat.JC<bytes-b64u, bytes>
 
 bytes-b64u = text .b64u bytes
-bytes4 = bytes .size 4
-bytes4-b64u = text .b64u bytes4
+bytes8 = bytes .size 8
+bytes8-b64u = text .b64u bytes8
 
 id-label = eat.JC<"id", 1>
 measurement-label = eat.JC<"measurement", 2>
