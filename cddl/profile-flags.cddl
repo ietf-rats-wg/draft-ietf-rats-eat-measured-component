@@ -1,1 +1,1 @@
-flags-type = eat.JC<bytes4-b64u, bytes4>
+flags-type = eat.JC<bytes8-b64u, bytes8>
