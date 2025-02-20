@@ -6,5 +6,6 @@
     / alg / "sha-384",
     / val / h'66ec2fb4e02d8c8b3eee320e750d9389d66c52c51db11cc6
               9cc5e410816283ed60ba573795f5fcc85e513af57b3f6def'
-  ]
+  ],
+  / profile-flags / 4: h'0000000000000101'
 }
