@@ -5,10 +5,10 @@
 Remote ATtestation ProcedureS                                   S. Frost
 Internet-Draft                                                       Arm
 Intended status: Standards Track                              T. Fossati
-Expires: 21 August 2025                                           Linaro
+Expires: 24 August 2025                                           Linaro
                                                            H. Tschofenig
                                                                    H-BRS
-                                                        17 February 2025
+                                                        20 February 2025
 
 
                          EAT Measured Component
@@ -53,7 +53,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 21 August 2025.
+   This Internet-Draft will expire on 24 August 2025.
 
 Copyright Notice
 
@@ -83,16 +83,17 @@ Table of Contents
      4.3.  EAT measurements-format Extensions
      4.4.  measurements-format for CBOR EAT
      4.5.  measurements-format for JSON EAT
-   5.  Examples
-   6.  Security and Privacy Considerations
-   7.  IANA Considerations
-     7.1.  Media Types Registrations
-       7.1.1.  application/measured-component+cbor
-       7.1.2.  application/measured-component+json
-     7.2.  Measured Component Content-Format Registrations
-   8.  References
-     8.1.  Normative References
-     8.2.  Informative References
+   5.  EAT Profiles and Measured Components
+   6.  Examples
+   7.  Security and Privacy Considerations
+   8.  IANA Considerations
+     8.1.  Media Types Registrations
+       8.1.1.  application/measured-component+cbor
+       8.1.2.  application/measured-component+json
+     8.2.  Measured Component Content-Format Registrations
+   9.  References
+     9.1.  Normative References
+     9.2.  Informative References
    Appendix A.  Open Issues
    Acknowledgments
    Authors' Addresses
@@ -165,8 +166,9 @@ Table of Contents
      |           | (https://semver.org/spec/           |             |
      |           | v2.0.0.html) is RECOMMENDED.        |             |
      +-----------+-------------------------------------+-------------+
-     | Digest    | Hash of the measured component.     | REQUIRED    |
-     | Value     |                                     |             |
+     | Digest    | Hash of the measured component      | REQUIRED    |
+     | Value     | computed using the indicated Digest |             |
+     |           | Algorithm.                          |             |
      +-----------+-------------------------------------+-------------+
      | Digest    | Hash algorithm used to compute the  | REQUIRED    |
      | Algorithm | Digest Value.                       |             |
@@ -191,8 +193,8 @@ Table of Contents
 4.1.   Common Types
 
    bytes-b64u = text .b64u bytes
-   bytes4 = bytes .size 4
-   bytes4-b64u = text .b64u bytes4
+   bytes8 = bytes .size 8
+   bytes8-b64u = text .b64u bytes8
 
 4.2.  The measured-component Data Item
 
@@ -207,7 +209,7 @@ Table of Contents
    }
 
    signer-type = eat.JC<bytes-b64u, bytes>
-   flags-type = eat.JC<bytes4-b64u, bytes4>
+   flags-type = eat.JC<bytes8-b64u, bytes8>
 
    id-label = eat.JC<"id", 1>
    measurement-label = eat.JC<"measurement", 2>
@@ -251,7 +253,7 @@ Table of Contents
 
 4.2.2.  Signer
 
-   A signer is an entity that digitally signs the measured component.
+   A signer is an entity that digitally signed the measured component.
    Typically, the signature is verified during installation or when the
    measured component is executed by the boot ROM, operating system, or
    application launcher.  For example, as in UEFI Secure Boot [UEFI2]
@@ -283,7 +285,7 @@ Table of Contents
 
    This field contains at most 64-bit of profile-defined semantics.
 
-   flags-type = eat.JC<bytes4-b64u, bytes4>
+   flags-type = eat.JC<bytes8-b64u, bytes8>
 
    If an EAT profile (Section 6 of [I-D.ietf-rats-eat]) uses measured
    components, it MUST specify whether the profile-flags field is used.
@@ -347,7 +349,16 @@ Table of Contents
 
                  Table 3: measurement-format for EAT JWT
 
-5.  Examples
+5.  EAT Profiles and Measured Components
+
+   The semantics of the signers and profile flags fields are defined by
+   the applicable EAT profile, i.e., the profile of the wrapping EAT.
+
+   If the profile of the EAT is not known to the consumer and one or
+   more Measured Components within that EAT include signers and/or
+   profile flags, the consumer MUST reject the EAT.
+
+6.  Examples
 
    The example in Figure 2 is a measured component with all the fields
    populated.
@@ -371,7 +382,7 @@ Table of Contents
        h'4277bb97ba7b51577a0d38151d3e08b40bdf946753f5b5bdeb814d6ff5
          7a8a5e'
      ],
-     / profile-flags / 4: h'00000101'
+     / profile-flags / 4: h'0000000000000101'
    }
 
                    Figure 2: Complete Measured Component
@@ -454,12 +465,13 @@ Table of Contents
        / alg / "sha-384",
        / val / h'66ec2fb4e02d8c8b3eee320e750d9389d66c52c51db11cc6
                  9cc5e410816283ed60ba573795f5fcc85e513af57b3f6def'
-     ]
+     ],
+     / profile-flags / 4: h'0000000000000101'
    }
 
          Figure 5: Measured Component using File Path as Identifier
 
-6.  Security and Privacy Considerations
+7.  Security and Privacy Considerations
 
    The Name and Version of a component can give an attacker detailed
    information about the software running on a device and its
@@ -467,13 +479,13 @@ Table of Contents
    valuable insights.  Additionally, the stability requirement of the
    component's Name could potentially allow for tracking.
 
-7.  IANA Considerations
+8.  IANA Considerations
 
 
    // RFC Editor: replace "RFCthis" with the RFC number assigned to this
    document.
 
-7.1.  Media Types Registrations
+8.1.  Media Types Registrations
 
    IANA is requested to add the following media types to the "Media
    Types" registry [IANA.media-types].
@@ -488,14 +500,14 @@ Table of Contents
 
                   Table 4: Measured Component Media Types
 
-7.1.1.  application/measured-component+cbor
+8.1.1.  application/measured-component+cbor
 
    Type name:  application
    Subtype name:  measured-component+cbor
    Required parameters:  n/a
    Optional parameters:  n/a
    Encoding considerations:  binary (CBOR)
-   Security considerations:  Section 6 of RFCthis
+   Security considerations:  Section 7 of RFCthis
    Interoperability considerations:  n/a
    Published specification:  RFCthis
    Applications that use this media type:  Attesters, Verifiers and
@@ -511,14 +523,14 @@ Table of Contents
    Author/Change controller:  IETF
    Provisional registration:  no
 
-7.1.2.  application/measured-component+json
+8.1.2.  application/measured-component+json
 
    Type name:  application
    Subtype name:  measured-component+json
    Required parameters:  n/a
    Optional parameters:  n/a
    Encoding considerations:  binary (JSON is UTF-8-encoded text)
-   Security considerations:  Section 6 of RFCthis
+   Security considerations:  Section 7 of RFCthis
    Interoperability considerations:  n/a
    Published specification:  RFCthis
    Applications that use this media type:  Attesters, Verifiers and
@@ -534,7 +546,7 @@ Table of Contents
    Author/Change controller:  IETF
    Provisional registration:  no
 
-7.2.  Measured Component Content-Format Registrations
+8.2.  Measured Component Content-Format Registrations
 
    IANA is requested to register two Content-Format numbers in the "CoAP
    Content-Formats" sub-registry, within the "Constrained RESTful
@@ -553,9 +565,9 @@ Table of Contents
 
                                   Table 5
 
-8.  References
+9.  References
 
-8.1.  Normative References
+9.1.  Normative References
 
    [I-D.ietf-cbor-cddl-modules]
               Bormann, C. and B. Moran, "CDDL Module Structure", Work in
@@ -619,7 +631,7 @@ Table of Contents
               DOI 10.17487/RFC9165, December 2021,
               <https://www.rfc-editor.org/rfc/rfc9165>.
 
-8.2.  Informative References
+9.2.  Informative References
 
    [I-D.tschofenig-rats-psa-token]
               Tschofenig, H., Frost, S., Brossard, M., Shaw, A. L., and
@@ -655,9 +667,10 @@ Appendix A.  Open Issues
 
 Acknowledgments
 
-   The authors would like to thank Carl Wallace, Carsten Bormann,
-   Giridhar Mandyam and Laurence Lundblade for providing comments,
-   reviews and suggestions that greatly improved this document.
+   The authors would like to thank Carl Wallace, Carsten Bormann, Dionna
+   Glaze, Giridhar Mandyam and Laurence Lundblade for providing
+   comments, reviews and suggestions that greatly improved this
+   document.
 
 Authors' Addresses
 
