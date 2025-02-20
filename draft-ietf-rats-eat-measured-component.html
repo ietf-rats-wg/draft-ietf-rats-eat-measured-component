@@ -1716,6 +1716,28 @@ SS6bZ2wh9gErHO65Ay_rQUGogHlzVfZnUBXsWcUcoew\", \"\
 <a href="#name-eat-measurements-claim-using" class="selfRef">EAT Measurements Claim using a Measured Component (JSON)</a>
         </figcaption></figure>
 </div>
+<p id="section-6-10">The example in <a href="#ex-2" class="auto internal xref">Figure 5</a> is a measured component representing a boot loader identified by its path name:<a href="#section-6-10" class="pilcrow">¶</a></p>
+<span id="name-measured-component-using-fi"></span><div id="ex-2">
+<figure id="figure-5">
+        <div class="lang-cbor-edn sourcecode" id="section-6-11.1">
+<pre>
+{
+  / id / 1: [
+    / name / "/boot/loader.bin"
+  ],
+  / measurement / 2: [
+    / alg / "sha-384",
+    / val / h'66ec2fb4e02d8c8b3eee320e750d9389d66c52c51db11cc6
+              9cc5e410816283ed60ba573795f5fcc85e513af57b3f6def'
+  ],
+  / profile-flags / 4: h'0000000000000101'
+}
+</pre>
+</div>
+<figcaption><a href="#figure-5" class="selfRef">Figure 5</a>:
+<a href="#name-measured-component-using-fi" class="selfRef">Measured Component using File Path as Identifier</a>
+        </figcaption></figure>
+</div>
 </section>
 </div>
 <div id="seccons">

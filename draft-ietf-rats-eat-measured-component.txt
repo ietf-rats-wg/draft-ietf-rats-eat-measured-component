@@ -454,6 +454,23 @@ Table of Contents
 
      Figure 4: EAT Measurements Claim using a Measured Component (JSON)
 
+   The example in Figure 5 is a measured component representing a boot
+   loader identified by its path name:
+
+   {
+     / id / 1: [
+       / name / "/boot/loader.bin"
+     ],
+     / measurement / 2: [
+       / alg / "sha-384",
+       / val / h'66ec2fb4e02d8c8b3eee320e750d9389d66c52c51db11cc6
+                 9cc5e410816283ed60ba573795f5fcc85e513af57b3f6def'
+     ],
+     / profile-flags / 4: h'0000000000000101'
+   }
+
+         Figure 5: Measured Component using File Path as Identifier
+
 7.  Security and Privacy Considerations
 
    The Name and Version of a component can give an attacker detailed
