@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-02-18T00:41:41.507236+00:00",
+  "timestamp": "2025-02-20T00:42:26.780044+00:00",
   "repo": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
   "labels": [
     {
@@ -532,6 +532,22 @@
           "updatedAt": "2025-02-16T17:57:59Z"
         }
       ]
+    },
+    {
+      "number": 28,
+      "id": "I_kwDOLP05f86qtowS",
+      "title": "What if profile is not known?",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/issues/28",
+      "state": "OPEN",
+      "author": "thomas-fossati",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "> The idea is that the profile of the wrapping EAT determines the\n> semantics of all the MCs found within that EAT instance.\n> If receivers don't know which EAT profile they are dealing with, I am\nnot sure how they can successfully interpret the EAT. But assuming they\ncould, then I'd say: do what your local configuration tells you to do\n(i.e., either ignore or reject).\n> If receivers know which EAT profile they are dealing with and signers\nand flags are not as expected, then reject.\n\n[CW] That all makes sense and maybe could just be stated in the draft. It seems odd that the draft leaves open the possibility of no profile to be present (which is fine) but does not describe how to interpret the fields in that case. Rejection seems fine, i.e., it is an error for a sender to prepare an EAT that features these fields with no profile and receivers should reject EATs created that way.\n",
+      "createdAt": "2025-02-19T18:19:51Z",
+      "updatedAt": "2025-02-19T18:25:48Z",
+      "closedAt": null,
+      "comments": []
     }
   ],
   "pulls": [
@@ -984,7 +1000,7 @@
       "labels": [],
       "body": "Fix #8",
       "createdAt": "2025-02-17T08:38:55Z",
-      "updatedAt": "2025-02-17T08:39:25Z",
+      "updatedAt": "2025-02-18T09:01:37Z",
       "baseRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
       "baseRefName": "main",
       "baseRefOid": "a7afdd1a4d8a8258b6b36adb7a3cbe686654b768",
@@ -1002,9 +1018,93 @@
           "body": "cc @simonfrost-arm",
           "createdAt": "2025-02-17T08:39:24Z",
           "updatedAt": "2025-02-17T08:39:24Z"
+        },
+        {
+          "author": "hannestschofenig",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Because the name is just a string you could put anything in there, even a file path. Is it a problem that there is no semantic associated with the name?",
+          "createdAt": "2025-02-18T08:52:44Z",
+          "updatedAt": "2025-02-18T08:52:44Z"
+        },
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> Because the name is just a string you could put anything in there, even a file path. Is it a problem that there is no semantic associated with the name?\r\n\r\nI consider the free form of the ID as a feature of MC's `component-id`, which allows it to adapt smoothly to different kinds of \"measured\" objects.",
+          "createdAt": "2025-02-18T09:01:35Z",
+          "updatedAt": "2025-02-18T09:01:35Z"
         }
       ],
       "reviews": []
+    },
+    {
+      "number": 26,
+      "id": "PR_kwDOLP05f86LxdAW",
+      "title": "fix wrong flags size",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/pull/26",
+      "state": "MERGED",
+      "author": "thomas-fossati",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-02-19T15:58:12Z",
+      "updatedAt": "2025-02-19T15:59:30Z",
+      "baseRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "baseRefName": "main",
+      "baseRefOid": "a7afdd1a4d8a8258b6b36adb7a3cbe686654b768",
+      "headRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "headRefName": "64bits",
+      "headRefOid": "8ab8bd386cc7c67ea097a435df21404c99c428c1",
+      "closedAt": "2025-02-19T15:59:27Z",
+      "mergedAt": "2025-02-19T15:59:27Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "5150da162b27083b908fde9aa404f87b3b67f97d"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 27,
+      "id": "PR_kwDOLP05f86LyP4Y",
+      "title": "Carl's editorial suggestions",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/pull/27",
+      "state": "MERGED",
+      "author": "thomas-fossati",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-02-19T17:40:52Z",
+      "updatedAt": "2025-02-19T18:17:17Z",
+      "baseRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "baseRefName": "main",
+      "baseRefOid": "5150da162b27083b908fde9aa404f87b3b67f97d",
+      "headRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "headRefName": "carls-suggestions",
+      "headRefOid": "2777bf7f74243e1166bc1bc9118e4f625b6b5b0c",
+      "closedAt": "2025-02-19T18:17:13Z",
+      "mergedAt": "2025-02-19T18:17:13Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "fd27aebcee7994d4b683f0979b07f97e1830011d"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOLP05f86cnUdO",
+          "commit": {
+            "abbreviatedOid": "2777bf7"
+          },
+          "author": "carl-wallace",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-02-19T17:44:52Z",
+          "updatedAt": "2025-02-19T17:44:52Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
