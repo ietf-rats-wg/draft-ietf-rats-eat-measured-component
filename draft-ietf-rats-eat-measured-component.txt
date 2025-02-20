@@ -5,10 +5,10 @@
 Remote ATtestation ProcedureS                                   S. Frost
 Internet-Draft                                                       Arm
 Intended status: Standards Track                              T. Fossati
-Expires: 23 August 2025                                           Linaro
+Expires: 24 August 2025                                           Linaro
                                                            H. Tschofenig
                                                                    H-BRS
-                                                        19 February 2025
+                                                        20 February 2025
 
 
                          EAT Measured Component
@@ -53,7 +53,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 23 August 2025.
+   This Internet-Draft will expire on 24 August 2025.
 
 Copyright Notice
 
@@ -83,16 +83,17 @@ Table of Contents
      4.3.  EAT measurements-format Extensions
      4.4.  measurements-format for CBOR EAT
      4.5.  measurements-format for JSON EAT
-   5.  Examples
-   6.  Security and Privacy Considerations
-   7.  IANA Considerations
-     7.1.  Media Types Registrations
-       7.1.1.  application/measured-component+cbor
-       7.1.2.  application/measured-component+json
-     7.2.  Measured Component Content-Format Registrations
-   8.  References
-     8.1.  Normative References
-     8.2.  Informative References
+   5.  EAT Profiles and Measured Components
+   6.  Examples
+   7.  Security and Privacy Considerations
+   8.  IANA Considerations
+     8.1.  Media Types Registrations
+       8.1.1.  application/measured-component+cbor
+       8.1.2.  application/measured-component+json
+     8.2.  Measured Component Content-Format Registrations
+   9.  References
+     9.1.  Normative References
+     9.2.  Informative References
    Appendix A.  Open Issues
    Acknowledgments
    Authors' Addresses
@@ -348,7 +349,16 @@ Table of Contents
 
                  Table 3: measurement-format for EAT JWT
 
-5.  Examples
+5.  EAT Profiles and Measured Components
+
+   The semantics of the signers and profile flags fields are defined by
+   the applicable EAT profile, i.e., the profile of the wrapping EAT.
+
+   If the profile of the EAT is not known to the consumer and one or
+   more Measured Components within that EAT include signers and/or
+   profile flags, the consumer MUST reject the EAT.
+
+6.  Examples
 
    The example in Figure 2 is a measured component with all the fields
    populated.
@@ -444,7 +454,7 @@ Table of Contents
 
      Figure 4: EAT Measurements Claim using a Measured Component (JSON)
 
-6.  Security and Privacy Considerations
+7.  Security and Privacy Considerations
 
    The Name and Version of a component can give an attacker detailed
    information about the software running on a device and its
@@ -452,13 +462,13 @@ Table of Contents
    valuable insights.  Additionally, the stability requirement of the
    component's Name could potentially allow for tracking.
 
-7.  IANA Considerations
+8.  IANA Considerations
 
 
    // RFC Editor: replace "RFCthis" with the RFC number assigned to this
    document.
 
-7.1.  Media Types Registrations
+8.1.  Media Types Registrations
 
    IANA is requested to add the following media types to the "Media
    Types" registry [IANA.media-types].
@@ -473,14 +483,14 @@ Table of Contents
 
                   Table 4: Measured Component Media Types
 
-7.1.1.  application/measured-component+cbor
+8.1.1.  application/measured-component+cbor
 
    Type name:  application
    Subtype name:  measured-component+cbor
    Required parameters:  n/a
    Optional parameters:  n/a
    Encoding considerations:  binary (CBOR)
-   Security considerations:  Section 6 of RFCthis
+   Security considerations:  Section 7 of RFCthis
    Interoperability considerations:  n/a
    Published specification:  RFCthis
    Applications that use this media type:  Attesters, Verifiers and
@@ -496,14 +506,14 @@ Table of Contents
    Author/Change controller:  IETF
    Provisional registration:  no
 
-7.1.2.  application/measured-component+json
+8.1.2.  application/measured-component+json
 
    Type name:  application
    Subtype name:  measured-component+json
    Required parameters:  n/a
    Optional parameters:  n/a
    Encoding considerations:  binary (JSON is UTF-8-encoded text)
-   Security considerations:  Section 6 of RFCthis
+   Security considerations:  Section 7 of RFCthis
    Interoperability considerations:  n/a
    Published specification:  RFCthis
    Applications that use this media type:  Attesters, Verifiers and
@@ -519,7 +529,7 @@ Table of Contents
    Author/Change controller:  IETF
    Provisional registration:  no
 
-7.2.  Measured Component Content-Format Registrations
+8.2.  Measured Component Content-Format Registrations
 
    IANA is requested to register two Content-Format numbers in the "CoAP
    Content-Formats" sub-registry, within the "Constrained RESTful
@@ -538,9 +548,9 @@ Table of Contents
 
                                   Table 5
 
-8.  References
+9.  References
 
-8.1.  Normative References
+9.1.  Normative References
 
    [I-D.ietf-cbor-cddl-modules]
               Bormann, C. and B. Moran, "CDDL Module Structure", Work in
@@ -604,7 +614,7 @@ Table of Contents
               DOI 10.17487/RFC9165, December 2021,
               <https://www.rfc-editor.org/rfc/rfc9165>.
 
-8.2.  Informative References
+9.2.  Informative References
 
    [I-D.tschofenig-rats-psa-token]
               Tschofenig, H., Frost, S., Brossard, M., Shaw, A. L., and
@@ -640,9 +650,10 @@ Appendix A.  Open Issues
 
 Acknowledgments
 
-   The authors would like to thank Carl Wallace, Carsten Bormann,
-   Giridhar Mandyam and Laurence Lundblade for providing comments,
-   reviews and suggestions that greatly improved this document.
+   The authors would like to thank Carl Wallace, Carsten Bormann, Dionna
+   Glaze, Giridhar Mandyam and Laurence Lundblade for providing
+   comments, reviews and suggestions that greatly improved this
+   document.
 
 Authors' Addresses
 
