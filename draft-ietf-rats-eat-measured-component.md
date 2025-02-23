@@ -401,9 +401,10 @@ The authors would like to thank
 Carl Wallace,
 Carsten Bormann,
 Dionna Glaze,
-Giridhar Mandyam
-and
+Giridhar Mandyam,
 Laurence Lundblade
+and
+Michael Richardson
 for providing comments, reviews and suggestions that greatly improved this document.
 
 [^rfced]: RFC Editor:
