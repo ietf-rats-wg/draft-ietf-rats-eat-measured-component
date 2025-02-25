@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-02-23T00:45:46.717780+00:00",
+  "timestamp": "2025-02-25T00:43:39.948638+00:00",
   "repo": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
   "labels": [
     {
@@ -426,7 +426,7 @@
       "id": "I_kwDOLP05f86bYNsZ",
       "title": "Measurement extensions for CoRIM?",
       "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/issues/11",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "deeglaze",
       "authorAssociation": "NONE",
       "assignees": [],
@@ -435,8 +435,8 @@
       ],
       "body": "I'm trying to wrap my head around how we translate this into environment + measurements that reference values can say anything about.\r\n\r\nI don't know why measured-component is preferable to a cmw. I don't even see a signature, just signers, so you're looking instead at not a named COSE_Sign1 object, but a payload and authority description that have no provable relevance to each other.\r\n\r\nIs the idea that the signer of the EAT has somehow been delegated the authority to speak for these signers?",
       "createdAt": "2024-10-23T00:31:56Z",
-      "updatedAt": "2025-02-03T17:50:17Z",
-      "closedAt": null,
+      "updatedAt": "2025-02-23T10:12:59Z",
+      "closedAt": "2025-02-23T10:12:59Z",
       "comments": [
         {
           "author": "thomas-fossati",
@@ -1169,20 +1169,62 @@
       "id": "PR_kwDOLP05f86L6b3s",
       "title": "ack += mcr",
       "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/pull/30",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "thomas-fossati",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2025-02-20T15:01:49Z",
-      "updatedAt": "2025-02-20T15:01:50Z",
+      "updatedAt": "2025-02-23T17:27:25Z",
       "baseRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
       "baseRefName": "main",
       "baseRefOid": "5e2b27d8688397a45819fbf41d208f93072956cb",
       "headRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
       "headRefName": "mcr-ack",
       "headRefOid": "c9d01755ca00851a9a59e9f21060157e0d076865",
+      "closedAt": "2025-02-23T17:27:21Z",
+      "mergedAt": "2025-02-23T17:27:21Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "a0356b8328d0a52bd2b9179d83ba5a0b6fc1b58b"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOLP05f86dGUKp",
+          "commit": {
+            "abbreviatedOid": "c9d0175"
+          },
+          "author": "hannestschofenig",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-02-23T17:10:39Z",
+          "updatedAt": "2025-02-23T17:10:39Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 31,
+      "id": "PR_kwDOLP05f86MMPTP",
+      "title": "IETF 122 slides draft",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/pull/31",
+      "state": "OPEN",
+      "author": "thomas-fossati",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-02-23T10:37:06Z",
+      "updatedAt": "2025-02-23T10:37:06Z",
+      "baseRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "baseRefName": "main",
+      "baseRefOid": "5e2b27d8688397a45819fbf41d208f93072956cb",
+      "headRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "headRefName": "122-slides",
+      "headRefOid": "244a52a4deea7e16c0e205db0f77cffe232e6886",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
