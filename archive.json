@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-02-27T00:43:06.919203+00:00",
+  "timestamp": "2025-03-02T00:46:27.033772+00:00",
   "repo": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
   "labels": [
     {
@@ -1218,13 +1218,13 @@
       "labels": [],
       "body": "",
       "createdAt": "2025-02-23T10:37:06Z",
-      "updatedAt": "2025-02-23T10:37:06Z",
+      "updatedAt": "2025-02-27T17:06:06Z",
       "baseRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
       "baseRefName": "main",
-      "baseRefOid": "5e2b27d8688397a45819fbf41d208f93072956cb",
+      "baseRefOid": "a0356b8328d0a52bd2b9179d83ba5a0b6fc1b58b",
       "headRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
       "headRefName": "122-slides",
-      "headRefOid": "244a52a4deea7e16c0e205db0f77cffe232e6886",
+      "headRefOid": "6ee786a805cc9b73dd387a610ed5953c8b1062bc",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
