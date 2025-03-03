@@ -5,10 +5,10 @@
 Remote ATtestation ProcedureS                                   S. Frost
 Internet-Draft                                                       Arm
 Intended status: Standards Track                              T. Fossati
-Expires: 31 August 2025                                           Linaro
+Expires: 4 September 2025                                         Linaro
                                                            H. Tschofenig
                                                                    H-BRS
-                                                        27 February 2025
+                                                            3 March 2025
 
 
                          EAT Measured Component
@@ -53,7 +53,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 31 August 2025.
+   This Internet-Draft will expire on 4 September 2025.
 
 Copyright Notice
 
@@ -586,9 +586,9 @@ Table of Contents
    [I-D.ietf-rats-corim]
               Birkholz, H., Fossati, T., Deshpande, Y., Smith, N., and
               W. Pan, "Concise Reference Integrity Manifest", Work in
-              Progress, Internet-Draft, draft-ietf-rats-corim-06, 18
-              October 2024, <https://datatracker.ietf.org/doc/html/
-              draft-ietf-rats-corim-06>.
+              Progress, Internet-Draft, draft-ietf-rats-corim-07, 3
+              March 2025, <https://datatracker.ietf.org/doc/html/draft-
+              ietf-rats-corim-07>.
 
    [I-D.ietf-rats-eat]
               Lundblade, L., Mandyam, G., O'Donoghue, J., and C.
@@ -668,9 +668,9 @@ Appendix A.  Open Issues
 Acknowledgments
 
    The authors would like to thank Carl Wallace, Carsten Bormann, Dionna
-   Glaze, Giridhar Mandyam and Laurence Lundblade for providing
-   comments, reviews and suggestions that greatly improved this
-   document.
+   Glaze, Giridhar Mandyam, Laurence Lundblade and Michael Richardson
+   for providing comments, reviews and suggestions that greatly improved
+   this document.
 
 Authors' Addresses
 
