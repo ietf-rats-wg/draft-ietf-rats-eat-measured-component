@@ -5,10 +5,10 @@
 Remote ATtestation ProcedureS                                   S. Frost
 Internet-Draft                                                       Arm
 Intended status: Standards Track                              T. Fossati
-Expires: 27 August 2025                                           Linaro
+Expires: 4 September 2025                                         Linaro
                                                            H. Tschofenig
                                                                    H-BRS
-                                                        23 February 2025
+                                                            3 March 2025
 
 
                          EAT Measured Component
@@ -16,12 +16,12 @@ Expires: 27 August 2025                                           Linaro
 
 Abstract
 
-   A measured component refers to an object within the attester's target
-   environment, whose state can be inspected and digested.  A digest is
-   typically computed through a cryptographic hash function.  Examples
-   of measured components include firmware stored in flash memory,
-   software loaded into memory at start time, data stored in a file
-   system, or values in a CPU register.
+   The term "measured component" refers to an object within the
+   attester's target environment whose state can be inspected and
+   digested.  A digest is typically computed through a cryptographic
+   hash function.  Examples of measured components include firmware
+   stored in flash memory, software loaded into memory at start time,
+   data stored in a file system, or values in a CPU register.
 
    This document defines a "measured component" format that can be used
    with the EAT Measurements claim.
@@ -53,7 +53,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 27 August 2025.
+   This Internet-Draft will expire on 4 September 2025.
 
 Copyright Notice
 
@@ -79,7 +79,7 @@ Table of Contents
      4.2.  The measured-component Data Item
        4.2.1.  Component Identifier
        4.2.2.  Signer
-       4.2.3.  Profile Flags
+       4.2.3.  Profile-specific Flags
      4.3.  EAT measurements-format Extensions
      4.4.  measurements-format for CBOR EAT
      4.5.  measurements-format for JSON EAT
@@ -185,18 +185,32 @@ Table of Contents
 
 4.  Data Model
 
+   This section presents a JSON and CBOR data model that implements the
+   information model outlined in Section 3.
+
    The data model is inspired by the "PSA software component" claim
    (Section 4.4.1 of [I-D.tschofenig-rats-psa-token]), which has been
-   refactored to take into account the recommendations about new EAT
-   claims design in Appendix E of [I-D.ietf-rats-eat].
+   refactored to take into account the recommendations about the design
+   of new EAT claims described in Appendix E of [I-D.ietf-rats-eat].
+
+   CDDL is used to express rules and constraints of the data model for
+   both JSON and CBOR.  These rules must be strictly followed when
+   creating or validating "measured component" data items.  When there
+   is variation between CBOR and JSON, the JC<> CDDL generic defined in
+   Appendix D of [I-D.ietf-rats-eat] is used.
 
 4.1.   Common Types
+
+   The following three basic types are used at various places within the
+   measured component data model:
 
    bytes-b64u = text .b64u bytes
    bytes8 = bytes .size 8
    bytes8-b64u = text .b64u bytes8
 
 4.2.  The measured-component Data Item
+
+   The measured-component data item is as follows:
 
    ;# import corim.digest from rfcYYYY as corim
    ;# import eat.JC from rfc9711 as eat
@@ -216,6 +230,8 @@ Table of Contents
    signers-label = eat.JC<"signers", 3>
    flags-label = eat.JC<"flags", 4>
 
+   The members of the measured-component CBOR map / JSON object are:
+
    "id" (index 1):
       The measured component identifier encoded according to the format
       described in Section 4.2.1.
@@ -227,10 +243,12 @@ Table of Contents
    "signers" (index 3):
       One or more signing entities, see Section 4.2.2.
 
-   "profile-flags" (index 4):
+   "flags" (index 4):
       a 64-bit field with profile-defined semantics, see Section 4.2.3.
 
 4.2.1.  Component Identifier
+
+   The component-id data item is as follows:
 
    component-id = [
      name:      text
@@ -279,11 +297,19 @@ Table of Contents
    the signers array represents, and how to interpret the corresponding
    signer-type.
 
+   The signer-type is defined as follows:
+
    signer-type = eat.JC<bytes-b64u, bytes>
 
-4.2.3.  Profile Flags
+4.2.3.  Profile-specific Flags
 
-   This field contains at most 64-bit of profile-defined semantics.
+   This field contains at most 64-bit of profile-defined semantics.  It
+   can be used to carry information in fixed-size chunks, such as a bit
+   mask or a single value within a predetermined set of codepoints.
+   Regardless of its internal structure, the size of this optional field
+   is exactly 8 bytes.
+
+   The flags-type is defined as follows:
 
    flags-type = eat.JC<bytes8-b64u, bytes8>
 
@@ -586,9 +612,9 @@ Table of Contents
    [I-D.ietf-rats-corim]
               Birkholz, H., Fossati, T., Deshpande, Y., Smith, N., and
               W. Pan, "Concise Reference Integrity Manifest", Work in
-              Progress, Internet-Draft, draft-ietf-rats-corim-06, 18
-              October 2024, <https://datatracker.ietf.org/doc/html/
-              draft-ietf-rats-corim-06>.
+              Progress, Internet-Draft, draft-ietf-rats-corim-07, 3
+              March 2025, <https://datatracker.ietf.org/doc/html/draft-
+              ietf-rats-corim-07>.
 
    [I-D.ietf-rats-eat]
               Lundblade, L., Mandyam, G., O'Donoghue, J., and C.
