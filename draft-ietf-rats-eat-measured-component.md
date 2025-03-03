@@ -63,7 +63,7 @@ entity:
 
 --- abstract
 
-A measured component refers to an object within the attester's target environment, whose state can be inspected and digested.
+The term "measured component" refers to an object within the attester's target environment whose state can be inspected and digested.
 A digest is typically computed through a cryptographic hash function.
 Examples of measured components include firmware stored in flash memory, software loaded into memory at start time, data stored in a file system, or values in a CPU register.
 
@@ -111,9 +111,17 @@ The format SHOULD also allow a limited amount of extensibility to accommodate pr
 
 # Data Model
 
-The data model is inspired by the "PSA software component" claim ({{Section 4.4.1 of -psa-token}}), which has been refactored to take into account the recommendations about new EAT claims design in {{Appendix E of -rats-eat}}.
+This section presents a JSON and CBOR data model that implements the information model outlined in {{measured-component}}.
+
+The data model is inspired by the "PSA software component" claim ({{Section 4.4.1 of -psa-token}}), which has been refactored to take into account the recommendations about the design of new EAT claims described in {{Appendix E of -rats-eat}}.
+
+CDDL is used to express rules and constraints of the data model for both JSON and CBOR.
+These rules must be strictly followed when creating or validating "measured component" data items.
+When there is variation between CBOR and JSON, the `JC<>` CDDL generic defined in {{Appendix D of -rats-eat}} is used.
 
 ### Common Types
+
+The following three basic types are used at various places within the measured component data model:
 
 ~~~ cddl
 {::include cddl/common-types.cddl}
@@ -121,26 +129,32 @@ The data model is inspired by the "PSA software component" claim ({{Section 4.4.
 
 ## The `measured-component` Data Item
 
+The `measured-component` data item is as follows:
+
 ~~~ cddl
 {::include cddl/mc.cddl}
 
 {::include cddl/labels.cddl}
 ~~~
 
+The members of the `measured-component` CBOR map / JSON object are:
+
 {:vspace}
-"id" (index 1):
+`"id"` (index 1):
 : The measured component identifier encoded according to the format described in {{component-id}}.
 
-"measurement" (index 2):
+`"measurement"` (index 2):
 : Digest value and algorithm, encoded using CoRIM digest format ({{Section 1.3.8 of -corim}}).
 
-"signers" (index 3):
+`"signers"` (index 3):
 : One or more signing entities, see {{signer}}.
 
-"profile-flags" (index 4):
+`"flags"` (index 4):
 : a 64-bit field with profile-defined semantics, see {{profile-flags}}.
 
 ### Component Identifier {#component-id}
+
+The `component-id` data item is as follows:
 
 ~~~ cddl
 {::include cddl/component-id.cddl}
@@ -170,13 +184,19 @@ The specific purpose of each signature may depend on the deployment, and the ord
 If an EAT profile ({{Section 6 of -rats-eat}}) uses measured components, it MUST specify whether the `signers` field is used.
 If it is used, the profile MUST also specify what each of the entries in the `signers` array represents, and how to interpret the corresponding `signer-type`.
 
+The `signer-type` is defined as follows:
+
 ~~~ cddl
 {::include cddl/signer.cddl}
 ~~~
 
-### Profile Flags {#profile-flags}
+### Profile-specific Flags {#profile-flags}
 
 This field contains at most 64-bit of profile-defined semantics.
+It can be used to carry information in fixed-size chunks, such as a bit mask or a single value within a predetermined set of codepoints.
+Regardless of its internal structure, the size of this optional field is exactly 8 bytes.
+
+The `flags-type` is defined as follows:
 
 ~~~ cddl
 {::include cddl/profile-flags.cddl}
