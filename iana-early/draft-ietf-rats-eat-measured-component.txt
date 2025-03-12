@@ -5,10 +5,10 @@
 Remote ATtestation ProcedureS                                   S. Frost
 Internet-Draft                                                       Arm
 Intended status: Standards Track                              T. Fossati
-Expires: 12 August 2025                                           Linaro
+Expires: 13 September 2025                                        Linaro
                                                            H. Tschofenig
-                                                                 Siemens
-                                                         8 February 2025
+                                                                   H-BRS
+                                                           12 March 2025
 
 
                          EAT Measured Component
@@ -53,7 +53,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 12 August 2025.
+   This Internet-Draft will expire on 13 September 2025.
 
 Copyright Notice
 
@@ -75,23 +75,25 @@ Table of Contents
    2.  Conventions and Definitions
    3.  Information Model
    4.  Data Model
-     4.1.  The measured-component Data Item
-       4.1.1.  Component Identifier
-       4.1.2.  Signer
-       4.1.3.  Profile Flags
-     4.2.  EAT measurements-format Extensions
-     4.3.  measurements-format for CBOR EAT
-     4.4.  measurements-format for JSON EAT
-   5.  Examples
-   6.  Security and Privacy Considerations
-   7.  IANA Considerations
-     7.1.  Media Types Registrations
-       7.1.1.  application/measured-component+cbor
-       7.1.2.  application/measured-component+json
-     7.2.  Measured Component Content-Format Registrations
-   8.  References
-     8.1.  Normative References
-     8.2.  Informative References
+     4.1.   Common Types
+     4.2.  The measured-component Data Item
+       4.2.1.  Component Identifier
+       4.2.2.  Signer
+       4.2.3.  Profile Flags
+     4.3.  EAT measurements-format Extensions
+     4.4.  measurements-format for CBOR EAT
+     4.5.  measurements-format for JSON EAT
+   5.  EAT Profiles and Measured Components
+   6.  Examples
+   7.  Security and Privacy Considerations
+   8.  IANA Considerations
+     8.1.  Media Types Registrations
+       8.1.1.  application/measured-component+cbor
+       8.1.2.  application/measured-component+json
+     8.2.  Measured Component Content-Format Registrations
+   9.  References
+     9.1.  Normative References
+     9.2.  Informative References
    Appendix A.  Open Issues
    Acknowledgments
    Authors' Addresses
@@ -164,8 +166,9 @@ Table of Contents
      |           | (https://semver.org/spec/           |             |
      |           | v2.0.0.html) is RECOMMENDED.        |             |
      +-----------+-------------------------------------+-------------+
-     | Digest    | Hash of the measured component.     | REQUIRED    |
-     | Value     |                                     |             |
+     | Digest    | Hash of the measured component      | REQUIRED    |
+     | Value     | computed using the indicated Digest |             |
+     |           | Algorithm.                          |             |
      +-----------+-------------------------------------+-------------+
      | Digest    | Hash algorithm used to compute the  | REQUIRED    |
      | Algorithm | Digest Value.                       |             |
@@ -187,42 +190,58 @@ Table of Contents
    refactored to take into account the recommendations about new EAT
    claims design in Appendix E of [I-D.ietf-rats-eat].
 
-4.1.  The measured-component Data Item
+4.1.   Common Types
 
-   ;# import corim.digest from RFCYYYY as corim
+   bytes-b64u = text .b64u bytes
+   bytes8 = bytes .size 8
+   bytes8-b64u = text .b64u bytes8
+
+4.2.  The measured-component Data Item
+
+   ;# import corim.digest from rfcYYYY as corim
+   ;# import eat.JC from rfc9711 as eat
 
    measured-component = {
      id-label => component-id
      measurement-label => corim.digest
      ? signers-label => [ + signer-type ]
-     ? flags-label => profile-flags
+     ? flags-label => flags-type
    }
 
-   id-label = JC<"id", 1>
-   measurement-label = JC<"measurements", 2>
-   signers-label = JC<"signers", 3>
+   signer-type = eat.JC<bytes-b64u, bytes>
+   flags-type = eat.JC<bytes8-b64u, bytes8>
+
+   id-label = eat.JC<"id", 1>
+   measurement-label = eat.JC<"measurement", 2>
+   signers-label = eat.JC<"signers", 3>
+   flags-label = eat.JC<"flags", 4>
 
    "id" (index 1):
       The measured component identifier encoded according to the format
-      described in Section 4.1.1.
+      described in Section 4.2.1.
 
    "measurement" (index 2):
       Digest value and algorithm, encoded using CoRIM digest format
       (Section 1.3.8 of [I-D.ietf-rats-corim]).
 
    "signers" (index 3):
-      One or more signing entities, see Section 4.1.2.
+      One or more signing entities, see Section 4.2.2.
 
    "profile-flags" (index 4):
-      a 64-bit field with profile-defined semantics, see Section 4.1.3.
+      a 64-bit field with profile-defined semantics, see Section 4.2.3.
 
-4.1.1.  Component Identifier
-
-   ;# import sw-version-type from RFCXXXX as eat
+4.2.1.  Component Identifier
 
    component-id = [
      name:      text
-     ? version: eat.sw-version-type
+     ? version: version
+   ]
+
+   ;# import coswid.$version-scheme from rfc9393 as coswid
+
+   version = [
+     val:      text
+     ? scheme: coswid.$version-scheme
    ]
 
    name  A string that provides a human readable identifier for the
@@ -232,9 +251,9 @@ Table of Contents
    version  A compound version data item that reuses encoding and
       semantics of [I-D.ietf-rats-eat] sw-version-type.
 
-4.1.2.  Signer
+4.2.2.  Signer
 
-   A signer is an entity that digitally signs the measured component.
+   A signer is an entity that digitally signed the measured component.
    Typically, the signature is verified during installation or when the
    measured component is executed by the boot ROM, operating system, or
    application launcher.  For example, as in UEFI Secure Boot [UEFI2]
@@ -260,20 +279,20 @@ Table of Contents
    the signers array represents, and how to interpret the corresponding
    signer-type.
 
-   signer-type = bytes
+   signer-type = eat.JC<bytes-b64u, bytes>
 
-4.1.3.  Profile Flags
+4.2.3.  Profile Flags
 
    This field contains at most 64-bit of profile-defined semantics.
 
-   profile-flags = bytes .size 4
+   flags-type = eat.JC<bytes8-b64u, bytes8>
 
    If an EAT profile (Section 6 of [I-D.ietf-rats-eat]) uses measured
    components, it MUST specify whether the profile-flags field is used.
    If it is used, the profile MUST also specify how to interpret the 64
    bits.
 
-4.2.  EAT measurements-format Extensions
+4.3.  EAT measurements-format Extensions
 
    The CDDL in Figure 1 extends the $measurements-body-cbor and
    $measurements-body-json EAT sockets to add support for measured-
@@ -297,7 +316,7 @@ Table of Contents
    serialization (e.g., they are both CBOR), and a "tunnel"
    representation that is used when the serializations differ.
 
-4.3.  measurements-format for CBOR EAT
+4.4.  measurements-format for CBOR EAT
 
    The entries in Table 2 are the allowed content-type / content-format
    pairs when the measured-component is carried in a CBOR EAT.
@@ -316,7 +335,7 @@ Table of Contents
 
                  Table 2: measurement-format for EAT CWT
 
-4.4.  measurements-format for JSON EAT
+4.5.  measurements-format for JSON EAT
 
    Table 3 is the equivalent of Table 2 for JSON-serialized EAT.
 
@@ -330,13 +349,16 @@ Table of Contents
 
                  Table 3: measurement-format for EAT JWT
 
-5.  Examples
+5.  EAT Profiles and Measured Components
 
-      *NOTE:* The examples are CBOR only.  JSON examples will be added
-      in a future version of this document.
+   The semantics of the signers and profile flags fields are defined by
+   the applicable EAT profile, i.e., the profile of the wrapping EAT.
 
-      Tracking issue: https://github.com/ietf-rats-wg/draft-ietf-rats-
-      eat-measured-component/issues/18
+   If the profile of the EAT is not known to the consumer and one or
+   more Measured Components within that EAT include signers and/or
+   profile flags, the consumer MUST reject the EAT.
+
+6.  Examples
 
    The example in Figure 2 is a measured component with all the fields
    populated.
@@ -360,7 +382,7 @@ Table of Contents
        h'4277bb97ba7b51577a0d38151d3e08b40bdf946753f5b5bdeb814d6ff5
          7a8a5e'
      ],
-     / profile-flags / 4: h'00000101'
+     / profile-flags / 4: h'0000000000000101'
    }
 
                    Figure 2: Complete Measured Component
@@ -368,18 +390,18 @@ Table of Contents
    The example in Figure 3 is the same measured component as above but
    used as the format of a measurements claim in a EAT claims-set.
 
-   Note that the example uses a CoAP Content-Format value from the
-   experimental range (65000), which will change to the value assigned
-   by IANA for the application/measured-component+cbor Content-Format.
+   The example uses TBD1 as the content-type value of the measurements-
+   format entry.  (This will change to the value assigned by IANA to the
+   mc+cbor Content-Format.)
 
-   Note also that the array contains only one measured component, but
+   Note that the array contains only one measured component, but
    additional entries could be added if the measured TCB is made of
    multiple, individually measured components.
 
    {
      273: [
        [
-         65000, / using a CoAP C-F from the experimental range /
+         TBD1, / mc+cbor /
          <<
            {
              / id / 1: [
@@ -406,23 +428,64 @@ Table of Contents
      ]
    }
 
-        Figure 3: EAT Measurements Claim using a Measured Component
+     Figure 3: EAT Measurements Claim using a Measured Component (CBOR)
 
-6.  Security and Privacy Considerations
+   The example in Figure 4 illustrates the inclusion of a JSON measured
+   component inside a JSON EAT.
 
-   The Name and Version of a component could provide an attacker with
-   detailed information about the running software and configuration
-   settings of the device.  This information could also expose private
-   details regarding the device.  The stability requirement for the
-   component's Name could potentially enable tracking.
+   The example uses TBD2 as the content-type value of the measurements-
+   format entry.  (This will change to the value assigned by IANA to the
+   mc+json Content-Format.)
 
-7.  IANA Considerations
+   =============== NOTE: '\' line wrapping per RFC 8792 ================
+
+   {
+     "measurements": [
+       [
+         TBD2, / mc+json /
+         "{ \"id\": [ \"boot loader X\", [ \"1.2.3rc2\", 16384 ] ], \"\
+   measurement\": [ \"sha-256\", \"\
+   OZYAPUhvuR_7BW99A_KymSshWzHb569LNzQx_H0xnaM\" ], \"signers\": [ \"\
+   SS6bZ2wh9gErHO65Ay_rQUGogHlzVfZnUBXsWcUcoew\", \"\
+                      Qne7l7p7UVd6DTgVHT4ItAvflGdT9bW964FNb_V6il4\" ] }"
+       ]
+     ]
+   }
+
+     Figure 4: EAT Measurements Claim using a Measured Component (JSON)
+
+   The example in Figure 5 is a measured component representing a boot
+   loader identified by its path name:
+
+   {
+     / id / 1: [
+       / name / "/boot/loader.bin"
+     ],
+     / measurement / 2: [
+       / alg / "sha-384",
+       / val / h'66ec2fb4e02d8c8b3eee320e750d9389d66c52c51db11cc6
+                 9cc5e410816283ed60ba573795f5fcc85e513af57b3f6def'
+     ],
+     / profile-flags / 4: h'0000000000000101'
+   }
+
+         Figure 5: Measured Component using File Path as Identifier
+
+7.  Security and Privacy Considerations
+
+   The Name and Version of a component can give an attacker detailed
+   information about the software running on a device and its
+   configuration settings.  This information could offer an attacker
+   valuable insights.  Additionally, the stability requirement of the
+   component's Name could potentially allow for tracking.
+
+8.  IANA Considerations
 
 
    // RFC Editor: replace "RFCthis" with the RFC number assigned to this
    document.
 
-7.1.  Media Types Registrations
+8.1.  Media Types Registrations
 
    IANA is requested to add the following media types to the "Media
    Types" registry [IANA.media-types].
@@ -437,14 +500,14 @@ Table of Contents
 
                   Table 4: Measured Component Media Types
 
-7.1.1.  application/measured-component+cbor
+8.1.1.  application/measured-component+cbor
 
    Type name:  application
    Subtype name:  measured-component+cbor
    Required parameters:  n/a
    Optional parameters:  n/a
    Encoding considerations:  binary (CBOR)
-   Security considerations:  Section 6 of RFCthis
+   Security considerations:  Section 7 of RFCthis
    Interoperability considerations:  n/a
    Published specification:  RFCthis
    Applications that use this media type:  Attesters, Verifiers and
@@ -460,14 +523,14 @@ Table of Contents
    Author/Change controller:  IETF
    Provisional registration:  no
 
-7.1.2.  application/measured-component+json
+8.1.2.  application/measured-component+json
 
    Type name:  application
    Subtype name:  measured-component+json
    Required parameters:  n/a
    Optional parameters:  n/a
    Encoding considerations:  binary (JSON is UTF-8-encoded text)
-   Security considerations:  Section 6 of RFCthis
+   Security considerations:  Section 7 of RFCthis
    Interoperability considerations:  n/a
    Published specification:  RFCthis
    Applications that use this media type:  Attesters, Verifiers and
@@ -483,7 +546,7 @@ Table of Contents
    Author/Change controller:  IETF
    Provisional registration:  no
 
-7.2.  Measured Component Content-Format Registrations
+8.2.  Measured Component Content-Format Registrations
 
    IANA is requested to register two Content-Format numbers in the "CoAP
    Content-Formats" sub-registry, within the "Constrained RESTful
@@ -502,15 +565,17 @@ Table of Contents
 
                                   Table 5
 
-8.  References
+   If possible, TBD1 and TBD2 should be assigned in the 256..9999 range.
 
-8.1.  Normative References
+9.  References
+
+9.1.  Normative References
 
    [I-D.ietf-cbor-cddl-modules]
               Bormann, C. and B. Moran, "CDDL Module Structure", Work in
-              Progress, Internet-Draft, draft-ietf-cbor-cddl-modules-03,
-              1 September 2024, <https://datatracker.ietf.org/doc/html/
-              draft-ietf-cbor-cddl-modules-03>.
+              Progress, Internet-Draft, draft-ietf-cbor-cddl-modules-04,
+              3 March 2025, <https://datatracker.ietf.org/doc/html/
+              draft-ietf-cbor-cddl-modules-04>.
 
    [I-D.ietf-cbor-cddl-more-control]
               Bormann, C., "Concise Data Definition Language (CDDL):
@@ -523,9 +588,9 @@ Table of Contents
    [I-D.ietf-rats-corim]
               Birkholz, H., Fossati, T., Deshpande, Y., Smith, N., and
               W. Pan, "Concise Reference Integrity Manifest", Work in
-              Progress, Internet-Draft, draft-ietf-rats-corim-06, 18
-              October 2024, <https://datatracker.ietf.org/doc/html/
-              draft-ietf-rats-corim-06>.
+              Progress, Internet-Draft, draft-ietf-rats-corim-07, 3
+              March 2025, <https://datatracker.ietf.org/doc/html/draft-
+              ietf-rats-corim-07>.
 
    [I-D.ietf-rats-eat]
               Lundblade, L., Mandyam, G., O'Donoghue, J., and C.
@@ -568,7 +633,7 @@ Table of Contents
               DOI 10.17487/RFC9165, December 2021,
               <https://www.rfc-editor.org/rfc/rfc9165>.
 
-8.2.  Informative References
+9.2.  Informative References
 
    [I-D.tschofenig-rats-psa-token]
               Tschofenig, H., Frost, S., Brossard, M., Shaw, A. L., and
@@ -604,9 +669,10 @@ Appendix A.  Open Issues
 
 Acknowledgments
 
-   The authors would like to thank Carl Wallace, Carsten Bormann,
-   Giridhar Mandyam and Laurence Lundblade for providing comments,
-   reviews and suggestions that greatly improved this document.
+   The authors would like to thank Carl Wallace, Carsten Bormann, Dionna
+   Glaze, Giridhar Mandyam, Laurence Lundblade and Michael Richardson
+   for providing comments, reviews and suggestions that greatly improved
+   this document.
 
 Authors' Addresses
 
@@ -621,5 +687,5 @@ Authors' Addresses
 
 
    Hannes Tschofenig
-   Siemens
-   Email: Hannes.Tschofenig@siemens.com
+   University of Applied Sciences Bonn-Rhein-Sieg
+   Email: Hannes.Tschofenig@gmx.net
