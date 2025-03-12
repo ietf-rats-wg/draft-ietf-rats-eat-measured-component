@@ -5,10 +5,10 @@
 Remote ATtestation ProcedureS                                   S. Frost
 Internet-Draft                                                       Arm
 Intended status: Standards Track                              T. Fossati
-Expires: 4 September 2025                                         Linaro
+Expires: 13 September 2025                                        Linaro
                                                            H. Tschofenig
                                                                    H-BRS
-                                                            3 March 2025
+                                                           12 March 2025
 
 
                          EAT Measured Component
@@ -53,7 +53,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 4 September 2025.
+   This Internet-Draft will expire on 13 September 2025.
 
 Copyright Notice
 
@@ -591,15 +591,17 @@ Table of Contents
 
                                   Table 5
 
+   If possible, TBD1 and TBD2 should be assigned in the 256..9999 range.
+
 9.  References
 
 9.1.  Normative References
 
    [I-D.ietf-cbor-cddl-modules]
               Bormann, C. and B. Moran, "CDDL Module Structure", Work in
-              Progress, Internet-Draft, draft-ietf-cbor-cddl-modules-03,
-              1 September 2024, <https://datatracker.ietf.org/doc/html/
-              draft-ietf-cbor-cddl-modules-03>.
+              Progress, Internet-Draft, draft-ietf-cbor-cddl-modules-04,
+              3 March 2025, <https://datatracker.ietf.org/doc/html/
+              draft-ietf-cbor-cddl-modules-04>.
 
    [I-D.ietf-cbor-cddl-more-control]
               Bormann, C., "Concise Data Definition Language (CDDL):
