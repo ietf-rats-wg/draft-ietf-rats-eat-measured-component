@@ -386,6 +386,8 @@ IANA is requested to register two Content-Format numbers in the "CoAP Content-Fo
 | application/measured-component+cbor | - | TBD1 | {{&SELF}} |
 | application/measured-component+json | - | TBD2 | {{&SELF}} |
 
+If possible, TBD1 and TBD2 should be assigned in the 256..9999 range.
+
 --- back
 
 # Open Issues
