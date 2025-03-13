@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-03-11T00:44:07.486297+00:00",
+  "timestamp": "2025-03-13T00:44:19.049934+00:00",
   "repo": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
   "labels": [
     {
@@ -547,6 +547,22 @@
       "createdAt": "2025-02-19T18:19:51Z",
       "updatedAt": "2025-02-20T11:32:35Z",
       "closedAt": "2025-02-20T11:32:35Z",
+      "comments": []
+    },
+    {
+      "number": 33,
+      "id": "I_kwDOLP05f86tpOHQ",
+      "title": "IANA early review",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/issues/33",
+      "state": "CLOSED",
+      "author": "thomas-fossati",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Amanda:\n\n> _\u201dIn Section 8.2, please specify the range the CoAP Content-Format value should be assigned from. See https://www.iana.org/assignments/core-parameters for the registry\u2019s registration procedure table.\"_",
+      "createdAt": "2025-03-12T09:12:28Z",
+      "updatedAt": "2025-03-12T09:18:56Z",
+      "closedAt": "2025-03-12T09:18:56Z",
       "comments": []
     }
   ],
@@ -1278,6 +1294,56 @@
           "body": "LGTM",
           "createdAt": "2025-03-03T17:14:34Z",
           "updatedAt": "2025-03-03T17:14:34Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 34,
+      "id": "PR_kwDOLP05f86OTu0N",
+      "title": "C-F ranges wish list",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/pull/34",
+      "state": "MERGED",
+      "author": "thomas-fossati",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Fix #33 ",
+      "createdAt": "2025-03-12T09:13:24Z",
+      "updatedAt": "2025-03-12T09:18:58Z",
+      "baseRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "baseRefName": "main",
+      "baseRefOid": "223b030bc5ce223ecc53070de8cb61d60011d3a4",
+      "headRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "headRefName": "iana-early",
+      "headRefOid": "a2bb7bbb0f25c296c2fe69ffb1ba23496e358009",
+      "closedAt": "2025-03-12T09:18:55Z",
+      "mergedAt": "2025-03-12T09:18:55Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "344f6f134f1932a07a2e481a25fd5d0395117c51"
+      },
+      "comments": [
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "body": "cc @simonfrost-arm",
+          "createdAt": "2025-03-12T09:14:22Z",
+          "updatedAt": "2025-03-12T09:14:22Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOLP05f86fmduv",
+          "commit": {
+            "abbreviatedOid": "a2bb7bb"
+          },
+          "author": "SimonFrost-Arm",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "LGTM",
+          "createdAt": "2025-03-12T09:15:26Z",
+          "updatedAt": "2025-03-12T09:15:26Z",
           "comments": []
         }
       ]
