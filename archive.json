@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-03-16T00:48:50.900891+00:00",
+  "timestamp": "2025-03-18T00:44:09.676907+00:00",
   "repo": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
   "labels": [
     {
@@ -563,6 +563,22 @@
       "createdAt": "2025-03-12T09:12:28Z",
       "updatedAt": "2025-03-12T09:18:56Z",
       "closedAt": "2025-03-12T09:18:56Z",
+      "comments": []
+    },
+    {
+      "number": 35,
+      "id": "I_kwDOLP05f86uS33q",
+      "title": "Remove `.size 64` constraint from flags",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/issues/35",
+      "state": "OPEN",
+      "author": "thomas-fossati",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "A slightly more radical approach to the current extension mechanism is to remove the `.size 64` constraint:\n\n```\nextn-type = eat.JC<bytes-b64u, bytes>\n```\n\nand allow *any* _profile-defined_ semantics, e.g.:\n```\nextn-type = bytes .cbor my-extension-map\nextn-type = text .json my-extension-map\n```\n\nThis way, we can have more structured/richer information in addition to the bitmask or the virtually unlimited codepoint space that the current type supports.\n\nNote that, similar to the `signer` claim, this is opaque to the generic EAT processor and would instead be interpreted by the profile-specific processor.\n\n-----\n\nCarsten suggested that an explicit socket may be a better choice over raw bytes in terms of type identification.\nHowever, when embedded in an EAT (which is the case for EAT MCs), the overall type is fully described in the EAT profile.\n\nSince the document also defines the information model, this must be made an explicit requirement for \u201cother\u201d, non-EAT data models.\n",
+      "createdAt": "2025-03-17T08:35:30Z",
+      "updatedAt": "2025-03-17T08:35:30Z",
+      "closedAt": null,
       "comments": []
     }
   ],
