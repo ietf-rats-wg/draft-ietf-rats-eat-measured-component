@@ -5,10 +5,10 @@
 Remote ATtestation ProcedureS                                   S. Frost
 Internet-Draft                                                       Arm
 Intended status: Standards Track                              T. Fossati
-Expires: 13 September 2025                                        Linaro
+Expires: 25 December 2025                                         Linaro
                                                            H. Tschofenig
                                                                    H-BRS
-                                                           12 March 2025
+                                                            23 June 2025
 
 
                          EAT Measured Component
@@ -17,8 +17,8 @@ Expires: 13 September 2025                                        Linaro
 Abstract
 
    The term "measured component" refers to an object within the
-   attester's target environment whose state can be inspected and
-   digested.  A digest is typically computed through a cryptographic
+   attester's target environment whose state can be inspected and,
+   typically, digested.  A digest is computed through a cryptographic
    hash function.  Examples of measured components include firmware
    stored in flash memory, software loaded into memory at start time,
    data stored in a file system, or values in a CPU register.
@@ -53,7 +53,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 13 September 2025.
+   This Internet-Draft will expire on 25 December 2025.
 
 Copyright Notice
 
@@ -117,10 +117,11 @@ Table of Contents
    alternative to CoSWID.
 
    The term "measured component" refers to any measurable object on a
-   target environment, that is, an object whose state can be sampled and
-   digested.  This includes, for example: the invariant part of a
-   firmware component that is loaded in memory at startup time, a run-
-   time integrity check (RTIC), a file system object, or a CPU register.
+   target environment, that is, an object whose state can be sampled
+   and, possibly, digested.  This includes, for example: the invariant
+   part of a firmware component that is loaded in memory at startup
+   time, a run-time integrity check (RTIC), a file system object, or a
+   CPU register.
 
 2.  Conventions and Definitions
 
@@ -136,10 +137,11 @@ Table of Contents
 
 3.  Information Model
 
-   A "measured component" information element includes the digest of the
-   component's sampled state along with metadata that helps in
-   identifying the component.  Optionally, any entities responsible for
-   signing the installed component can also be specified.
+   A "measured component" information element includes the component's
+   sampled state (in digested or raw form) along with metadata that
+   helps in identifying the component.  Optionally, any entities
+   responsible for signing the installed component can also be
+   specified.
 
    The information model of a "measured component" is described in
    Table 1.
@@ -166,12 +168,16 @@ Table of Contents
      |           | (https://semver.org/spec/           |             |
      |           | v2.0.0.html) is RECOMMENDED.        |             |
      +-----------+-------------------------------------+-------------+
-     | Digest    | Hash of the measured component      | REQUIRED    |
-     | Value     | computed using the indicated Digest |             |
-     |           | Algorithm.                          |             |
+     | Digested  | Either the raw value or the         | REQUIRED    |
+     | or Raw    | digested value of the measured      |             |
+     | Value     | component.                          |             |
      +-----------+-------------------------------------+-------------+
      | Digest    | Hash algorithm used to compute the  | REQUIRED    |
-     | Algorithm | Digest Value.                       |             |
+     | Algorithm | Digest Value.                       | only if the |
+     |           |                                     | value is in |
+     |           |                                     | the         |
+     |           |                                     | digested    |
+     |           |                                     | form        |
      +-----------+-------------------------------------+-------------+
      | Signers   | One or more unique identifiers of   | OPTIONAL    |
      |           | entities signing the measured       |             |
@@ -217,16 +223,20 @@ Table of Contents
 
    measured-component = {
      id-label => component-id
-     measurement-label => corim.digest
+     measurement
      ? signers-label => [ + signer-type ]
      ? flags-label => flags-type
    }
+
+   measurement //= ( digested-measurement-label => corim.digest )
+   measurement //= ( raw-measurement-label => bytes )
 
    signer-type = eat.JC<bytes-b64u, bytes>
    flags-type = eat.JC<bytes8-b64u, bytes8>
 
    id-label = eat.JC<"id", 1>
-   measurement-label = eat.JC<"measurement", 2>
+   digested-measurement-label = eat.JC<"digested-measurement", 2>
+   raw-measurement-label = eat.JC<"raw-measurement", 5>
    signers-label = eat.JC<"signers", 3>
    flags-label = eat.JC<"flags", 4>
 
@@ -236,9 +246,10 @@ Table of Contents
       The measured component identifier encoded according to the format
       described in Section 4.2.1.
 
-   "measurement" (index 2):
-      Digest value and algorithm, encoded using CoRIM digest format
-      (Section 1.3.8 of [I-D.ietf-rats-corim]).
+   "measurement":
+      Either a digest value and algorithm (index 2), encoded using CoRIM
+      digest format (Section 1.3.8 of [I-D.ietf-rats-corim]), or the
+      "raw" measurement (index 5), encoded as a byte string.
 
    "signers" (index 3):
       One or more signing entities, see Section 4.2.2.
@@ -386,8 +397,8 @@ Table of Contents
 
 6.  Examples
 
-   The example in Figure 2 is a measured component with all the fields
-   populated.
+   The example in Figure 2 is a digested measured component with all the
+   fields populated.
 
    {
      / id / 1: [
@@ -470,7 +481,7 @@ Table of Contents
        [
          TBD2, / mc+json /
          "{ \"id\": [ \"boot loader X\", [ \"1.2.3rc2\", 16384 ] ], \"\
-   measurement\": [ \"sha-256\", \"\
+   digested-measurement\": [ \"sha-256\", \"\
    OZYAPUhvuR_7BW99A_KymSshWzHb569LNzQx_H0xnaM\" ], \"signers\": [ \"\
    SS6bZ2wh9gErHO65Ay_rQUGogHlzVfZnUBXsWcUcoew\", \"\
                       Qne7l7p7UVd6DTgVHT4ItAvflGdT9bW964FNb_V6il4\" ] }"
@@ -495,7 +506,18 @@ Table of Contents
      / profile-flags / 4: h'0000000000000101'
    }
 
-         Figure 5: Measured Component using File Path as Identifier
+    Figure 5: Digested Measured Component using File Path as Identifier
+
+   The example in Figure 6 is a raw measured component.
+
+   {
+     / id / 1: [
+       / name / "hardware-config"
+     ],
+     / measurement / 5: h'4f6d616861'
+   }
+
+                      Figure 6: Raw Measured Component
 
 7.  Security and Privacy Considerations
 
