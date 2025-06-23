@@ -63,8 +63,8 @@ entity:
 
 --- abstract
 
-The term "measured component" refers to an object within the attester's target environment whose state can be inspected and digested.
-A digest is typically computed through a cryptographic hash function.
+The term "measured component" refers to an object within the attester's target environment whose state can be inspected and, typically, digested.
+A digest is computed through a cryptographic hash function.
 Examples of measured components include firmware stored in flash memory, software loaded into memory at start time, data stored in a file system, or values in a CPU register.
 
 This document defines a "measured component" format that can be used with the EAT `Measurements` claim.
@@ -82,7 +82,7 @@ Currently, the only specified format is CoSWID of type "evidence", as per {{Sect
 
 This document introduces a "measured component" format that can be used with the EAT `Measurements` claim in addition to or as an alternative to CoSWID.
 
-The term "measured component" refers to any measurable object on a target environment, that is, an object whose state can be sampled and digested.
+The term "measured component" refers to any measurable object on a target environment, that is, an object whose state can be sampled and, possibly, digested.
 This includes, for example: the invariant part of a firmware component that is loaded in memory at startup time, a run-time integrity check (RTIC), a file system object, or a CPU register.
 
 # Conventions and Definitions
@@ -93,7 +93,7 @@ In this document, CDDL {{-cddl}} {{-cddlplus}} {{-cddlmod}} {{-cddlctls}} is use
 
 # Information Model {#measured-component}
 
-A "measured component" information element includes the digest of the component's sampled state along with metadata that helps in identifying the component.
+A "measured component" information element includes the component's sampled state (in digested or raw form) along with metadata that helps in identifying the component.
 Optionally, any entities responsible for signing the installed component can also be specified.
 
 The information model of a "measured component" is described in {{tab-mc-info-elems}}.
@@ -102,8 +102,8 @@ The information model of a "measured component" is described in {{tab-mc-info-el
 |----|-------------|-------------------|
 | Component Name | The name given to the measured component. It is important that this name remains consistent across different releases to allow for better tracking of the same measured item across updates. When combined with a consistent versioning scheme, it enables better signaling from the appraisal procedure to the relying parties. | REQUIRED |
 | Component Version | A value representing the specific release or development version of the measured component.  Using [Semantic Versioning](https://semver.org/spec/v2.0.0.html) is RECOMMENDED. | OPTIONAL |
-| Digest Value | Hash of the measured component computed using the indicated Digest Algorithm. | REQUIRED |
-| Digest Algorithm | Hash algorithm used to compute the Digest Value. | REQUIRED |
+| Digested or Raw Value | Either the raw value or the digested value of the measured component. | REQUIRED |
+| Digest Algorithm | Hash algorithm used to compute the Digest Value. | REQUIRED only if the value is in the digested form |
 | Signers | One or more unique identifiers of entities signing the measured component. | OPTIONAL |
 {: #tab-mc-info-elems title="Measured Component Information Elements"}
 
@@ -143,8 +143,8 @@ The members of the `measured-component` CBOR map / JSON object are:
 `"id"` (index 1):
 : The measured component identifier encoded according to the format described in {{component-id}}.
 
-`"measurement"` (index 2):
-: Digest value and algorithm, encoded using CoRIM digest format ({{Section 1.3.8 of -corim}}).
+`"measurement"`:
+: Either a digest value and algorithm (index 2), encoded using CoRIM digest format ({{Section 1.3.8 of -corim}}), or the "raw" measurement (index 5), encoded as a byte string.
 
 `"signers"` (index 3):
 : One or more signing entities, see {{signer}}.
@@ -246,7 +246,7 @@ If the profile of the EAT is not known to the consumer and one or more Measured 
 
 # Examples
 
-The example in {{ex-1}} is a measured component with all the fields populated.
+The example in {{ex-1}} is a digested measured component with all the fields populated.
 
 ~~~ cbor-edn
 {::include cddl/ex1.diag}
@@ -280,7 +280,14 @@ The example in {{ex-2}} is a measured component representing a boot loader ident
 ~~~ cbor-edn
 {::include cddl/ex2.diag}
 ~~~
-{: #ex-2 title="Measured Component using File Path as Identifier"}
+{: #ex-2 title="Digested Measured Component using File Path as Identifier"}
+
+The example in {{ex-3}} is a raw measured component.
+
+~~~ cbor-edn
+{::include cddl/ex3.diag}
+~~~
+{: #ex-3 title="Raw Measured Component"}
 
 # Security and Privacy Considerations {#seccons}
 
