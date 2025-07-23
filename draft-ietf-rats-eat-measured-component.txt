@@ -5,10 +5,10 @@
 Remote ATtestation ProcedureS                                   S. Frost
 Internet-Draft                                                       Arm
 Intended status: Standards Track                              T. Fossati
-Expires: 18 January 2026                                          Linaro
+Expires: 24 January 2026                                          Linaro
                                                            H. Tschofenig
                                                                    H-BRS
-                                                            17 July 2025
+                                                            23 July 2025
 
 
                          EAT Measured Component
@@ -53,7 +53,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 18 January 2026.
+   This Internet-Draft will expire on 24 January 2026.
 
 Copyright Notice
 
