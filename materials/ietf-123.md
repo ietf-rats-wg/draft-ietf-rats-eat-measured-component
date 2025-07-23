@@ -11,11 +11,17 @@ theme: Plain Thomas
 
 # Quick Recap
 
+[.column]
+
 Extends the [EAT Measurements](https://www.ietf.org/archive/id/draft-ietf-rats-eat-31.html#section-4.2.16) claim
 
 It can be used in addition to or as an alternative to [CoSWID](https://www.rfc-editor.org/rfc/rfc9393.html)
 
 _"Measured component"_ $$\equiv$$ any measurable object on a target environment:
+
+[.column]
+
+Examples:
 
 * Firmware component loaded in memory at boot time (typical)
 * Run-time integrity check (RTIC)
@@ -35,12 +41,12 @@ changes.
 * Support "raw" values alongside "digested" values
 
 ```
- 	   {	
- 	     / id / 1: [	
- 	       / name / "hardware-config"	
- 	     ],	
- 	     / measurement / 5: h'4f6d616861'	
- 	   }	
+   {
+     / id / 1: [
+       / name / "hardware-config"
+     ],
+     / measurement / 5: h'4f6d616861'
+   }
 ```
 
 * Decided not to go ahead with SVN 
