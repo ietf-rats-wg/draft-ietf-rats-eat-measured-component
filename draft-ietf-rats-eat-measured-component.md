@@ -28,6 +28,9 @@ author:
    org: University of Applied Sciences Bonn-Rhein-Sieg
    abbrev: H-BRS
    email: Hannes.Tschofenig@gmx.net
+ - name: Henk Birkholz
+   org: Fraunhofer SIT
+   email: henk.birkholz@ietf.contact
 
 normative:
   RFC7252: coap
