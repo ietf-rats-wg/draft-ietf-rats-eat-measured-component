@@ -8,13 +8,14 @@
 <meta content="Simon Frost" name="author">
 <meta content="Thomas Fossati" name="author">
 <meta content="Hannes Tschofenig" name="author">
+<meta content="Henk Birkholz" name="author">
 <meta content="
        The term &quot;measured component&quot; refers to an object within the attester's target environment whose state can be inspected and, typically, digested.
 A digest is computed through a cryptographic hash function.
 Examples of measured components include firmware stored in flash memory, software loaded into memory at start time, data stored in a file system, or values in a CPU register. 
        This document defines a &quot;measured component&quot; format that can be used with the EAT  Measurements  claim. 
     " name="description">
-<meta content="xml2rfc 3.30.0" name="generator">
+<meta content="xml2rfc 3.30.2" name="generator">
 <meta content="EAT" name="keyword">
 <meta content="measurements" name="keyword">
 <meta content="claim" name="keyword">
@@ -22,19 +23,19 @@ Examples of measured components include firmware stored in flash memory, softwar
 <meta content="component" name="keyword">
 <meta content="draft-ietf-rats-eat-measured-component-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.30.0
+  xml2rfc 3.30.2
     Python 3.12.11
     ConfigArgParse 1.7
     google-i18n-address 3.1.1
     intervaltree 3.1.0
     Jinja2 3.1.6
     lxml 5.3.1
-    platformdirs 4.3.8
+    platformdirs 4.4.0
     pycountry 24.6.1
     PyYAML 6.0.2
-    requests 2.32.4
+    requests 2.32.5
     setuptools 80.9.0
-    wcwidth 0.2.13
+    wcwidth 0.2.14
 -->
 <link href="draft-ietf-rats-eat-measured-component.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
@@ -1053,11 +1054,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">EAT Measured Component</td>
-<td class="right">July 2025</td>
+<td class="right">October 2025</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Frost, et al.</td>
-<td class="center">Expires 24 January 2026</td>
+<td class="center">Expires 19 April 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1070,12 +1071,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-ietf-rats-eat-measured-component-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-07-23" class="published">23 July 2025</time>
+<time datetime="2025-10-16" class="published">16 October 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-01-24">24 January 2026</time></dd>
+<dd class="expires"><time datetime="2026-04-19">19 April 2026</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1089,6 +1090,10 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <div class="author">
       <div class="author-name">H. Tschofenig</div>
 <div class="org">H-BRS</div>
+</div>
+<div class="author">
+      <div class="author-name">H. Birkholz</div>
+<div class="org">Fraunhofer SIT</div>
 </div>
 </dd>
 </dl>
@@ -1131,7 +1136,7 @@ Examples of measured components include firmware stored in flash memory, softwar
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 24 January 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 19 April 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -2052,7 +2057,7 @@ Additionally, the stability requirement of the component's Name could potentiall
 <dl class="references">
 <dt id="I-D.ietf-cbor-cddl-modules">[I-D.ietf-cbor-cddl-modules]</dt>
         <dd>
-<span class="refAuthor">Bormann, C.</span> and <span class="refAuthor">B. Moran</span>, <span class="refTitle">"CDDL Module Structure"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-cbor-cddl-modules-04</span>, <time datetime="2025-03-03" class="refDate">3 March 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-cbor-cddl-modules-04">https://datatracker.ietf.org/doc/html/draft-ietf-cbor-cddl-modules-04</a>&gt;</span>. </dd>
+<span class="refAuthor">Bormann, C.</span> and <span class="refAuthor">B. Moran</span>, <span class="refTitle">"CDDL Module Structure"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-cbor-cddl-modules-05</span>, <time datetime="2025-08-30" class="refDate">30 August 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-cbor-cddl-modules-05">https://datatracker.ietf.org/doc/html/draft-ietf-cbor-cddl-modules-05</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="I-D.ietf-cbor-cddl-more-control">[I-D.ietf-cbor-cddl-more-control]</dt>
         <dd>
@@ -2176,6 +2181,14 @@ for providing comments, reviews and suggestions that greatly improved this docum
 <div class="email">
 <span>Email:</span>
 <a href="mailto:Hannes.Tschofenig@gmx.net" class="email">Hannes.Tschofenig@gmx.net</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Henk Birkholz</span></div>
+<div dir="auto" class="left"><span class="org">Fraunhofer SIT</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:henk.birkholz@ietf.contact" class="email">henk.birkholz@ietf.contact</a>
 </div>
 </address>
 </section>
