@@ -107,7 +107,7 @@ The information model of a "measured component" is described in {{tab-mc-info-el
 | Component Version | A value representing the specific release or development version of the measured component.  Using [Semantic Versioning](https://semver.org/spec/v2.0.0.html) is RECOMMENDED. | OPTIONAL |
 | Digested or Raw Value | Either the raw value or the digested value of the measured component. | REQUIRED |
 | Digest Algorithm | Hash algorithm used to compute the Digest Value. | REQUIRED only if the value is in the digested form |
-| Signers | One or more unique identifiers of entities signing the measured component. | OPTIONAL |
+| Signers | One or more unique identifiers of entities signing the software component that is measured. | OPTIONAL |
 {: #tab-mc-info-elems title="Measured Component Information Elements"}
 
 The format SHOULD also allow a limited amount of extensibility to accommodate profile-specific semantics.
@@ -172,7 +172,7 @@ The `component-id` data item is as follows:
 
 ### Signer {#signer}
 
-A signer is an entity that digitally signed the measured component.
+A signer is an entity that digitally signed the software component that is measured.
 Typically, the signature is verified during installation or when the measured component is executed by the boot ROM, operating system, or application launcher.
 For example, as in UEFI Secure Boot {{UEFI2}} and Arm Trusted Board Boot {{TBBR-CLIENT}}.
 Another example may be the controlling entity in an app store.
