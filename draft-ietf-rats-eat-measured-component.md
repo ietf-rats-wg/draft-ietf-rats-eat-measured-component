@@ -178,7 +178,7 @@ For example, as in UEFI Secure Boot {{UEFI2}} and Arm Trusted Board Boot {{TBBR-
 Another example may be the controlling entity in an app store.
 It is important to note that a signer is different from the identity of the manufacturer of the component, such as would be found in a manifest like a payload CoSWID.
 
-A signer is associated with a public key.
+A signer is identified using a public key.
 It could be an X.509 certificate, a raw public key, a public key thumbprint, or some other identifier that can be uniquely associated with the signing entity.
 In some cases, multiple parties may need to sign a component to indicate their endorsement or approval.
 This could include roles such as a firmware update system, fleet owner, or third-party auditor.
