@@ -1,7 +1,7 @@
 measured-component = {
   id-label => component-id
   measurement
-  ? signers-label => [ + signer-type ]
+  ? signers-label => [ + signer-id-type ]
   ? flags-label => flags-type
 }
 
@@ -25,7 +25,7 @@ corim.digest = [
   val: digest-value-type
 ]
 
-signer-type = eat.JC<bytes-b64u, bytes>
+signer-id-type = eat.JC<bytes-b64u, bytes>
 flags-type = eat.JC<bytes8-b64u, bytes8>
 digest-value-type = eat.JC<bytes-b64u, bytes>
 
