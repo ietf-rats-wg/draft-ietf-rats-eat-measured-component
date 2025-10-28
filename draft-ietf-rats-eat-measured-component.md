@@ -298,6 +298,8 @@ The Name and Version of a component can give an attacker detailed information ab
 This information could offer an attacker valuable insights.
 Additionally, the stability requirement of the component's Name could potentially allow for tracking.
 
+If the component measurement is digested, the digest must be computed using a strong cryptographic hash function.
+
 # IANA Considerations
 
 [^rfced] replace "{{&SELF}}" with the RFC number assigned to this document.
@@ -434,6 +436,7 @@ Carl Wallace,
 Carsten Bormann,
 Dionna Glaze,
 Giridhar Mandyam,
+{{{Ionuț Mihalcea}}},
 Laurence Lundblade
 and
 Michael Richardson
