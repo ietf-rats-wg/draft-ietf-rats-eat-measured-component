@@ -185,9 +185,9 @@ This could include roles such as a firmware update system, fleet owner, or third
 The specific purpose of each signature may depend on the deployment, and the order of signers within the array could indicate meaning.
 
 If an EAT profile ({{Section 6 of -rats-eat}}) uses measured components, it MUST specify whether the `signers` field is used.
-If it is used, the profile MUST also specify what each of the entries in the `signers` array represents, and how to interpret the corresponding `signer-type`.
+If it is used, the profile MUST also specify what each of the entries in the `signers` array represents, and how to interpret the corresponding `signer-id-type`.
 
-The `signer-type` is defined as follows:
+The `signer-id-type` is defined as follows:
 
 ~~~ cddl
 {::include cddl/signer.cddl}
