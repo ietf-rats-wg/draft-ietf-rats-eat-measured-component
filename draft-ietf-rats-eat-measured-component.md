@@ -294,9 +294,9 @@ The example in {{ex-3}} is a raw measured component.
 
 # Security and Privacy Considerations {#seccons}
 
-The Name and Version of a component can give an attacker detailed information about the software running on a device and its configuration settings.
+The Component Name and Component Version can give an attacker detailed information about the software running on a device and its configuration settings.
 This information could offer an attacker valuable insights.
-Additionally, the stability requirement of the component's Name could potentially allow for tracking.
+Additionally, the stability requirement of the Component Name could potentially allow for tracking.
 
 # IANA Considerations
 
