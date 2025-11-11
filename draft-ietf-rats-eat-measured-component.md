@@ -295,6 +295,7 @@ The example in {{ex-3}} is a raw measured component.
 # Security and Privacy Considerations {#seccons}
 
 Please review {{Sections 9.1 (Claim Trustworthiness), 9.4 (Multiple EAT Consumers) and 9.5 (Detached EAT Bundle Digest Security Considerations) of -rats-eat}}; these considerations apply to this document as well.
+Note that similar security and privacy considerations may apply when the Measured Component information model is serialized using a different data model to the one specified in this document.
 
 The Component Name and Component Version can give an attacker detailed information about the software running on a device and its configuration settings.
 This information could offer an attacker valuable insights.
