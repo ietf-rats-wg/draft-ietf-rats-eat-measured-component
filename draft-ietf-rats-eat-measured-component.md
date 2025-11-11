@@ -37,12 +37,12 @@ normative:
   RFC8610: cddl
   RFC9165: cddlplus
   I-D.ietf-cbor-cddl-modules: cddlmod
-  I-D.ietf-cbor-cddl-more-control: cddlctls
-  I-D.ietf-rats-eat: rats-eat
+  RFC9741: cddlctls
+  RFC9711: rats-eat
   I-D.ietf-rats-corim: corim
 
 informative:
-  I-D.tschofenig-rats-psa-token: psa-token
+  RFC9783: psa-token
   RFC9393: coswid
   UEFI2:
     title: "Unified Extensible Firmware Interface (UEFI) Specification"
