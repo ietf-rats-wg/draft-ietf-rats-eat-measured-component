@@ -523,11 +523,11 @@ Table of Contents
 
 7.  Security and Privacy Considerations
 
-   The Name and Version of a component can give an attacker detailed
-   information about the software running on a device and its
+   The Component Name and Component Version can give an attacker
+   detailed information about the software running on a device and its
    configuration settings.  This information could offer an attacker
    valuable insights.  Additionally, the stability requirement of the
-   component's Name could potentially allow for tracking.
+   Component Name could potentially allow for tracking.
 
    If the component measurement is digested, the digest must be computed
    using a strong cryptographic hash function.
