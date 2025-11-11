@@ -42,6 +42,7 @@ normative:
   I-D.ietf-rats-corim: corim
 
 informative:
+  RFC3444: models
   RFC9783: psa-token
   RFC9393: coswid
   UEFI2:
@@ -95,6 +96,8 @@ This includes, for example: the invariant part of a firmware component that is l
 In this document, CDDL {{-cddl}} {{-cddlplus}} {{-cddlmod}} {{-cddlctls}} is used to describe the data formats.
 
 # Information Model {#measured-component}
+
+This section presents the information model ({{-models}}) of a "measured component".
 
 A "measured component" information element includes the component's sampled state (in digested or raw form) along with metadata that helps in identifying the component.
 Optionally, any entities responsible for signing the installed component can also be specified.
