@@ -82,8 +82,8 @@ This document defines a "measured component" format that can be used with the EA
 
 This claim allows for different measurement formats, each identified by a different CoAP Content-Format ({{Section 12.3 of -coap}}).
 Currently, the only specified format is CoSWID of type "evidence", as per {{Section 2.9.4 of -coswid}}.
-
-This document introduces a "measured component" format that can be used with the EAT `Measurements` claim in addition to or as an alternative to CoSWID.
+However, CoSWID is not suitable for measurements that cannot be anchored to a file system, such as those in early boot environments.
+To address this gap, this document introduces a "measured component" format that can be used with the EAT `Measurements` claim alongside or instead of CoSWID.
 
 The term "measured component" refers to any measurable object on a target environment, that is, an object whose state can be sampled and, possibly, digested.
 This includes, for example: the invariant part of a firmware component that is loaded in memory at startup time, a run-time integrity check (RTIC), a file system object, or a CPU register.
