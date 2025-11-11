@@ -1268,10 +1268,11 @@ Examples of measured components include firmware stored in flash memory, softwar
 </li>
       </ul>
 <p id="section-1-3">This claim allows for different measurement formats, each identified by a different CoAP Content-Format (<span><a href="https://rfc-editor.org/rfc/rfc7252#section-12.3" class="relref">Section 12.3</a> of [<a href="#RFC7252" class="cite xref">RFC7252</a>]</span>).
-Currently, the only specified format is CoSWID of type "evidence", as per <span><a href="https://rfc-editor.org/rfc/rfc9393#section-2.9.4" class="relref">Section 2.9.4</a> of [<a href="#RFC9393" class="cite xref">RFC9393</a>]</span>.<a href="#section-1-3" class="pilcrow">¶</a></p>
-<p id="section-1-4">This document introduces a "measured component" format that can be used with the EAT <code>Measurements</code> claim in addition to or as an alternative to CoSWID.<a href="#section-1-4" class="pilcrow">¶</a></p>
-<p id="section-1-5">The term "measured component" refers to any measurable object on a target environment, that is, an object whose state can be sampled and, possibly, digested.
-This includes, for example: the invariant part of a firmware component that is loaded in memory at startup time, a run-time integrity check (RTIC), a file system object, or a CPU register.<a href="#section-1-5" class="pilcrow">¶</a></p>
+Currently, the only specified format is CoSWID of type "evidence", as per <span><a href="https://rfc-editor.org/rfc/rfc9393#section-2.9.4" class="relref">Section 2.9.4</a> of [<a href="#RFC9393" class="cite xref">RFC9393</a>]</span>.
+However, CoSWID is not suitable for measurements that cannot be anchored to a file system, such as those in early boot environments.
+To address this gap, this document introduces a "measured component" format that can be used with the EAT <code>Measurements</code> claim alongside or instead of CoSWID.<a href="#section-1-3" class="pilcrow">¶</a></p>
+<p id="section-1-4">The term "measured component" refers to any measurable object on a target environment, that is, an object whose state can be sampled and, possibly, digested.
+This includes, for example: the invariant part of a firmware component that is loaded in memory at startup time, a run-time integrity check (RTIC), a file system object, or a CPU register.<a href="#section-1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="conventions-and-definitions">

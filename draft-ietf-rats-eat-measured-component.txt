@@ -111,11 +111,11 @@ Table of Contents
    This claim allows for different measurement formats, each identified
    by a different CoAP Content-Format (Section 12.3 of [RFC7252]).
    Currently, the only specified format is CoSWID of type "evidence", as
-   per Section 2.9.4 of [RFC9393].
-
-   This document introduces a "measured component" format that can be
-   used with the EAT Measurements claim in addition to or as an
-   alternative to CoSWID.
+   per Section 2.9.4 of [RFC9393].  However, CoSWID is not suitable for
+   measurements that cannot be anchored to a file system, such as those
+   in early boot environments.  To address this gap, this document
+   introduces a "measured component" format that can be used with the
+   EAT Measurements claim alongside or instead of CoSWID.
 
    The term "measured component" refers to any measurable object on a
    target environment, that is, an object whose state can be sampled
