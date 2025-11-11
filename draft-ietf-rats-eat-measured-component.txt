@@ -102,8 +102,7 @@ Table of Contents
 
 1.  Introduction
 
-   Section 4.2.16 of [I-D.ietf-rats-eat] defines a Measurements claim
-   that:
+   Section 4.2.16 of [RFC9711] defines a Measurements claim that:
 
       "[c]ontains descriptions, lists, evidence or measurements of the
       software that exists on the entity or any other measurable
@@ -134,8 +133,8 @@ Table of Contents
    capitals, as shown here.
 
    In this document, CDDL [RFC8610] [RFC9165]
-   [I-D.ietf-cbor-cddl-modules] [I-D.ietf-cbor-cddl-more-control] is
-   used to describe the data formats.
+   [I-D.ietf-cbor-cddl-modules] [RFC9741] is used to describe the data
+   formats.
 
 3.  Information Model
 
@@ -197,15 +196,15 @@ Table of Contents
    information model outlined in Section 3.
 
    The data model is inspired by the "PSA software component" claim
-   (Section 4.4.1 of [I-D.tschofenig-rats-psa-token]), which has been
-   refactored to take into account the recommendations about the design
-   of new EAT claims described in Appendix E of [I-D.ietf-rats-eat].
+   (Section 4.4.1 of [RFC9783]), which has been refactored to take into
+   account the recommendations about the design of new EAT claims
+   described in Appendix E of [RFC9711].
 
    CDDL is used to express rules and constraints of the data model for
    both JSON and CBOR.  These rules must be strictly followed when
    creating or validating "measured component" data items.  When there
    is variation between CBOR and JSON, the JC<> CDDL generic defined in
-   Appendix D of [I-D.ietf-rats-eat] is used.
+   Appendix D of [RFC9711] is used.
 
 4.1.   Common Types
 
@@ -280,7 +279,7 @@ Table of Contents
       the component type.
 
    version  A compound version data item that reuses encoding and
-      semantics of [I-D.ietf-rats-eat] sw-version-type.
+      semantics of [RFC9711] sw-version-type.
 
 4.2.2.  Signer
 
@@ -304,11 +303,11 @@ Table of Contents
    deployment, and the order of signers within the array could indicate
    meaning.
 
-   If an EAT profile (Section 6 of [I-D.ietf-rats-eat]) uses measured
-   components, it MUST specify whether the signers field is used.  If it
-   is used, the profile MUST also specify what each of the entries in
-   the signers array represents, and how to interpret the corresponding
-   signer-id-type.
+   If an EAT profile (Section 6 of [RFC9711]) uses measured components,
+   it MUST specify whether the signers field is used.  If it is used,
+   the profile MUST also specify what each of the entries in the signers
+   array represents, and how to interpret the corresponding signer-id-
+   type.
 
    The signer-id-type is defined as follows:
 
@@ -326,10 +325,9 @@ Table of Contents
 
    flags-type = eat.JC<bytes8-b64u, bytes8>
 
-   If an EAT profile (Section 6 of [I-D.ietf-rats-eat]) uses measured
-   components, it MUST specify whether the profile-flags field is used.
-   If it is used, the profile MUST also specify how to interpret the 64
-   bits.
+   If an EAT profile (Section 6 of [RFC9711]) uses measured components,
+   it MUST specify whether the profile-flags field is used.  If it is
+   used, the profile MUST also specify how to interpret the 64 bits.
 
 4.3.  EAT measurements-format Extensions
 
@@ -630,27 +628,12 @@ Table of Contents
               30 August 2025, <https://datatracker.ietf.org/doc/html/
               draft-ietf-cbor-cddl-modules-05>.
 
-   [I-D.ietf-cbor-cddl-more-control]
-              Bormann, C., "Concise Data Definition Language (CDDL):
-              Additional Control Operators for the Conversion and
-              Processing of Text", Work in Progress, Internet-Draft,
-              draft-ietf-cbor-cddl-more-control-08, 9 January 2025,
-              <https://datatracker.ietf.org/doc/html/draft-ietf-cbor-
-              cddl-more-control-08>.
-
    [I-D.ietf-rats-corim]
               Birkholz, H., Fossati, T., Deshpande, Y., Smith, N., and
               W. Pan, "Concise Reference Integrity Manifest", Work in
               Progress, Internet-Draft, draft-ietf-rats-corim-09, 20
               October 2025, <https://datatracker.ietf.org/doc/html/
               draft-ietf-rats-corim-09>.
-
-   [I-D.ietf-rats-eat]
-              Lundblade, L., Mandyam, G., O'Donoghue, J., and C.
-              Wallace, "The Entity Attestation Token (EAT)", Work in
-              Progress, Internet-Draft, draft-ietf-rats-eat-31, 6
-              September 2024, <https://datatracker.ietf.org/doc/html/
-              draft-ietf-rats-eat-31>.
 
    [IANA.core-parameters]
               IANA, "Constrained RESTful Environments (CoRE)
@@ -686,20 +669,27 @@ Table of Contents
               DOI 10.17487/RFC9165, December 2021,
               <https://www.rfc-editor.org/rfc/rfc9165>.
 
-9.2.  Informative References
+   [RFC9711]  Lundblade, L., Mandyam, G., O'Donoghue, J., and C.
+              Wallace, "The Entity Attestation Token (EAT)", RFC 9711,
+              DOI 10.17487/RFC9711, April 2025,
+              <https://www.rfc-editor.org/rfc/rfc9711>.
 
-   [I-D.tschofenig-rats-psa-token]
-              Tschofenig, H., Frost, S., Brossard, M., Shaw, A. L., and
-              T. Fossati, "Arm's Platform Security Architecture (PSA)
-              Attestation Token", Work in Progress, Internet-Draft,
-              draft-tschofenig-rats-psa-token-24, 23 September 2024,
-              <https://datatracker.ietf.org/doc/html/draft-tschofenig-
-              rats-psa-token-24>.
+   [RFC9741]  Bormann, C., "Concise Data Definition Language (CDDL):
+              Additional Control Operators for the Conversion and
+              Processing of Text", RFC 9741, DOI 10.17487/RFC9741, March
+              2025, <https://www.rfc-editor.org/rfc/rfc9741>.
+
+9.2.  Informative References
 
    [RFC9393]  Birkholz, H., Fitzgerald-McKay, J., Schmidt, C., and D.
               Waltermire, "Concise Software Identification Tags",
               RFC 9393, DOI 10.17487/RFC9393, June 2023,
               <https://www.rfc-editor.org/rfc/rfc9393>.
+
+   [RFC9783]  Tschofenig, H., Frost, S., Brossard, M., Shaw, A., and T.
+              Fossati, "Arm's Platform Security Architecture (PSA)
+              Attestation Token", RFC 9783, DOI 10.17487/RFC9783, June
+              2025, <https://www.rfc-editor.org/rfc/rfc9783>.
 
    [TBBR-CLIENT]
               Arm Ltd, "Trusted Board Boot Requirements Client (TBBR-
