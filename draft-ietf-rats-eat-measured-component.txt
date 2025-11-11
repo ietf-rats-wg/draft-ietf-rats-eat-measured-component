@@ -529,6 +529,9 @@ Table of Contents
    valuable insights.  Additionally, the stability requirement of the
    component's Name could potentially allow for tracking.
 
+   If the component measurement is digested, the digest must be computed
+   using a strong cryptographic hash function.
+
 8.  IANA Considerations
 
 
@@ -720,9 +723,9 @@ Appendix A.  Open Issues
 Acknowledgments
 
    The authors would like to thank Carl Wallace, Carsten Bormann, Dionna
-   Glaze, Giridhar Mandyam, Laurence Lundblade and Michael Richardson
-   for providing comments, reviews and suggestions that greatly improved
-   this document.
+   Glaze, Giridhar Mandyam, Ionuț Mihalcea, Laurence Lundblade and
+   Michael Richardson for providing comments, reviews and suggestions
+   that greatly improved this document.
 
 Authors' Addresses
 
