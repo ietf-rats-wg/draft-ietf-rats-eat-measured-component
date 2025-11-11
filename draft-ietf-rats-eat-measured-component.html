@@ -1387,14 +1387,14 @@ bytes8-b64u = text .b64u bytes8
 measured-component = {
   id-label =&gt; component-id
   measurement
-  ? signers-label =&gt; [ + signer-type ]
+  ? signers-label =&gt; [ + signer-id-type ]
   ? flags-label =&gt; flags-type
 }
 
 measurement //= ( digested-measurement-label =&gt; corim.digest )
 measurement //= ( raw-measurement-label =&gt; bytes )
 
-signer-type = eat.JC&lt;bytes-b64u, bytes&gt;
+signer-id-type = eat.JC&lt;bytes-b64u, bytes&gt;
 flags-type = eat.JC&lt;bytes8-b64u, bytes8&gt;
 
 id-label = eat.JC&lt;"id", 1&gt;
@@ -1482,11 +1482,11 @@ In some cases, multiple parties may need to sign a component to indicate their e
 This could include roles such as a firmware update system, fleet owner, or third-party auditor.
 The specific purpose of each signature may depend on the deployment, and the order of signers within the array could indicate meaning.<a href="#section-4.2.2-2" class="pilcrow">¶</a></p>
 <p id="section-4.2.2-3">If an EAT profile (<span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-rats-eat-31#section-6" class="relref">Section 6</a> of [<a href="#I-D.ietf-rats-eat" class="cite xref">I-D.ietf-rats-eat</a>]</span>) uses measured components, it <span class="bcp14">MUST</span> specify whether the <code>signers</code> field is used.
-If it is used, the profile <span class="bcp14">MUST</span> also specify what each of the entries in the <code>signers</code> array represents, and how to interpret the corresponding <code>signer-type</code>.<a href="#section-4.2.2-3" class="pilcrow">¶</a></p>
-<p id="section-4.2.2-4">The <code>signer-type</code> is defined as follows:<a href="#section-4.2.2-4" class="pilcrow">¶</a></p>
+If it is used, the profile <span class="bcp14">MUST</span> also specify what each of the entries in the <code>signers</code> array represents, and how to interpret the corresponding <code>signer-id-type</code>.<a href="#section-4.2.2-3" class="pilcrow">¶</a></p>
+<p id="section-4.2.2-4">The <code>signer-id-type</code> is defined as follows:<a href="#section-4.2.2-4" class="pilcrow">¶</a></p>
 <div class="lang-cddl sourcecode" id="section-4.2.2-5">
 <pre>
-signer-type = eat.JC&lt;bytes-b64u, bytes&gt;
+signer-id-type = eat.JC&lt;bytes-b64u, bytes&gt;
 </pre><a href="#section-4.2.2-5" class="pilcrow">¶</a>
 </div>
 </section>

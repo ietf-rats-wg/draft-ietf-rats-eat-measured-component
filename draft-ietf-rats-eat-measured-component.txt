@@ -226,14 +226,14 @@ Table of Contents
    measured-component = {
      id-label => component-id
      measurement
-     ? signers-label => [ + signer-type ]
+     ? signers-label => [ + signer-id-type ]
      ? flags-label => flags-type
    }
 
    measurement //= ( digested-measurement-label => corim.digest )
    measurement //= ( raw-measurement-label => bytes )
 
-   signer-type = eat.JC<bytes-b64u, bytes>
+   signer-id-type = eat.JC<bytes-b64u, bytes>
    flags-type = eat.JC<bytes8-b64u, bytes8>
 
    id-label = eat.JC<"id", 1>
@@ -308,11 +308,11 @@ Table of Contents
    components, it MUST specify whether the signers field is used.  If it
    is used, the profile MUST also specify what each of the entries in
    the signers array represents, and how to interpret the corresponding
-   signer-type.
+   signer-id-type.
 
-   The signer-type is defined as follows:
+   The signer-id-type is defined as follows:
 
-   signer-type = eat.JC<bytes-b64u, bytes>
+   signer-id-type = eat.JC<bytes-b64u, bytes>
 
 4.2.3.  Profile-specific Flags
 
