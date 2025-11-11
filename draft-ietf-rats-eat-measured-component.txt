@@ -5,12 +5,12 @@
 Remote ATtestation ProcedureS                                   S. Frost
 Internet-Draft                                                       Arm
 Intended status: Standards Track                              T. Fossati
-Expires: 19 April 2026                                            Linaro
+Expires: 15 May 2026                                              Linaro
                                                            H. Tschofenig
                                                                    H-BRS
                                                              H. Birkholz
                                                           Fraunhofer SIT
-                                                         16 October 2025
+                                                        11 November 2025
 
 
                          EAT Measured Component
@@ -55,7 +55,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 19 April 2026.
+   This Internet-Draft will expire on 15 May 2026.
 
 Copyright Notice
 
@@ -182,8 +182,8 @@ Table of Contents
      |           |                                     | form        |
      +-----------+-------------------------------------+-------------+
      | Signers   | One or more unique identifiers of   | OPTIONAL    |
-     |           | entities signing the measured       |             |
-     |           | component.                          |             |
+     |           | entities signing the component that |             |
+     |           | is measured.                        |             |
      +-----------+-------------------------------------+-------------+
 
               Table 1: Measured Component Information Elements
@@ -284,14 +284,14 @@ Table of Contents
 
 4.2.2.  Signer
 
-   A signer is an entity that digitally signed the measured component.
-   Typically, the signature is verified during installation or when the
-   measured component is executed by the boot ROM, operating system, or
-   application launcher.  For example, as in UEFI Secure Boot [UEFI2]
-   and Arm Trusted Board Boot [TBBR-CLIENT].  Another example may be the
-   controlling entity in an app store.  It is important to note that a
-   signer is different from the identity of the manufacturer of the
-   component, such as would be found in a manifest like a payload
+   A signer is an entity that digitally signed the component that is
+   measured.  Typically, the signature is verified during installation
+   or when the measured component is executed by the boot ROM, operating
+   system, or application launcher.  For example, as in UEFI Secure Boot
+   [UEFI2] and Arm Trusted Board Boot [TBBR-CLIENT].  Another example
+   may be the controlling entity in an app store.  It is important to
+   note that a signer is different from the identity of the manufacturer
+   of the component, such as would be found in a manifest like a payload
    CoSWID.
 
    A signer is associated with a public key.  It could be an X.509
@@ -638,9 +638,9 @@ Table of Contents
    [I-D.ietf-rats-corim]
               Birkholz, H., Fossati, T., Deshpande, Y., Smith, N., and
               W. Pan, "Concise Reference Integrity Manifest", Work in
-              Progress, Internet-Draft, draft-ietf-rats-corim-08, 7 July
-              2025, <https://datatracker.ietf.org/doc/html/draft-ietf-
-              rats-corim-08>.
+              Progress, Internet-Draft, draft-ietf-rats-corim-09, 20
+              October 2025, <https://datatracker.ietf.org/doc/html/
+              draft-ietf-rats-corim-09>.
 
    [I-D.ietf-rats-eat]
               Lundblade, L., Mandyam, G., O'Donoghue, J., and C.
