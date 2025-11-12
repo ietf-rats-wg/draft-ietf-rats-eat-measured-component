@@ -12,8 +12,10 @@
 <meta content="
        The term &quot;measured component&quot; refers to an object within the attester's target environment whose state can be inspected and, typically, digested.
 A digest is computed through a cryptographic hash function.
-Examples of measured components include firmware stored in flash memory, software loaded into memory at start time, data stored in a file system, or values in a CPU register. 
-       This document defines a &quot;measured component&quot; format that can be used with the EAT  Measurements  claim. 
+Examples of measured components include firmware stored in flash memory, software loaded into memory at start time, data stored in a file system, or values in a CPU register.
+This document provides the information model for the &quot;measured component&quot; and two associated data models.
+This separation is intentional: the JSON and CBOR serializations, coupled with the media types and associated CoAP Content-Formats, enable the immediate use of the semantics within the EAT framework.
+Meanwhile, the information model can be reused in future specifications to provide additional serializations, for example using ASN.1. 
     " name="description">
 <meta content="xml2rfc 3.31.0" name="generator">
 <meta content="EAT" name="keyword">
@@ -1102,8 +1104,10 @@ svg :is([fill="white"], [fill^="#fff"]) {
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
 <p id="section-abstract-1">The term "measured component" refers to an object within the attester's target environment whose state can be inspected and, typically, digested.
 A digest is computed through a cryptographic hash function.
-Examples of measured components include firmware stored in flash memory, software loaded into memory at start time, data stored in a file system, or values in a CPU register.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
-<p id="section-abstract-2">This document defines a "measured component" format that can be used with the EAT <code>Measurements</code> claim.<a href="#section-abstract-2" class="pilcrow">¶</a></p>
+Examples of measured components include firmware stored in flash memory, software loaded into memory at start time, data stored in a file system, or values in a CPU register.
+This document provides the information model for the "measured component" and two associated data models.
+This separation is intentional: the JSON and CBOR serializations, coupled with the media types and associated CoAP Content-Formats, enable the immediate use of the semantics within the EAT framework.
+Meanwhile, the information model can be reused in future specifications to provide additional serializations, for example using ASN.1.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 </section>
 <section class="note rfcEditorRemove" id="section-note.1">
       <h2 id="name-discussion-venues">
@@ -1273,6 +1277,9 @@ However, CoSWID is not suitable for measurements that cannot be anchored to a fi
 To address this gap, this document introduces a "measured component" format that can be used with the EAT <code>Measurements</code> claim alongside or instead of CoSWID.<a href="#section-1-3" class="pilcrow">¶</a></p>
 <p id="section-1-4">The term "measured component" refers to any measurable object on a target environment, that is, an object whose state can be sampled and, possibly, digested.
 This includes, for example: the invariant part of a firmware component that is loaded in memory at startup time, a run-time integrity check (RTIC), a file system object, or a CPU register.<a href="#section-1-4" class="pilcrow">¶</a></p>
+<p id="section-1-5">This document provides the information model for the "measured component" and two associated data models <span>[<a href="#RFC3444" class="cite xref">RFC3444</a>]</span>.
+This separation is intentional: the JSON and CBOR serializations, coupled with the media types and associated CoAP Content-Formats, enable the immediate use of the semantics within the EAT framework.
+Meanwhile, the information model can be reused in future specifications to provide additional serializations, for example using ASN.1.<a href="#section-1-5" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="conventions-and-definitions">
@@ -1292,9 +1299,10 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
       <h2 id="name-information-model">
 <a href="#section-3" class="section-number selfRef">3. </a><a href="#name-information-model" class="section-name selfRef">Information Model</a>
       </h2>
-<p id="section-3-1">A "measured component" information element includes the component's sampled state (in digested or raw form) along with metadata that helps in identifying the component.
-Optionally, any entities responsible for signing the installed component can also be specified.<a href="#section-3-1" class="pilcrow">¶</a></p>
-<p id="section-3-2">The information model of a "measured component" is described in <a href="#tab-mc-info-elems" class="auto internal xref">Table 1</a>.<a href="#section-3-2" class="pilcrow">¶</a></p>
+<p id="section-3-1">This section presents the information model of a "measured component".<a href="#section-3-1" class="pilcrow">¶</a></p>
+<p id="section-3-2">A "measured component" information element includes the component's sampled state (in digested or raw form) along with metadata that helps in identifying the component.
+Optionally, any entities responsible for signing the installed component can also be specified.<a href="#section-3-2" class="pilcrow">¶</a></p>
+<p id="section-3-3">The information model of a "measured component" is described in <a href="#tab-mc-info-elems" class="auto internal xref">Table 1</a>.<a href="#section-3-3" class="pilcrow">¶</a></p>
 <span id="name-measured-component-informat"></span><div id="tab-mc-info-elems">
 <table class="center" id="table-1">
         <caption>
@@ -1346,7 +1354,7 @@ Optionally, any entities responsible for signing the installed component can als
         </tbody>
       </table>
 </div>
-<p id="section-3-4">The format <span class="bcp14">SHOULD</span> also allow a limited amount of extensibility to accommodate profile-specific semantics.<a href="#section-3-4" class="pilcrow">¶</a></p>
+<p id="section-3-5">The format <span class="bcp14">SHOULD</span> also allow a limited amount of extensibility to accommodate profile-specific semantics.<a href="#section-3-5" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="data-model">
@@ -1787,7 +1795,7 @@ SS6bZ2wh9gErHO65Ay_rQUGogHlzVfZnUBXsWcUcoew\", \"\
 <a href="#section-7" class="section-number selfRef">7. </a><a href="#name-security-and-privacy-consid" class="section-name selfRef">Security and Privacy Considerations</a>
       </h2>
 <p id="section-7-1">Please review Sections <span><a href="https://rfc-editor.org/rfc/rfc9711#section-9.1" class="relref">9.1</a> (<a href="https://rfc-editor.org/rfc/rfc9711#section-9.1" class="relref">Claim Trustworthiness</a>)</span>, <span><a href="https://rfc-editor.org/rfc/rfc9711#section-9.4" class="relref">9.4</a> (<a href="https://rfc-editor.org/rfc/rfc9711#section-9.4" class="relref">Multiple EAT Consumers</a>)</span> and <span><a href="https://rfc-editor.org/rfc/rfc9711#section-9.5" class="relref">9.5</a> (<a href="https://rfc-editor.org/rfc/rfc9711#section-9.5" class="relref">Detached EAT Bundle Digest Security Considerations</a>)</span> of <span>[<a href="#RFC9711" class="cite xref">RFC9711</a>]</span>; these considerations apply to this document as well.
-Note that similar security and privacy considerations may apply when the Measured Component information model is serialized using a different data model to the one specified in this document.<a href="#section-7-1" class="pilcrow">¶</a></p>
+Note that similar security and privacy considerations may apply when the Measured Component information model is serialized using different data models than the ones specified in this document.<a href="#section-7-1" class="pilcrow">¶</a></p>
 <p id="section-7-2">The Component Name and Component Version can give an attacker detailed information about the software running on a device and its configuration settings.
 This information could offer an attacker valuable insights.
 Additionally, the stability requirement of the Component Name could potentially allow for tracking.<a href="#section-7-2" class="pilcrow">¶</a></p>
@@ -2111,6 +2119,10 @@ Additionally, the stability requirement of the Component Name could potentially 
 <a href="#section-9.2" class="section-number selfRef">9.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
         </h3>
 <dl class="references">
+<dt id="RFC3444">[RFC3444]</dt>
+        <dd>
+<span class="refAuthor">Pras, A.</span> and <span class="refAuthor">J. Schoenwaelder</span>, <span class="refTitle">"On the Difference between Information Models and Data Models"</span>, <span class="seriesInfo">RFC 3444</span>, <span class="seriesInfo">DOI 10.17487/RFC3444</span>, <time datetime="2003-01" class="refDate">January 2003</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc3444">https://www.rfc-editor.org/rfc/rfc3444</a>&gt;</span>. </dd>
+<dd class="break"></dd>
 <dt id="RFC9393">[RFC9393]</dt>
         <dd>
 <span class="refAuthor">Birkholz, H.</span>, <span class="refAuthor">Fitzgerald-McKay, J.</span>, <span class="refAuthor">Schmidt, C.</span>, and <span class="refAuthor">D. Waltermire</span>, <span class="refTitle">"Concise Software Identification Tags"</span>, <span class="seriesInfo">RFC 9393</span>, <span class="seriesInfo">DOI 10.17487/RFC9393</span>, <time datetime="2023-06" class="refDate">June 2023</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc9393">https://www.rfc-editor.org/rfc/rfc9393</a>&gt;</span>. </dd>

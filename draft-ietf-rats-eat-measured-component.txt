@@ -23,10 +23,14 @@ Abstract
    typically, digested.  A digest is computed through a cryptographic
    hash function.  Examples of measured components include firmware
    stored in flash memory, software loaded into memory at start time,
-   data stored in a file system, or values in a CPU register.
-
-   This document defines a "measured component" format that can be used
-   with the EAT Measurements claim.
+   data stored in a file system, or values in a CPU register.  This
+   document provides the information model for the "measured component"
+   and two associated data models.  This separation is intentional: the
+   JSON and CBOR serializations, coupled with the media types and
+   associated CoAP Content-Formats, enable the immediate use of the
+   semantics within the EAT framework.  Meanwhile, the information model
+   can be reused in future specifications to provide additional
+   serializations, for example using ASN.1.
 
 Discussion Venues
 
@@ -124,6 +128,14 @@ Table of Contents
    time, a run-time integrity check (RTIC), a file system object, or a
    CPU register.
 
+   This document provides the information model for the "measured
+   component" and two associated data models [RFC3444].  This separation
+   is intentional: the JSON and CBOR serializations, coupled with the
+   media types and associated CoAP Content-Formats, enable the immediate
+   use of the semantics within the EAT framework.  Meanwhile, the
+   information model can be reused in future specifications to provide
+   additional serializations, for example using ASN.1.
+
 2.  Conventions and Definitions
 
    The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
@@ -137,6 +149,9 @@ Table of Contents
    formats.
 
 3.  Information Model
+
+   This section presents the information model of a "measured
+   component".
 
    A "measured component" information element includes the component's
    sampled state (in digested or raw form) along with metadata that
@@ -526,8 +541,8 @@ Table of Contents
    Considerations) of [RFC9711]; these considerations apply to this
    document as well.  Note that similar security and privacy
    considerations may apply when the Measured Component information
-   model is serialized using a different data model to the one specified
-   in this document.
+   model is serialized using different data models than the ones
+   specified in this document.
 
    The Component Name and Component Version can give an attacker
    detailed information about the software running on a device and its
@@ -688,6 +703,11 @@ Table of Contents
               2025, <https://www.rfc-editor.org/rfc/rfc9741>.
 
 9.2.  Informative References
+
+   [RFC3444]  Pras, A. and J. Schoenwaelder, "On the Difference between
+              Information Models and Data Models", RFC 3444,
+              DOI 10.17487/RFC3444, January 2003,
+              <https://www.rfc-editor.org/rfc/rfc3444>.
 
    [RFC9393]  Birkholz, H., Fitzgerald-McKay, J., Schmidt, C., and D.
               Waltermire, "Concise Software Identification Tags",
