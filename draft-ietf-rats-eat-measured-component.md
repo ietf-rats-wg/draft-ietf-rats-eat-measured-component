@@ -463,9 +463,10 @@ Carsten Bormann,
 Dionna Glaze,
 Giridhar Mandyam,
 {{{Ionuț Mihalcea}}},
-Laurence Lundblade
-and
+Laurence Lundblade,
 Michael Richardson
+and
+Usama Sardar
 for providing comments, reviews and suggestions that greatly improved this document.
 
 [^rfced]: RFC Editor:
