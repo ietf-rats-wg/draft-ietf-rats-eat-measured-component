@@ -427,7 +427,7 @@ If possible, TBD1 and TBD2 should be assigned in the 256..9999 range.
 
 # Open Issues
 
-The list of currently open issues for this documents can be found at [](https://github.com/thomas-fossati/draft-fft-rats-eat-measured-component/issues).
+The list of currently open issues for this documents can be found at [](https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/issues).
 
 <cref>Note to RFC Editor: please remove before publication.</cref>
 
