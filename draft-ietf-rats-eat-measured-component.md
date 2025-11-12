@@ -39,7 +39,6 @@ normative:
   I-D.ietf-cbor-cddl-modules: cddlmod
   RFC9741: cddlctls
   RFC9711: rats-eat
-  I-D.ietf-rats-corim: corim
 
 informative:
   RFC3444: models
@@ -130,12 +129,28 @@ CDDL is used to express rules and constraints of the data model for both JSON an
 These rules must be strictly followed when creating or validating "measured component" data items.
 When there is variation between CBOR and JSON, the `JC<>` CDDL generic defined in {{Appendix D of -rats-eat}} is used.
 
-### Common Types
+## Common Types
 
 The following three basic types are used at various places within the measured component data model:
 
 ~~~ cddl
 {::include cddl/common-types.cddl}
+~~~
+
+## The `digest` Type {#digest}
+
+A digest represents the result of a hashing operation together with the hash algorithm used.
+The type of the digest algorithm identifier can be either `int` or `text` and is interpreted according to the {{!IANA.named-information}} registry.
+Specifically, `int` values are matched against "ID" entries and `text` values are matched against "Hash Name String" entries.
+Whenever possible, using the `int` encoding is RECOMMENDED.
+
+~~~ cddl
+digest = [
+  alg: (int / text)
+  val: digest-value-type
+]
+
+digest-value-type = eat.JC<bytes-b64u, bytes>
 ~~~
 
 ## The `measured-component` Data Item
@@ -155,7 +170,7 @@ The members of the `measured-component` CBOR map / JSON object are:
 : The measured component identifier encoded according to the format described in {{component-id}}.
 
 `"measurement"`:
-: Either a digest value and algorithm (index 2), encoded using CoRIM digest format ({{Section 1.3.8 of -corim}}), or the "raw" measurement (index 5), encoded as a byte string.
+: Either a digest value and algorithm (index 2), encoded using the digest format ({{digest}}), or the "raw" measurement (index 5), encoded as a byte string.
 
 `"signers"` (index 3):
 : One or more signing entities, see {{signer}}.

@@ -5,7 +5,7 @@ measured-component = {
   ? flags-label => flags-type
 }
 
-measurement //= ( digested-measurement-label => corim.digest )
+measurement //= ( digested-measurement-label => digest )
 measurement //= ( raw-measurement-label => bytes )
 
 component-id = [
@@ -20,7 +20,7 @@ version = [
   ? scheme: coswid.$version-scheme
 ]
 
-corim.digest = [
+digest = [
   alg: (int / text)
   val: digest-value-type
 ]
