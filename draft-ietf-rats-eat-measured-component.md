@@ -42,6 +42,7 @@ normative:
   I-D.ietf-rats-corim: corim
 
 informative:
+  RFC3444: models
   RFC9783: psa-token
   RFC9393: coswid
   UEFI2:
@@ -69,8 +70,9 @@ entity:
 The term "measured component" refers to an object within the attester's target environment whose state can be inspected and, typically, digested.
 A digest is computed through a cryptographic hash function.
 Examples of measured components include firmware stored in flash memory, software loaded into memory at start time, data stored in a file system, or values in a CPU register.
-
-This document defines a "measured component" format that can be used with the EAT `Measurements` claim.
+This document provides the information model for the "measured component" and two associated data models.
+This separation is intentional: the JSON and CBOR serializations, coupled with the media types and associated CoAP Content-Formats, enable the immediate use of the semantics within the EAT framework.
+Meanwhile, the information model can be reused in future specifications to provide additional serializations, for example using ASN.1.
 
 --- middle
 
@@ -88,6 +90,10 @@ To address this gap, this document introduces a "measured component" format that
 The term "measured component" refers to any measurable object on a target environment, that is, an object whose state can be sampled and, possibly, digested.
 This includes, for example: the invariant part of a firmware component that is loaded in memory at startup time, a run-time integrity check (RTIC), a file system object, or a CPU register.
 
+This document provides the information model for the "measured component" and two associated data models {{-models}}.
+This separation is intentional: the JSON and CBOR serializations, coupled with the media types and associated CoAP Content-Formats, enable the immediate use of the semantics within the EAT framework.
+Meanwhile, the information model can be reused in future specifications to provide additional serializations, for example using ASN.1.
+
 # Conventions and Definitions
 
 {::boilerplate bcp14-tagged}
@@ -95,6 +101,8 @@ This includes, for example: the invariant part of a firmware component that is l
 In this document, CDDL {{-cddl}} {{-cddlplus}} {{-cddlmod}} {{-cddlctls}} is used to describe the data formats.
 
 # Information Model {#measured-component}
+
+This section presents the information model of a "measured component".
 
 A "measured component" information element includes the component's sampled state (in digested or raw form) along with metadata that helps in identifying the component.
 Optionally, any entities responsible for signing the installed component can also be specified.
@@ -295,7 +303,7 @@ The example in {{ex-3}} is a raw measured component.
 # Security and Privacy Considerations {#seccons}
 
 Please review {{Sections 9.1 (Claim Trustworthiness), 9.4 (Multiple EAT Consumers) and 9.5 (Detached EAT Bundle Digest Security Considerations) of -rats-eat}}; these considerations apply to this document as well.
-Note that similar security and privacy considerations may apply when the Measured Component information model is serialized using a different data model to the one specified in this document.
+Note that similar security and privacy considerations may apply when the Measured Component information model is serialized using different data models than the ones specified in this document.
 
 The Component Name and Component Version can give an attacker detailed information about the software running on a device and its configuration settings.
 This information could offer an attacker valuable insights.
