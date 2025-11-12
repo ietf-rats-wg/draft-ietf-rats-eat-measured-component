@@ -145,9 +145,8 @@ Table of Contents
    BCP 14 [RFC2119] [RFC8174] when, and only when, they appear in all
    capitals, as shown here.
 
-   In this document, CDDL [RFC8610] [RFC9165]
-   [I-D.ietf-cbor-cddl-modules] [RFC9741] is used to describe the data
-   formats.
+   In this document, CDDL [RFC8610] [RFC9165] [RFC9741] is used to
+   describe the data formats.
 
 3.  Information Model
 
@@ -661,12 +660,6 @@ Table of Contents
 9.  References
 
 9.1.  Normative References
-
-   [I-D.ietf-cbor-cddl-modules]
-              Bormann, C. and B. Moran, "CDDL Module Structure", Work in
-              Progress, Internet-Draft, draft-ietf-cbor-cddl-modules-05,
-              30 August 2025, <https://datatracker.ietf.org/doc/html/
-              draft-ietf-cbor-cddl-modules-05>.
 
    [IANA.core-parameters]
               IANA, "Constrained RESTful Environments (CoRE)
