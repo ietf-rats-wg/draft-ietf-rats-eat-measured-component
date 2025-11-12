@@ -5,12 +5,12 @@
 Remote ATtestation ProcedureS                                   S. Frost
 Internet-Draft                                                       Arm
 Intended status: Standards Track                              T. Fossati
-Expires: 15 May 2026                                              Linaro
+Expires: 16 May 2026                                              Linaro
                                                            H. Tschofenig
                                                                    H-BRS
                                                              H. Birkholz
                                                           Fraunhofer SIT
-                                                        11 November 2025
+                                                        12 November 2025
 
 
                          EAT Measured Component
@@ -23,10 +23,14 @@ Abstract
    typically, digested.  A digest is computed through a cryptographic
    hash function.  Examples of measured components include firmware
    stored in flash memory, software loaded into memory at start time,
-   data stored in a file system, or values in a CPU register.
-
-   This document defines a "measured component" format that can be used
-   with the EAT Measurements claim.
+   data stored in a file system, or values in a CPU register.  This
+   document provides the information model for the "measured component"
+   and two associated data models.  This separation is intentional: the
+   JSON and CBOR serializations, coupled with the media types and
+   associated CoAP Content-Formats, enable the immediate use of the
+   semantics within the EAT framework.  Meanwhile, the information model
+   can be reused in future specifications to provide additional
+   serializations, for example using ASN.1.
 
 Discussion Venues
 
@@ -55,7 +59,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 15 May 2026.
+   This Internet-Draft will expire on 16 May 2026.
 
 Copyright Notice
 
@@ -111,11 +115,11 @@ Table of Contents
    This claim allows for different measurement formats, each identified
    by a different CoAP Content-Format (Section 12.3 of [RFC7252]).
    Currently, the only specified format is CoSWID of type "evidence", as
-   per Section 2.9.4 of [RFC9393].
-
-   This document introduces a "measured component" format that can be
-   used with the EAT Measurements claim in addition to or as an
-   alternative to CoSWID.
+   per Section 2.9.4 of [RFC9393].  However, CoSWID is not suitable for
+   measurements that cannot be anchored to a file system, such as those
+   in early boot environments.  To address this gap, this document
+   introduces a "measured component" format that can be used with the
+   EAT Measurements claim alongside or instead of CoSWID.
 
    The term "measured component" refers to any measurable object on a
    target environment, that is, an object whose state can be sampled
@@ -123,6 +127,14 @@ Table of Contents
    part of a firmware component that is loaded in memory at startup
    time, a run-time integrity check (RTIC), a file system object, or a
    CPU register.
+
+   This document provides the information model for the "measured
+   component" and two associated data models [RFC3444].  This separation
+   is intentional: the JSON and CBOR serializations, coupled with the
+   media types and associated CoAP Content-Formats, enable the immediate
+   use of the semantics within the EAT framework.  Meanwhile, the
+   information model can be reused in future specifications to provide
+   additional serializations, for example using ASN.1.
 
 2.  Conventions and Definitions
 
@@ -138,8 +150,8 @@ Table of Contents
 
 3.  Information Model
 
-   This section presents the information model ([RFC3444]) of a
-   "measured component".
+   This section presents the information model of a "measured
+   component".
 
    A "measured component" information element includes the component's
    sampled state (in digested or raw form) along with metadata that
@@ -523,6 +535,14 @@ Table of Contents
                       Figure 6: Raw Measured Component
 
 7.  Security and Privacy Considerations
+
+   Please review Sections 9.1 (Claim Trustworthiness), 9.4 (Multiple EAT
+   Consumers) and 9.5 (Detached EAT Bundle Digest Security
+   Considerations) of [RFC9711]; these considerations apply to this
+   document as well.  Note that similar security and privacy
+   considerations may apply when the Measured Component information
+   model is serialized using a different data model to the one specified
+   in this document.
 
    The Component Name and Component Version can give an attacker
    detailed information about the software running on a device and its
