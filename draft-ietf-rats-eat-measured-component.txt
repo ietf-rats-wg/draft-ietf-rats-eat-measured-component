@@ -5,12 +5,12 @@
 Remote ATtestation ProcedureS                                   S. Frost
 Internet-Draft                                                       Arm
 Intended status: Standards Track                              T. Fossati
-Expires: 15 May 2026                                              Linaro
+Expires: 16 May 2026                                              Linaro
                                                            H. Tschofenig
                                                                    H-BRS
                                                              H. Birkholz
                                                           Fraunhofer SIT
-                                                        11 November 2025
+                                                        12 November 2025
 
 
                          EAT Measured Component
@@ -55,7 +55,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 15 May 2026.
+   This Internet-Draft will expire on 16 May 2026.
 
 Copyright Notice
 
@@ -712,7 +712,7 @@ Table of Contents
 Appendix A.  Open Issues
 
    The list of currently open issues for this documents can be found at
-   https://github.com/thomas-fossati/draft-fft-rats-eat-measured-
+   https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-
    component/issues.
 
 
