@@ -36,7 +36,6 @@ normative:
   RFC7252: coap
   RFC8610: cddl
   RFC9165: cddlplus
-  I-D.ietf-cbor-cddl-modules: cddlmod
   RFC9741: cddlctls
   RFC9711: rats-eat
 
@@ -97,7 +96,7 @@ Meanwhile, the information model can be reused in future specifications to provi
 
 {::boilerplate bcp14-tagged}
 
-In this document, CDDL {{-cddl}} {{-cddlplus}} {{-cddlmod}} {{-cddlctls}} is used to describe the data formats.
+In this document, CDDL {{-cddl}} {{-cddlplus}} {{-cddlctls}} is used to describe the data formats.
 
 # Information Model {#measured-component}
 
