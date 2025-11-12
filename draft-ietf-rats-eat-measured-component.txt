@@ -82,13 +82,14 @@ Table of Contents
    3.  Information Model
    4.  Data Model
      4.1.   Common Types
-     4.2.  The measured-component Data Item
-       4.2.1.  Component Identifier
-       4.2.2.  Signer
-       4.2.3.  Profile-specific Flags
-     4.3.  EAT measurements-format Extensions
-     4.4.  measurements-format for CBOR EAT
-     4.5.  measurements-format for JSON EAT
+     4.2.  The digest Type
+     4.3.  The measured-component Data Item
+       4.3.1.  Component Identifier
+       4.3.2.  Signer
+       4.3.3.  Profile-specific Flags
+     4.4.  EAT measurements-format Extensions
+     4.5.  measurements-format for CBOR EAT
+     4.6.  measurements-format for JSON EAT
    5.  EAT Profiles and Measured Components
    6.  Examples
    7.  Security and Privacy Considerations
@@ -230,11 +231,27 @@ Table of Contents
    bytes8 = bytes .size 8
    bytes8-b64u = text .b64u bytes8
 
-4.2.  The measured-component Data Item
+4.2.  The digest Type
+
+   A digest represents the result of a hashing operation together with
+   the hash algorithm used.  The type of the digest algorithm identifier
+   can be either int or text and is interpreted according to the
+   [IANA.named-information] registry.  Specifically, int values are
+   matched against "ID" entries and text values are matched against
+   "Hash Name String" entries.  Whenever possible, using the int
+   encoding is RECOMMENDED.
+
+   digest = [
+     alg: (int / text)
+     val: digest-value-type
+   ]
+
+   digest-value-type = eat.JC<bytes-b64u, bytes>
+
+4.3.  The measured-component Data Item
 
    The measured-component data item is as follows:
 
-   ;# import corim.digest from rfcYYYY as corim
    ;# import eat.JC from rfc9711 as eat
 
    measured-component = {
@@ -244,7 +261,7 @@ Table of Contents
      ? flags-label => flags-type
    }
 
-   measurement //= ( digested-measurement-label => corim.digest )
+   measurement //= ( digested-measurement-label => digest )
    measurement //= ( raw-measurement-label => bytes )
 
    signer-id-type = eat.JC<bytes-b64u, bytes>
@@ -260,20 +277,20 @@ Table of Contents
 
    "id" (index 1):
       The measured component identifier encoded according to the format
-      described in Section 4.2.1.
+      described in Section 4.3.1.
 
    "measurement":
-      Either a digest value and algorithm (index 2), encoded using CoRIM
-      digest format (Section 1.3.8 of [I-D.ietf-rats-corim]), or the
-      "raw" measurement (index 5), encoded as a byte string.
+      Either a digest value and algorithm (index 2), encoded using the
+      digest format (Section 4.2), or the "raw" measurement (index 5),
+      encoded as a byte string.
 
    "signers" (index 3):
-      One or more signing entities, see Section 4.2.2.
+      One or more signing entities, see Section 4.3.2.
 
    "flags" (index 4):
-      a 64-bit field with profile-defined semantics, see Section 4.2.3.
+      a 64-bit field with profile-defined semantics, see Section 4.3.3.
 
-4.2.1.  Component Identifier
+4.3.1.  Component Identifier
 
    The component-id data item is as follows:
 
@@ -296,7 +313,7 @@ Table of Contents
    version  A compound version data item that reuses encoding and
       semantics of [RFC9711] sw-version-type.
 
-4.2.2.  Signer
+4.3.2.  Signer
 
    A signer is an entity that digitally signed the component that is
    measured.  Typically, the signature is verified during installation
@@ -328,7 +345,7 @@ Table of Contents
 
    signer-id-type = eat.JC<bytes-b64u, bytes>
 
-4.2.3.  Profile-specific Flags
+4.3.3.  Profile-specific Flags
 
    This field contains at most 64-bit of profile-defined semantics.  It
    can be used to carry information in fixed-size chunks, such as a bit
@@ -344,7 +361,7 @@ Table of Contents
    it MUST specify whether the profile-flags field is used.  If it is
    used, the profile MUST also specify how to interpret the 64 bits.
 
-4.3.  EAT measurements-format Extensions
+4.4.  EAT measurements-format Extensions
 
    The CDDL in Figure 1 extends the $measurements-body-cbor and
    $measurements-body-json EAT sockets to add support for measured-
@@ -368,7 +385,7 @@ Table of Contents
    serialization (e.g., they are both CBOR), and a "tunnel"
    representation that is used when the serializations differ.
 
-4.4.  measurements-format for CBOR EAT
+4.5.  measurements-format for CBOR EAT
 
    The entries in Table 2 are the allowed content-type / content-format
    pairs when the measured-component is carried in a CBOR EAT.
@@ -387,7 +404,7 @@ Table of Contents
 
                  Table 2: measurement-format for EAT CWT
 
-4.5.  measurements-format for JSON EAT
+4.6.  measurements-format for JSON EAT
 
    Table 3 is the equivalent of Table 2 for JSON-serialized EAT.
 
@@ -651,13 +668,6 @@ Table of Contents
               30 August 2025, <https://datatracker.ietf.org/doc/html/
               draft-ietf-cbor-cddl-modules-05>.
 
-   [I-D.ietf-rats-corim]
-              Birkholz, H., Fossati, T., Deshpande, Y., Smith, N., and
-              W. Pan, "Concise Reference Integrity Manifest", Work in
-              Progress, Internet-Draft, draft-ietf-rats-corim-09, 20
-              October 2025, <https://datatracker.ietf.org/doc/html/
-              draft-ietf-rats-corim-09>.
-
    [IANA.core-parameters]
               IANA, "Constrained RESTful Environments (CoRE)
               Parameters",
@@ -666,6 +676,10 @@ Table of Contents
    [IANA.media-types]
               IANA, "Media Types",
               <https://www.iana.org/assignments/media-types>.
+
+   [IANA.named-information]
+              IANA, "Named Information",
+              <https://www.iana.org/assignments/named-information>.
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
