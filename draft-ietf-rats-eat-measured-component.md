@@ -465,7 +465,7 @@ Giridhar Mandyam,
 Laurence Lundblade,
 Michael Richardson
 and
-Usama Sardar
+Muhammad Usama Sardar
 for providing comments, reviews and suggestions that greatly improved this document.
 
 [^rfced]: RFC Editor:
