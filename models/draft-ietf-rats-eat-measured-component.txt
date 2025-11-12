@@ -541,8 +541,8 @@ Table of Contents
    Considerations) of [RFC9711]; these considerations apply to this
    document as well.  Note that similar security and privacy
    considerations may apply when the Measured Component information
-   model is serialized using a different data model to the one specified
-   in this document.
+   model is serialized using different data models than the ones
+   specified in this document.
 
    The Component Name and Component Version can give an attacker
    detailed information about the software running on a device and its
@@ -732,7 +732,7 @@ Table of Contents
 Appendix A.  Open Issues
 
    The list of currently open issues for this documents can be found at
-   https://github.com/thomas-fossati/draft-fft-rats-eat-measured-
+   https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-
    component/issues.
 
 
