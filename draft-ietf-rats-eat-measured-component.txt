@@ -755,9 +755,9 @@ Appendix A.  Open Issues
 Acknowledgments
 
    The authors would like to thank Carl Wallace, Carsten Bormann, Dionna
-   Glaze, Giridhar Mandyam, Ionuț Mihalcea, Laurence Lundblade and
-   Michael Richardson for providing comments, reviews and suggestions
-   that greatly improved this document.
+   Glaze, Giridhar Mandyam, Ionuț Mihalcea, Laurence Lundblade, Michael
+   Richardson and Usama Sardar for providing comments, reviews and
+   suggestions that greatly improved this document.
 
 Authors' Addresses
 
