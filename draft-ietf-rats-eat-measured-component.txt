@@ -749,8 +749,8 @@ Acknowledgments
 
    The authors would like to thank Carl Wallace, Carsten Bormann, Dionna
    Glaze, Giridhar Mandyam, Ionuț Mihalcea, Laurence Lundblade, Michael
-   Richardson and Usama Sardar for providing comments, reviews and
-   suggestions that greatly improved this document.
+   Richardson and Muhammad Usama Sardar for providing comments, reviews
+   and suggestions that greatly improved this document.
 
 Authors' Addresses
 
