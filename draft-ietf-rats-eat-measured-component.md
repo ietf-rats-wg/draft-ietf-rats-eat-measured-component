@@ -468,4 +468,6 @@ and
 Muhammad Usama Sardar
 for providing comments, reviews and suggestions that greatly improved this document.
 
+The authors would also like to thank Ken Takayama for providing an implementation of this specification in the veraison/eat package.
+
 [^rfced]: RFC Editor:
