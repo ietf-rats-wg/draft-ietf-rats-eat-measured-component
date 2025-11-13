@@ -5,12 +5,12 @@
 Remote ATtestation ProcedureS                                   S. Frost
 Internet-Draft                                                       Arm
 Intended status: Standards Track                              T. Fossati
-Expires: 16 May 2026                                              Linaro
+Expires: 17 May 2026                                              Linaro
                                                            H. Tschofenig
                                                                    H-BRS
                                                              H. Birkholz
                                                           Fraunhofer SIT
-                                                        12 November 2025
+                                                        13 November 2025
 
 
                          EAT Measured Component
@@ -59,7 +59,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 16 May 2026.
+   This Internet-Draft will expire on 17 May 2026.
 
 Copyright Notice
 
@@ -751,6 +751,9 @@ Acknowledgments
    Glaze, Giridhar Mandyam, Ionuț Mihalcea, Laurence Lundblade, Michael
    Richardson and Muhammad Usama Sardar for providing comments, reviews
    and suggestions that greatly improved this document.
+
+   The authors would also like to thank Ken Takayama for providing an
+   implementation of this specification in the veraison/eat package.
 
 Authors' Addresses
 
