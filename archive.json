@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-04-01T00:52:59.863744+00:00",
+  "timestamp": "2025-11-13T00:55:18.529928+00:00",
   "repo": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
   "labels": [
     {
@@ -386,7 +386,7 @@
       "id": "I_kwDOLP05f86TADZM",
       "title": "add (optional) SVNs to the mix?",
       "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/issues/10",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "thomas-fossati",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
@@ -395,8 +395,8 @@
       ],
       "body": "There are specific use cases where the measurement includes a Security Version Number (SVN). \n\n(For context, the SVN is an anti-rollback counter utilized in certain attestation schemes, such as Intel TDX and AMD SEV-SNP.)\n\nThere was a brief discussion in the context of EAT (see [EAT#111](https://github.com/ietf-rats-wg/eat/issues/111)), but it was ultimately not pursued. \nOne reason it may have been dropped is that its \"natural\" scope relates more to the measured component (i.e., a portion of the overall TCB) rather than a global level (the entire TCB). This makes it less suitable as a separate claim.",
       "createdAt": "2024-08-14T16:12:05Z",
-      "updatedAt": "2025-02-17T08:20:50Z",
-      "closedAt": null,
+      "updatedAt": "2025-06-19T20:17:34Z",
+      "closedAt": "2025-06-19T20:17:33Z",
       "comments": [
         {
           "author": "thomas-fossati",
@@ -418,6 +418,13 @@
           "body": "If we want to add it, we have a few options:\n\n* as an alternative to digest:\n\n```\n(digest / svn)\n```\n\n* Both digest and SVN are possible, even one alongside the other:\n\n```\nnon-empty<(?digest, ?svn)>\n```\n\n* Digest is mandatory and possibly complemented by SVN:\n\n```\n(digest, ?svn)\n```\n",
           "createdAt": "2025-02-17T08:20:48Z",
           "updatedAt": "2025-02-17T08:20:48Z"
+        },
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I am closing this issue due to the group's lack of interest.",
+          "createdAt": "2025-06-19T20:17:33Z",
+          "updatedAt": "2025-06-19T20:17:33Z"
         }
       ]
     },
@@ -514,15 +521,15 @@
       "id": "I_kwDOLP05f86pNFSN",
       "title": "CDDL sync",
       "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/issues/21",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "thomas-fossati",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Things to consider:\n\n1. `corim.digest` won't be available in time, and even if it were, since it's CBOR-only, we'd need to add the JSON counterpart...\n2. the EAT types (`JC`, and `sw-version-type`) will hopefully become available automatically via the `cddl(1)` tool once 9711 is published.\n",
       "createdAt": "2025-02-07T18:05:11Z",
-      "updatedAt": "2025-02-16T17:58:00Z",
-      "closedAt": null,
+      "updatedAt": "2025-11-12T09:42:51Z",
+      "closedAt": "2025-11-12T09:42:51Z",
       "comments": [
         {
           "author": "hannestschofenig",
@@ -530,6 +537,27 @@
           "body": "Relying on the constantly evolving list of new CDDL features, which are not yet implemented in validation tools or code generators, is obviously risky.\n\nI cannot really give a good recommendation on what to do there because there are also benefits in using these features.",
           "createdAt": "2025-02-16T17:57:59Z",
           "updatedAt": "2025-02-16T17:57:59Z"
+        },
+        {
+          "author": "henkbirkholz",
+          "authorAssociation": "MEMBER",
+          "body": "Using [`JC<J,C>`](https://github.com/cbor-wg/cddl/wiki/Useful-CDDL#jcj-c) is okay, I think.",
+          "createdAt": "2025-08-28T15:01:16Z",
+          "updatedAt": "2025-08-28T15:01:16Z"
+        },
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> Using [`JC<J,C>`](https://github.com/cbor-wg/cddl/wiki/Useful-CDDL#jcj-c) is okay, I think.\n\nSure, we are using it.  The problem is that we are currently providing our own [implementation of the EAT CDDL](https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/blob/main/cddl/minimal-eat.cddlc).\n\nIdeally, we would just use it from cddlc.  Unfortunately, RFC9711 is not yet included in the [cddlc/data](https://github.com/cabo/cddlc/tree/master/data) bag.",
+          "createdAt": "2025-08-28T15:42:12Z",
+          "updatedAt": "2025-08-28T15:42:12Z"
+        },
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "body": "With regard to `corim.digest`, I believe it would be better to drop our reliance on the CoRIM CDDL and provide our own implementation.",
+          "createdAt": "2025-08-28T15:43:33Z",
+          "updatedAt": "2025-08-28T15:43:33Z"
         }
       ]
     },
@@ -570,16 +598,71 @@
       "id": "I_kwDOLP05f86uS33q",
       "title": "Remove `.size 64` constraint from flags",
       "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/issues/35",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "thomas-fossati",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "A slightly more radical approach to the current extension mechanism is to remove the `.size 64` constraint:\n\n```\nextn-type = eat.JC<bytes-b64u, bytes>\n```\n\nand allow *any* _profile-defined_ semantics, e.g.:\n```\nextn-type = bytes .cbor my-extension-map\nextn-type = text .json my-extension-map\n```\n\nThis way, we can have more structured/richer information in addition to the bitmask or the virtually unlimited codepoint space that the current type supports.\n\nNote that, similar to the `signer` claim, this is opaque to the generic EAT processor and would instead be interpreted by the profile-specific processor.\n\n-----\n\nCarsten suggested that an explicit socket may be a better choice over raw bytes in terms of type identification.\nHowever, when embedded in an EAT (which is the case for EAT MCs), the overall type is fully described in the EAT profile.\n\nSince the document also defines the information model, this must be made an explicit requirement for \u201cother\u201d, non-EAT data models.\n",
       "createdAt": "2025-03-17T08:35:30Z",
-      "updatedAt": "2025-03-17T08:35:30Z",
-      "closedAt": null,
+      "updatedAt": "2025-11-12T09:16:09Z",
+      "closedAt": "2025-11-12T09:16:09Z",
+      "comments": [
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Not enough traction to justify the change.",
+          "createdAt": "2025-11-12T09:16:09Z",
+          "updatedAt": "2025-11-12T09:16:09Z"
+        }
+      ]
+    },
+    {
+      "number": 36,
+      "id": "I_kwDOLP05f868bRgO",
+      "title": "Support \u201craw\u201d measurements",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/issues/36",
+      "state": "CLOSED",
+      "author": "thomas-fossati",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "It is quite common for attestation schemes (e.g., TCG DICE, DMTF SPDM) to allow \u201craw\u201d measurements alongside digested ones.\n\nThis issue tracks the requirements and addition of a \u201craw\u201d measurement type as an alternative to the existing digested format.",
+      "createdAt": "2025-06-19T20:20:13Z",
+      "updatedAt": "2025-06-23T15:15:07Z",
+      "closedAt": "2025-06-23T15:15:07Z",
       "comments": []
+    },
+    {
+      "number": 44,
+      "id": "I_kwDOLP05f87XJUaT",
+      "title": "Security considerations, motivation and terminology",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/issues/44",
+      "state": "CLOSED",
+      "author": "muhammad-usama-sardar",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "[ For tracking [WGLC comments](https://mailarchive.ietf.org/arch/msg/rats/J0M2e1uicS5MGtG9JV3zssMRVQM/)  ]\n\n## Major\n\nThe security considerations are clearly insufficient. As an example, why would security \nconsiderations of EAT not apply here? What is the desired property that \nthis format achieves that CoSWID does not achieve?\n\n## Minor\n\nIntroduction is not doing a good job of justifying a draft. Please \nexpand to explain why is there a need for a new format.\n\nProperly define information and data model in terminology.\n\nI have submitted PR #43 for a small terminology mismatch.",
+      "createdAt": "2025-11-10T20:14:16Z",
+      "updatedAt": "2025-11-12T09:45:38Z",
+      "closedAt": "2025-11-12T09:45:38Z",
+      "comments": [
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> The security considerations are clearly insufficient. As an example, why would security considerations of EAT not apply here?\n\nYes.  We should add references to \u00a79.1, \u00a79.4 and \u00a79.5 of EAT.\n\n> What is the desired property that this format achieves that CoSWID does not achieve?\n\nClarification: this doesn't appear to be a security consideration, but rather a request to explain why something other than CoSWID is being defined; is it not?\n\n \n> Introduction is not doing a good job of justifying a draft. Please expand to explain why is there a need for a new format.\n\nOK\n\n> Properly define information and data model in terminology.\n\nNot sure.  Table 1 already provides the necessary definitions as part of the information model.  Moving (or copying) them into the terminology section seems wrong (or redundant).\n\n> I have submitted PR [#43](https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/pull/43) for a small terminology mismatch.\n\nThank you for that.\n\n",
+          "createdAt": "2025-11-11T13:03:40Z",
+          "updatedAt": "2025-11-11T13:03:40Z"
+        },
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "body": "This was addressed in #45 #46 and #49 ",
+          "createdAt": "2025-11-12T09:45:33Z",
+          "updatedAt": "2025-11-12T09:45:33Z"
+        }
+      ]
     }
   ],
   "pulls": [
@@ -1243,24 +1326,26 @@
       "id": "PR_kwDOLP05f86MMPTP",
       "title": "IETF 122 slides draft",
       "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/pull/31",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "thomas-fossati",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2025-02-23T10:37:06Z",
-      "updatedAt": "2025-03-03T17:55:35Z",
+      "updatedAt": "2025-07-06T14:56:36Z",
       "baseRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
       "baseRefName": "main",
       "baseRefOid": "223b030bc5ce223ecc53070de8cb61d60011d3a4",
       "headRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
       "headRefName": "122-slides",
       "headRefOid": "4be9e7cf798ae40e91cc285bc037b789ef738c65",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2025-07-06T14:56:35Z",
+      "mergedAt": "2025-07-06T14:56:35Z",
+      "mergedBy": "hannestschofenig",
+      "mergeCommit": {
+        "oid": "5c3c161e09cb263cb269cd83eb5f525a32e5362a"
+      },
       "comments": [],
       "reviews": []
     },
@@ -1360,6 +1445,989 @@
           "body": "LGTM",
           "createdAt": "2025-03-12T09:15:26Z",
           "updatedAt": "2025-03-12T09:15:26Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 37,
+      "id": "PR_kwDOLP05f86bYmDj",
+      "title": "Add support for \"raw\" measurements",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/pull/37",
+      "state": "MERGED",
+      "author": "thomas-fossati",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Fix #36",
+      "createdAt": "2025-06-20T10:06:34Z",
+      "updatedAt": "2025-06-23T15:15:10Z",
+      "baseRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "baseRefName": "main",
+      "baseRefOid": "344f6f134f1932a07a2e481a25fd5d0395117c51",
+      "headRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "headRefName": "raw-measurements",
+      "headRefOid": "f959de31b604ce45853e6b696379dc5ccbfe364c",
+      "closedAt": "2025-06-23T15:15:06Z",
+      "mergedAt": "2025-06-23T15:15:06Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "29654b0eec61bfa678f487853b088f4f626e67c7"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOLP05f86v0S3C",
+          "commit": {
+            "abbreviatedOid": "f959de3"
+          },
+          "author": "SimonFrost-Arm",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "LGTM",
+          "createdAt": "2025-06-23T11:28:18Z",
+          "updatedAt": "2025-06-23T11:28:18Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 38,
+      "id": "PR_kwDOLP05f86lxQVq",
+      "title": "Roster Update",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/pull/38",
+      "state": "MERGED",
+      "author": "henkbirkholz",
+      "authorAssociation": "MEMBER",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-08-28T09:42:49Z",
+      "updatedAt": "2025-10-16T07:28:12Z",
+      "baseRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "baseRefName": "main",
+      "baseRefOid": "4c34b54a53c8c21fcee610be9583e6efead79179",
+      "headRepository": "henkbirkholz/draft-ietf-rats-eat-measured-component",
+      "headRefName": "editor-henk",
+      "headRefOid": "3bf3f4adda59463a62e1d09d3ff587b75d7212ba",
+      "closedAt": "2025-10-16T07:28:12Z",
+      "mergedAt": "2025-10-16T07:28:12Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "23ff62a76e53068fcf17c4bc4609f2c37ddfdf6e"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOLP05f868mIHL",
+          "commit": {
+            "abbreviatedOid": "77bcece"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-08-28T09:48:16Z",
+          "updatedAt": "2025-08-28T09:48:17Z",
+          "comments": [
+            {
+              "originalPosition": 11,
+              "body": "applying some address compression :-)\r\n\r\n```suggestion\r\n - name: Henk Birkholz\r\n   org: Fraunhofer SIT\r\n   email: henk.birkholz@sit.fraunhofer.de\r\n```",
+              "createdAt": "2025-08-28T09:48:16Z",
+              "updatedAt": "2025-08-28T09:48:17Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOLP05f868mLMD",
+          "commit": {
+            "abbreviatedOid": "6d01337"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-08-28T09:51:51Z",
+          "updatedAt": "2025-08-28T09:51:51Z",
+          "comments": [
+            {
+              "originalPosition": 11,
+              "body": "re-applying some address compression\r\n\r\n```suggestion\r\n - name: Henk Birkholz\r\n   org: Fraunhofer SIT\r\n   email: henk.birkholz@ietf.contact\r\n```",
+              "createdAt": "2025-08-28T09:51:51Z",
+              "updatedAt": "2025-08-28T09:51:51Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOLP05f868mMPn",
+          "commit": {
+            "abbreviatedOid": "3bf3f4a"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "awesome! thanks for joining",
+          "createdAt": "2025-08-28T09:52:49Z",
+          "updatedAt": "2025-08-28T09:52:49Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOLP05f868ptEf",
+          "commit": {
+            "abbreviatedOid": "77bcece"
+          },
+          "author": "henkbirkholz",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-08-28T14:13:04Z",
+          "updatedAt": "2025-08-28T14:13:05Z",
+          "comments": [
+            {
+              "originalPosition": 11,
+              "body": "okay, fine",
+              "createdAt": "2025-08-28T14:13:05Z",
+              "updatedAt": "2025-08-28T14:13:05Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 39,
+      "id": "PR_kwDOLP05f86v69cT",
+      "title": "Ionut\u2019s comment on potential ambiguity",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/pull/39",
+      "state": "MERGED",
+      "author": "thomas-fossati",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "cc: @ionut-arm",
+      "createdAt": "2025-10-27T15:20:28Z",
+      "updatedAt": "2025-11-11T14:12:03Z",
+      "baseRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "baseRefName": "main",
+      "baseRefOid": "23ff62a76e53068fcf17c4bc4609f2c37ddfdf6e",
+      "headRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "headRefName": "signer-ambiguity",
+      "headRefOid": "8d277a5ae8b7bb4c8d5453d4fb3c10924c1de3e7",
+      "closedAt": "2025-11-11T14:11:59Z",
+      "mergedAt": "2025-11-11T14:11:59Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "8a6daaef102b5f2051551378dbdafdfd351e9323"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOLP05f87Jveo-",
+          "commit": {
+            "abbreviatedOid": "20f1154"
+          },
+          "author": "SimonFrost-Arm",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-10-27T17:28:58Z",
+          "updatedAt": "2025-10-27T17:29:09Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "Query whether we should drop the word 'software' in order to embrace config blobs etc? Ditto below.  \r\nOtherwise, rewording looks good.",
+              "createdAt": "2025-10-27T17:28:58Z",
+              "updatedAt": "2025-10-27T17:29:09Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOLP05f87Jvfqm",
+          "commit": {
+            "abbreviatedOid": "20f1154"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-27T17:30:11Z",
+          "updatedAt": "2025-10-27T17:30:11Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "```suggestion\r\n| Signers | One or more unique identifiers of entities signing the component that is measured. | OPTIONAL |\r\n```",
+              "createdAt": "2025-10-27T17:30:11Z",
+              "updatedAt": "2025-10-27T17:30:11Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOLP05f87Jvf2Y",
+          "commit": {
+            "abbreviatedOid": "20f1154"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-27T17:30:23Z",
+          "updatedAt": "2025-10-27T17:30:23Z",
+          "comments": [
+            {
+              "originalPosition": 14,
+              "body": "```suggestion\r\nA signer is an entity that digitally signed the component that is measured.\r\n```",
+              "createdAt": "2025-10-27T17:30:23Z",
+              "updatedAt": "2025-10-27T17:30:24Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOLP05f87Jvo63",
+          "commit": {
+            "abbreviatedOid": "8d277a5"
+          },
+          "author": "SimonFrost-Arm",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-10-27T17:38:37Z",
+          "updatedAt": "2025-10-27T17:38:37Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOLP05f87KM9Wr",
+          "commit": {
+            "abbreviatedOid": "8d277a5"
+          },
+          "author": "ionut-arm",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-10-29T09:31:50Z",
+          "updatedAt": "2025-10-29T09:31:50Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 40,
+      "id": "PR_kwDOLP05f86v7Jit",
+      "title": "clarification around signer semantics",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/pull/40",
+      "state": "MERGED",
+      "author": "thomas-fossati",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "cc @ionut-arm",
+      "createdAt": "2025-10-27T15:31:30Z",
+      "updatedAt": "2025-11-11T14:12:33Z",
+      "baseRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "baseRefName": "main",
+      "baseRefOid": "23ff62a76e53068fcf17c4bc4609f2c37ddfdf6e",
+      "headRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "headRefName": "signer-sema",
+      "headRefOid": "5464cea0791ef51db1d05bb972d0fbeea2a60178",
+      "closedAt": "2025-11-11T14:12:29Z",
+      "mergedAt": "2025-11-11T14:12:29Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "b5d4abc8bd27526d7c6b34edbf0ab209d66b72b8"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOLP05f87JvfyG",
+          "commit": {
+            "abbreviatedOid": "5464cea"
+          },
+          "author": "SimonFrost-Arm",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "LGTM",
+          "createdAt": "2025-10-27T17:30:18Z",
+          "updatedAt": "2025-10-27T17:30:18Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOLP05f87KM8QP",
+          "commit": {
+            "abbreviatedOid": "5464cea"
+          },
+          "author": "ionut-arm",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-10-29T09:30:38Z",
+          "updatedAt": "2025-10-29T09:30:38Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 41,
+      "id": "PR_kwDOLP05f86wLW-F",
+      "title": "sec-cons += strong hash function for component measurement",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/pull/41",
+      "state": "MERGED",
+      "author": "thomas-fossati",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "cc @ionut-arm",
+      "createdAt": "2025-10-28T15:45:00Z",
+      "updatedAt": "2025-11-11T14:12:53Z",
+      "baseRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "baseRefName": "main",
+      "baseRefOid": "23ff62a76e53068fcf17c4bc4609f2c37ddfdf6e",
+      "headRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "headRefName": "ionut-strong-hash",
+      "headRefOid": "c0093582a4e0b765c7abfda7ee788d7160c2e5a9",
+      "closedAt": "2025-11-11T14:12:49Z",
+      "mergedAt": "2025-11-11T14:12:49Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "262a6d53f6011d23dcf140bc0c9e6658621064af"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOLP05f87KLVu3",
+          "commit": {
+            "abbreviatedOid": "c009358"
+          },
+          "author": "SimonFrost-Arm",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "That's a good addition",
+          "createdAt": "2025-10-29T07:18:59Z",
+          "updatedAt": "2025-10-29T07:18:59Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOLP05f87KM88a",
+          "commit": {
+            "abbreviatedOid": "c009358"
+          },
+          "author": "ionut-arm",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "\ud83d\ude4f\ud83c\udffb ",
+          "createdAt": "2025-10-29T09:31:25Z",
+          "updatedAt": "2025-10-29T09:31:25Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 42,
+      "id": "PR_kwDOLP05f86wLbCf",
+      "title": "`s/signer-type/signer-id-type/g`",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/pull/42",
+      "state": "MERGED",
+      "author": "thomas-fossati",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "cc @ionut-arm",
+      "createdAt": "2025-10-28T15:49:32Z",
+      "updatedAt": "2025-11-11T14:13:19Z",
+      "baseRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "baseRefName": "main",
+      "baseRefOid": "23ff62a76e53068fcf17c4bc4609f2c37ddfdf6e",
+      "headRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "headRefName": "signer-id",
+      "headRefOid": "7319fc80cc604a937261a4d295d284f48bca1967",
+      "closedAt": "2025-11-11T14:13:16Z",
+      "mergedAt": "2025-11-11T14:13:16Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "74153eb4e7c6bd891885b09699391f8e12dcee20"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOLP05f87KLWTx",
+          "commit": {
+            "abbreviatedOid": "7319fc8"
+          },
+          "author": "SimonFrost-Arm",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "LGTM",
+          "createdAt": "2025-10-29T07:19:56Z",
+          "updatedAt": "2025-10-29T07:19:56Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOLP05f87KM8kZ",
+          "commit": {
+            "abbreviatedOid": "7319fc8"
+          },
+          "author": "ionut-arm",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "Thank you!",
+          "createdAt": "2025-10-29T09:30:59Z",
+          "updatedAt": "2025-10-29T09:30:59Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 43,
+      "id": "PR_kwDOLP05f86ymu9I",
+      "title": "Correct terminology for Component Name and Component Version",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/pull/43",
+      "state": "MERGED",
+      "author": "muhammad-usama-sardar",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "\"Name\" and \"Version\" is undefined in the draft. I think you mean Component Name and Component Version",
+      "createdAt": "2025-11-10T19:29:25Z",
+      "updatedAt": "2025-11-11T14:13:41Z",
+      "baseRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "baseRefName": "main",
+      "baseRefOid": "23ff62a76e53068fcf17c4bc4609f2c37ddfdf6e",
+      "headRepository": "muhammad-usama-sardar/draft-ietf-rats-eat-measured-component",
+      "headRefName": "main",
+      "headRefOid": "8a49b43f535d8544589f1aaae91d3fe272bfce03",
+      "closedAt": "2025-11-11T14:13:41Z",
+      "mergedAt": "2025-11-11T14:13:41Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "0252258adb7398ca8a6d5c95b1444293b3bed7e9"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOLP05f87Ngtuy",
+          "commit": {
+            "abbreviatedOid": "8a49b43"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "Thanks!",
+          "createdAt": "2025-11-11T12:44:47Z",
+          "updatedAt": "2025-11-11T12:44:47Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 45,
+      "id": "PR_kwDOLP05f86yxS1J",
+      "title": "Refer to the relevant security considerations from EAT.",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/pull/45",
+      "state": "MERGED",
+      "author": "thomas-fossati",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Partially address #44",
+      "createdAt": "2025-11-11T14:25:04Z",
+      "updatedAt": "2025-11-11T20:39:40Z",
+      "baseRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "baseRefName": "main",
+      "baseRefOid": "0252258adb7398ca8a6d5c95b1444293b3bed7e9",
+      "headRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "headRefName": "more-sec-cons",
+      "headRefOid": "42732ee5ebf525915a5972879467239914b41bbf",
+      "closedAt": "2025-11-11T20:39:36Z",
+      "mergedAt": "2025-11-11T20:39:36Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "1b8330bd5eba62bbc7762c6e83753202ca0bff37"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOLP05f87Nivu-",
+          "commit": {
+            "abbreviatedOid": "d7bcb57"
+          },
+          "author": "SimonFrost-Arm",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "LGTM",
+          "createdAt": "2025-11-11T14:48:22Z",
+          "updatedAt": "2025-11-11T14:48:22Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOLP05f87NjsMi",
+          "commit": {
+            "abbreviatedOid": "d7bcb57"
+          },
+          "author": "ionut-arm",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-11T15:39:50Z",
+          "updatedAt": "2025-11-11T15:40:14Z",
+          "comments": [
+            {
+              "originalPosition": 4,
+              "body": "```suggestion\r\nPlease review {{Sections 9.1 (Claim Trustworthiness), 9.4 (Multiple EAT Consumers) and 9.5 (Detached EAT Bundle Digest Security Considerations) of -rats-eat}}; these considerations apply to measured components when used within an EAT. If used used in a different container, similar security considerations must be put in place at the claim container level.\r\n```\r\n\r\nThoughts?",
+              "createdAt": "2025-11-11T15:39:50Z",
+              "updatedAt": "2025-11-11T15:40:14Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOLP05f87NjwrM",
+          "commit": {
+            "abbreviatedOid": "d7bcb57"
+          },
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-11T15:43:18Z",
+          "updatedAt": "2025-11-11T15:43:18Z",
+          "comments": [
+            {
+              "originalPosition": 4,
+              "body": "```suggestion\r\nSecurity considerations {{Sections 9.1 (Claim Trustworthiness), 9.4 (Multiple EAT Consumers) and 9.5 (Detached EAT Bundle Digest Security Considerations) of -rats-eat}} apply to this document as well.\r\n```",
+              "createdAt": "2025-11-11T15:43:18Z",
+              "updatedAt": "2025-11-11T15:43:18Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOLP05f87NlOEb",
+          "commit": {
+            "abbreviatedOid": "d7bcb57"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-11T17:14:13Z",
+          "updatedAt": "2025-11-11T17:14:13Z",
+          "comments": [
+            {
+              "originalPosition": 4,
+              "body": "when you suggest:\r\n> _\"If used in a different container, similar security considerations must be put in place at the claim container level.\u201d_\r\n\r\nWhat kind of container do you have in mind?",
+              "createdAt": "2025-11-11T17:14:13Z",
+              "updatedAt": "2025-11-11T17:14:13Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOLP05f87NlUax",
+          "commit": {
+            "abbreviatedOid": "d7bcb57"
+          },
+          "author": "ionut-arm",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-11T17:21:22Z",
+          "updatedAt": "2025-11-11T17:21:22Z",
+          "comments": [
+            {
+              "originalPosition": 4,
+              "body": "Any other signed bag of claims. I know the primary purpose for MC is use in EAT, but maybe someone will want to use it as part of a different data type.\r\n\r\nI guess it doesn't even have to be a signed data type, but I hope it's more clear what I mean.",
+              "createdAt": "2025-11-11T17:21:22Z",
+              "updatedAt": "2025-11-11T17:22:25Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOLP05f87NlfmK",
+          "commit": {
+            "abbreviatedOid": "d7bcb57"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-11T17:33:42Z",
+          "updatedAt": "2025-11-11T17:33:43Z",
+          "comments": [
+            {
+              "originalPosition": 4,
+              "body": "OK, so you are thinking at the information model level rather than the EAT serialisation that is described in the draft.",
+              "createdAt": "2025-11-11T17:33:42Z",
+              "updatedAt": "2025-11-11T17:33:43Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOLP05f87NllI4",
+          "commit": {
+            "abbreviatedOid": "d7bcb57"
+          },
+          "author": "ionut-arm",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-11T17:41:15Z",
+          "updatedAt": "2025-11-11T17:41:16Z",
+          "comments": [
+            {
+              "originalPosition": 4,
+              "body": "Right, but even the serialisation can be ~stolen~ imported into some other data model.\r\n\r\nFeel free to resolve this if you think this is unlikely to be reused, though!",
+              "createdAt": "2025-11-11T17:41:16Z",
+              "updatedAt": "2025-11-11T17:41:16Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOLP05f87NlqwW",
+          "commit": {
+            "abbreviatedOid": "d7bcb57"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-11T17:47:34Z",
+          "updatedAt": "2025-11-11T17:47:34Z",
+          "comments": [
+            {
+              "originalPosition": 4,
+              "body": "I agree it\u2019s a valid suggestion.  I was just trying to understand your end goal.",
+              "createdAt": "2025-11-11T17:47:34Z",
+              "updatedAt": "2025-11-11T17:47:34Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOLP05f87Nl0az",
+          "commit": {
+            "abbreviatedOid": "d7bcb57"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-11T17:59:23Z",
+          "updatedAt": "2025-11-11T17:59:23Z",
+          "comments": [
+            {
+              "originalPosition": 4,
+              "body": "I am thinking of something like:\r\n\r\n> _\u201cNote that similar security and privacy considerations may apply when the Measured Component information model is serialised using a different data model to the one specified in this document.\u201d_\r\n\r\nWDYT?",
+              "createdAt": "2025-11-11T17:59:23Z",
+              "updatedAt": "2025-11-11T17:59:40Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOLP05f87Nl-2Q",
+          "commit": {
+            "abbreviatedOid": "d7bcb57"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-11T18:12:06Z",
+          "updatedAt": "2025-11-11T18:12:06Z",
+          "comments": [
+            {
+              "originalPosition": 4,
+              "body": "See [42732ee](https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/pull/45/commits/42732ee5ebf525915a5972879467239914b41bbf)",
+              "createdAt": "2025-11-11T18:12:06Z",
+              "updatedAt": "2025-11-11T18:12:07Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 46,
+      "id": "PR_kwDOLP05f86yxhvb",
+      "title": "Provide a rationale for introducing MC",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/pull/46",
+      "state": "MERGED",
+      "author": "thomas-fossati",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Partially address #44",
+      "createdAt": "2025-11-11T14:43:18Z",
+      "updatedAt": "2025-11-11T18:11:31Z",
+      "baseRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "baseRefName": "main",
+      "baseRefOid": "0252258adb7398ca8a6d5c95b1444293b3bed7e9",
+      "headRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "headRefName": "the-why",
+      "headRefOid": "8abe98fceaae9cb58292db18242a13033b0d7a3c",
+      "closedAt": "2025-11-11T18:11:28Z",
+      "mergedAt": "2025-11-11T18:11:28Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "12b88933630b6c4f300b546d705ca1905db79e04"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOLP05f87NivGI",
+          "commit": {
+            "abbreviatedOid": "8abe98f"
+          },
+          "author": "SimonFrost-Arm",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "LGTM",
+          "createdAt": "2025-11-11T14:47:42Z",
+          "updatedAt": "2025-11-11T14:47:42Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 47,
+      "id": "PR_kwDOLP05f86yxwJu",
+      "title": "Update refs for published RFCs",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/pull/47",
+      "state": "MERGED",
+      "author": "thomas-fossati",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-11-11T15:01:07Z",
+      "updatedAt": "2025-11-11T17:15:06Z",
+      "baseRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "baseRefName": "main",
+      "baseRefOid": "0252258adb7398ca8a6d5c95b1444293b3bed7e9",
+      "headRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "headRefName": "refs-update",
+      "headRefOid": "5fd43367fce1a2d8196f65bcf6d079e7b023dc30",
+      "closedAt": "2025-11-11T17:15:03Z",
+      "mergedAt": "2025-11-11T17:15:03Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "da6472ea2d605ef9e6b070ca1e661a9fdbd60651"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOLP05f87Nkhnk",
+          "commit": {
+            "abbreviatedOid": "5fd4336"
+          },
+          "author": "SimonFrost-Arm",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "RFC catchup is good!",
+          "createdAt": "2025-11-11T16:26:28Z",
+          "updatedAt": "2025-11-11T16:26:28Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 48,
+      "id": "PR_kwDOLP05f86yxyE_",
+      "title": "acks++",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/pull/48",
+      "state": "MERGED",
+      "author": "thomas-fossati",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "More acks.\r\n\r\nNote: Keep this open while WGLC is ongoing.",
+      "createdAt": "2025-11-11T15:03:31Z",
+      "updatedAt": "2025-11-12T09:43:21Z",
+      "baseRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "baseRefName": "main",
+      "baseRefOid": "0252258adb7398ca8a6d5c95b1444293b3bed7e9",
+      "headRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "headRefName": "acks-plus-plus",
+      "headRefOid": "bd735b9b906f0845d64b6320f9c85db44039a860",
+      "closedAt": "2025-11-12T09:43:17Z",
+      "mergedAt": "2025-11-12T09:43:17Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "95efe7582b46e60bdffe2e469447469f0c432798"
+      },
+      "comments": [
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "body": "WGLC is officially closed.  We can merge this now.",
+          "createdAt": "2025-11-12T09:43:13Z",
+          "updatedAt": "2025-11-12T09:43:13Z"
+        }
+      ],
+      "reviews": []
+    },
+    {
+      "number": 49,
+      "id": "PR_kwDOLP05f86y0Aul",
+      "title": "Add reference to RFC3444",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/pull/49",
+      "state": "MERGED",
+      "author": "thomas-fossati",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Partially address #44 ",
+      "createdAt": "2025-11-11T18:10:35Z",
+      "updatedAt": "2025-11-12T09:42:35Z",
+      "baseRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "baseRefName": "main",
+      "baseRefOid": "e486ea2130abbc832c989028e120e9a9a5a92d0d",
+      "headRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "headRefName": "models",
+      "headRefOid": "fd79a785e62f41dde0cadede71c128e5b64b3b41",
+      "closedAt": "2025-11-12T09:42:32Z",
+      "mergedAt": "2025-11-12T09:42:32Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "e8555e24c6fcd68d7fa97093efb09d9a7253001c"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOLP05f87NrYnP",
+          "commit": {
+            "abbreviatedOid": "94184cf"
+          },
+          "author": "SimonFrost-Arm",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "LGTM",
+          "createdAt": "2025-11-12T00:18:43Z",
+          "updatedAt": "2025-11-12T00:18:43Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOLP05f87NyM6c",
+          "commit": {
+            "abbreviatedOid": "fd79a78"
+          },
+          "author": "SimonFrost-Arm",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "LGTM",
+          "createdAt": "2025-11-12T09:35:56Z",
+          "updatedAt": "2025-11-12T09:35:56Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 50,
+      "id": "PR_kwDOLP05f86y7yN4",
+      "title": "Remove normative dependency on CoRIM",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/pull/50",
+      "state": "MERGED",
+      "author": "thomas-fossati",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Fix #21 ",
+      "createdAt": "2025-11-12T09:11:33Z",
+      "updatedAt": "2025-11-12T09:42:52Z",
+      "baseRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "baseRefName": "main",
+      "baseRefOid": "1b8330bd5eba62bbc7762c6e83753202ca0bff37",
+      "headRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "headRefName": "de-corim",
+      "headRefOid": "ca0dbd4906a1e7528cb71dee51242f8ee3f81ed0",
+      "closedAt": "2025-11-12T09:42:50Z",
+      "mergedAt": "2025-11-12T09:42:50Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "38f71ea7780b1871abb6ac20a3a789077f847c80"
+      },
+      "comments": [
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "body": "cc @ionut-arm",
+          "createdAt": "2025-11-12T09:13:09Z",
+          "updatedAt": "2025-11-12T09:13:09Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOLP05f87NyQBm",
+          "commit": {
+            "abbreviatedOid": "ca0dbd4"
+          },
+          "author": "SimonFrost-Arm",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "LGTM",
+          "createdAt": "2025-11-12T09:39:06Z",
+          "updatedAt": "2025-11-12T09:39:06Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 51,
+      "id": "PR_kwDOLP05f86y77qD",
+      "title": "chore: update files",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/pull/51",
+      "state": "MERGED",
+      "author": "thomas-fossati",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-11-12T09:23:48Z",
+      "updatedAt": "2025-11-12T09:25:00Z",
+      "baseRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "baseRefName": "main",
+      "baseRefOid": "1b8330bd5eba62bbc7762c6e83753202ca0bff37",
+      "headRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "headRefName": "ci",
+      "headRefOid": "8d3fc4011da14453aa43cec9643dcca8b7cfcf5b",
+      "closedAt": "2025-11-12T09:24:56Z",
+      "mergedAt": "2025-11-12T09:24:56Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "e486ea2130abbc832c989028e120e9a9a5a92d0d"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 52,
+      "id": "PR_kwDOLP05f86y8ykt",
+      "title": "Minor (name correction)",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/pull/52",
+      "state": "MERGED",
+      "author": "muhammad-usama-sardar",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-11-12T10:30:43Z",
+      "updatedAt": "2025-11-12T10:45:00Z",
+      "baseRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "baseRefName": "main",
+      "baseRefOid": "0a40e02952236f0f85da064ccd0c2b46b13191ba",
+      "headRepository": "muhammad-usama-sardar/draft-ietf-rats-eat-measured-component",
+      "headRefName": "main",
+      "headRefOid": "7d224d084aa3528e09cfcad7a8e18d649ab9bc57",
+      "closedAt": "2025-11-12T10:45:00Z",
+      "mergedAt": "2025-11-12T10:45:00Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "99823342e15fa79df06bce993a5a45fe1ba30ca3"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOLP05f87NzbMz",
+          "commit": {
+            "abbreviatedOid": "7d224d0"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-11-12T10:44:54Z",
+          "updatedAt": "2025-11-12T10:44:54Z",
           "comments": []
         }
       ]
