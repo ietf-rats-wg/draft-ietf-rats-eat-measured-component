@@ -92,15 +92,16 @@ Table of Contents
      4.6.  measurements-format for JSON EAT
    5.  EAT Profiles and Measured Components
    6.  Examples
-   7.  Security and Privacy Considerations
-   8.  IANA Considerations
-     8.1.  Media Types Registrations
-       8.1.1.  application/measured-component+cbor
-       8.1.2.  application/measured-component+json
-     8.2.  Measured Component Content-Format Registrations
-   9.  References
-     9.1.  Normative References
-     9.2.  Informative References
+   7.  Security Considerations
+   8.  Privacy Considerations
+   9.  IANA Considerations
+     9.1.  Media Types Registrations
+       9.1.1.  application/measured-component+cbor
+       9.1.2.  application/measured-component+json
+     9.2.  Measured Component Content-Format Registrations
+   10. References
+     10.1.  Normative References
+     10.2.  Informative References
    Appendix A.  Open Issues
    Acknowledgments
    Authors' Addresses
@@ -555,32 +556,42 @@ Table of Contents
 
                       Figure 6: Raw Measured Component
 
-7.  Security and Privacy Considerations
+7.  Security Considerations
 
    Please review Sections 9.1 (Claim Trustworthiness), 9.4 (Multiple EAT
    Consumers) and 9.5 (Detached EAT Bundle Digest Security
    Considerations) of [RFC9711]; these considerations apply to this
-   document as well.  Note that similar security and privacy
-   considerations may apply when the Measured Component information
-   model is serialized using different data models than the ones
-   specified in this document.
+   document as well.  Note that similar security considerations may
+   apply when the Measured Component information model is serialized
+   using different data models than the ones specified in this document.
 
    The Component Name and Component Version can give an attacker
    detailed information about the software running on a device and its
    configuration settings.  This information could offer an attacker
-   valuable insights.  Additionally, the stability requirement of the
-   Component Name could potentially allow for tracking.
+   valuable insights.
 
    If the component measurement is digested, the digest must be computed
    using a strong cryptographic hash function.
 
-8.  IANA Considerations
+8.  Privacy Considerations
+
+   Please review Section 9.1 (Multiple EAT Consumers) of [RFC9711]; the
+   differential encryption considerations discussed there also apply to
+   this document.
+
+   The Component Name and Component Version could reveal private
+   information about a device and its owner.
+
+   Additionally, the stability requirement of the Component Name could
+   potentially enabling tracking.
+
+9.  IANA Considerations
 
 
    // RFC Editor: replace "RFCthis" with the RFC number assigned to this
    document.
 
-8.1.  Media Types Registrations
+9.1.  Media Types Registrations
 
    IANA is requested to add the following media types to the "Media
    Types" registry [IANA.media-types].
@@ -595,7 +606,7 @@ Table of Contents
 
                   Table 4: Measured Component Media Types
 
-8.1.1.  application/measured-component+cbor
+9.1.1.  application/measured-component+cbor
 
    Type name:  application
    Subtype name:  measured-component+cbor
@@ -618,7 +629,7 @@ Table of Contents
    Author/Change controller:  IETF
    Provisional registration:  no
 
-8.1.2.  application/measured-component+json
+9.1.2.  application/measured-component+json
 
    Type name:  application
    Subtype name:  measured-component+json
@@ -641,7 +652,7 @@ Table of Contents
    Author/Change controller:  IETF
    Provisional registration:  no
 
-8.2.  Measured Component Content-Format Registrations
+9.2.  Measured Component Content-Format Registrations
 
    IANA is requested to register two Content-Format numbers in the "CoAP
    Content-Formats" sub-registry, within the "Constrained RESTful
@@ -662,9 +673,9 @@ Table of Contents
 
    If possible, TBD1 and TBD2 should be assigned in the 256..9999 range.
 
-9.  References
+10.  References
 
-9.1.  Normative References
+10.1.  Normative References
 
    [IANA.core-parameters]
               IANA, "Constrained RESTful Environments (CoRE)
@@ -714,7 +725,7 @@ Table of Contents
               Processing of Text", RFC 9741, DOI 10.17487/RFC9741, March
               2025, <https://www.rfc-editor.org/rfc/rfc9741>.
 
-9.2.  Informative References
+10.2.  Informative References
 
    [RFC3444]  Pras, A. and J. Schoenwaelder, "On the Difference between
               Information Models and Data Models", RFC 3444,
