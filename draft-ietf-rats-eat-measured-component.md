@@ -170,6 +170,8 @@ The members of the `measured-component` CBOR map / JSON object are:
 
 `"measurement"`:
 : Either a digest value and algorithm (index 2), encoded using the digest format ({{digest}}), or the "raw" measurement (index 5), encoded as a byte string.
+Note that, while the size of the digested form is constrained by the digest function, the size of the raw form can vary greatly depending on what is being measured (it could be a CPU register or an entire configuration blob, for example).
+Therefore, a decoder implementation may decide to limit the amount of memory it allocates to this specific field.
 
 `"signers"` (index 3):
 : One or more signing entities, see {{signer}}.
@@ -217,9 +219,9 @@ The `signer-id-type` is defined as follows:
 
 ### Profile-specific Flags {#profile-flags}
 
-This field contains at most 64-bit of profile-defined semantics.
+This optional field contains at most 64 bits of profile-defined semantics.
 It can be used to carry information in fixed-size chunks, such as a bit mask or a single value within a predetermined set of codepoints.
-Regardless of its internal structure, the size of this optional field is exactly 8 bytes.
+Regardless of its internal structure, the size of this field is exactly 8 bytes.
 
 The `flags-type` is defined as follows:
 
@@ -227,7 +229,7 @@ The `flags-type` is defined as follows:
 {::include cddl/profile-flags.cddl}
 ~~~
 
-If an EAT profile ({{Section 6 of -rats-eat}}) uses measured components, it MUST specify whether the `profile-flags` field is used.
+If an EAT profile ({{Section 6 of -rats-eat}}) uses measured components, it MUST specify whether the `flags` field is used.
 If it is used, the profile MUST also specify how to interpret the 64 bits.
 
 ## EAT `measurements-format` Extensions
@@ -280,7 +282,7 @@ The example in {{ex-1}} is a digested measured component with all the fields pop
 
 The example in {{ex-eat-1}} is the same measured component as above but used as the format of a `measurements` claim in a EAT claims-set.
 
-The example uses TBD1 as the `content-type` value of the `measurements-format` entry.
+This example uses TBD1 as the `content-type` value of the `measurements-format` entry.
 (This will change to the value assigned by IANA to the `mc+cbor` Content-Format.)
 
 Note that the array contains only one measured component, but additional entries could be added if the measured TCB is made of multiple, individually measured components.
@@ -292,7 +294,7 @@ Note that the array contains only one measured component, but additional entries
 
 The example in {{ex-eat-2}} illustrates the inclusion of a JSON measured component inside a JSON EAT.
 
-The example uses TBD2 as the `content-type` value of the `measurements-format` entry.
+This example uses TBD2 as the `content-type` value of the `measurements-format` entry.
 (This will change to the value assigned by IANA to the `mc+json` Content-Format.)
 
 ~~~ cbor-edn
@@ -461,7 +463,9 @@ Carl Wallace,
 Carsten Bormann,
 Dionna Glaze,
 Giridhar Mandyam,
+Houda Labiod,
 {{{Ionuț Mihalcea}}},
+Jun Zhang,
 Laurence Lundblade,
 Michael Richardson
 and
