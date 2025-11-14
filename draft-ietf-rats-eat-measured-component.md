@@ -43,6 +43,7 @@ informative:
   RFC3444: models
   RFC9783: psa-token
   RFC9393: coswid
+  RFC9839: unicode-subsets
   UEFI2:
     title: "Unified Extensible Firmware Interface (UEFI) Specification"
     author:
@@ -323,6 +324,9 @@ Note that similar security considerations may apply when the Measured Component 
 
 The Component Name and Component Version can give an attacker detailed information about the software running on a device and its configuration settings.
 This information could offer an attacker valuable insights.
+
+Any textual fields (e.g., Component Name and Version) that are stored in a file, inserted into a database or displayed to humans must be properly sanitised to prevent attacks and undesirable behaviour.
+Further discussion and references on this topic can be found in {{Section 7 of -unicode-subsets}}.
 
 If the component measurement is digested, the digest must be computed using a strong cryptographic hash function.
 
