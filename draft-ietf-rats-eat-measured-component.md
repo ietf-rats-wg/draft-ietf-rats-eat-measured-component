@@ -463,7 +463,9 @@ Carl Wallace,
 Carsten Bormann,
 Dionna Glaze,
 Giridhar Mandyam,
+Houda Labiod,
 {{{Ionuț Mihalcea}}},
+Jun Zhang,
 Laurence Lundblade,
 Michael Richardson
 and
