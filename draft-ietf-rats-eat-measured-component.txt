@@ -5,12 +5,12 @@
 Remote ATtestation ProcedureS                                   S. Frost
 Internet-Draft                                                       Arm
 Intended status: Standards Track                              T. Fossati
-Expires: 17 May 2026                                              Linaro
+Expires: 18 May 2026                                              Linaro
                                                            H. Tschofenig
                                                                    H-BRS
                                                              H. Birkholz
                                                           Fraunhofer SIT
-                                                        13 November 2025
+                                                        14 November 2025
 
 
                          EAT Measured Component
@@ -59,7 +59,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 17 May 2026.
+   This Internet-Draft will expire on 18 May 2026.
 
 Copyright Notice
 
@@ -281,7 +281,12 @@ Table of Contents
    "measurement":
       Either a digest value and algorithm (index 2), encoded using the
       digest format (Section 4.2), or the "raw" measurement (index 5),
-      encoded as a byte string.
+      encoded as a byte string.  Note that, while the size of the
+      digested form is constrained by the digest function, the size of
+      the raw form can vary greatly depending on what is being measured
+      (it could be a CPU register or an entire configuration blob, for
+      example).  Therefore, a decoder implementation may decide to limit
+      the amount of memory it allocates to this specific field.
 
    "signers" (index 3):
       One or more signing entities, see Section 4.3.2.
@@ -346,19 +351,19 @@ Table of Contents
 
 4.3.3.  Profile-specific Flags
 
-   This field contains at most 64-bit of profile-defined semantics.  It
-   can be used to carry information in fixed-size chunks, such as a bit
-   mask or a single value within a predetermined set of codepoints.
-   Regardless of its internal structure, the size of this optional field
-   is exactly 8 bytes.
+   This optional field contains at most 64 bits of profile-defined
+   semantics.  It can be used to carry information in fixed-size chunks,
+   such as a bit mask or a single value within a predetermined set of
+   codepoints.  Regardless of its internal structure, the size of this
+   field is exactly 8 bytes.
 
    The flags-type is defined as follows:
 
    flags-type = eat.JC<bytes8-b64u, bytes8>
 
    If an EAT profile (Section 6 of [RFC9711]) uses measured components,
-   it MUST specify whether the profile-flags field is used.  If it is
-   used, the profile MUST also specify how to interpret the 64 bits.
+   it MUST specify whether the flags field is used.  If it is used, the
+   profile MUST also specify how to interpret the 64 bits.
 
 4.4.  EAT measurements-format Extensions
 
@@ -450,7 +455,7 @@ Table of Contents
        h'4277bb97ba7b51577a0d38151d3e08b40bdf946753f5b5bdeb814d6ff5
          7a8a5e'
      ],
-     / profile-flags / 4: h'0000000000000101'
+     / flags / 4: h'0000000000000101'
    }
 
                    Figure 2: Complete Measured Component
@@ -458,7 +463,7 @@ Table of Contents
    The example in Figure 3 is the same measured component as above but
    used as the format of a measurements claim in a EAT claims-set.
 
-   The example uses TBD1 as the content-type value of the measurements-
+   This example uses TBD1 as the content-type value of the measurements-
    format entry.  (This will change to the value assigned by IANA to the
    mc+cbor Content-Format.)
 
@@ -501,7 +506,7 @@ Table of Contents
    The example in Figure 4 illustrates the inclusion of a JSON measured
    component inside a JSON EAT.
 
-   The example uses TBD2 as the content-type value of the measurements-
+   This example uses TBD2 as the content-type value of the measurements-
    format entry.  (This will change to the value assigned by IANA to the
    mc+json Content-Format.)
 
@@ -534,7 +539,7 @@ Table of Contents
        / val / h'66ec2fb4e02d8c8b3eee320e750d9389d66c52c51db11cc6
                  9cc5e410816283ed60ba573795f5fcc85e513af57b3f6def'
      ],
-     / profile-flags / 4: h'0000000000000101'
+     / flags / 4: h'0000000000000101'
    }
 
     Figure 5: Digested Measured Component using File Path as Identifier
@@ -748,9 +753,10 @@ Appendix A.  Open Issues
 Acknowledgments
 
    The authors would like to thank Carl Wallace, Carsten Bormann, Dionna
-   Glaze, Giridhar Mandyam, Ionuț Mihalcea, Laurence Lundblade, Michael
-   Richardson and Muhammad Usama Sardar for providing comments, reviews
-   and suggestions that greatly improved this document.
+   Glaze, Giridhar Mandyam, Houda Labiod, Ionuț Mihalcea, Jun Zhang,
+   Laurence Lundblade, Michael Richardson and Muhammad Usama Sardar for
+   providing comments, reviews and suggestions that greatly improved
+   this document.
 
    The authors would also like to thank Ken Takayama for providing an
    implementation of this specification in the veraison/eat package.
