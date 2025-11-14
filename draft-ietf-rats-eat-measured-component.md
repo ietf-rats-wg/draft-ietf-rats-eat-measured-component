@@ -316,16 +316,23 @@ The example in {{ex-3}} is a raw measured component.
 ~~~
 {: #ex-3 title="Raw Measured Component"}
 
-# Security and Privacy Considerations {#seccons}
+# Security Considerations {#seccons}
 
 Please review {{Sections 9.1 (Claim Trustworthiness), 9.4 (Multiple EAT Consumers) and 9.5 (Detached EAT Bundle Digest Security Considerations) of -rats-eat}}; these considerations apply to this document as well.
-Note that similar security and privacy considerations may apply when the Measured Component information model is serialized using different data models than the ones specified in this document.
+Note that similar security considerations may apply when the Measured Component information model is serialized using different data models than the ones specified in this document.
 
 The Component Name and Component Version can give an attacker detailed information about the software running on a device and its configuration settings.
 This information could offer an attacker valuable insights.
-Additionally, the stability requirement of the Component Name could potentially allow for tracking.
 
 If the component measurement is digested, the digest must be computed using a strong cryptographic hash function.
+
+# Privacy Considerations {#privcons}
+
+Please review {{Section 9.1 (Multiple EAT Consumers) of -rats-eat}}; the differential encryption considerations discussed there also apply to this document.
+
+The Component Name and Component Version could reveal private information about a device and its owner.
+
+Additionally, the stability requirement of the Component Name could potentially enabling tracking.
 
 # IANA Considerations
 
