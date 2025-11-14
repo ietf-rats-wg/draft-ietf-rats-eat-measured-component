@@ -571,8 +571,8 @@ Table of Contents
    valuable insights.
 
    Any textual fields (e.g., Component Name and Version) that are stored
-   in a file, inserted into a database or displayed to humans must be
-   properly sanitised to prevent attacks and undesirable behaviour.
+   in a file, inserted into a database, or displayed to humans must be
+   properly sanitized to prevent attacks and undesirable behavior.
    Further discussion and references on this topic can be found in
    Section 7 of [RFC9839].
 
