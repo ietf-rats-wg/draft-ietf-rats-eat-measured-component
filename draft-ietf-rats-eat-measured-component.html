@@ -1826,7 +1826,9 @@ SS6bZ2wh9gErHO65Ay_rQUGogHlzVfZnUBXsWcUcoew\", \"\
 Note that similar security considerations may apply when the Measured Component information model is serialized using different data models than the ones specified in this document.<a href="#section-7-1" class="pilcrow">¶</a></p>
 <p id="section-7-2">The Component Name and Component Version can give an attacker detailed information about the software running on a device and its configuration settings.
 This information could offer an attacker valuable insights.<a href="#section-7-2" class="pilcrow">¶</a></p>
-<p id="section-7-3">If the component measurement is digested, the digest must be computed using a strong cryptographic hash function.<a href="#section-7-3" class="pilcrow">¶</a></p>
+<p id="section-7-3">Any textual fields (e.g., Component Name and Version) that are stored in a file, inserted into a database, or displayed to humans must be properly sanitized to prevent attacks and undesirable behavior.
+Further discussion and references on this topic can be found in <span><a href="https://rfc-editor.org/rfc/rfc9839#section-7" class="relref">Section 7</a> of [<a href="#RFC9839" class="cite xref">RFC9839</a>]</span>.<a href="#section-7-3" class="pilcrow">¶</a></p>
+<p id="section-7-4">If the component measurement is digested, the digest must be computed using a strong cryptographic hash function.<a href="#section-7-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="privcons">
@@ -2163,6 +2165,10 @@ This information could offer an attacker valuable insights.<a href="#section-7-2
 <dt id="RFC9783">[RFC9783]</dt>
         <dd>
 <span class="refAuthor">Tschofenig, H.</span>, <span class="refAuthor">Frost, S.</span>, <span class="refAuthor">Brossard, M.</span>, <span class="refAuthor">Shaw, A.</span>, and <span class="refAuthor">T. Fossati</span>, <span class="refTitle">"Arm's Platform Security Architecture (PSA) Attestation Token"</span>, <span class="seriesInfo">RFC 9783</span>, <span class="seriesInfo">DOI 10.17487/RFC9783</span>, <time datetime="2025-06" class="refDate">June 2025</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc9783">https://www.rfc-editor.org/rfc/rfc9783</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC9839">[RFC9839]</dt>
+        <dd>
+<span class="refAuthor">Bray, T.</span> and <span class="refAuthor">P. Hoffman</span>, <span class="refTitle">"Unicode Character Repertoire Subsets"</span>, <span class="seriesInfo">RFC 9839</span>, <span class="seriesInfo">DOI 10.17487/RFC9839</span>, <time datetime="2025-08" class="refDate">August 2025</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc9839">https://www.rfc-editor.org/rfc/rfc9839</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="TBBR-CLIENT">[TBBR-CLIENT]</dt>
         <dd>

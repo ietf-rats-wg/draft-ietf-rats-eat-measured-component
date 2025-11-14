@@ -570,6 +570,12 @@ Table of Contents
    configuration settings.  This information could offer an attacker
    valuable insights.
 
+   Any textual fields (e.g., Component Name and Version) that are stored
+   in a file, inserted into a database, or displayed to humans must be
+   properly sanitized to prevent attacks and undesirable behavior.
+   Further discussion and references on this topic can be found in
+   Section 7 of [RFC9839].
+
    If the component measurement is digested, the digest must be computed
    using a strong cryptographic hash function.
 
@@ -741,6 +747,10 @@ Table of Contents
               Fossati, "Arm's Platform Security Architecture (PSA)
               Attestation Token", RFC 9783, DOI 10.17487/RFC9783, June
               2025, <https://www.rfc-editor.org/rfc/rfc9783>.
+
+   [RFC9839]  Bray, T. and P. Hoffman, "Unicode Character Repertoire
+              Subsets", RFC 9839, DOI 10.17487/RFC9839, August 2025,
+              <https://www.rfc-editor.org/rfc/rfc9839>.
 
    [TBBR-CLIENT]
               Arm Ltd, "Trusted Board Boot Requirements Client (TBBR-
