@@ -170,6 +170,8 @@ The members of the `measured-component` CBOR map / JSON object are:
 
 `"measurement"`:
 : Either a digest value and algorithm (index 2), encoded using the digest format ({{digest}}), or the "raw" measurement (index 5), encoded as a byte string.
+Note that, while the size of the digested form is constrained by the digest function, the size of the raw form can vary greatly depending on what is being measured (it could be a CPU register or an entire configuration blob, for example).
+Therefore, a decoder implementation may decide to limit the amount of memory it allocates to this specific field.
 
 `"signers"` (index 3):
 : One or more signing entities, see {{signer}}.
