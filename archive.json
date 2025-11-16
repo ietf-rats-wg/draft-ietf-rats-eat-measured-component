@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-11-13T00:55:18.529928+00:00",
+  "timestamp": "2025-11-16T00:58:34.459383+00:00",
   "repo": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
   "labels": [
     {
@@ -663,6 +663,46 @@
           "updatedAt": "2025-11-12T09:45:33Z"
         }
       ]
+    },
+    {
+      "number": 54,
+      "id": "I_kwDOLP05f87X4PVe",
+      "title": "Jun\u2019s WGLC review",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/issues/54",
+      "state": "CLOSED",
+      "author": "thomas-fossati",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Archived-at: https://mailarchive.ietf.org/arch/msg/rats/os-kNUz_X0XbBJjlZmnG22MlRFo/\n\n### Typos and unclear description\n\n#### Section 6\n\n   \" The example in Figure 3 is the same measured component as above but\n   used as the format of a measurements claim in a EAT claims-set.\n\n   The example uses TBD1 as the content-type value of the measurements-\n   format entry.  (This will change to the value assigned by IANA to the\n   mc+cbor Content-Format.)\"\n\n   I suggest to replace the second \"The example\" as \"This example\".\n\n#### Section 6\n  \n  \" The example in Figure 4 illustrates the inclusion of a JSON measured\n   component inside a JSON EAT.\n\n   The example uses TBD2 as the content-type value of the measurements-\n   format entry.  (This will change to the value assigned by IANA to the\n   mc+json Content-Format.)\"\n\n   Similar to the comment a, I suggest to replace the second \"The example\" as \"This example\".\n\n#### Section 4.3.3\n    \n \" This field contains at most 64-bit of profile-defined semantics.\" ==>\" This field contains at most 64 bits of profile-defined semantics.\"\n\n\n### Fig. 2 Example inconsistency?\n\nIn Section 4.3, the members of the measured-component CBOR map / JSON object are: id, measurement, signers, flags, which are not consistent with the example in Figure 2 (the last member is \"profile-flags\"), and in Figure 5(the last member is \"profile-flags\"). Also, in Section 4.3.3, it use the field as \"profile-flags\" rather than flags.\n\n\n### Explicit size limit for raw measurements\n\nIn Section 4.2, I suggest to add size limit for the raw-measurement in the line\n      \n     measurement //= ( raw-measurement-label => bytes )\n\n\n\n### Constraints on Name field encoding\n\nIn the security consideration part (section 7), I suggest to add the following texts related with the name field\n\n     The name field MUST NOT contain path separators or control characters.\n     The length of the name field MUST NOT exceed a reasonable length. \n",
+      "createdAt": "2025-11-13T16:08:57Z",
+      "updatedAt": "2025-11-14T13:04:33Z",
+      "closedAt": "2025-11-14T13:04:33Z",
+      "comments": [
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Addressed in #56 and #58 ",
+          "createdAt": "2025-11-14T13:04:33Z",
+          "updatedAt": "2025-11-14T13:04:33Z"
+        }
+      ]
+    },
+    {
+      "number": 55,
+      "id": "I_kwDOLP05f87X4V_J",
+      "title": "Security vs. privacy considerations",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/issues/55",
+      "state": "CLOSED",
+      "author": "muhammad-usama-sardar",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Please separate out security and privacy considerations sections. Conflating two different things is not helpful. If you disagree, justify why they need to be together. (I think I commented this for several other drafts but maybe forgot this one in rush.)",
+      "createdAt": "2025-11-13T16:16:03Z",
+      "updatedAt": "2025-11-14T12:55:25Z",
+      "closedAt": "2025-11-14T12:55:25Z",
+      "comments": []
     }
   ],
   "pulls": [
@@ -2428,6 +2468,194 @@
           "body": "",
           "createdAt": "2025-11-12T10:44:54Z",
           "updatedAt": "2025-11-12T10:44:54Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 53,
+      "id": "PR_kwDOLP05f86zLoUc",
+      "title": "acks += @kentakayama",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/pull/53",
+      "state": "MERGED",
+      "author": "thomas-fossati",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Add @kentakayama to the acks section.",
+      "createdAt": "2025-11-13T09:32:36Z",
+      "updatedAt": "2025-11-13T13:06:25Z",
+      "baseRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "baseRefName": "main",
+      "baseRefOid": "99823342e15fa79df06bce993a5a45fe1ba30ca3",
+      "headRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "headRefName": "moar-acks",
+      "headRefOid": "7fe5026e6dac28f62065402ad94fd88340def6c4",
+      "closedAt": "2025-11-13T13:06:22Z",
+      "mergedAt": "2025-11-13T13:06:22Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "b621f1d8ef5e402ab4af2c576cb3f0843ce12792"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOLP05f87ONdS6",
+          "commit": {
+            "abbreviatedOid": "7fe5026"
+          },
+          "author": "SimonFrost-Arm",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "ACK the ack",
+          "createdAt": "2025-11-13T12:47:43Z",
+          "updatedAt": "2025-11-13T12:47:43Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 56,
+      "id": "PR_kwDOLP05f86zRWlw",
+      "title": "Jun's first batch of comments",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/pull/56",
+      "state": "MERGED",
+      "author": "thomas-fossati",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Partially address #54 ",
+      "createdAt": "2025-11-13T17:01:53Z",
+      "updatedAt": "2025-11-14T12:42:34Z",
+      "baseRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "baseRefName": "main",
+      "baseRefOid": "b621f1d8ef5e402ab4af2c576cb3f0843ce12792",
+      "headRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "headRefName": "jun",
+      "headRefOid": "f4beb83c587d389563e2d13be808e03a4661435f",
+      "closedAt": "2025-11-14T12:42:30Z",
+      "mergedAt": "2025-11-14T12:42:30Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "bdc612fb5e61956f5c44c55633d17cfa72f187bc"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOLP05f87OfsSE",
+          "commit": {
+            "abbreviatedOid": "f4beb83"
+          },
+          "author": "henkbirkholz",
+          "authorAssociation": "MEMBER",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-11-14T11:05:21Z",
+          "updatedAt": "2025-11-14T11:05:21Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 57,
+      "id": "PR_kwDOLP05f86zRxym",
+      "title": "Split security and privacy considerations",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/pull/57",
+      "state": "MERGED",
+      "author": "thomas-fossati",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Fix #55 ",
+      "createdAt": "2025-11-13T17:38:28Z",
+      "updatedAt": "2025-11-14T12:55:25Z",
+      "baseRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "baseRefName": "main",
+      "baseRefOid": "b621f1d8ef5e402ab4af2c576cb3f0843ce12792",
+      "headRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "headRefName": "sec-priv-split",
+      "headRefOid": "d1139c25569524599467432b5444a818368b9607",
+      "closedAt": "2025-11-14T12:55:24Z",
+      "mergedAt": "2025-11-14T12:55:24Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "05203c53bcda4ee24b9a03742b55598e7476b397"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOLP05f87OhG92",
+          "commit": {
+            "abbreviatedOid": "d1139c2"
+          },
+          "author": "henkbirkholz",
+          "authorAssociation": "MEMBER",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-11-14T12:47:21Z",
+          "updatedAt": "2025-11-14T12:47:21Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 58,
+      "id": "PR_kwDOLP05f86zcuYj",
+      "title": "text fields, security considerations",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/pull/58",
+      "state": "MERGED",
+      "author": "thomas-fossati",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Partially address #54 ",
+      "createdAt": "2025-11-14T12:42:06Z",
+      "updatedAt": "2025-11-14T13:05:08Z",
+      "baseRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "baseRefName": "main",
+      "baseRefOid": "05203c53bcda4ee24b9a03742b55598e7476b397",
+      "headRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "headRefName": "jun++",
+      "headRefOid": "6b69508030d0070cba4cb2247755439262ce6012",
+      "closedAt": "2025-11-14T13:01:13Z",
+      "mergedAt": "2025-11-14T13:01:13Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "6209099014123949b7b088853a72acc46880084d"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOLP05f87OhQZO",
+          "commit": {
+            "abbreviatedOid": "8902f09"
+          },
+          "author": "henkbirkholz",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-14T12:58:49Z",
+          "updatedAt": "2025-11-14T12:58:49Z",
+          "comments": [
+            {
+              "originalPosition": 12,
+              "body": "```suggestion\nAny textual fields (e.g., Component Name and Version) that are stored in a file, inserted into a database, or displayed to humans must be properly sanitized to prevent attacks and undesirable behavior.\n```",
+              "createdAt": "2025-11-14T12:58:49Z",
+              "updatedAt": "2025-11-14T12:58:49Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOLP05f87OhSRW",
+          "commit": {
+            "abbreviatedOid": "6b69508"
+          },
+          "author": "henkbirkholz",
+          "authorAssociation": "MEMBER",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-11-14T13:00:41Z",
+          "updatedAt": "2025-11-14T13:00:41Z",
           "comments": []
         }
       ]
