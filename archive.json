@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-11-16T00:58:34.459383+00:00",
+  "timestamp": "2025-11-20T00:53:32.938904+00:00",
   "repo": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
   "labels": [
     {
@@ -702,6 +702,22 @@
       "createdAt": "2025-11-13T16:16:03Z",
       "updatedAt": "2025-11-14T12:55:25Z",
       "closedAt": "2025-11-14T12:55:25Z",
+      "comments": []
+    },
+    {
+      "number": 59,
+      "id": "I_kwDOLP05f87Y0PdO",
+      "title": "Yogesh\u2019s WGLC review",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/issues/59",
+      "state": "OPEN",
+      "author": "thomas-fossati",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Archived-at: https://mailarchive.ietf.org/arch/msg/rats/uRvBA5HgAWcR1cfgbc6-RVXdBdE/\n\n* [x] Abstract: Second line: typically, measured, instead of digested...\n* [x] Introduction: here as well, I find the term digested, a bit odd in use. \u201cThe term \"measured component\" refers to any measurable object on a target environment, that is, an object whose state can be sampled and, possibly, digested.\" Perhaps use a better term\n* [x] The document inter-changeably uses digest value and digested value , in fact the latter can be replaced with digest value consistently.\n* [x] The document beneath Table 1 states the following: \u201cThe format SHOULD also allow a limited amount of extensibility to accommodate profile-specific semantics\u201d In the Data Model, it would be helpful to state which elements can be extended for profile specific semantics.",
+      "createdAt": "2025-11-18T11:11:15Z",
+      "updatedAt": "2025-11-19T21:44:43Z",
+      "closedAt": null,
       "comments": []
     }
   ],
@@ -2659,6 +2675,32 @@
           "comments": []
         }
       ]
+    },
+    {
+      "number": 60,
+      "id": "PR_kwDOLP05f860dNNQ",
+      "title": "Yogesh's review",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/pull/60",
+      "state": "OPEN",
+      "author": "thomas-fossati",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Co-edited with Yogesh in the lobby at the GP meeting :-)\r\n\r\nFix #59",
+      "createdAt": "2025-11-19T22:28:33Z",
+      "updatedAt": "2025-11-19T22:40:10Z",
+      "baseRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "baseRefName": "main",
+      "baseRefOid": "6209099014123949b7b088853a72acc46880084d",
+      "headRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "headRefName": "y-review",
+      "headRefOid": "d41a1d743b32aff0fca7a59b57f819e8d3c62eff",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
     }
   ]
 }
