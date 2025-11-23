@@ -336,7 +336,7 @@ Please review {{Section 9.1 (Multiple EAT Consumers) of -rats-eat}}; the differe
 
 The Component Name and Component Version could reveal private information about a device and its owner.
 
-Additionally, the stability requirement of the Component Name could potentially enabling tracking.
+Additionally, the stability requirement of the Component Name could enable tracking.
 
 # IANA Considerations
 
