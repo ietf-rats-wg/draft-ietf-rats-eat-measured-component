@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-11-20T00:53:32.938904+00:00",
+  "timestamp": "2025-11-25T00:54:11.045909+00:00",
   "repo": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
   "labels": [
     {
@@ -2701,6 +2701,48 @@
       "mergeCommit": null,
       "comments": [],
       "reviews": []
+    },
+    {
+      "number": 61,
+      "id": "PR_kwDOLP05f861EEdA",
+      "title": "Privacy cons",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/pull/61",
+      "state": "MERGED",
+      "author": "muhammad-usama-sardar",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-11-23T17:38:43Z",
+      "updatedAt": "2025-11-23T21:53:50Z",
+      "baseRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "baseRefName": "main",
+      "baseRefOid": "6209099014123949b7b088853a72acc46880084d",
+      "headRepository": "muhammad-usama-sardar/draft-ietf-rats-eat-measured-component",
+      "headRefName": "main",
+      "headRefOid": "e704ed3ab618b97b1cb4d8c2cc282adbe7fccf68",
+      "closedAt": "2025-11-23T21:53:50Z",
+      "mergedAt": "2025-11-23T21:53:50Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "cb2de0f33d3ab9a39b678bbaf29e42f7696edd83"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOLP05f87Qf8HI",
+          "commit": {
+            "abbreviatedOid": "e704ed3"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "thanks!",
+          "createdAt": "2025-11-23T21:53:26Z",
+          "updatedAt": "2025-11-23T21:53:26Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
