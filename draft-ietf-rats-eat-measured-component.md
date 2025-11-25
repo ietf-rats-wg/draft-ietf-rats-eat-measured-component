@@ -66,8 +66,7 @@ entity:
 
 --- abstract
 
-The term "measured component" refers to an object within the attester's target environment whose state can be inspected and, typically, digested.
-A digest is computed through a cryptographic hash function.
+The term "measured component" refers to an object within the attester's target environment whose state can be sampled and typically digested using a cryptographic hash function.
 Examples of measured components include firmware stored in flash memory, software loaded into memory at start time, data stored in a file system, or values in a CPU register.
 This document provides the information model for the "measured component" and two associated data models.
 This separation is intentional: the JSON and CBOR serializations, coupled with the media types and associated CoAP Content-Formats, enable the immediate use of the semantics within the EAT framework.
@@ -86,7 +85,7 @@ Currently, the only specified format is CoSWID of type "evidence", as per {{Sect
 However, CoSWID is not suitable for measurements that cannot be anchored to a file system, such as those in early boot environments.
 To address this gap, this document introduces a "measured component" format that can be used with the EAT `Measurements` claim alongside or instead of CoSWID.
 
-The term "measured component" refers to any measurable object on a target environment, that is, an object whose state can be sampled and, possibly, digested.
+The term "measured component" refers to an object within the attester's target environment whose state can be sampled and typically digested using a cryptographic hash function.
 This includes, for example: the invariant part of a firmware component that is loaded in memory at startup time, a run-time integrity check (RTIC), a file system object, or a CPU register.
 
 This document provides the information model for the "measured component" and two associated data models {{-models}}.
@@ -170,7 +169,7 @@ The members of the `measured-component` CBOR map / JSON object are:
 : The measured component identifier encoded according to the format described in {{component-id}}.
 
 `"measurement"`:
-: Either a digest value and algorithm (index 2), encoded using the digest format ({{digest}}), or the "raw" measurement (index 5), encoded as a byte string.
+: Either a digest value and digest algorithm (index 2), encoded using the digest format ({{digest}}), or the "raw" measurement (index 5), encoded as a byte string.
 Note that, while the size of the digested form is constrained by the digest function, the size of the raw form can vary greatly depending on what is being measured (it could be a CPU register or an entire configuration blob, for example).
 Therefore, a decoder implementation may decide to limit the amount of memory it allocates to this specific field.
 
@@ -220,7 +219,7 @@ The `signer-id-type` is defined as follows:
 
 ### Profile-specific Flags {#profile-flags}
 
-This optional field contains at most 64 bits of profile-defined semantics.
+This optional field can contain up to 64 bits of profile-defined semantics, enabling a profile of this specification to encode additional information and extend the base type.
 It can be used to carry information in fixed-size chunks, such as a bit mask or a single value within a predetermined set of codepoints.
 Regardless of its internal structure, the size of this field is exactly 8 bytes.
 
@@ -478,9 +477,10 @@ Houda Labiod,
 {{{Ionuț Mihalcea}}},
 Jun Zhang,
 Laurence Lundblade,
-Michael Richardson
-and
+Michael Richardson,
 Muhammad Usama Sardar
+and
+Yogesh Deshpande
 for providing comments, reviews and suggestions that greatly improved this document.
 
 The authors would also like to thank Ken Takayama for providing an implementation of this specification in the veraison/eat package.
