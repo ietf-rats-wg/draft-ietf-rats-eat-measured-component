@@ -324,7 +324,7 @@ Note that similar security considerations may apply when the Measured Component 
 The Component Name and Component Version can give an attacker detailed information about the software running on a device and its configuration settings.
 This information could offer an attacker valuable insights.
 
-Any textual fields (e.g., Component Name and Version) that are stored in a file, inserted into a database, or displayed to humans must be properly sanitized to prevent attacks and undesirable behavior.
+Any textual fields (e.g., Component Name and Component Version) that are stored in a file, inserted into a database, or displayed to humans must be properly sanitized to prevent attacks and undesirable behavior.
 Further discussion and references on this topic can be found in {{Section 7 of -unicode-subsets}}.
 
 If the component measurement is digested, the digest must be computed using a strong cryptographic hash function.
