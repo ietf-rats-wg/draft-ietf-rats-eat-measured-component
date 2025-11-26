@@ -5,12 +5,12 @@
 Remote ATtestation ProcedureS                                   S. Frost
 Internet-Draft                                                       Arm
 Intended status: Standards Track                              T. Fossati
-Expires: 29 May 2026                                              Linaro
+Expires: 30 May 2026                                              Linaro
                                                            H. Tschofenig
                                                                    H-BRS
                                                              H. Birkholz
                                                           Fraunhofer SIT
-                                                        25 November 2025
+                                                        26 November 2025
 
 
                          EAT Measured Component
@@ -59,7 +59,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 29 May 2026.
+   This Internet-Draft will expire on 30 May 2026.
 
 Copyright Notice
 
@@ -572,11 +572,11 @@ Table of Contents
    configuration settings.  This information could offer an attacker
    valuable insights.
 
-   Any textual fields (e.g., Component Name and Version) that are stored
-   in a file, inserted into a database, or displayed to humans must be
-   properly sanitized to prevent attacks and undesirable behavior.
-   Further discussion and references on this topic can be found in
-   Section 7 of [RFC9839].
+   Any textual fields (e.g., Component Name and Component Version) that
+   are stored in a file, inserted into a database, or displayed to
+   humans must be properly sanitized to prevent attacks and undesirable
+   behavior.  Further discussion and references on this topic can be
+   found in Section 7 of [RFC9839].
 
    If the component measurement is digested, the digest must be computed
    using a strong cryptographic hash function.
