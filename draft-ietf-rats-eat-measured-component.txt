@@ -5,12 +5,12 @@
 Remote ATtestation ProcedureS                                   S. Frost
 Internet-Draft                                                       Arm
 Intended status: Standards Track                              T. Fossati
-Expires: 30 May 2026                                              Linaro
+Expires: 1 June 2026                                              Linaro
                                                            H. Tschofenig
                                                                    H-BRS
                                                              H. Birkholz
                                                           Fraunhofer SIT
-                                                        26 November 2025
+                                                        28 November 2025
 
 
                          EAT Measured Component
@@ -59,7 +59,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 30 May 2026.
+   This Internet-Draft will expire on 1 June 2026.
 
 Copyright Notice
 
@@ -102,7 +102,8 @@ Table of Contents
    10. References
      10.1.  Normative References
      10.2.  Informative References
-   Appendix A.  Open Issues
+   Appendix A.  Collected CDDL
+   Appendix B.  Open Issues
    Acknowledgments
    Authors' Addresses
 
@@ -241,18 +242,11 @@ Table of Contents
    "Hash Name String" entries.  Whenever possible, using the int
    encoding is RECOMMENDED.
 
-   digest = [
-     alg: (int / text)
-     val: digest-value-type
-   ]
-
-   digest-value-type = eat.JC<bytes-b64u, bytes>
+   {{:include cddl/digest.cddl}
 
 4.3.  The measured-component Data Item
 
    The measured-component data item is as follows:
-
-   ;# import eat.JC from rfc9711 as eat
 
    measured-component = {
      id-label => component-id
@@ -764,7 +758,61 @@ Table of Contents
               <https://uefi.org/sites/default/files/resources/
               UEFI_Spec_2_10_Aug29.pdf>.
 
-Appendix A.  Open Issues
+Appendix A.  Collected CDDL
+
+   This appendix contains all the CDDL definitions included in this
+   specification.
+
+   =============== NOTE: '\' line wrapping per RFC 8792 ================
+
+   measured-component = {
+     id-label => component-id,
+     measurement,
+     ? signers-label => [+ signer-id-type],
+     ? flags-label => flags-type,
+   }
+   measurement //= (digested-measurement-label => digest // raw-\
+                                             measurement-label => bytes)
+   signer-id-type = eat.JC<bytes-b64u, bytes>
+   flags-type = eat.JC<bytes8-b64u, bytes8>
+   component-id = [
+     name: text,
+     ? version: version,
+   ]
+   version = [
+     val: text,
+     ? scheme: coswid.$version-scheme,
+   ]
+   digest = [
+     alg: int / text,
+     val: digest-value-type,
+   ]
+   digest-value-type = eat.JC<bytes-b64u, bytes>
+   bytes-b64u = text .b64u bytes
+   bytes8 = bytes .size 8
+   bytes8-b64u = text .b64u bytes8
+   id-label = eat.JC<"id", 1>
+   digested-measurement-label = eat.JC<"digested-measurement", 2>
+   raw-measurement-label = eat.JC<"raw-measurement", 5>
+   signers-label = eat.JC<"signers", 3>
+   flags-label = eat.JC<"flags", 4>
+   mc-cbor = bytes .cbor measured-component
+   mc-json = text .json measured-component
+   $measurements-body-cbor /= mc-cbor / mc-json
+   $measurements-body-json /= mc-json / text .b64u mc-cbor
+   eat.JSON-ONLY<J> = J .feature "json"
+   eat.CBOR-ONLY<C> = C .feature "cbor"
+   eat.JC<J, C> = eat.JSON-ONLY<J> / eat.CBOR-ONLY<C>
+   coswid.$version-scheme /= coswid.multipartnumeric / coswid.\
+   multipartnumeric-suffix / coswid.alphanumeric / coswid.decimal / \
+                                              coswid.semver / int / text
+   coswid.multipartnumeric = 1
+   coswid.multipartnumeric-suffix = 2
+   coswid.alphanumeric = 3
+   coswid.decimal = 4
+   coswid.semver = 16384
+
+Appendix B.  Open Issues
 
    The list of currently open issues for this documents can be found at
    https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-
