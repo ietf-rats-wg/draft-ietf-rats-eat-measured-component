@@ -1,0 +1,3 @@
+eat.JSON-ONLY<J> = J .feature "json"
+eat.CBOR-ONLY<C> = C .feature "cbor"
+eat.JC<J,C> = eat.JSON-ONLY<J> / eat.CBOR-ONLY<C>

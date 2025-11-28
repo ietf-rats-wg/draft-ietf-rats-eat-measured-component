@@ -1,5 +1,3 @@
-;# import eat.JC from rfc9711 as eat
-
 measured-component = {
   id-label => component-id
   measurement

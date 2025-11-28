@@ -1,14 +1,26 @@
 SHELL := /bin/bash
 
 %.cbor: %.diag ; diag2cbor.rb $< > $@
-%.cddl: %.cddlc ; cddlc -2tcddl $< > $@
 
 CDDL := measured-component.cddl
+
+CDDL_FRAGS := mc.cddl
+CDDL_FRAGS += component-id.cddl
+CDDL_FRAGS += digest.cddl
+CDDL_FRAGS += common-types.cddl
+CDDL_FRAGS += labels.cddl
+CDDL_FRAGS += signer.cddl
+CDDL_FRAGS += profile-flags.cddl
+CDDL_FRAGS += eat-plug.cddl
+CDDL_FRAGS += rfc9711.cddl
+
 DIAG_EXAMPLES := $(wildcard ex*.diag)
 CBOR_EXAMPLES := $(DIAG_EXAMPLES:.diag=.cbor)
 JSON_EXAMPLES := $(wildcard ex*.json)
 
 all: check-schema check-examples mceat-check-examples
+
+$(CDDL): $(CDDL_FRAGS) ; cddlc -2tcddl $^ > $@
 
 check-schema: $(CDDL) ; cddl $< g 10
 .PHONY: check-schema
