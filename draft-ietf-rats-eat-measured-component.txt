@@ -161,51 +161,52 @@ Table of Contents
    responsible for signing the installed component can also be
    specified.
 
-   The information model of a "measured component" is described in
-   Table 1.
+   The information elements (IE) that constitute a "measured component"
+   are described in Table 1.
 
-     +===========+=====================================+=============+
-     | IE        | Description                         | Requirement |
-     |           |                                     | Level       |
-     +===========+=====================================+=============+
-     | Component | The name given to the measured      | REQUIRED    |
-     | Name      | component.  It is important that    |             |
-     |           | this name remains consistent across |             |
-     |           | different releases to allow for     |             |
-     |           | better tracking of the same         |             |
-     |           | measured item across updates.  When |             |
-     |           | combined with a consistent          |             |
-     |           | versioning scheme, it enables       |             |
-     |           | better signaling from the appraisal |             |
-     |           | procedure to the relying parties.   |             |
-     +-----------+-------------------------------------+-------------+
-     | Component | A value representing the specific   | OPTIONAL    |
-     | Version   | release or development version of   |             |
-     |           | the measured component.  Using      |             |
-     |           | Semantic Versioning                 |             |
-     |           | (https://semver.org/spec/           |             |
-     |           | v2.0.0.html) is RECOMMENDED.        |             |
-     +-----------+-------------------------------------+-------------+
-     | Digested  | Either the raw value or the         | REQUIRED    |
-     | or Raw    | digested value of the measured      |             |
-     | Value     | component.                          |             |
-     +-----------+-------------------------------------+-------------+
-     | Digest    | Hash algorithm used to compute the  | REQUIRED    |
-     | Algorithm | Digest Value.                       | only if the |
-     |           |                                     | value is in |
-     |           |                                     | the         |
-     |           |                                     | digested    |
-     |           |                                     | form        |
-     +-----------+-------------------------------------+-------------+
-     | Signers   | One or more unique identifiers of   | OPTIONAL    |
-     |           | entities signing the component that |             |
-     |           | is measured.                        |             |
-     +-----------+-------------------------------------+-------------+
+    +===========+======================================+=============+
+    | IE        | Description                          | Requirement |
+    |           |                                      | Level       |
+    +===========+======================================+=============+
+    | Component | The name given to the measured       | REQUIRED    |
+    | Name      | component.  It is important that     |             |
+    |           | this name remains consistent across  |             |
+    |           | different releases to allow for      |             |
+    |           | better tracking of the same measured |             |
+    |           | item across updates.  When combined  |             |
+    |           | with a consistent versioning scheme, |             |
+    |           | it enables better signalling from    |             |
+    |           | the appraisal procedure to the       |             |
+    |           | relying parties.                     |             |
+    +-----------+--------------------------------------+-------------+
+    | Component | A value representing the specific    | OPTIONAL    |
+    | Version   | release or development version of    |             |
+    |           | the measured component.  Using       |             |
+    |           | Semantic Versioning                  |             |
+    |           | (https://semver.org/spec/            |             |
+    |           | v2.0.0.html) is RECOMMENDED.         |             |
+    +-----------+--------------------------------------+-------------+
+    | Digested  | Either the raw value or the digested | REQUIRED    |
+    | or Raw    | value of the measured component.     |             |
+    | Value     |                                      |             |
+    +-----------+--------------------------------------+-------------+
+    | Digest    | Hash algorithm used to compute the   | REQUIRED    |
+    | Algorithm | Digest Value.                        | only if the |
+    |           |                                      | value is in |
+    |           |                                      | the         |
+    |           |                                      | digested    |
+    |           |                                      | form        |
+    +-----------+--------------------------------------+-------------+
+    | Signers   | One or more unique identifiers of    | OPTIONAL    |
+    |           | entities signing the component that  |             |
+    |           | is measured.                         |             |
+    +-----------+--------------------------------------+-------------+
 
-              Table 1: Measured Component Information Elements
+             Table 1: Measured Component Information Elements
 
-   The format SHOULD also allow a limited amount of extensibility to
-   accommodate profile-specific semantics.
+   A data model implementing this information model SHOULD also allow a
+   limited amount of extensibility to accommodate profile-specific
+   semantics.
 
 4.  Data Model
 
@@ -220,8 +221,8 @@ Table of Contents
    CDDL is used to express rules and constraints of the data model for
    both JSON and CBOR.  These rules must be strictly followed when
    creating or validating "measured component" data items.  When there
-   is variation between CBOR and JSON, the JC<> CDDL generic defined in
-   Appendix D of [RFC9711] is used.
+   is variation between CBOR and JSON, the CDDL generic JC<>, defined in
+   Appendix D of [RFC9711], is used.
 
 4.1.   Common Types
 
@@ -242,7 +243,12 @@ Table of Contents
    "Hash Name String" entries.  Whenever possible, using the int
    encoding is RECOMMENDED.
 
-   {{:include cddl/digest.cddl}
+   digest = [
+     alg: (int / text)
+     val: digest-value-type
+   ]
+
+   digest-value-type = eat.JC<bytes-b64u, bytes>
 
 4.3.  The measured-component Data Item
 
