@@ -1,0 +1,7 @@
+digest = [
+  alg: (int / text)
+  val: digest-value-type
+]
+
+digest-value-type = eat.JC<bytes-b64u, bytes>
+

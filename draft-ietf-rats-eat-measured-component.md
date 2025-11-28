@@ -144,12 +144,7 @@ Specifically, `int` values are matched against "ID" entries and `text` values ar
 Whenever possible, using the `int` encoding is RECOMMENDED.
 
 ~~~ cddl
-digest = [
-  alg: (int / text)
-  val: digest-value-type
-]
-
-digest-value-type = eat.JC<bytes-b64u, bytes>
+{{:include cddl/digest.cddl}
 ~~~
 
 ## The `measured-component` Data Item
@@ -458,6 +453,14 @@ IANA is requested to register two Content-Format numbers in the "CoAP Content-Fo
 If possible, TBD1 and TBD2 should be assigned in the 256..9999 range.
 
 --- back
+
+# Collected CDDL {#collected-cddl}
+
+This appendix contains all the CDDL definitions included in this specification.
+
+~~~ cddl
+{::include-fold cddl/measured-component.cddl}
+~~~
 
 # Open Issues
 
