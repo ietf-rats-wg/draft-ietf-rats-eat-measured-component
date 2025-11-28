@@ -459,6 +459,14 @@ If possible, TBD1 and TBD2 should be assigned in the 256..9999 range.
 
 --- back
 
+# Collected CDDL {#collected-cddl}
+
+This appendix contains all the CDDL definitions included in this specification.
+
+~~~ cddl
+{::include-fold cddl/measured-component.cddl}
+~~~
+
 # Open Issues
 
 The list of currently open issues for this documents can be found at [](https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/issues).

@@ -16,6 +16,6 @@ endif
 
 $(drafts_xml): cddl/measured-component.cddl
 
-cddl/measured-component.cddl: cddl/measured-component.cddlc; $(MAKE) -C cddl
+cddl/measured-component.cddl: ; $(MAKE) -C cddl
 
 clean:: ; $(MAKE) -C cddl clean
