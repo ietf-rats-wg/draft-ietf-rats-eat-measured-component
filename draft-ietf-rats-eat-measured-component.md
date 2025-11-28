@@ -144,12 +144,7 @@ Specifically, `int` values are matched against "ID" entries and `text` values ar
 Whenever possible, using the `int` encoding is RECOMMENDED.
 
 ~~~ cddl
-digest = [
-  alg: (int / text)
-  val: digest-value-type
-]
-
-digest-value-type = eat.JC<bytes-b64u, bytes>
+{{:include cddl/digest.cddl}
 ~~~
 
 ## The `measured-component` Data Item
