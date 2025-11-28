@@ -4,4 +4,3 @@ digest = [
 ]
 
 digest-value-type = eat.JC<bytes-b64u, bytes>
-

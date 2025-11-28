@@ -105,18 +105,18 @@ This section presents the information model of a "measured component".
 A "measured component" information element includes the component's sampled state (in digested or raw form) along with metadata that helps in identifying the component.
 Optionally, any entities responsible for signing the installed component can also be specified.
 
-The information model of a "measured component" is described in {{tab-mc-info-elems}}.
+The information elements (IE) that constitute a "measured component" are described in {{tab-mc-info-elems}}.
 
 | IE | Description | Requirement Level |
 |----|-------------|-------------------|
-| Component Name | The name given to the measured component. It is important that this name remains consistent across different releases to allow for better tracking of the same measured item across updates. When combined with a consistent versioning scheme, it enables better signaling from the appraisal procedure to the relying parties. | REQUIRED |
+| Component Name | The name given to the measured component. It is important that this name remains consistent across different releases to allow for better tracking of the same measured item across updates. When combined with a consistent versioning scheme, it enables better signalling from the appraisal procedure to the relying parties. | REQUIRED |
 | Component Version | A value representing the specific release or development version of the measured component.  Using [Semantic Versioning](https://semver.org/spec/v2.0.0.html) is RECOMMENDED. | OPTIONAL |
 | Digested or Raw Value | Either the raw value or the digested value of the measured component. | REQUIRED |
 | Digest Algorithm | Hash algorithm used to compute the Digest Value. | REQUIRED only if the value is in the digested form |
 | Signers | One or more unique identifiers of entities signing the component that is measured. | OPTIONAL |
 {: #tab-mc-info-elems title="Measured Component Information Elements"}
 
-The format SHOULD also allow a limited amount of extensibility to accommodate profile-specific semantics.
+A data model implementing this information model SHOULD also allow a limited amount of extensibility to accommodate profile-specific semantics.
 
 # Data Model
 
@@ -126,7 +126,7 @@ The data model is inspired by the "PSA software component" claim ({{Section 4.4.
 
 CDDL is used to express rules and constraints of the data model for both JSON and CBOR.
 These rules must be strictly followed when creating or validating "measured component" data items.
-When there is variation between CBOR and JSON, the `JC<>` CDDL generic defined in {{Appendix D of -rats-eat}} is used.
+When there is variation between CBOR and JSON, the CDDL generic `JC<>`, defined in {{Appendix D of -rats-eat}}, is used.
 
 ## Common Types
 
@@ -144,7 +144,7 @@ Specifically, `int` values are matched against "ID" entries and `text` values ar
 Whenever possible, using the `int` encoding is RECOMMENDED.
 
 ~~~ cddl
-{{:include cddl/digest.cddl}
+{::include cddl/digest.cddl}
 ~~~
 
 ## The `measured-component` Data Item
