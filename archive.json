@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-11-27T00:54:09.522676+00:00",
+  "timestamp": "2025-11-30T01:01:37.991618+00:00",
   "repo": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
   "labels": [
     {
@@ -718,6 +718,38 @@
       "createdAt": "2025-11-18T11:11:15Z",
       "updatedAt": "2025-11-25T19:43:43Z",
       "closedAt": "2025-11-25T19:43:43Z",
+      "comments": []
+    },
+    {
+      "number": 63,
+      "id": "I_kwDOLP05f87bAFtO",
+      "title": "CDDL alignment between draft and CI",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/issues/63",
+      "state": "CLOSED",
+      "author": "ionut-arm",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Hello authors \ud83d\udc4b\ud83c\udffb \n\nBeen trying to follow the checks that are done automagically on the CI for CDDL validity, and just wanted to confirm a couple of points:\n\n* the CI does a lot of checking, but not directly on the CDDL that gets shown in the draft. By which I mean, the CI mainly deals with `cddl/measured-component.cddlc`, whereas the draft includes other fragment files from that folder (e.g., `{::include cddl/signer.cddl}`). There is no checking or relationship between the fragments and the full CDDL file, is this correct? The CDDL Makefile at least doesn't seem to check anything regarding that.\n* the digest CDDL fragment is inline in the draft - but given the above point, not sure if it makes a great difference:\n\n```\n~~~ cddl\ndigest = [\n  alg: (int / text)\n  val: digest-value-type\n]\n\ndigest-value-type = eat.JC<bytes-b64u, bytes>\n~~~\n```",
+      "createdAt": "2025-11-28T09:33:34Z",
+      "updatedAt": "2025-11-28T12:33:00Z",
+      "closedAt": "2025-11-28T12:33:00Z",
+      "comments": []
+    },
+    {
+      "number": 66,
+      "id": "I_kwDOLP05f87bJX9_",
+      "title": "Implementation Status section",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/issues/66",
+      "state": "OPEN",
+      "author": "ionut-arm",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Even if very brief, would be good to have an \"Implementation Status\" section - I see that there's already an impl in the Veraison EAT repo.",
+      "createdAt": "2025-11-29T11:46:06Z",
+      "updatedAt": "2025-11-29T11:46:06Z",
+      "closedAt": null,
       "comments": []
     }
   ],
@@ -2784,6 +2816,98 @@
           "body": "thanks!",
           "createdAt": "2025-11-26T12:26:00Z",
           "updatedAt": "2025-11-26T12:26:00Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 64,
+      "id": "PR_kwDOLP05f862BmSz",
+      "title": "Align what is tested to what is shown",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/pull/64",
+      "state": "MERGED",
+      "author": "thomas-fossati",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "* Add missing snippets\r\n* Construct the complete CDDL from the snippets\r\n* Ensure that snippets are included and not copied\r\n* Add a \u201ccollected CDDL\u201d appendix contaning all the merged snippets\r\n\r\nFix #63 ",
+      "createdAt": "2025-11-28T12:10:18Z",
+      "updatedAt": "2025-11-28T12:33:02Z",
+      "baseRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "baseRefName": "main",
+      "baseRefOid": "7cf867980388321f0a570c000947512df957938c",
+      "headRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "headRefName": "ci-align",
+      "headRefOid": "317d66d254a20bd3ae4c1ac24300474da9ec259e",
+      "closedAt": "2025-11-28T12:32:59Z",
+      "mergedAt": "2025-11-28T12:32:59Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "03a6b7ed1022639d37e675855eb121ec5f6ce80f"
+      },
+      "comments": [
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "body": "cc @ionut-arm",
+          "createdAt": "2025-11-28T12:10:36Z",
+          "updatedAt": "2025-11-28T12:10:36Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOLP05f87Ru9TE",
+          "commit": {
+            "abbreviatedOid": "317d66d"
+          },
+          "author": "ionut-arm",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": ":shipit: ",
+          "createdAt": "2025-11-28T12:17:21Z",
+          "updatedAt": "2025-11-28T12:17:21Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 65,
+      "id": "PR_kwDOLP05f862CPco",
+      "title": "minor edits",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/pull/65",
+      "state": "MERGED",
+      "author": "thomas-fossati",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "also, fix the inclusion of the digest snippet",
+      "createdAt": "2025-11-28T13:08:04Z",
+      "updatedAt": "2025-11-28T13:50:22Z",
+      "baseRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "baseRefName": "main",
+      "baseRefOid": "03a6b7ed1022639d37e675855eb121ec5f6ce80f",
+      "headRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "headRefName": "edits",
+      "headRefOid": "ae7f9c526fd023f7896ff352554266475bdce5d5",
+      "closedAt": "2025-11-28T13:50:16Z",
+      "mergedAt": "2025-11-28T13:50:16Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "a738b16a91e91004d99765b11fce25a72c1a94c0"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOLP05f87RwNFp",
+          "commit": {
+            "abbreviatedOid": "ae7f9c5"
+          },
+          "author": "ionut-arm",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "\ud83d\udcaf great rewording!",
+          "createdAt": "2025-11-28T13:48:13Z",
+          "updatedAt": "2025-11-28T13:48:13Z",
           "comments": []
         }
       ]
