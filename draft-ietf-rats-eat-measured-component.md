@@ -260,13 +260,13 @@ Note the use of the "native" and "tunnel" formats from {{fig-eat-plug}}, and how
 | `application/measured-component+cbor` | `tstr .b64u mc-cbor` |
 {: #tab-mf-json title="measurement-format for EAT JWT"}
 
-# EAT Profiles and Measured Components
+## EAT Profiles and Measured Components
 
 The semantics of the signers and profile flags fields are defined by the applicable EAT profile, i.e., the profile of the wrapping EAT.
 
 If the profile of the EAT is not known to the consumer and one or more Measured Components within that EAT include signers and/or profile flags, the consumer MUST reject the EAT.
 
-# Examples
+## Examples
 
 The example in {{ex-1}} is a digested measured component with all the fields populated.
 
