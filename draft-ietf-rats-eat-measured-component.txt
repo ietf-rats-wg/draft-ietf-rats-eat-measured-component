@@ -5,12 +5,12 @@
 Remote ATtestation ProcedureS                                   S. Frost
 Internet-Draft                                                       Arm
 Intended status: Standards Track                              T. Fossati
-Expires: 1 June 2026                                              Linaro
+Expires: 4 June 2026                                              Linaro
                                                            H. Tschofenig
                                                                    H-BRS
                                                              H. Birkholz
                                                           Fraunhofer SIT
-                                                        28 November 2025
+                                                         1 December 2025
 
 
                          EAT Measured Component
@@ -59,7 +59,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 1 June 2026.
+   This Internet-Draft will expire on 4 June 2026.
 
 Copyright Notice
 
@@ -90,18 +90,18 @@ Table of Contents
      4.4.  EAT measurements-format Extensions
      4.5.  measurements-format for CBOR EAT
      4.6.  measurements-format for JSON EAT
-   5.  EAT Profiles and Measured Components
-   6.  Examples
-   7.  Security Considerations
-   8.  Privacy Considerations
-   9.  IANA Considerations
-     9.1.  Media Types Registrations
-       9.1.1.  application/measured-component+cbor
-       9.1.2.  application/measured-component+json
-     9.2.  Measured Component Content-Format Registrations
-   10. References
-     10.1.  Normative References
-     10.2.  Informative References
+     4.7.  EAT Profiles and Measured Components
+     4.8.  Examples
+   5.  Security Considerations
+   6.  Privacy Considerations
+   7.  IANA Considerations
+     7.1.  Media Types Registrations
+       7.1.1.  application/measured-component+cbor
+       7.1.2.  application/measured-component+json
+     7.2.  Measured Component Content-Format Registrations
+   8.  References
+     8.1.  Normative References
+     8.2.  Informative References
    Appendix A.  Collected CDDL
    Appendix B.  Open Issues
    Acknowledgments
@@ -425,7 +425,7 @@ Table of Contents
 
                  Table 3: measurement-format for EAT JWT
 
-5.  EAT Profiles and Measured Components
+4.7.  EAT Profiles and Measured Components
 
    The semantics of the signers and profile flags fields are defined by
    the applicable EAT profile, i.e., the profile of the wrapping EAT.
@@ -434,7 +434,7 @@ Table of Contents
    more Measured Components within that EAT include signers and/or
    profile flags, the consumer MUST reject the EAT.
 
-6.  Examples
+4.8.  Examples
 
    The example in Figure 2 is a digested measured component with all the
    fields populated.
@@ -558,7 +558,7 @@ Table of Contents
 
                       Figure 6: Raw Measured Component
 
-7.  Security Considerations
+5.  Security Considerations
 
    Please review Sections 9.1 (Claim Trustworthiness), 9.4 (Multiple EAT
    Consumers) and 9.5 (Detached EAT Bundle Digest Security
@@ -581,7 +581,7 @@ Table of Contents
    If the component measurement is digested, the digest must be computed
    using a strong cryptographic hash function.
 
-8.  Privacy Considerations
+6.  Privacy Considerations
 
    Please review Section 9.1 (Multiple EAT Consumers) of [RFC9711]; the
    differential encryption considerations discussed there also apply to
@@ -593,13 +593,13 @@ Table of Contents
    Additionally, the stability requirement of the Component Name could
    enable tracking.
 
-9.  IANA Considerations
+7.  IANA Considerations
 
 
    // RFC Editor: replace "RFCthis" with the RFC number assigned to this
    document.
 
-9.1.  Media Types Registrations
+7.1.  Media Types Registrations
 
    IANA is requested to add the following media types to the "Media
    Types" registry [IANA.media-types].
@@ -614,14 +614,14 @@ Table of Contents
 
                   Table 4: Measured Component Media Types
 
-9.1.1.  application/measured-component+cbor
+7.1.1.  application/measured-component+cbor
 
    Type name:  application
    Subtype name:  measured-component+cbor
    Required parameters:  n/a
    Optional parameters:  n/a
    Encoding considerations:  binary (CBOR)
-   Security considerations:  Section 7 of RFCthis
+   Security considerations:  Section 5 of RFCthis
    Interoperability considerations:  n/a
    Published specification:  RFCthis
    Applications that use this media type:  Attesters, Verifiers and
@@ -637,14 +637,14 @@ Table of Contents
    Author/Change controller:  IETF
    Provisional registration:  no
 
-9.1.2.  application/measured-component+json
+7.1.2.  application/measured-component+json
 
    Type name:  application
    Subtype name:  measured-component+json
    Required parameters:  n/a
    Optional parameters:  n/a
    Encoding considerations:  binary (JSON is UTF-8-encoded text)
-   Security considerations:  Section 7 of RFCthis
+   Security considerations:  Section 5 of RFCthis
    Interoperability considerations:  n/a
    Published specification:  RFCthis
    Applications that use this media type:  Attesters, Verifiers and
@@ -660,7 +660,7 @@ Table of Contents
    Author/Change controller:  IETF
    Provisional registration:  no
 
-9.2.  Measured Component Content-Format Registrations
+7.2.  Measured Component Content-Format Registrations
 
    IANA is requested to register two Content-Format numbers in the "CoAP
    Content-Formats" sub-registry, within the "Constrained RESTful
@@ -681,9 +681,9 @@ Table of Contents
 
    If possible, TBD1 and TBD2 should be assigned in the 256..9999 range.
 
-10.  References
+8.  References
 
-10.1.  Normative References
+8.1.  Normative References
 
    [IANA.core-parameters]
               IANA, "Constrained RESTful Environments (CoRE)
@@ -733,7 +733,7 @@ Table of Contents
               Processing of Text", RFC 9741, DOI 10.17487/RFC9741, March
               2025, <https://www.rfc-editor.org/rfc/rfc9741>.
 
-10.2.  Informative References
+8.2.  Informative References
 
    [RFC3444]  Pras, A. and J. Schoenwaelder, "On the Difference between
               Information Models and Data Models", RFC 3444,
