@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-11-30T01:01:37.991618+00:00",
+  "timestamp": "2025-12-02T00:56:03.619850+00:00",
   "repo": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
   "labels": [
     {
@@ -741,15 +741,46 @@
       "id": "I_kwDOLP05f87bJX9_",
       "title": "Implementation Status section",
       "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/issues/66",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "ionut-arm",
       "authorAssociation": "NONE",
       "assignees": [],
       "labels": [],
       "body": "Even if very brief, would be good to have an \"Implementation Status\" section - I see that there's already an impl in the Veraison EAT repo.",
       "createdAt": "2025-11-29T11:46:06Z",
-      "updatedAt": "2025-11-29T11:46:06Z",
-      "closedAt": null,
+      "updatedAt": "2025-12-01T09:45:10Z",
+      "closedAt": "2025-12-01T09:45:09Z",
+      "comments": [
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "body": "From a practical perspective, this seems a little late in the process.  The idea behind an \"implementation status\" section is that it provides a \"running code\" checkbox for WG reviewers/chairs while the document is still being developed.  Now that we have moved past the WGLC stage and the shepherd's write-up is in progress, which will likely contain similar information, the addition seems less valuable than it would have been earlier in the process.\nHowever, we didn't have any implementation before IETF 124, which renders this point rather moot :-)",
+          "createdAt": "2025-11-30T13:15:32Z",
+          "updatedAt": "2025-11-30T13:16:33Z"
+        },
+        {
+          "author": "ionut-arm",
+          "authorAssociation": "NONE",
+          "body": "Ack! I'll just cover it in the write-up then.",
+          "createdAt": "2025-12-01T09:45:09Z",
+          "updatedAt": "2025-12-01T09:45:09Z"
+        }
+      ]
+    },
+    {
+      "number": 67,
+      "id": "I_kwDOLP05f87bNAxe",
+      "title": "Section regrouping",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/issues/67",
+      "state": "CLOSED",
+      "author": "ionut-arm",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Sections 5 and 6 seem to be an extension of section 4. By which I mean, they deal specifically with the data model, and assume EAT as the wrapper type for the info model. Would probably make sense to just fold them under 4.x instead of top-level sections.",
+      "createdAt": "2025-11-30T10:33:56Z",
+      "updatedAt": "2025-12-01T10:39:10Z",
+      "closedAt": "2025-12-01T10:39:10Z",
       "comments": []
     }
   ],
@@ -2908,6 +2939,56 @@
           "body": "\ud83d\udcaf great rewording!",
           "createdAt": "2025-11-28T13:48:13Z",
           "updatedAt": "2025-11-28T13:48:13Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 68,
+      "id": "PR_kwDOLP05f862LFZM",
+      "title": "fix: fold \u00a75 and \u00a76 under \u00a74 (data model)",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/pull/68",
+      "state": "MERGED",
+      "author": "thomas-fossati",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Fix #67 ",
+      "createdAt": "2025-11-30T12:39:06Z",
+      "updatedAt": "2025-12-01T10:39:12Z",
+      "baseRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "baseRefName": "main",
+      "baseRefOid": "a738b16a91e91004d99765b11fce25a72c1a94c0",
+      "headRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "headRefName": "sects",
+      "headRefOid": "7a3a5a51a935d7d935cb5b349f65fe16e81751a8",
+      "closedAt": "2025-12-01T10:39:09Z",
+      "mergedAt": "2025-12-01T10:39:09Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "cca55c4a187d84efce1c12cf60e79c6e1b7d2f4e"
+      },
+      "comments": [
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "body": "cc @ionut-arm\r\n",
+          "createdAt": "2025-11-30T12:39:30Z",
+          "updatedAt": "2025-11-30T12:39:30Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOLP05f87SDau1",
+          "commit": {
+            "abbreviatedOid": "7a3a5a5"
+          },
+          "author": "ionut-arm",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "Sorry I took so long to review, it's too complicated \ud83d\ude30",
+          "createdAt": "2025-12-01T09:46:24Z",
+          "updatedAt": "2025-12-01T09:46:24Z",
           "comments": []
         }
       ]
