@@ -1,1 +1,1 @@
-signer-id-type = eat.JC<bytes-b64u, bytes>
+authority-id-type = eat.JC<bytes-b64u, bytes>
