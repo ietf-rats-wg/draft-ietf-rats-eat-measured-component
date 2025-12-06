@@ -169,7 +169,7 @@ Note that, while the size of the digested form is constrained by the digest func
 Therefore, a decoder implementation may decide to limit the amount of memory it allocates to this specific field.
 
 `"authorities"` (index 3):
-: One or more authorities, see {{signer}}.
+: One or more authorities, see {{authority}}.
 
 `"flags"` (index 4):
 : a 64-bit field with profile-defined semantics, see {{profile-flags}}.
@@ -189,7 +189,7 @@ The `component-id` data item is as follows:
 `version`
 : A compound `version` data item that reuses encoding and semantics of {{-rats-eat}} `sw-version-type`.
 
-### Authority {#signer}
+### Authority {#authority}
 
 An authority is an entity that authorizes the installation of a given component by digitally signing it.
 This signature is usually verified during installation, or when the measured component is executed by the boot ROM, operating system, or application launcher.
@@ -209,7 +209,7 @@ If it is used, the profile MUST also specify what each of the entries in the `au
 The `authority-id-type` is defined as follows:
 
 ~~~ cddl
-{::include cddl/signer.cddl}
+{::include cddl/authority.cddl}
 ~~~
 
 ### Profile-specific Flags {#profile-flags}
