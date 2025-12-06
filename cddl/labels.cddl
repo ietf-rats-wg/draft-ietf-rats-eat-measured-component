@@ -1,5 +1,5 @@
 id-label = eat.JC<"id", 1>
 digested-measurement-label = eat.JC<"digested-measurement", 2>
 raw-measurement-label = eat.JC<"raw-measurement", 5>
-signers-label = eat.JC<"signers", 3>
+authorities-label = eat.JC<"authorities", 3>
 flags-label = eat.JC<"flags", 4>

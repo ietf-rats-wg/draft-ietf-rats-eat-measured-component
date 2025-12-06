@@ -11,7 +11,7 @@
     / val / h'3996003d486fb91ffb056f7d03f2b2992b215b31dbe7af4b37
               3431fc7d319da3'
   ],
-  / signers / 3: [
+  / authorities / 3: [
     h'492e9b676c21f6012b1ceeb9032feb4141a880797355f6675015ec59c5
       1ca1ec',
     h'4277bb97ba7b51577a0d38151d3e08b40bdf946753f5b5bdeb814d6ff5

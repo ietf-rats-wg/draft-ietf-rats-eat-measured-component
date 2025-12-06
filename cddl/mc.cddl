@@ -1,12 +1,12 @@
 measured-component = {
   id-label => component-id
   measurement
-  ? signers-label => [ + signer-id-type ]
+  ? authorities-label => [ + authority-id-type ]
   ? flags-label => flags-type
 }
 
 measurement //= ( digested-measurement-label => digest )
 measurement //= ( raw-measurement-label => bytes )
 
-signer-id-type = eat.JC<bytes-b64u, bytes>
+authority-id-type = eat.JC<bytes-b64u, bytes>
 flags-type = eat.JC<bytes8-b64u, bytes8>
