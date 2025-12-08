@@ -5,12 +5,12 @@
 Remote ATtestation ProcedureS                                   S. Frost
 Internet-Draft                                                       Arm
 Intended status: Standards Track                              T. Fossati
-Expires: 4 June 2026                                              Linaro
+Expires: 11 June 2026                                             Linaro
                                                            H. Tschofenig
                                                                    H-BRS
                                                              H. Birkholz
                                                           Fraunhofer SIT
-                                                         1 December 2025
+                                                         8 December 2025
 
 
                          EAT Measured Component
@@ -59,7 +59,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 4 June 2026.
+   This Internet-Draft will expire on 11 June 2026.
 
 Copyright Notice
 
@@ -85,7 +85,7 @@ Table of Contents
      4.2.  The digest Type
      4.3.  The measured-component Data Item
        4.3.1.  Component Identifier
-       4.3.2.  Signer
+       4.3.2.  Authority
        4.3.3.  Profile-specific Flags
      4.4.  EAT measurements-format Extensions
      4.5.  measurements-format for CBOR EAT
@@ -164,43 +164,42 @@ Table of Contents
    The information elements (IE) that constitute a "measured component"
    are described in Table 1.
 
-    +===========+======================================+=============+
-    | IE        | Description                          | Requirement |
-    |           |                                      | Level       |
-    +===========+======================================+=============+
-    | Component | The name given to the measured       | REQUIRED    |
-    | Name      | component.  It is important that     |             |
-    |           | this name remains consistent across  |             |
-    |           | different releases to allow for      |             |
-    |           | better tracking of the same measured |             |
-    |           | item across updates.  When combined  |             |
-    |           | with a consistent versioning scheme, |             |
-    |           | it enables better signalling from    |             |
-    |           | the appraisal procedure to the       |             |
-    |           | relying parties.                     |             |
-    +-----------+--------------------------------------+-------------+
-    | Component | A value representing the specific    | OPTIONAL    |
-    | Version   | release or development version of    |             |
-    |           | the measured component.  Using       |             |
-    |           | Semantic Versioning                  |             |
-    |           | (https://semver.org/spec/            |             |
-    |           | v2.0.0.html) is RECOMMENDED.         |             |
-    +-----------+--------------------------------------+-------------+
-    | Digested  | Either the raw value or the digested | REQUIRED    |
-    | or Raw    | value of the measured component.     |             |
-    | Value     |                                      |             |
-    +-----------+--------------------------------------+-------------+
-    | Digest    | Hash algorithm used to compute the   | REQUIRED    |
-    | Algorithm | Digest Value.                        | only if the |
-    |           |                                      | value is in |
-    |           |                                      | the         |
-    |           |                                      | digested    |
-    |           |                                      | form        |
-    +-----------+--------------------------------------+-------------+
-    | Signers   | One or more unique identifiers of    | OPTIONAL    |
-    |           | entities signing the component that  |             |
-    |           | is measured.                         |             |
-    +-----------+--------------------------------------+-------------+
+   +=============+======================================+=============+
+   | IE          | Description                          | Requirement |
+   |             |                                      | Level       |
+   +=============+======================================+=============+
+   | Component   | The name given to the measured       | REQUIRED    |
+   | Name        | component.  It is important that     |             |
+   |             | this name remains consistent across  |             |
+   |             | different releases to allow for      |             |
+   |             | better tracking of the same measured |             |
+   |             | item across updates.  When combined  |             |
+   |             | with a consistent versioning scheme, |             |
+   |             | it enables better signalling from    |             |
+   |             | the appraisal procedure to the       |             |
+   |             | relying parties.                     |             |
+   +-------------+--------------------------------------+-------------+
+   | Component   | A value representing the specific    | OPTIONAL    |
+   | Version     | release or development version of    |             |
+   |             | the measured component.  Using       |             |
+   |             | Semantic Versioning                  |             |
+   |             | (https://semver.org/spec/            |             |
+   |             | v2.0.0.html) is RECOMMENDED.         |             |
+   +-------------+--------------------------------------+-------------+
+   | Digested or | Either the raw value or the digested | REQUIRED    |
+   | Raw Value   | value of the measured component.     |             |
+   +-------------+--------------------------------------+-------------+
+   | Digest      | Hash algorithm used to compute the   | REQUIRED    |
+   | Algorithm   | Digest Value.                        | only if the |
+   |             |                                      | value is in |
+   |             |                                      | the         |
+   |             |                                      | digested    |
+   |             |                                      | form        |
+   +-------------+--------------------------------------+-------------+
+   | Authorities | One or more entities that can        | OPTIONAL    |
+   |             | authoritatively identify the         |             |
+   |             | component being measured.            |             |
+   +-------------+--------------------------------------+-------------+
 
              Table 1: Measured Component Information Elements
 
@@ -257,20 +256,20 @@ Table of Contents
    measured-component = {
      id-label => component-id
      measurement
-     ? signers-label => [ + signer-id-type ]
+     ? authorities-label => [ + authority-id-type ]
      ? flags-label => flags-type
    }
 
    measurement //= ( digested-measurement-label => digest )
    measurement //= ( raw-measurement-label => bytes )
 
-   signer-id-type = eat.JC<bytes-b64u, bytes>
+   authority-id-type = eat.JC<bytes-b64u, bytes>
    flags-type = eat.JC<bytes8-b64u, bytes8>
 
    id-label = eat.JC<"id", 1>
    digested-measurement-label = eat.JC<"digested-measurement", 2>
    raw-measurement-label = eat.JC<"raw-measurement", 5>
-   signers-label = eat.JC<"signers", 3>
+   authorities-label = eat.JC<"authorities", 3>
    flags-label = eat.JC<"flags", 4>
 
    The members of the measured-component CBOR map / JSON object are:
@@ -290,8 +289,8 @@ Table of Contents
       decide to limit the amount of memory it allocates to this specific
       field.
 
-   "signers" (index 3):
-      One or more signing entities, see Section 4.3.2.
+   "authorities" (index 3):
+      One or more authorities, see Section 4.3.2.
 
    "flags" (index 4):
       a 64-bit field with profile-defined semantics, see Section 4.3.3.
@@ -319,37 +318,35 @@ Table of Contents
    version  A compound version data item that reuses encoding and
       semantics of [RFC9711] sw-version-type.
 
-4.3.2.  Signer
+4.3.2.  Authority
 
-   A signer is an entity that digitally signed the component that is
-   measured.  Typically, the signature is verified during installation
-   or when the measured component is executed by the boot ROM, operating
-   system, or application launcher.  For example, as in UEFI Secure Boot
-   [UEFI2] and Arm Trusted Board Boot [TBBR-CLIENT].  Another example
-   may be the controlling entity in an app store.  It is important to
-   note that a signer is different from the identity of the manufacturer
-   of the component, such as would be found in a manifest like a payload
-   CoSWID.
+   An authority is an entity that can authoritatively identify a given
+   component by digitally signing it.  This signature is usually
+   verified during installation, or when the measured component is
+   executed by the boot ROM, operating system, or application launcher.
+   For example, as in UEFI Secure Boot [UEFI2] and Arm Trusted Board
+   Boot [TBBR-CLIENT].  Another example may be the controlling entity in
+   an app store.
 
-   A signer is identified using a public key.  It could be an X.509
+   An authority is identified by its signing key.  It could be an X.509
    certificate, a raw public key, a public key thumbprint, or some other
    identifier that can be uniquely associated with the signing entity.
    In some cases, multiple parties may need to sign a component to
    indicate their endorsement or approval.  This could include roles
    such as a firmware update system, fleet owner, or third-party
    auditor.  The specific purpose of each signature may depend on the
-   deployment, and the order of signers within the array could indicate
-   meaning.
+   deployment, and the order of authorities within the array could
+   indicate meaning.
 
    If an EAT profile (Section 6 of [RFC9711]) uses measured components,
-   it MUST specify whether the signers field is used.  If it is used,
-   the profile MUST also specify what each of the entries in the signers
-   array represents, and how to interpret the corresponding signer-id-
-   type.
+   it MUST specify whether the authorities field is used.  If it is
+   used, the profile MUST also specify what each of the entries in the
+   authorities array represents, and how to interpret the corresponding
+   authority-id-type.
 
-   The signer-id-type is defined as follows:
+   The authority-id-type is defined as follows:
 
-   signer-id-type = eat.JC<bytes-b64u, bytes>
+   authority-id-type = eat.JC<bytes-b64u, bytes>
 
 4.3.3.  Profile-specific Flags
 
@@ -427,11 +424,11 @@ Table of Contents
 
 4.7.  EAT Profiles and Measured Components
 
-   The semantics of the signers and profile flags fields are defined by
-   the applicable EAT profile, i.e., the profile of the wrapping EAT.
+   The semantics of the authorities and profile flags fields are defined
+   by the applicable EAT profile, i.e., the profile of the wrapping EAT.
 
    If the profile of the EAT is not known to the consumer and one or
-   more Measured Components within that EAT include signers and/or
+   more Measured Components within that EAT include authorities and/or
    profile flags, the consumer MUST reject the EAT.
 
 4.8.  Examples
@@ -452,7 +449,7 @@ Table of Contents
        / val / h'3996003d486fb91ffb056f7d03f2b2992b215b31dbe7af4b37
                  3431fc7d319da3'
      ],
-     / signers / 3: [
+     / authorities / 3: [
        h'492e9b676c21f6012b1ceeb9032feb4141a880797355f6675015ec59c5
          1ca1ec',
        h'4277bb97ba7b51577a0d38151d3e08b40bdf946753f5b5bdeb814d6ff5
@@ -492,7 +489,7 @@ Table of Contents
                / val / h'3996003d486fb91ffb056f7d03f2b2992b215b31db
                          e7af4b373431fc7d319da3'
              ],
-             / signers / 3: [
+             / authorities / 3: [
                h'492e9b676c21f6012b1ceeb9032feb4141a880797355f66750
                  15ec59c51ca1ec',
                h'4277bb97ba7b51577a0d38151d3e08b40bdf946753f5b5bdeb
@@ -521,8 +518,8 @@ Table of Contents
          TBD2, / mc+json /
          "{ \"id\": [ \"boot loader X\", [ \"1.2.3rc2\", 16384 ] ], \"\
    digested-measurement\": [ \"sha-256\", \"\
-   OZYAPUhvuR_7BW99A_KymSshWzHb569LNzQx_H0xnaM\" ], \"signers\": [ \"\
-   SS6bZ2wh9gErHO65Ay_rQUGogHlzVfZnUBXsWcUcoew\", \"\
+   OZYAPUhvuR_7BW99A_KymSshWzHb569LNzQx_H0xnaM\" ], \"authorities\": [ \
+   \"SS6bZ2wh9gErHO65Ay_rQUGogHlzVfZnUBXsWcUcoew\", \"\
                       Qne7l7p7UVd6DTgVHT4ItAvflGdT9bW964FNb_V6il4\" ] }"
        ]
      ]
@@ -774,12 +771,12 @@ Appendix A.  Collected CDDL
    measured-component = {
      id-label => component-id,
      measurement,
-     ? signers-label => [+ signer-id-type],
+     ? authorities-label => [+ authority-id-type],
      ? flags-label => flags-type,
    }
    measurement //= (digested-measurement-label => digest // raw-\
                                              measurement-label => bytes)
-   signer-id-type = eat.JC<bytes-b64u, bytes>
+   authority-id-type = eat.JC<bytes-b64u, bytes>
    flags-type = eat.JC<bytes8-b64u, bytes8>
    component-id = [
      name: text,
@@ -800,7 +797,7 @@ Appendix A.  Collected CDDL
    id-label = eat.JC<"id", 1>
    digested-measurement-label = eat.JC<"digested-measurement", 2>
    raw-measurement-label = eat.JC<"raw-measurement", 5>
-   signers-label = eat.JC<"signers", 3>
+   authorities-label = eat.JC<"authorities", 3>
    flags-label = eat.JC<"flags", 4>
    mc-cbor = bytes .cbor measured-component
    mc-json = text .json measured-component
