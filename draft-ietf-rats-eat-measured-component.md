@@ -113,7 +113,7 @@ The information elements (IE) that constitute a "measured component" are describ
 | Component Version | A value representing the specific release or development version of the measured component.  Using [Semantic Versioning](https://semver.org/spec/v2.0.0.html) is RECOMMENDED. | OPTIONAL |
 | Digested or Raw Value | Either the raw value or the digested value of the measured component. | REQUIRED |
 | Digest Algorithm | Hash algorithm used to compute the Digest Value. | REQUIRED only if the value is in the digested form |
-| Signers | One or more unique identifiers of entities signing the component that is measured. | OPTIONAL |
+| Authorities | One or more entities that can authoritatively identify the component being measured. | OPTIONAL |
 {: #tab-mc-info-elems title="Measured Component Information Elements"}
 
 A data model implementing this information model SHOULD also allow a limited amount of extensibility to accommodate profile-specific semantics.
@@ -168,8 +168,8 @@ The members of the `measured-component` CBOR map / JSON object are:
 Note that, while the size of the digested form is constrained by the digest function, the size of the raw form can vary greatly depending on what is being measured (it could be a CPU register or an entire configuration blob, for example).
 Therefore, a decoder implementation may decide to limit the amount of memory it allocates to this specific field.
 
-`"signers"` (index 3):
-: One or more signing entities, see {{signer}}.
+`"authorities"` (index 3):
+: One or more authorities, see {{authority}}.
 
 `"flags"` (index 4):
 : a 64-bit field with profile-defined semantics, see {{profile-flags}}.
@@ -189,27 +189,26 @@ The `component-id` data item is as follows:
 `version`
 : A compound `version` data item that reuses encoding and semantics of {{-rats-eat}} `sw-version-type`.
 
-### Signer {#signer}
+### Authority {#authority}
 
-A signer is an entity that digitally signed the component that is measured.
-Typically, the signature is verified during installation or when the measured component is executed by the boot ROM, operating system, or application launcher.
+An authority is an entity that can authoritatively identify a given component by digitally signing it.
+This signature is usually verified during installation, or when the measured component is executed by the boot ROM, operating system, or application launcher.
 For example, as in UEFI Secure Boot {{UEFI2}} and Arm Trusted Board Boot {{TBBR-CLIENT}}.
 Another example may be the controlling entity in an app store.
-It is important to note that a signer is different from the identity of the manufacturer of the component, such as would be found in a manifest like a payload CoSWID.
 
-A signer is identified using a public key.
+An authority is identified by its signing key.
 It could be an X.509 certificate, a raw public key, a public key thumbprint, or some other identifier that can be uniquely associated with the signing entity.
 In some cases, multiple parties may need to sign a component to indicate their endorsement or approval.
 This could include roles such as a firmware update system, fleet owner, or third-party auditor.
-The specific purpose of each signature may depend on the deployment, and the order of signers within the array could indicate meaning.
+The specific purpose of each signature may depend on the deployment, and the order of authorities within the array could indicate meaning.
 
-If an EAT profile ({{Section 6 of -rats-eat}}) uses measured components, it MUST specify whether the `signers` field is used.
-If it is used, the profile MUST also specify what each of the entries in the `signers` array represents, and how to interpret the corresponding `signer-id-type`.
+If an EAT profile ({{Section 6 of -rats-eat}}) uses measured components, it MUST specify whether the `authorities` field is used.
+If it is used, the profile MUST also specify what each of the entries in the `authorities` array represents, and how to interpret the corresponding `authority-id-type`.
 
-The `signer-id-type` is defined as follows:
+The `authority-id-type` is defined as follows:
 
 ~~~ cddl
-{::include cddl/signer.cddl}
+{::include cddl/authority.cddl}
 ~~~
 
 ### Profile-specific Flags {#profile-flags}
@@ -262,9 +261,9 @@ Note the use of the "native" and "tunnel" formats from {{fig-eat-plug}}, and how
 
 ## EAT Profiles and Measured Components
 
-The semantics of the signers and profile flags fields are defined by the applicable EAT profile, i.e., the profile of the wrapping EAT.
+The semantics of the `authorities` and profile `flags` fields are defined by the applicable EAT profile, i.e., the profile of the wrapping EAT.
 
-If the profile of the EAT is not known to the consumer and one or more Measured Components within that EAT include signers and/or profile flags, the consumer MUST reject the EAT.
+If the profile of the EAT is not known to the consumer and one or more Measured Components within that EAT include `authorities` and/or profile `flags`, the consumer MUST reject the EAT.
 
 ## Examples
 
