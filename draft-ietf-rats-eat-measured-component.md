@@ -191,11 +191,10 @@ The `component-id` data item is as follows:
 
 ### Authority {#authority}
 
-An authority is an entity that authorizes the installation of a given component by digitally signing it.
+An authority is an entity that can authoritatively identify a given component by digitally signing it.
 This signature is usually verified during installation, or when the measured component is executed by the boot ROM, operating system, or application launcher.
 For example, as in UEFI Secure Boot {{UEFI2}} and Arm Trusted Board Boot {{TBBR-CLIENT}}.
 Another example may be the controlling entity in an app store.
-It is important to note that an authority is different from the identity of the manufacturer of the component, such as would be found in a manifest like a payload CoSWID.
 
 An authority is identified by its signing key.
 It could be an X.509 certificate, a raw public key, a public key thumbprint, or some other identifier that can be uniquely associated with the signing entity.
