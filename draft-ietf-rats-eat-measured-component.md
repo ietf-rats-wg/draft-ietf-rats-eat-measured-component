@@ -113,7 +113,7 @@ The information elements (IE) that constitute a "measured component" are describ
 | Component Version | A value representing the specific release or development version of the measured component.  Using [Semantic Versioning](https://semver.org/spec/v2.0.0.html) is RECOMMENDED. | OPTIONAL |
 | Digested or Raw Value | Either the raw value or the digested value of the measured component. | REQUIRED |
 | Digest Algorithm | Hash algorithm used to compute the Digest Value. | REQUIRED only if the value is in the digested form |
-| Authorities | One or more unique identifiers of entities authorizing the installation of the component that is measured. | OPTIONAL |
+| Authorities | One or more entities that can authoritatively identify the component being measured. | OPTIONAL |
 {: #tab-mc-info-elems title="Measured Component Information Elements"}
 
 A data model implementing this information model SHOULD also allow a limited amount of extensibility to accommodate profile-specific semantics.
