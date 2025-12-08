@@ -261,9 +261,9 @@ Note the use of the "native" and "tunnel" formats from {{fig-eat-plug}}, and how
 
 ## EAT Profiles and Measured Components
 
-The semantics of the authorities and profile flags fields are defined by the applicable EAT profile, i.e., the profile of the wrapping EAT.
+The semantics of the `authorities` and profile `flags` fields are defined by the applicable EAT profile, i.e., the profile of the wrapping EAT.
 
-If the profile of the EAT is not known to the consumer and one or more Measured Components within that EAT include authorities and/or profile flags, the consumer MUST reject the EAT.
+If the profile of the EAT is not known to the consumer and one or more Measured Components within that EAT include `authorities` and/or profile `flags`, the consumer MUST reject the EAT.
 
 ## Examples
 
