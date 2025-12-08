@@ -196,10 +196,9 @@ Table of Contents
    |             |                                      | digested    |
    |             |                                      | form        |
    +-------------+--------------------------------------+-------------+
-   | Authorities | One or more unique identifiers of    | OPTIONAL    |
-   |             | entities authorizing the             |             |
-   |             | installation of the component that   |             |
-   |             | is measured.                         |             |
+   | Authorities | One or more entities that can        | OPTIONAL    |
+   |             | authoritatively identify the         |             |
+   |             | component being measured.            |             |
    +-------------+--------------------------------------+-------------+
 
              Table 1: Measured Component Information Elements
