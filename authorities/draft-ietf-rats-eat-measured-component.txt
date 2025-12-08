@@ -5,12 +5,12 @@
 Remote ATtestation ProcedureS                                   S. Frost
 Internet-Draft                                                       Arm
 Intended status: Standards Track                              T. Fossati
-Expires: 9 June 2026                                              Linaro
+Expires: 11 June 2026                                             Linaro
                                                            H. Tschofenig
                                                                    H-BRS
                                                              H. Birkholz
                                                           Fraunhofer SIT
-                                                         6 December 2025
+                                                         8 December 2025
 
 
                          EAT Measured Component
@@ -59,7 +59,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 9 June 2026.
+   This Internet-Draft will expire on 11 June 2026.
 
 Copyright Notice
 
@@ -321,15 +321,13 @@ Table of Contents
 
 4.3.2.  Authority
 
-   An authority is an entity that authorizes the installation of a given
+   An authority is an entity that can authoritatively identify a given
    component by digitally signing it.  This signature is usually
    verified during installation, or when the measured component is
    executed by the boot ROM, operating system, or application launcher.
    For example, as in UEFI Secure Boot [UEFI2] and Arm Trusted Board
    Boot [TBBR-CLIENT].  Another example may be the controlling entity in
-   an app store.  It is important to note that an authority is different
-   from the identity of the manufacturer of the component, such as would
-   be found in a manifest like a payload CoSWID.
+   an app store.
 
    An authority is identified by its signing key.  It could be an X.509
    certificate, a raw public key, a public key thumbprint, or some other

@@ -1058,7 +1058,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Frost, et al.</td>
-<td class="center">Expires 9 June 2026</td>
+<td class="center">Expires 11 June 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1071,12 +1071,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-ietf-rats-eat-measured-component-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-12-06" class="published">6 December 2025</time>
+<time datetime="2025-12-08" class="published">8 December 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-06-09">9 June 2026</time></dd>
+<dd class="expires"><time datetime="2026-06-11">11 June 2026</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1137,7 +1137,7 @@ Meanwhile, the information model can be reused in future specifications to provi
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 9 June 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 11 June 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1507,11 +1507,10 @@ version = [
           <h4 id="name-authority">
 <a href="#section-4.3.2" class="section-number selfRef">4.3.2. </a><a href="#name-authority" class="section-name selfRef">Authority</a>
           </h4>
-<p id="section-4.3.2-1">An authority is an entity that authorizes the installation of a given component by digitally signing it.
+<p id="section-4.3.2-1">An authority is an entity that can authoritatively identify a given component by digitally signing it.
 This signature is usually verified during installation, or when the measured component is executed by the boot ROM, operating system, or application launcher.
 For example, as in UEFI Secure Boot <span>[<a href="#UEFI2" class="cite xref">UEFI2</a>]</span> and Arm Trusted Board Boot <span>[<a href="#TBBR-CLIENT" class="cite xref">TBBR-CLIENT</a>]</span>.
-Another example may be the controlling entity in an app store.
-It is important to note that an authority is different from the identity of the manufacturer of the component, such as would be found in a manifest like a payload CoSWID.<a href="#section-4.3.2-1" class="pilcrow">¶</a></p>
+Another example may be the controlling entity in an app store.<a href="#section-4.3.2-1" class="pilcrow">¶</a></p>
 <p id="section-4.3.2-2">An authority is identified by its signing key.
 It could be an X.509 certificate, a raw public key, a public key thumbprint, or some other identifier that can be uniquely associated with the signing entity.
 In some cases, multiple parties may need to sign a component to indicate their endorsement or approval.
