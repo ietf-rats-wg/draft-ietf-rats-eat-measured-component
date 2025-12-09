@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-12-07T01:01:46.315030+00:00",
+  "timestamp": "2025-12-09T00:56:30.707075+00:00",
   "repo": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
   "labels": [
     {
@@ -2998,24 +2998,26 @@
       "id": "PR_kwDOLP05f863ca4Y",
       "title": "`s/signers/authorities/g`",
       "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/pull/69",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "thomas-fossati",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "For more context see https://mailarchive.ietf.org/arch/msg/rats/T1P7oKPIb3-IWCFAnQS7eC-T2FE/",
       "createdAt": "2025-12-06T14:35:02Z",
-      "updatedAt": "2025-12-06T18:19:40Z",
+      "updatedAt": "2025-12-08T16:53:32Z",
       "baseRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
       "baseRefName": "main",
       "baseRefOid": "cca55c4a187d84efce1c12cf60e79c6e1b7d2f4e",
       "headRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
       "headRefName": "authorities",
-      "headRefOid": "64ea4122995eef016c77323c20214a8f8d7d72fd",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "59527b28ed42bcd34a193c05807bc4f64fc74a69",
+      "closedAt": "2025-12-08T16:53:28Z",
+      "mergedAt": "2025-12-08T16:53:28Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "0e1c39b239e9555e595415039b83e49445f99877"
+      },
       "comments": [
         {
           "author": "thomas-fossati",
@@ -3083,6 +3085,165 @@
               "body": "Update in [64ea412](https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/pull/69/commits/64ea4122995eef016c77323c20214a8f8d7d72fd)",
               "createdAt": "2025-12-06T18:19:40Z",
               "updatedAt": "2025-12-06T18:19:40Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOLP05f87TjKuC",
+          "commit": {
+            "abbreviatedOid": "64ea412"
+          },
+          "author": "ionut-arm",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "\ud83d\udcaf ",
+          "createdAt": "2025-12-07T10:34:59Z",
+          "updatedAt": "2025-12-07T10:34:59Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOLP05f87TuUbW",
+          "commit": {
+            "abbreviatedOid": "64ea412"
+          },
+          "author": "SimonFrost-Arm",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-12-08T13:37:35Z",
+          "updatedAt": "2025-12-08T13:39:21Z",
+          "comments": [
+            {
+              "originalPosition": 34,
+              "body": "I'm not sure this holds, suggest we remove this line",
+              "createdAt": "2025-12-08T13:37:35Z",
+              "updatedAt": "2025-12-08T13:39:21Z"
+            },
+            {
+              "originalPosition": 29,
+              "body": "I think the authorization of the installation is a local decision. How about something like:\r\n\r\nAn authority is an entity that can authoritatively identify a given component by digitally signing it.",
+              "createdAt": "2025-12-08T13:39:16Z",
+              "updatedAt": "2025-12-08T13:39:21Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOLP05f87TuZnj",
+          "commit": {
+            "abbreviatedOid": "24d34e7"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-12-08T13:43:13Z",
+          "updatedAt": "2025-12-08T13:43:14Z",
+          "comments": [
+            {
+              "originalPosition": 34,
+              "body": "done in [ea0031f](https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/pull/69/commits/ea0031f4708160ce4732b9dc0a73f4b355507c81)",
+              "createdAt": "2025-12-08T13:43:13Z",
+              "updatedAt": "2025-12-08T13:43:14Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOLP05f87TuZsv",
+          "commit": {
+            "abbreviatedOid": "24d34e7"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-12-08T13:43:19Z",
+          "updatedAt": "2025-12-08T13:43:19Z",
+          "comments": [
+            {
+              "originalPosition": 29,
+              "body": "done in [ea0031f](https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/pull/69/commits/ea0031f4708160ce4732b9dc0a73f4b355507c81)",
+              "createdAt": "2025-12-08T13:43:19Z",
+              "updatedAt": "2025-12-08T13:43:19Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOLP05f87TuceZ",
+          "commit": {
+            "abbreviatedOid": "ea0031f"
+          },
+          "author": "SimonFrost-Arm",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "One additional tweak requested to match previous commit & then LGTM",
+          "createdAt": "2025-12-08T13:45:52Z",
+          "updatedAt": "2025-12-08T13:47:02Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "Can we change this one to the 'can authoritatively identify' form as well please.",
+              "createdAt": "2025-12-08T13:45:52Z",
+              "updatedAt": "2025-12-08T13:47:02Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOLP05f87TxtwZ",
+          "commit": {
+            "abbreviatedOid": "ea0031f"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-12-08T16:45:15Z",
+          "updatedAt": "2025-12-08T16:45:16Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "done in [799b37b](https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/pull/69/commits/799b37bdc0deb81e0663e77556b09f0c7f4de85c)",
+              "createdAt": "2025-12-08T16:45:15Z",
+              "updatedAt": "2025-12-08T16:45:16Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOLP05f87TxxBX",
+          "commit": {
+            "abbreviatedOid": "799b37b"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-12-08T16:49:03Z",
+          "updatedAt": "2025-12-08T16:49:04Z",
+          "comments": [
+            {
+              "originalPosition": 62,
+              "body": "```suggestion\r\nThe semantics of the `authorities` and profile `flags` fields are defined by the applicable EAT profile, i.e., the profile of the wrapping EAT.\r\n```",
+              "createdAt": "2025-12-08T16:49:04Z",
+              "updatedAt": "2025-12-08T16:49:04Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOLP05f87TxxfX",
+          "commit": {
+            "abbreviatedOid": "799b37b"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-12-08T16:49:38Z",
+          "updatedAt": "2025-12-08T16:49:38Z",
+          "comments": [
+            {
+              "originalPosition": 65,
+              "body": "```suggestion\r\nIf the profile of the EAT is not known to the consumer and one or more Measured Components within that EAT include `authorities` and/or profile `flags`, the consumer MUST reject the EAT.\r\n```",
+              "createdAt": "2025-12-08T16:49:38Z",
+              "updatedAt": "2025-12-08T16:49:39Z"
             }
           ]
         }
