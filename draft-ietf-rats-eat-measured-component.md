@@ -38,6 +38,10 @@ normative:
   RFC9165: cddlplus
   RFC9741: cddlctls
   RFC9711: rats-eat
+  SEMVER:
+    title: "Semantic Versioning 2.0.0"
+    date: 2013
+    target: https://semver.org/spec/v2.0.0.html
 
 informative:
   RFC3444: models
@@ -110,7 +114,7 @@ The information elements (IE) that constitute a "measured component" are describ
 | IE | Description | Requirement Level |
 |----|-------------|-------------------|
 | Component Name | The name given to the measured component. It is important that this name remains consistent across different releases to allow for better tracking of the same measured item across updates. When combined with a consistent versioning scheme, it enables better signalling from the appraisal procedure to the relying parties. | REQUIRED |
-| Component Version | A value representing the specific release or development version of the measured component.  Using [Semantic Versioning](https://semver.org/spec/v2.0.0.html) is RECOMMENDED. | OPTIONAL |
+| Component Version | A value representing the specific release or development version of the measured component.  Using Semantic Versioning {{SEMVER}} is RECOMMENDED. | OPTIONAL |
 | Digested or Raw Value | Either the raw value or the digested value of the measured component. | REQUIRED |
 | Digest Algorithm | Hash algorithm used to compute the Digest Value. | REQUIRED only if the value is in the digested form |
 | Authorities | One or more entities that can authoritatively identify the component being measured. | OPTIONAL |
