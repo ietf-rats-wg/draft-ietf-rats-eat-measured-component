@@ -191,7 +191,7 @@ The `component-id` data item is as follows:
 : A string that provides a human readable identifier for the component in question.  Format and adopted conventions depend on the component type.
 
 `version`
-: A compound `version` data item that reuses encoding and semantics of {{-rats-eat}} `sw-version-type`.
+: A compound `version` data item that reuses the encoding and semantics of {{-rats-eat}} `sw-version-type`, extending it to non-software components.
 
 ### Authority Identifier {#authority}
 
