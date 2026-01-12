@@ -341,7 +341,7 @@ Additionally, the stability requirement of the Component Name could enable track
 
 ## Media Types Registrations
 
-IANA is requested to add the following media types to the "Media Types" registry {{!IANA.media-types}}.
+IANA is requested to add the following media types to the "Media Types" registry {{?IANA.media-types}}.
 
 | Name | Template | Reference |
 |-----------------|-------------------------|-----------|
@@ -447,7 +447,7 @@ Provisional registration:
 
 ## Measured Component Content-Format Registrations
 
-IANA is requested to register two Content-Format numbers in the "CoAP Content-Formats" sub-registry, within the "Constrained RESTful Environments (CoRE) Parameters" Registry {{!IANA.core-parameters}}, as follows:
+IANA is requested to register two Content-Format numbers in the "CoAP Content-Formats" sub-registry, within the "Constrained RESTful Environments (CoRE) Parameters" Registry {{?IANA.core-parameters}}, as follows:
 
 | Content-Type | Content Coding | ID | Reference |
 | application/measured-component+cbor | - | TBD1 | {{&SELF}} |
