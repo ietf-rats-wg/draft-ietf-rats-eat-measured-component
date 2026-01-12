@@ -1,5 +1,5 @@
 measured-component = {
-  id-label => component-id
+  component-id-label => component-id
   measurement
   ? authorities-label => [ + authority-id-type ]
   ? flags-label => flags-type

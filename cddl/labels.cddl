@@ -1,4 +1,4 @@
-id-label = eat.JC<"id", 1>
+component-id-label = eat.JC<"id", 1>
 digested-measurement-label = eat.JC<"digested-measurement", 2>
 raw-measurement-label = eat.JC<"raw-measurement", 5>
 authorities-label = eat.JC<"authorities", 3>
