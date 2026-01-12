@@ -5,12 +5,12 @@
 Remote ATtestation ProcedureS                                   S. Frost
 Internet-Draft                                                       Arm
 Intended status: Standards Track                              T. Fossati
-Expires: 11 June 2026                                             Linaro
+Expires: 16 July 2026                                             Linaro
                                                            H. Tschofenig
                                                                    H-BRS
                                                              H. Birkholz
                                                           Fraunhofer SIT
-                                                         8 December 2025
+                                                         12 January 2026
 
 
                          EAT Measured Component
@@ -26,8 +26,9 @@ Abstract
    values in a CPU register.  This document provides the information
    model for the "measured component" and two associated data models.
    This separation is intentional: the JSON and CBOR serializations,
-   coupled with the media types and associated CoAP Content-Formats,
-   enable the immediate use of the semantics within the EAT framework.
+   coupled with the media types and associated Constrained Application
+   Protocol (CoAP) Content-Formats, enable the immediate use of the
+   semantics within the Entity Attestation Token (EAT) framework.
    Meanwhile, the information model can be reused in future
    specifications to provide additional serializations, for example
    using ASN.1.
@@ -59,11 +60,11 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 11 June 2026.
+   This Internet-Draft will expire on 16 July 2026.
 
 Copyright Notice
 
-   Copyright (c) 2025 IETF Trust and the persons identified as the
+   Copyright (c) 2026 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -85,7 +86,7 @@ Table of Contents
      4.2.  The digest Type
      4.3.  The measured-component Data Item
        4.3.1.  Component Identifier
-       4.3.2.  Authority
+       4.3.2.  Authority Identifier
        4.3.3.  Profile-specific Flags
      4.4.  EAT measurements-format Extensions
      4.5.  measurements-format for CBOR EAT
@@ -117,12 +118,13 @@ Table of Contents
 
    This claim allows for different measurement formats, each identified
    by a different CoAP Content-Format (Section 12.3 of [RFC7252]).
-   Currently, the only specified format is CoSWID of type "evidence", as
-   per Section 2.9.4 of [RFC9393].  However, CoSWID is not suitable for
-   measurements that cannot be anchored to a file system, such as those
-   in early boot environments.  To address this gap, this document
-   introduces a "measured component" format that can be used with the
-   EAT Measurements claim alongside or instead of CoSWID.
+   Currently, the only specified format is Concise Software
+   Identification (CoSWID) Tags of type "evidence", as per Section 2.9.4
+   of [RFC9393].  However, CoSWID is not suitable for measurements that
+   cannot be anchored to a file system, such as those in early boot
+   environments.  To address this gap, this document introduces a
+   "measured component" format that can be used with the EAT
+   Measurements claim alongside or instead of CoSWID.
 
    The term "measured component" refers to an object within the
    attester's target environment whose state can be sampled and
@@ -182,9 +184,8 @@ Table of Contents
    | Component   | A value representing the specific    | OPTIONAL    |
    | Version     | release or development version of    |             |
    |             | the measured component.  Using       |             |
-   |             | Semantic Versioning                  |             |
-   |             | (https://semver.org/spec/            |             |
-   |             | v2.0.0.html) is RECOMMENDED.         |             |
+   |             | Semantic Versioning [SEMVER] is      |             |
+   |             | RECOMMENDED.                         |             |
    +-------------+--------------------------------------+-------------+
    | Digested or | Either the raw value or the digested | REQUIRED    |
    | Raw Value   | value of the measured component.     |             |
@@ -254,7 +255,7 @@ Table of Contents
    The measured-component data item is as follows:
 
    measured-component = {
-     id-label => component-id
+     component-id-label => component-id
      measurement
      ? authorities-label => [ + authority-id-type ]
      ? flags-label => flags-type
@@ -266,7 +267,7 @@ Table of Contents
    authority-id-type = eat.JC<bytes-b64u, bytes>
    flags-type = eat.JC<bytes8-b64u, bytes8>
 
-   id-label = eat.JC<"id", 1>
+   component-id-label = eat.JC<"id", 1>
    digested-measurement-label = eat.JC<"digested-measurement", 2>
    raw-measurement-label = eat.JC<"raw-measurement", 5>
    authorities-label = eat.JC<"authorities", 3>
@@ -315,24 +316,25 @@ Table of Contents
       component in question.  Format and adopted conventions depend on
       the component type.
 
-   version  A compound version data item that reuses encoding and
-      semantics of [RFC9711] sw-version-type.
+   version  A compound version data item that reuses the encoding and
+      semantics of [RFC9711] sw-version-type, extending it to non-
+      software components.
 
-4.3.2.  Authority
+4.3.2.  Authority Identifier
 
    An authority is an entity that can authoritatively identify a given
    component by digitally signing it.  This signature is usually
    verified during installation, or when the measured component is
    executed by the boot ROM, operating system, or application launcher.
-   For example, as in UEFI Secure Boot [UEFI2] and Arm Trusted Board
-   Boot [TBBR-CLIENT].  Another example may be the controlling entity in
-   an app store.
+   For example, as in Unified Extensible Firmware Interface (UEFI)
+   Secure Boot [UEFI2] and Arm Trusted Board Boot [TBBR-CLIENT].
+   Another example may be the controlling entity in an app store.
 
-   An authority is identified by its signing key.  It could be an X.509
-   certificate, a raw public key, a public key thumbprint, or some other
-   identifier that can be uniquely associated with the signing entity.
-   In some cases, multiple parties may need to sign a component to
-   indicate their endorsement or approval.  This could include roles
+   An authority is identified by its signing public key.  It could be an
+   X.509 certificate, a raw public key, a public key thumbprint, or some
+   other identifier that can be uniquely associated with the signing
+   entity.  In some cases, multiple parties may need to sign a component
+   to indicate their endorsement or approval.  This could include roles
    such as a firmware update system, fleet owner, or third-party
    auditor.  The specific purpose of each signature may depend on the
    deployment, and the order of authorities within the array could
@@ -682,15 +684,6 @@ Table of Contents
 
 8.1.  Normative References
 
-   [IANA.core-parameters]
-              IANA, "Constrained RESTful Environments (CoRE)
-              Parameters",
-              <https://www.iana.org/assignments/core-parameters>.
-
-   [IANA.media-types]
-              IANA, "Media Types",
-              <https://www.iana.org/assignments/media-types>.
-
    [IANA.named-information]
               IANA, "Named Information",
               <https://www.iana.org/assignments/named-information>.
@@ -730,7 +723,19 @@ Table of Contents
               Processing of Text", RFC 9741, DOI 10.17487/RFC9741, March
               2025, <https://www.rfc-editor.org/rfc/rfc9741>.
 
+   [SEMVER]   "Semantic Versioning 2.0.0", 2013,
+              <https://semver.org/spec/v2.0.0.html>.
+
 8.2.  Informative References
+
+   [IANA.core-parameters]
+              IANA, "Constrained RESTful Environments (CoRE)
+              Parameters",
+              <https://www.iana.org/assignments/core-parameters>.
+
+   [IANA.media-types]
+              IANA, "Media Types",
+              <https://www.iana.org/assignments/media-types>.
 
    [RFC3444]  Pras, A. and J. Schoenwaelder, "On the Difference between
               Information Models and Data Models", RFC 3444,
@@ -769,7 +774,7 @@ Appendix A.  Collected CDDL
    =============== NOTE: '\' line wrapping per RFC 8792 ================
 
    measured-component = {
-     id-label => component-id,
+     component-id-label => component-id,
      measurement,
      ? authorities-label => [+ authority-id-type],
      ? flags-label => flags-type,
@@ -794,7 +799,7 @@ Appendix A.  Collected CDDL
    bytes-b64u = text .b64u bytes
    bytes8 = bytes .size 8
    bytes8-b64u = text .b64u bytes8
-   id-label = eat.JC<"id", 1>
+   component-id-label = eat.JC<"id", 1>
    digested-measurement-label = eat.JC<"digested-measurement", 2>
    raw-measurement-label = eat.JC<"raw-measurement", 5>
    authorities-label = eat.JC<"authorities", 3>
@@ -826,11 +831,11 @@ Appendix B.  Open Issues
 
 Acknowledgments
 
-   The authors would like to thank Carl Wallace, Carsten Bormann, Dionna
-   Glaze, Giridhar Mandyam, Houda Labiod, Ionuț Mihalcea, Jun Zhang,
-   Laurence Lundblade, Michael Richardson, Muhammad Usama Sardar and
-   Yogesh Deshpande for providing comments, reviews and suggestions that
-   greatly improved this document.
+   The authors would like to thank Carl Wallace, Carsten Bormann, Deb
+   Cooley, Dionna Glaze, Giridhar Mandyam, Houda Labiod, Ionuț Mihalcea,
+   Jun Zhang, Laurence Lundblade, Michael Richardson, Muhammad Usama
+   Sardar and Yogesh Deshpande for providing comments, reviews and
+   suggestions that greatly improved this document.
 
    The authors would also like to thank Ken Takayama for providing an
    implementation of this specification in the veraison/eat package.

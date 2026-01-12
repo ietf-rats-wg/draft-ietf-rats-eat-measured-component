@@ -13,7 +13,7 @@
        The term &quot;measured component&quot; refers to an object within the attester's target environment whose state can be sampled and typically digested using a cryptographic hash function.
 Examples of measured components include firmware stored in flash memory, software loaded into memory at start time, data stored in a file system, or values in a CPU register.
 This document provides the information model for the &quot;measured component&quot; and two associated data models.
-This separation is intentional: the JSON and CBOR serializations, coupled with the media types and associated CoAP Content-Formats, enable the immediate use of the semantics within the EAT framework.
+This separation is intentional: the JSON and CBOR serializations, coupled with the media types and associated Constrained Application Protocol (CoAP) Content-Formats, enable the immediate use of the semantics within the Entity Attestation Token (EAT) framework.
 Meanwhile, the information model can be reused in future specifications to provide additional serializations, for example using ASN.1. 
     " name="description">
 <meta content="xml2rfc 3.31.0" name="generator">
@@ -28,12 +28,12 @@ Meanwhile, the information model can be reused in future specifications to provi
     Python 3.12.12
     ConfigArgParse 1.7
     google-i18n-address 3.1.1
-    intervaltree 3.1.0
+    intervaltree 3.2.1
     Jinja2 3.1.6
-    lxml 5.3.1
-    platformdirs 4.5.0
+    lxml 6.0.2
+    platformdirs 4.5.1
     pycountry 24.6.1
-    PyYAML 6.0.2
+    PyYAML 6.0.3
     requests 2.32.5
     wcwidth 0.2.14
 -->
@@ -1054,11 +1054,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">EAT Measured Component</td>
-<td class="right">December 2025</td>
+<td class="right">January 2026</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Frost, et al.</td>
-<td class="center">Expires 11 June 2026</td>
+<td class="center">Expires 16 July 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1071,12 +1071,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-ietf-rats-eat-measured-component-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-12-08" class="published">8 December 2025</time>
+<time datetime="2026-01-12" class="published">12 January 2026</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-06-11">11 June 2026</time></dd>
+<dd class="expires"><time datetime="2026-07-16">16 July 2026</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1104,7 +1104,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <p id="section-abstract-1">The term "measured component" refers to an object within the attester's target environment whose state can be sampled and typically digested using a cryptographic hash function.
 Examples of measured components include firmware stored in flash memory, software loaded into memory at start time, data stored in a file system, or values in a CPU register.
 This document provides the information model for the "measured component" and two associated data models.
-This separation is intentional: the JSON and CBOR serializations, coupled with the media types and associated CoAP Content-Formats, enable the immediate use of the semantics within the EAT framework.
+This separation is intentional: the JSON and CBOR serializations, coupled with the media types and associated Constrained Application Protocol (CoAP) Content-Formats, enable the immediate use of the semantics within the Entity Attestation Token (EAT) framework.
 Meanwhile, the information model can be reused in future specifications to provide additional serializations, for example using ASN.1.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 </section>
 <section class="note rfcEditorRemove" id="section-note.1">
@@ -1137,7 +1137,7 @@ Meanwhile, the information model can be reused in future specifications to provi
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 11 June 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 16 July 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1146,7 +1146,7 @@ Meanwhile, the information model can be reused in future specifications to provi
 <a href="#name-copyright-notice" class="section-name selfRef">Copyright Notice</a>
         </h2>
 <p id="section-boilerplate.2-1">
-            Copyright (c) 2025 IETF Trust and the persons identified as the
+            Copyright (c) 2026 IETF Trust and the persons identified as the
             document authors. All rights reserved.<a href="#section-boilerplate.2-1" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.2-2">
             This document is subject to BCP 78 and the IETF Trust's Legal
@@ -1191,7 +1191,7 @@ Meanwhile, the information model can be reused in future specifications to provi
                     <p id="section-toc.1-1.4.2.3.2.1.1"><a href="#section-4.3.1" class="auto internal xref">4.3.1</a>.  <a href="#name-component-identifier" class="internal xref">Component Identifier</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.3.2.2">
-                    <p id="section-toc.1-1.4.2.3.2.2.1"><a href="#section-4.3.2" class="auto internal xref">4.3.2</a>.  <a href="#name-authority" class="internal xref">Authority</a></p>
+                    <p id="section-toc.1-1.4.2.3.2.2.1"><a href="#section-4.3.2" class="auto internal xref">4.3.2</a>.  <a href="#name-authority-identifier" class="internal xref">Authority Identifier</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.3.2.3">
                     <p id="section-toc.1-1.4.2.3.2.3.1"><a href="#section-4.3.3" class="auto internal xref">4.3.3</a>.  <a href="#name-profile-specific-flags" class="internal xref">Profile-specific Flags</a></p>
@@ -1279,7 +1279,7 @@ Meanwhile, the information model can be reused in future specifications to provi
 </li>
       </ul>
 <p id="section-1-3">This claim allows for different measurement formats, each identified by a different CoAP Content-Format (<span><a href="https://rfc-editor.org/rfc/rfc7252#section-12.3" class="relref">Section 12.3</a> of [<a href="#RFC7252" class="cite xref">RFC7252</a>]</span>).
-Currently, the only specified format is CoSWID of type "evidence", as per <span><a href="https://rfc-editor.org/rfc/rfc9393#section-2.9.4" class="relref">Section 2.9.4</a> of [<a href="#RFC9393" class="cite xref">RFC9393</a>]</span>.
+Currently, the only specified format is Concise Software Identification (CoSWID) Tags of type "evidence", as per <span><a href="https://rfc-editor.org/rfc/rfc9393#section-2.9.4" class="relref">Section 2.9.4</a> of [<a href="#RFC9393" class="cite xref">RFC9393</a>]</span>.
 However, CoSWID is not suitable for measurements that cannot be anchored to a file system, such as those in early boot environments.
 To address this gap, this document introduces a "measured component" format that can be used with the EAT <code>Measurements</code> claim alongside or instead of CoSWID.<a href="#section-1-3" class="pilcrow">¶</a></p>
 <p id="section-1-4">The term "measured component" refers to an object within the attester's target environment whose state can be sampled and typically digested using a cryptographic hash function.
@@ -1333,7 +1333,7 @@ Optionally, any entities responsible for signing the installed component can als
           </tr>
           <tr>
             <td class="text-left" rowspan="1" colspan="1">Component Version</td>
-            <td class="text-left" rowspan="1" colspan="1">A value representing the specific release or development version of the measured component.  Using <a href="https://semver.org/spec/v2.0.0.html">Semantic Versioning</a> is <span class="bcp14">RECOMMENDED</span>.</td>
+            <td class="text-left" rowspan="1" colspan="1">A value representing the specific release or development version of the measured component.  Using Semantic Versioning <span>[<a href="#SEMVER" class="cite xref">SEMVER</a>]</span> is <span class="bcp14">RECOMMENDED</span>.</td>
             <td class="text-left" rowspan="1" colspan="1">
               <span class="bcp14">OPTIONAL</span>
 </td>
@@ -1419,7 +1419,7 @@ digest-value-type = eat.JC&lt;bytes-b64u, bytes&gt;
 <div class="lang-cddl sourcecode" id="section-4.3-2">
 <pre>
 measured-component = {
-  id-label =&gt; component-id
+  component-id-label =&gt; component-id
   measurement
   ? authorities-label =&gt; [ + authority-id-type ]
   ? flags-label =&gt; flags-type
@@ -1431,7 +1431,7 @@ measurement //= ( raw-measurement-label =&gt; bytes )
 authority-id-type = eat.JC&lt;bytes-b64u, bytes&gt;
 flags-type = eat.JC&lt;bytes8-b64u, bytes8&gt;
 
-id-label = eat.JC&lt;"id", 1&gt;
+component-id-label = eat.JC&lt;"id", 1&gt;
 digested-measurement-label = eat.JC&lt;"digested-measurement", 2&gt;
 raw-measurement-label = eat.JC&lt;"raw-measurement", 5&gt;
 authorities-label = eat.JC&lt;"authorities", 3&gt;
@@ -1496,7 +1496,7 @@ version = [
             <dd class="break"></dd>
 <dt id="section-4.3.1-3.3"><code>version</code></dt>
             <dd style="margin-left: 1.5em" id="section-4.3.1-3.4">
-              <p id="section-4.3.1-3.4.1">A compound <code>version</code> data item that reuses encoding and semantics of <span>[<a href="#RFC9711" class="cite xref">RFC9711</a>]</span> <code>sw-version-type</code>.<a href="#section-4.3.1-3.4.1" class="pilcrow">¶</a></p>
+              <p id="section-4.3.1-3.4.1">A compound <code>version</code> data item that reuses the encoding and semantics of <span>[<a href="#RFC9711" class="cite xref">RFC9711</a>]</span> <code>sw-version-type</code>, extending it to non-software components.<a href="#section-4.3.1-3.4.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -1504,14 +1504,14 @@ version = [
 </div>
 <div id="authority">
 <section id="section-4.3.2">
-          <h4 id="name-authority">
-<a href="#section-4.3.2" class="section-number selfRef">4.3.2. </a><a href="#name-authority" class="section-name selfRef">Authority</a>
+          <h4 id="name-authority-identifier">
+<a href="#section-4.3.2" class="section-number selfRef">4.3.2. </a><a href="#name-authority-identifier" class="section-name selfRef">Authority Identifier</a>
           </h4>
 <p id="section-4.3.2-1">An authority is an entity that can authoritatively identify a given component by digitally signing it.
 This signature is usually verified during installation, or when the measured component is executed by the boot ROM, operating system, or application launcher.
-For example, as in UEFI Secure Boot <span>[<a href="#UEFI2" class="cite xref">UEFI2</a>]</span> and Arm Trusted Board Boot <span>[<a href="#TBBR-CLIENT" class="cite xref">TBBR-CLIENT</a>]</span>.
+For example, as in Unified Extensible Firmware Interface (UEFI) Secure Boot <span>[<a href="#UEFI2" class="cite xref">UEFI2</a>]</span> and Arm Trusted Board Boot <span>[<a href="#TBBR-CLIENT" class="cite xref">TBBR-CLIENT</a>]</span>.
 Another example may be the controlling entity in an app store.<a href="#section-4.3.2-1" class="pilcrow">¶</a></p>
-<p id="section-4.3.2-2">An authority is identified by its signing key.
+<p id="section-4.3.2-2">An authority is identified by its signing public key.
 It could be an X.509 certificate, a raw public key, a public key thumbprint, or some other identifier that can be uniquely associated with the signing entity.
 In some cases, multiple parties may need to sign a component to indicate their endorsement or approval.
 This could include roles such as a firmware update system, fleet owner, or third-party auditor.
@@ -2103,14 +2103,6 @@ Further discussion and references on this topic can be found in <span><a href="h
 <a href="#section-8.1" class="section-number selfRef">8.1. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
         </h3>
 <dl class="references">
-<dt id="IANA.core-parameters">[IANA.core-parameters]</dt>
-        <dd>
-<span class="refAuthor">IANA</span>, <span class="refTitle">"Constrained RESTful Environments (CoRE) Parameters"</span>, <span>&lt;<a href="https://www.iana.org/assignments/core-parameters">https://www.iana.org/assignments/core-parameters</a>&gt;</span>. </dd>
-<dd class="break"></dd>
-<dt id="IANA.media-types">[IANA.media-types]</dt>
-        <dd>
-<span class="refAuthor">IANA</span>, <span class="refTitle">"Media Types"</span>, <span>&lt;<a href="https://www.iana.org/assignments/media-types">https://www.iana.org/assignments/media-types</a>&gt;</span>. </dd>
-<dd class="break"></dd>
 <dt id="IANA.named-information">[IANA.named-information]</dt>
         <dd>
 <span class="refAuthor">IANA</span>, <span class="refTitle">"Named Information"</span>, <span>&lt;<a href="https://www.iana.org/assignments/named-information">https://www.iana.org/assignments/named-information</a>&gt;</span>. </dd>
@@ -2140,8 +2132,12 @@ Further discussion and references on this topic can be found in <span><a href="h
 <span class="refAuthor">Lundblade, L.</span>, <span class="refAuthor">Mandyam, G.</span>, <span class="refAuthor">O'Donoghue, J.</span>, and <span class="refAuthor">C. Wallace</span>, <span class="refTitle">"The Entity Attestation Token (EAT)"</span>, <span class="seriesInfo">RFC 9711</span>, <span class="seriesInfo">DOI 10.17487/RFC9711</span>, <time datetime="2025-04" class="refDate">April 2025</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc9711">https://www.rfc-editor.org/rfc/rfc9711</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC9741">[RFC9741]</dt>
-      <dd>
+        <dd>
 <span class="refAuthor">Bormann, C.</span>, <span class="refTitle">"Concise Data Definition Language (CDDL): Additional Control Operators for the Conversion and Processing of Text"</span>, <span class="seriesInfo">RFC 9741</span>, <span class="seriesInfo">DOI 10.17487/RFC9741</span>, <time datetime="2025-03" class="refDate">March 2025</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc9741">https://www.rfc-editor.org/rfc/rfc9741</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="SEMVER">[SEMVER]</dt>
+      <dd>
+<span class="refTitle">"Semantic Versioning 2.0.0"</span>, <time datetime="2013" class="refDate">2013</time>, <span>&lt;<a href="https://semver.org/spec/v2.0.0.html">https://semver.org/spec/v2.0.0.html</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 </dl>
 </section>
@@ -2152,6 +2148,14 @@ Further discussion and references on this topic can be found in <span><a href="h
 <a href="#section-8.2" class="section-number selfRef">8.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
         </h3>
 <dl class="references">
+<dt id="IANA.core-parameters">[IANA.core-parameters]</dt>
+        <dd>
+<span class="refAuthor">IANA</span>, <span class="refTitle">"Constrained RESTful Environments (CoRE) Parameters"</span>, <span>&lt;<a href="https://www.iana.org/assignments/core-parameters">https://www.iana.org/assignments/core-parameters</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="IANA.media-types">[IANA.media-types]</dt>
+        <dd>
+<span class="refAuthor">IANA</span>, <span class="refTitle">"Media Types"</span>, <span>&lt;<a href="https://www.iana.org/assignments/media-types">https://www.iana.org/assignments/media-types</a>&gt;</span>. </dd>
+<dd class="break"></dd>
 <dt id="RFC3444">[RFC3444]</dt>
         <dd>
 <span class="refAuthor">Pras, A.</span> and <span class="refAuthor">J. Schoenwaelder</span>, <span class="refTitle">"On the Difference between Information Models and Data Models"</span>, <span class="seriesInfo">RFC 3444</span>, <span class="seriesInfo">DOI 10.17487/RFC3444</span>, <time datetime="2003-01" class="refDate">January 2003</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc3444">https://www.rfc-editor.org/rfc/rfc3444</a>&gt;</span>. </dd>
@@ -2192,7 +2196,7 @@ Further discussion and references on this topic can be found in <span><a href="h
 =============== NOTE: '\' line wrapping per RFC 8792 ================
 
 measured-component = {
-  id-label =&gt; component-id,
+  component-id-label =&gt; component-id,
   measurement,
   ? authorities-label =&gt; [+ authority-id-type],
   ? flags-label =&gt; flags-type,
@@ -2217,7 +2221,7 @@ digest-value-type = eat.JC&lt;bytes-b64u, bytes&gt;
 bytes-b64u = text .b64u bytes
 bytes8 = bytes .size 8
 bytes8-b64u = text .b64u bytes8
-id-label = eat.JC&lt;"id", 1&gt;
+component-id-label = eat.JC&lt;"id", 1&gt;
 digested-measurement-label = eat.JC&lt;"digested-measurement", 2&gt;
 raw-measurement-label = eat.JC&lt;"raw-measurement", 5&gt;
 authorities-label = eat.JC&lt;"authorities", 3&gt;
@@ -2258,6 +2262,7 @@ coswid.semver = 16384
 <p id="appendix-C-1">The authors would like to thank
 Carl Wallace,
 Carsten Bormann,
+Deb Cooley,
 Dionna Glaze,
 Giridhar Mandyam,
 Houda Labiod,
