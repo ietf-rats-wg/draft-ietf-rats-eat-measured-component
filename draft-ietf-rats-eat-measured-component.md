@@ -38,6 +38,10 @@ normative:
   RFC9165: cddlplus
   RFC9741: cddlctls
   RFC9711: rats-eat
+  SEMVER:
+    title: "Semantic Versioning 2.0.0"
+    date: 2013
+    target: https://semver.org/spec/v2.0.0.html
 
 informative:
   RFC3444: models
@@ -69,7 +73,7 @@ entity:
 The term "measured component" refers to an object within the attester's target environment whose state can be sampled and typically digested using a cryptographic hash function.
 Examples of measured components include firmware stored in flash memory, software loaded into memory at start time, data stored in a file system, or values in a CPU register.
 This document provides the information model for the "measured component" and two associated data models.
-This separation is intentional: the JSON and CBOR serializations, coupled with the media types and associated CoAP Content-Formats, enable the immediate use of the semantics within the EAT framework.
+This separation is intentional: the JSON and CBOR serializations, coupled with the media types and associated Constrained Application Protocol (CoAP) Content-Formats, enable the immediate use of the semantics within the Entity Attestation Token (EAT) framework.
 Meanwhile, the information model can be reused in future specifications to provide additional serializations, for example using ASN.1.
 
 --- middle
@@ -81,7 +85,7 @@ Meanwhile, the information model can be reused in future specifications to provi
 > "[c]ontains descriptions, lists, evidence or measurements of the software that exists on the entity or any other measurable subsystem of the entity."
 
 This claim allows for different measurement formats, each identified by a different CoAP Content-Format ({{Section 12.3 of -coap}}).
-Currently, the only specified format is CoSWID of type "evidence", as per {{Section 2.9.4 of -coswid}}.
+Currently, the only specified format is Concise Software Identification (CoSWID) Tags of type "evidence", as per {{Section 2.9.4 of -coswid}}.
 However, CoSWID is not suitable for measurements that cannot be anchored to a file system, such as those in early boot environments.
 To address this gap, this document introduces a "measured component" format that can be used with the EAT `Measurements` claim alongside or instead of CoSWID.
 
@@ -110,7 +114,7 @@ The information elements (IE) that constitute a "measured component" are describ
 | IE | Description | Requirement Level |
 |----|-------------|-------------------|
 | Component Name | The name given to the measured component. It is important that this name remains consistent across different releases to allow for better tracking of the same measured item across updates. When combined with a consistent versioning scheme, it enables better signalling from the appraisal procedure to the relying parties. | REQUIRED |
-| Component Version | A value representing the specific release or development version of the measured component.  Using [Semantic Versioning](https://semver.org/spec/v2.0.0.html) is RECOMMENDED. | OPTIONAL |
+| Component Version | A value representing the specific release or development version of the measured component.  Using Semantic Versioning {{SEMVER}} is RECOMMENDED. | OPTIONAL |
 | Digested or Raw Value | Either the raw value or the digested value of the measured component. | REQUIRED |
 | Digest Algorithm | Hash algorithm used to compute the Digest Value. | REQUIRED only if the value is in the digested form |
 | Authorities | One or more entities that can authoritatively identify the component being measured. | OPTIONAL |
@@ -187,16 +191,16 @@ The `component-id` data item is as follows:
 : A string that provides a human readable identifier for the component in question.  Format and adopted conventions depend on the component type.
 
 `version`
-: A compound `version` data item that reuses encoding and semantics of {{-rats-eat}} `sw-version-type`.
+: A compound `version` data item that reuses the encoding and semantics of {{-rats-eat}} `sw-version-type`, extending it to non-software components.
 
-### Authority {#authority}
+### Authority Identifier {#authority}
 
 An authority is an entity that can authoritatively identify a given component by digitally signing it.
 This signature is usually verified during installation, or when the measured component is executed by the boot ROM, operating system, or application launcher.
-For example, as in UEFI Secure Boot {{UEFI2}} and Arm Trusted Board Boot {{TBBR-CLIENT}}.
+For example, as in Unified Extensible Firmware Interface (UEFI) Secure Boot {{UEFI2}} and Arm Trusted Board Boot {{TBBR-CLIENT}}.
 Another example may be the controlling entity in an app store.
 
-An authority is identified by its signing key.
+An authority is identified by its signing public key.
 It could be an X.509 certificate, a raw public key, a public key thumbprint, or some other identifier that can be uniquely associated with the signing entity.
 In some cases, multiple parties may need to sign a component to indicate their endorsement or approval.
 This could include roles such as a firmware update system, fleet owner, or third-party auditor.
@@ -337,7 +341,7 @@ Additionally, the stability requirement of the Component Name could enable track
 
 ## Media Types Registrations
 
-IANA is requested to add the following media types to the "Media Types" registry {{!IANA.media-types}}.
+IANA is requested to add the following media types to the "Media Types" registry {{?IANA.media-types}}.
 
 | Name | Template | Reference |
 |-----------------|-------------------------|-----------|
@@ -443,7 +447,7 @@ Provisional registration:
 
 ## Measured Component Content-Format Registrations
 
-IANA is requested to register two Content-Format numbers in the "CoAP Content-Formats" sub-registry, within the "Constrained RESTful Environments (CoRE) Parameters" Registry {{!IANA.core-parameters}}, as follows:
+IANA is requested to register two Content-Format numbers in the "CoAP Content-Formats" sub-registry, within the "Constrained RESTful Environments (CoRE) Parameters" Registry {{?IANA.core-parameters}}, as follows:
 
 | Content-Type | Content Coding | ID | Reference |
 | application/measured-component+cbor | - | TBD1 | {{&SELF}} |
@@ -473,6 +477,7 @@ The list of currently open issues for this documents can be found at [](https://
 The authors would like to thank
 Carl Wallace,
 Carsten Bormann,
+Deb Cooley,
 Dionna Glaze,
 Giridhar Mandyam,
 Houda Labiod,
