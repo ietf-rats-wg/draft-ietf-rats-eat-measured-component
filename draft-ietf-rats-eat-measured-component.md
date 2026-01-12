@@ -73,7 +73,7 @@ entity:
 The term "measured component" refers to an object within the attester's target environment whose state can be sampled and typically digested using a cryptographic hash function.
 Examples of measured components include firmware stored in flash memory, software loaded into memory at start time, data stored in a file system, or values in a CPU register.
 This document provides the information model for the "measured component" and two associated data models.
-This separation is intentional: the JSON and CBOR serializations, coupled with the media types and associated CoAP Content-Formats, enable the immediate use of the semantics within the EAT framework.
+This separation is intentional: the JSON and CBOR serializations, coupled with the media types and associated Constrained Application Protocol (CoAP) Content-Formats, enable the immediate use of the semantics within the Entity Attestation Token (EAT) framework.
 Meanwhile, the information model can be reused in future specifications to provide additional serializations, for example using ASN.1.
 
 --- middle
@@ -85,7 +85,7 @@ Meanwhile, the information model can be reused in future specifications to provi
 > "[c]ontains descriptions, lists, evidence or measurements of the software that exists on the entity or any other measurable subsystem of the entity."
 
 This claim allows for different measurement formats, each identified by a different CoAP Content-Format ({{Section 12.3 of -coap}}).
-Currently, the only specified format is CoSWID of type "evidence", as per {{Section 2.9.4 of -coswid}}.
+Currently, the only specified format is Concise Software Identification (CoSWID) Tags of type "evidence", as per {{Section 2.9.4 of -coswid}}.
 However, CoSWID is not suitable for measurements that cannot be anchored to a file system, such as those in early boot environments.
 To address this gap, this document introduces a "measured component" format that can be used with the EAT `Measurements` claim alongside or instead of CoSWID.
 
@@ -197,7 +197,7 @@ The `component-id` data item is as follows:
 
 An authority is an entity that can authoritatively identify a given component by digitally signing it.
 This signature is usually verified during installation, or when the measured component is executed by the boot ROM, operating system, or application launcher.
-For example, as in UEFI Secure Boot {{UEFI2}} and Arm Trusted Board Boot {{TBBR-CLIENT}}.
+For example, as in Unified Extensible Firmware Interface (UEFI) Secure Boot {{UEFI2}} and Arm Trusted Board Boot {{TBBR-CLIENT}}.
 Another example may be the controlling entity in an app store.
 
 An authority is identified by its signing key.
