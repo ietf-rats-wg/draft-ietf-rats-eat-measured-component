@@ -200,7 +200,7 @@ This signature is usually verified during installation, or when the measured com
 For example, as in Unified Extensible Firmware Interface (UEFI) Secure Boot {{UEFI2}} and Arm Trusted Board Boot {{TBBR-CLIENT}}.
 Another example may be the controlling entity in an app store.
 
-An authority is identified by its signing key.
+An authority is identified by its signing public key.
 It could be an X.509 certificate, a raw public key, a public key thumbprint, or some other identifier that can be uniquely associated with the signing entity.
 In some cases, multiple parties may need to sign a component to indicate their endorsement or approval.
 This could include roles such as a firmware update system, fleet owner, or third-party auditor.
