@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-12-09T00:56:30.707075+00:00",
+  "timestamp": "2026-01-13T00:56:08.008289+00:00",
   "repo": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
   "labels": [
     {
@@ -781,6 +781,22 @@
       "createdAt": "2025-11-30T10:33:56Z",
       "updatedAt": "2025-12-01T10:39:10Z",
       "closedAt": "2025-12-01T10:39:10Z",
+      "comments": []
+    },
+    {
+      "number": 70,
+      "id": "I_kwDOLP05f87il8xq",
+      "title": "Deb\u2019s AD review",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/issues/70",
+      "state": "CLOSED",
+      "author": "thomas-fossati",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Archived-at: https://mailarchive.ietf.org/arch/msg/rats/GrBxoBZbt4WSNhfMjTXtJDaCYIM/\n\n* [x] General:  Spell out acronyms on first use:  EAT, CoSWID, CoAP, CDDL, CBOR, (Anything that isn't listed here with a '*':  https://www.rfc-editor.org/rpc/wiki/doku.php?id=abbrev_list)\n\n* [x] Section 3, Table 1:  Please add Semantic Versioning - https://semver.org/spec/v2.0.0.html - to the references (it should be a stable reference since it is normative).\n\n* [x] Section 4.3:  There are some items that don't really match here.  Is 'id' really 'component-id'?  Is 'authorities' really 'authorities-label'?  Is 'flags' really 'flags-\nlabel'?  There are more of these, I can't tell if the mis-matches are by design, or due to imprecise editing.\n\n* [x] Section 4.3.1:  Is 'version-scheme' the same as 'sw-version-type'?\n\n* [x] Section 4.3.2:  Would 'Authority Identifier' be a more accurate heading?\n\n* [x] Section 4.3.2, para 2, sentence 1:  While 'signing key' is technically accurate 'signing public key' is more accurate.\n\n* [x] Section 8.1:  Both [IANA.core-parameters] and [IANA.media-types] are Informative references as they are only referenced in the IANA section.  ([IANA.named-information] is normative as it is referenced in Section 4.2 in a way that requires the reader to understand what is there.)\n",
+      "createdAt": "2026-01-11T16:43:05Z",
+      "updatedAt": "2026-01-12T17:02:00Z",
+      "closedAt": "2026-01-12T17:02:00Z",
       "comments": []
     }
   ],
@@ -3248,6 +3264,42 @@
           ]
         }
       ]
+    },
+    {
+      "number": 71,
+      "id": "PR_kwDOLP05f868rGL2",
+      "title": "Deb's AD review",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/pull/71",
+      "state": "MERGED",
+      "author": "thomas-fossati",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "See individual commits for the details.\r\n\r\nFix #70",
+      "createdAt": "2026-01-12T11:01:23Z",
+      "updatedAt": "2026-01-12T17:02:02Z",
+      "baseRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "baseRefName": "main",
+      "baseRefOid": "0e1c39b239e9555e595415039b83e49445f99877",
+      "headRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "headRefName": "deb-s-review",
+      "headRefOid": "d3e5d3dacb1ea146080a8ad0e8081f24a62edb70",
+      "closedAt": "2026-01-12T17:01:59Z",
+      "mergedAt": "2026-01-12T17:01:59Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "e5e6d6b829efa848e7f17a1a9057b518429e8e10"
+      },
+      "comments": [
+        {
+          "author": "debcooley",
+          "authorAssociation": "NONE",
+          "body": "These look fine to me.  \r\n",
+          "createdAt": "2026-01-12T16:49:31Z",
+          "updatedAt": "2026-01-12T16:49:31Z"
+        }
+      ],
+      "reviews": []
     }
   ]
 }
