@@ -5,12 +5,12 @@
 Remote ATtestation ProcedureS                                   S. Frost
 Internet-Draft                                                       Arm
 Intended status: Standards Track                              T. Fossati
-Expires: 16 July 2026                                             Linaro
+Expires: 18 July 2026                                             Linaro
                                                            H. Tschofenig
                                                                    H-BRS
                                                              H. Birkholz
                                                           Fraunhofer SIT
-                                                         12 January 2026
+                                                         14 January 2026
 
 
                          EAT Measured Component
@@ -60,7 +60,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 16 July 2026.
+   This Internet-Draft will expire on 18 July 2026.
 
 Copyright Notice
 
@@ -467,7 +467,7 @@ Table of Contents
 
    This example uses TBD1 as the content-type value of the measurements-
    format entry.  (This will change to the value assigned by IANA to the
-   mc+cbor Content-Format.)
+   measured-component+cbor Content-Format.)
 
    Note that the array contains only one measured component, but
    additional entries could be added if the measured TCB is made of
@@ -476,7 +476,7 @@ Table of Contents
    {
      273: [
        [
-         TBD1, / mc+cbor /
+         TBD1, / measured-component+cbor /
          <<
            {
              / id / 1: [
@@ -510,14 +510,14 @@ Table of Contents
 
    This example uses TBD2 as the content-type value of the measurements-
    format entry.  (This will change to the value assigned by IANA to the
-   mc+json Content-Format.)
+   measured-component+json Content-Format.)
 
    =============== NOTE: '\' line wrapping per RFC 8792 ================
 
    {
      "measurements": [
        [
-         TBD2, / mc+json /
+         TBD2, / measured-component+json /
          "{ \"id\": [ \"boot loader X\", [ \"1.2.3rc2\", 16384 ] ], \"\
    digested-measurement\": [ \"sha-256\", \"\
    OZYAPUhvuR_7BW99A_KymSshWzHb569LNzQx_H0xnaM\" ], \"authorities\": [ \
@@ -603,13 +603,15 @@ Table of Contents
    IANA is requested to add the following media types to the "Media
    Types" registry [IANA.media-types].
 
-       +=========+=====================================+===========+
-       | Name    | Template                            | Reference |
-       +=========+=====================================+===========+
-       | mc+cbor | application/measured-component+cbor | RFCthis   |
-       +---------+-------------------------------------+-----------+
-       | mc+json | application/measured-component+json | RFCthis   |
-       +---------+-------------------------------------+-----------+
+     +=========================+=========================+===========+
+     | Name                    | Template                | Reference |
+     +=========================+=========================+===========+
+     | measured-component+cbor | application/measured-   | RFCthis   |
+     |                         | component+cbor          |           |
+     +-------------------------+-------------------------+-----------+
+     | measured-component+json | application/measured-   | RFCthis   |
+     |                         | component+json          |           |
+     +-------------------------+-------------------------+-----------+
 
                   Table 4: Measured Component Media Types
 
@@ -832,10 +834,10 @@ Appendix B.  Open Issues
 Acknowledgments
 
    The authors would like to thank Carl Wallace, Carsten Bormann, Deb
-   Cooley, Dionna Glaze, Giridhar Mandyam, Houda Labiod, Ionuț Mihalcea,
-   Jun Zhang, Laurence Lundblade, Michael Richardson, Muhammad Usama
-   Sardar and Yogesh Deshpande for providing comments, reviews and
-   suggestions that greatly improved this document.
+   Cooley, Dionna Glaze, Esko Dijk, Giridhar Mandyam, Houda Labiod,
+   Ionuț Mihalcea, Jun Zhang, Laurence Lundblade, Michael Richardson,
+   Muhammad Usama Sardar and Yogesh Deshpande for providing comments,
+   reviews and suggestions that greatly improved this document.
 
    The authors would also like to thank Ken Takayama for providing an
    implementation of this specification in the veraison/eat package.
