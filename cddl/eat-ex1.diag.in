@@ -1,7 +1,7 @@
 {
   273: [
     [
-      TBD1, / mc+cbor /
+      TBD1, / measured-component+cbor /
       <<
         {
           / id / 1: [
