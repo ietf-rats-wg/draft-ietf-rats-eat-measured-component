@@ -281,7 +281,7 @@ The example in {{ex-1}} is a digested measured component with all the fields pop
 The example in {{ex-eat-1}} is the same measured component as above but used as the format of a `measurements` claim in a EAT claims-set.
 
 This example uses TBD1 as the `content-type` value of the `measurements-format` entry.
-(This will change to the value assigned by IANA to the `mc+cbor` Content-Format.)
+(This will change to the value assigned by IANA to the `measured-component+cbor` Content-Format.)
 
 Note that the array contains only one measured component, but additional entries could be added if the measured TCB is made of multiple, individually measured components.
 
@@ -293,7 +293,7 @@ Note that the array contains only one measured component, but additional entries
 The example in {{ex-eat-2}} illustrates the inclusion of a JSON measured component inside a JSON EAT.
 
 This example uses TBD2 as the `content-type` value of the `measurements-format` entry.
-(This will change to the value assigned by IANA to the `mc+json` Content-Format.)
+(This will change to the value assigned by IANA to the `measured-component+json` Content-Format.)
 
 ~~~ cbor-edn
 {::include-fold cddl/eat-ex1-json.diag.in}
@@ -345,8 +345,8 @@ IANA is requested to add the following media types to the "Media Types" registry
 
 | Name | Template | Reference |
 |-----------------|-------------------------|-----------|
-| `mc+cbor` | `application/measured-component+cbor` | {{&SELF}} |
-| `mc+json` | `application/measured-component+json` | {{&SELF}} |
+| `measured-component+cbor` | `application/measured-component+cbor` | {{&SELF}} |
+| `measured-component+json` | `application/measured-component+json` | {{&SELF}} |
 {: #tab-mc-regs title="Measured Component Media Types"}
 
 ### `application/measured-component+cbor`
@@ -479,6 +479,7 @@ Carl Wallace,
 Carsten Bormann,
 Deb Cooley,
 Dionna Glaze,
+Esko Dijk,
 Giridhar Mandyam,
 Houda Labiod,
 {{{Ionuț Mihalcea}}},

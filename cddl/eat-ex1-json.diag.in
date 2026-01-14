@@ -1,7 +1,7 @@
 {
   "measurements": [
     [
-      TBD2, / mc+json /
+      TBD2, / measured-component+json /
       "{ \"id\": [ \"boot loader X\", [ \"1.2.3rc2\", 16384 ] ], \"digested-measurement\": [ \"sha-256\", \"OZYAPUhvuR_7BW99A_KymSshWzHb569LNzQx_H0xnaM\" ], \"authorities\": [ \"SS6bZ2wh9gErHO65Ay_rQUGogHlzVfZnUBXsWcUcoew\", \"Qne7l7p7UVd6DTgVHT4ItAvflGdT9bW964FNb_V6il4\" ] }"
     ]
   ]
