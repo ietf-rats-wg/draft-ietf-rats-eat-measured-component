@@ -39,4 +39,4 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         files: |
-          ./cddl/*-autogen.cddl
+          ./cddl/measured-component.cddl
