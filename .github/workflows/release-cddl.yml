@@ -1,4 +1,6 @@
 name: "Upload CDDL assets"
+permissions:
+  contents: write
 
 on:
   push:
@@ -37,6 +39,6 @@ jobs:
       uses: softprops/action-gh-release@v2
       if: startsWith(github.ref, 'refs/tags/')
       with:
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ github.token }}
         files: |
           ./cddl/measured-component.cddl
