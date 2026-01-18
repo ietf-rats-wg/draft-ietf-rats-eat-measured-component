@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-01-15T00:58:11.003912+00:00",
+  "timestamp": "2026-01-18T01:04:24.320948+00:00",
   "repo": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
   "labels": [
     {
@@ -3347,6 +3347,48 @@
           "body": "LGTM",
           "createdAt": "2026-01-14T13:16:53Z",
           "updatedAt": "2026-01-14T13:16:53Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 73,
+      "id": "PR_kwDOLP05f869ptAV",
+      "title": "add CI action to release the CDDL module as artefact",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/pull/73",
+      "state": "MERGED",
+      "author": "thomas-fossati",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2026-01-16T16:07:58Z",
+      "updatedAt": "2026-01-16T16:11:50Z",
+      "baseRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "baseRefName": "main",
+      "baseRefOid": "3b9d898b85d53f2aee89e323a1bec107cbe61e6c",
+      "headRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "headRefName": "cddl-artefacts",
+      "headRefOid": "c59b0368e2ef026fed58b91d2cbb1d0f2d6079ef",
+      "closedAt": "2026-01-16T16:11:50Z",
+      "mergedAt": "2026-01-16T16:11:50Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "6b35c280759ef6b99cc744ad664d0f83e4af7639"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOLP05f87a2Kim",
+          "commit": {
+            "abbreviatedOid": "c59b036"
+          },
+          "author": "ionut-arm",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2026-01-16T16:11:42Z",
+          "updatedAt": "2026-01-16T16:11:42Z",
           "comments": []
         }
       ]
