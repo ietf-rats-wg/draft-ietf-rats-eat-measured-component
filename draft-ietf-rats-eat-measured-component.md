@@ -199,6 +199,7 @@ An authority is an entity that can authoritatively identify a given component by
 This signature is usually verified during installation, or when the measured component is executed by the boot ROM, operating system, or application launcher.
 For example, as in Unified Extensible Firmware Interface (UEFI) Secure Boot {{UEFI2}} and Arm Trusted Board Boot {{TBBR-CLIENT}}.
 Another example may be the controlling entity in an app store.
+Note that this signature is in no way related to the attester's signature on the EAT-formatted evidence.
 
 An authority is identified by its signing public key.
 It could be an X.509 certificate, a raw public key, a public key thumbprint, or some other identifier that can be uniquely associated with the signing entity.
