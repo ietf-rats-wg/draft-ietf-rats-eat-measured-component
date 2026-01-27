@@ -837,7 +837,7 @@ Acknowledgments
 
    The authors would like to thank Carl Wallace, Carsten Bormann, Deb
    Cooley, Dionna Glaze, Esko Dijk, Giridhar Mandyam, Houda Labiod,
-   Ionuț Mihalcea, Joe Saloway, Jun Zhang, Laurence Lundblade, Michael
+   Ionuț Mihalcea, Joe Salowey, Jun Zhang, Laurence Lundblade, Michael
    Richardson, Muhammad Usama Sardar and Yogesh Deshpande for providing
    comments, reviews and suggestions that greatly improved this
    document.
