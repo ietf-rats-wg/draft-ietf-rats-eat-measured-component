@@ -1509,8 +1509,7 @@ version = [
 <a href="#section-4.3.2" class="section-number selfRef">4.3.2. </a><a href="#name-authority-identifier" class="section-name selfRef">Authority Identifier</a>
           </h4>
 <p id="section-4.3.2-1">An authority is an entity that can authoritatively identify a given component by digitally signing it.
-This signature is usually verified during installation, or when the measured component is executed by the boot ROM, operating system, or application launcher.
-For example, as in Unified Extensible Firmware Interface (UEFI) Secure Boot <span>[<a href="#UEFI2" class="cite xref">UEFI2</a>]</span> and Arm Trusted Board Boot <span>[<a href="#TBBR-CLIENT" class="cite xref">TBBR-CLIENT</a>]</span>.
+This signature is typically verified during installation (<span><a href="https://rfc-editor.org/rfc/rfc9019#section-7" class="relref">Section 7</a> of [<a href="#RFC9019" class="cite xref">RFC9019</a>]</span>), or when the measured component is executed by the boot ROM, operating system, or application launcher as in the case of Unified Extensible Firmware Interface (UEFI) Secure Boot <span>[<a href="#UEFI2" class="cite xref">UEFI2</a>]</span> and Arm Trusted Board Boot <span>[<a href="#TBBR-CLIENT" class="cite xref">TBBR-CLIENT</a>]</span>.
 Another example may be the controlling entity in an app store.
 Note that this signature is in no way related to the attester's signature on the EAT-formatted evidence.<a href="#section-4.3.2-1" class="pilcrow">¶</a></p>
 <p id="section-4.3.2-2">An authority is identified by its signing public key.
@@ -2161,6 +2160,10 @@ Further discussion and references on this topic can be found in <span><a href="h
 <dt id="RFC3444">[RFC3444]</dt>
         <dd>
 <span class="refAuthor">Pras, A.</span> and <span class="refAuthor">J. Schoenwaelder</span>, <span class="refTitle">"On the Difference between Information Models and Data Models"</span>, <span class="seriesInfo">RFC 3444</span>, <span class="seriesInfo">DOI 10.17487/RFC3444</span>, <time datetime="2003-01" class="refDate">January 2003</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc3444">https://www.rfc-editor.org/rfc/rfc3444</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC9019">[RFC9019]</dt>
+        <dd>
+<span class="refAuthor">Moran, B.</span>, <span class="refAuthor">Tschofenig, H.</span>, <span class="refAuthor">Brown, D.</span>, and <span class="refAuthor">M. Meriac</span>, <span class="refTitle">"A Firmware Update Architecture for Internet of Things"</span>, <span class="seriesInfo">RFC 9019</span>, <span class="seriesInfo">DOI 10.17487/RFC9019</span>, <time datetime="2021-04" class="refDate">April 2021</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc9019">https://www.rfc-editor.org/rfc/rfc9019</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC9393">[RFC9393]</dt>
         <dd>
