@@ -64,6 +64,7 @@ informative:
     target: https://developer.arm.com/documentation/den0006
     seriesinfo:
       ARM: DEN0006D
+  RFC9019: suit-arch
 
 entity:
   SELF: "RFCthis"
@@ -196,8 +197,7 @@ The `component-id` data item is as follows:
 ### Authority Identifier {#authority}
 
 An authority is an entity that can authoritatively identify a given component by digitally signing it.
-This signature is usually verified during installation, or when the measured component is executed by the boot ROM, operating system, or application launcher.
-For example, as in Unified Extensible Firmware Interface (UEFI) Secure Boot {{UEFI2}} and Arm Trusted Board Boot {{TBBR-CLIENT}}.
+This signature is typically verified during installation ({{Section 7 of -suit-arch}}), or when the measured component is executed by the boot ROM, operating system, or application launcher as in the case of Unified Extensible Firmware Interface (UEFI) Secure Boot {{UEFI2}} and Arm Trusted Board Boot {{TBBR-CLIENT}}.
 Another example may be the controlling entity in an app store.
 Note that this signature is in no way related to the attester's signature on the EAT-formatted evidence.
 
