@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-01-18T01:04:24.320948+00:00",
+  "timestamp": "2026-01-27T01:03:34.407923+00:00",
   "repo": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
   "labels": [
     {
@@ -797,6 +797,22 @@
       "createdAt": "2026-01-11T16:43:05Z",
       "updatedAt": "2026-01-12T17:02:00Z",
       "closedAt": "2026-01-12T17:02:00Z",
+      "comments": []
+    },
+    {
+      "number": 74,
+      "id": "I_kwDOLP05f87l2nz5",
+      "title": "Joe\u2019s secdir review",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/issues/74",
+      "state": "OPEN",
+      "author": "thomas-fossati",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Archived-at: https://mailarchive.ietf.org/arch/msg/rats/3UxGpdehtDjqqiS_SObRjmGEf-Q/",
+      "createdAt": "2026-01-26T14:51:56Z",
+      "updatedAt": "2026-01-26T14:51:56Z",
+      "closedAt": null,
       "comments": []
     }
   ],
@@ -3389,6 +3405,59 @@
           "body": "",
           "createdAt": "2026-01-16T16:11:42Z",
           "updatedAt": "2026-01-16T16:11:42Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 75,
+      "id": "PR_kwDOLP05f86_YlGC",
+      "title": "add clarifying note about the authority's signature",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/pull/75",
+      "state": "OPEN",
+      "author": "thomas-fossati",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Address #74 ",
+      "createdAt": "2026-01-26T14:56:58Z",
+      "updatedAt": "2026-01-26T17:26:39Z",
+      "baseRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "baseRefName": "main",
+      "baseRefOid": "57c4e4495f6957dfb8b2468d0577fb893ec15a5b",
+      "headRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "headRefName": "secdir",
+      "headRefOid": "9421693f8befac7137dc58f2db7f23e6ecf91e51",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOLP05f87c66no",
+          "commit": {
+            "abbreviatedOid": "9421693"
+          },
+          "author": "ionut-arm",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2026-01-26T14:58:58Z",
+          "updatedAt": "2026-01-26T14:58:58Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOLP05f87c9mo3",
+          "commit": {
+            "abbreviatedOid": "9421693"
+          },
+          "author": "SimonFrost-Arm",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2026-01-26T17:26:39Z",
+          "updatedAt": "2026-01-26T17:26:39Z",
           "comments": []
         }
       ]
