@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-01-27T01:03:34.407923+00:00",
+  "timestamp": "2026-01-29T01:09:25.263695+00:00",
   "repo": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
   "labels": [
     {
@@ -3421,13 +3421,13 @@
       "labels": [],
       "body": "Address #74 ",
       "createdAt": "2026-01-26T14:56:58Z",
-      "updatedAt": "2026-01-26T17:26:39Z",
+      "updatedAt": "2026-01-27T20:06:44Z",
       "baseRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
       "baseRefName": "main",
       "baseRefOid": "57c4e4495f6957dfb8b2468d0577fb893ec15a5b",
       "headRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
       "headRefName": "secdir",
-      "headRefOid": "9421693f8befac7137dc58f2db7f23e6ecf91e51",
+      "headRefOid": "900dd3e674fa8b70a42be46e1e0f494887fad9bf",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
@@ -3459,6 +3459,86 @@
           "createdAt": "2026-01-26T17:26:39Z",
           "updatedAt": "2026-01-26T17:26:39Z",
           "comments": []
+        },
+        {
+          "id": "PRR_kwDOLP05f87dSdX5",
+          "commit": {
+            "abbreviatedOid": "46b3e32"
+          },
+          "author": "jsalowey",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-01-27T17:42:40Z",
+          "updatedAt": "2026-01-27T17:42:40Z",
+          "comments": [
+            {
+              "originalPosition": 12,
+              "body": "```suggestion\nJoe Salowey,\n```",
+              "createdAt": "2026-01-27T17:42:40Z",
+              "updatedAt": "2026-01-27T17:42:40Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOLP05f87dSgkc",
+          "commit": {
+            "abbreviatedOid": "46b3e32"
+          },
+          "author": "jsalowey",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-01-27T17:45:33Z",
+          "updatedAt": "2026-01-27T17:45:33Z",
+          "comments": [
+            {
+              "originalPosition": 12,
+              "body": "Thanks, this helps resolve the confusion.  It would be good if there was also a reference to another RATS document to get the bigger picture. This might be obvious to someone who is coming at it from an implementation point of view. ",
+              "createdAt": "2026-01-27T17:45:33Z",
+              "updatedAt": "2026-01-27T17:45:34Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOLP05f87dUD7L",
+          "commit": {
+            "abbreviatedOid": "46b3e32"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-01-27T19:16:46Z",
+          "updatedAt": "2026-01-27T19:16:46Z",
+          "comments": [
+            {
+              "originalPosition": 12,
+              "body": "The \u201cnearest\" ref I can think of is [\u00a77 of the SUIT architecture](https://www.rfc-editor.org/rfc/rfc9019.html#section-7).\r\n\r\nWould it make sense to include it alongside the references to TBBR and UEFI?",
+              "createdAt": "2026-01-27T19:16:46Z",
+              "updatedAt": "2026-01-27T19:16:46Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOLP05f87dU272",
+          "commit": {
+            "abbreviatedOid": "46b3e32"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-01-27T20:06:43Z",
+          "updatedAt": "2026-01-27T20:06:44Z",
+          "comments": [
+            {
+              "originalPosition": 12,
+              "body": "Done in [900dd3e](https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/pull/75/commits/900dd3e674fa8b70a42be46e1e0f494887fad9bf).",
+              "createdAt": "2026-01-27T20:06:43Z",
+              "updatedAt": "2026-01-27T20:06:44Z"
+            }
+          ]
         }
       ]
     }
