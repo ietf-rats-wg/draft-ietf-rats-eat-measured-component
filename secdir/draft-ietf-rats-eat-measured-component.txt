@@ -5,12 +5,12 @@
 Remote ATtestation ProcedureS                                   S. Frost
 Internet-Draft                                                       Arm
 Intended status: Standards Track                              T. Fossati
-Expires: 31 July 2026                                             Linaro
+Expires: 7 August 2026                                            Linaro
                                                            H. Tschofenig
                                                                    H-BRS
                                                              H. Birkholz
                                                           Fraunhofer SIT
-                                                         27 January 2026
+                                                         3 February 2026
 
 
                          EAT Measured Component
@@ -60,7 +60,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 31 July 2026.
+   This Internet-Draft will expire on 7 August 2026.
 
 Copyright Notice
 
@@ -325,11 +325,11 @@ Table of Contents
    An authority is an entity that can authoritatively identify a given
    component by digitally signing it.  This signature is typically
    verified during installation (Section 7 of [RFC9019]), or when the
-   measured component is executed by the boot ROM, operating system, or
-   application launcher as in the case of Unified Extensible Firmware
-   Interface (UEFI) Secure Boot [UEFI2] and Arm Trusted Board Boot
-   [TBBR-CLIENT].  Another example may be the controlling entity in an
-   app store.  Note that this signature is in no way related to the
+   measured component is executed by the boot firmware, operating
+   system, or application launcher, as in the case of Unified Extensible
+   Firmware Interface (UEFI) Secure Boot [UEFI2] and Arm Trusted Board
+   Boot [TBBR-CLIENT].  Another example may be the controlling entity in
+   an app store.  Note that this signature is in no way related to the
    attester's signature on the EAT-formatted evidence.
 
    An authority is identified by its signing public key.  It could be an
