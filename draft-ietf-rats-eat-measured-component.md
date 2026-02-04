@@ -35,6 +35,7 @@ author:
 normative:
   RFC7252: coap
   RFC8610: cddl
+  RFC8792:
   RFC9165: cddlplus
   RFC9741: cddlctls
   RFC9711: rats-eat
