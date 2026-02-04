@@ -35,6 +35,7 @@ author:
 normative:
   RFC7252: coap
   RFC8610: cddl
+  RFC8792:
   RFC9165: cddlplus
   RFC9741: cddlctls
   RFC9711: rats-eat
@@ -102,6 +103,7 @@ Meanwhile, the information model can be reused in future specifications to provi
 {::boilerplate bcp14-tagged}
 
 In this document, CDDL {{-cddl}} {{-cddlplus}} {{-cddlctls}} is used to describe the data formats.
+This specification uses the following CDDL control operators: `.b64u` defined in {{Section 2.1 of -cddlctls}}, `.json` defined in {{Section 2.4 of -cddlctls}} and `.cbor` defined in {{Section 3.8.4 of -cddl}}.
 
 # Information Model {#measured-component}
 
@@ -125,7 +127,7 @@ A data model implementing this information model SHOULD also allow a limited amo
 
 # Data Model
 
-This section presents a JSON and CBOR data model that implements the information model outlined in {{measured-component}}.
+This section presents coordinated JSON and CBOR data models that each implement the information model outlined in {{measured-component}}.
 
 The data model is inspired by the "PSA software component" claim ({{Section 4.4.1 of -psa-token}}), which has been refactored to take into account the recommendations about the design of new EAT claims described in {{Appendix E of -rats-eat}}.
 
@@ -482,6 +484,7 @@ Deb Cooley,
 Dionna Glaze,
 Esko Dijk,
 Giridhar Mandyam,
+Henry Thompson,
 Houda Labiod,
 {{{Ionuț Mihalcea}}},
 Joe Salowey,
