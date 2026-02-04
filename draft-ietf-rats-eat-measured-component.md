@@ -126,7 +126,7 @@ A data model implementing this information model SHOULD also allow a limited amo
 
 # Data Model
 
-This section presents a JSON and CBOR data model that implements the information model outlined in {{measured-component}}.
+This section presents coordinated JSON and CBOR data models that each implement the information model outlined in {{measured-component}}.
 
 The data model is inspired by the "PSA software component" claim ({{Section 4.4.1 of -psa-token}}), which has been refactored to take into account the recommendations about the design of new EAT claims described in {{Appendix E of -rats-eat}}.
 
