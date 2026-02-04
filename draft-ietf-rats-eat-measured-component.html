@@ -1299,7 +1299,8 @@ Meanwhile, the information model can be reused in future specifications to provi
 "<span class="bcp14">MAY</span>", and "<span class="bcp14">OPTIONAL</span>" in this document are to be interpreted as
 described in BCP 14 <span>[<a href="#RFC2119" class="cite xref">RFC2119</a>]</span> <span>[<a href="#RFC8174" class="cite xref">RFC8174</a>]</span> when, and only when, they
 appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶</a></p>
-<p id="section-2-2">In this document, CDDL <span>[<a href="#RFC8610" class="cite xref">RFC8610</a>]</span> <span>[<a href="#RFC9165" class="cite xref">RFC9165</a>]</span> <span>[<a href="#RFC9741" class="cite xref">RFC9741</a>]</span> is used to describe the data formats.<a href="#section-2-2" class="pilcrow">¶</a></p>
+<p id="section-2-2">In this document, CDDL <span>[<a href="#RFC8610" class="cite xref">RFC8610</a>]</span> <span>[<a href="#RFC9165" class="cite xref">RFC9165</a>]</span> <span>[<a href="#RFC9741" class="cite xref">RFC9741</a>]</span> is used to describe the data formats.
+This specification uses the following CDDL control operators: <code>.b64u</code> defined in <span><a href="https://rfc-editor.org/rfc/rfc9741#section-2.1" class="relref">Section 2.1</a> of [<a href="#RFC9741" class="cite xref">RFC9741</a>]</span>, <code>.json</code> defined in <span><a href="https://rfc-editor.org/rfc/rfc9741#section-2.4" class="relref">Section 2.4</a> of [<a href="#RFC9741" class="cite xref">RFC9741</a>]</span> and <code>.cbor</code> defined in <span><a href="https://rfc-editor.org/rfc/rfc8610#section-3.8.4" class="relref">Section 3.8.4</a> of [<a href="#RFC8610" class="cite xref">RFC8610</a>]</span>.<a href="#section-2-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="measured-component">
@@ -1370,7 +1371,7 @@ Optionally, any entities responsible for signing the installed component can als
       <h2 id="name-data-model">
 <a href="#section-4" class="section-number selfRef">4. </a><a href="#name-data-model" class="section-name selfRef">Data Model</a>
       </h2>
-<p id="section-4-1">This section presents a JSON and CBOR data model that implements the information model outlined in <a href="#measured-component" class="auto internal xref">Section 3</a>.<a href="#section-4-1" class="pilcrow">¶</a></p>
+<p id="section-4-1">This section presents coordinated JSON and CBOR data models that each implement the information model outlined in <a href="#measured-component" class="auto internal xref">Section 3</a>.<a href="#section-4-1" class="pilcrow">¶</a></p>
 <p id="section-4-2">The data model is inspired by the "PSA software component" claim (<span><a href="https://rfc-editor.org/rfc/rfc9783#section-4.4.1" class="relref">Section 4.4.1</a> of [<a href="#RFC9783" class="cite xref">RFC9783</a>]</span>), which has been refactored to take into account the recommendations about the design of new EAT claims described in <span><a href="https://rfc-editor.org/rfc/rfc9711#appendix-E" class="relref">Appendix E</a> of [<a href="#RFC9711" class="cite xref">RFC9711</a>]</span>.<a href="#section-4-2" class="pilcrow">¶</a></p>
 <p id="section-4-3">CDDL is used to express rules and constraints of the data model for both JSON and CBOR.
 These rules must be strictly followed when creating or validating "measured component" data items.
@@ -2124,6 +2125,10 @@ Further discussion and references on this topic can be found in <span><a href="h
         <dd>
 <span class="refAuthor">Birkholz, H.</span>, <span class="refAuthor">Vigano, C.</span>, and <span class="refAuthor">C. Bormann</span>, <span class="refTitle">"Concise Data Definition Language (CDDL): A Notational Convention to Express Concise Binary Object Representation (CBOR) and JSON Data Structures"</span>, <span class="seriesInfo">RFC 8610</span>, <span class="seriesInfo">DOI 10.17487/RFC8610</span>, <time datetime="2019-06" class="refDate">June 2019</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8610">https://www.rfc-editor.org/rfc/rfc8610</a>&gt;</span>. </dd>
 <dd class="break"></dd>
+<dt id="RFC8792">[RFC8792]</dt>
+        <dd>
+<span class="refAuthor">Watsen, K.</span>, <span class="refAuthor">Auerswald, E.</span>, <span class="refAuthor">Farrel, A.</span>, and <span class="refAuthor">Q. Wu</span>, <span class="refTitle">"Handling Long Lines in Content of Internet-Drafts and RFCs"</span>, <span class="seriesInfo">RFC 8792</span>, <span class="seriesInfo">DOI 10.17487/RFC8792</span>, <time datetime="2020-06" class="refDate">June 2020</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8792">https://www.rfc-editor.org/rfc/rfc8792</a>&gt;</span>. </dd>
+<dd class="break"></dd>
 <dt id="RFC9165">[RFC9165]</dt>
         <dd>
 <span class="refAuthor">Bormann, C.</span>, <span class="refTitle">"Additional Control Operators for the Concise Data Definition Language (CDDL)"</span>, <span class="seriesInfo">RFC 9165</span>, <span class="seriesInfo">DOI 10.17487/RFC9165</span>, <time datetime="2021-12" class="refDate">December 2021</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc9165">https://www.rfc-editor.org/rfc/rfc9165</a>&gt;</span>. </dd>
@@ -2271,6 +2276,7 @@ Deb Cooley,
 Dionna Glaze,
 Esko Dijk,
 Giridhar Mandyam,
+Henry Thompson,
 Houda Labiod,
 <span class="contact-name">Ionuț Mihalcea</span>,
 Joe Salowey,
