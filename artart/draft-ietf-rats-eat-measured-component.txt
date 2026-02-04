@@ -849,11 +849,11 @@ Appendix B.  Open Issues
 Acknowledgments
 
    The authors would like to thank Carl Wallace, Carsten Bormann, Deb
-   Cooley, Dionna Glaze, Esko Dijk, Giridhar Mandyam, Houda Labiod,
-   Ionuț Mihalcea, Joe Salowey, Jun Zhang, Laurence Lundblade, Michael
-   Richardson, Muhammad Usama Sardar and Yogesh Deshpande for providing
-   comments, reviews and suggestions that greatly improved this
-   document.
+   Cooley, Dionna Glaze, Esko Dijk, Giridhar Mandyam, Henry Thompson,
+   Houda Labiod, Ionuț Mihalcea, Joe Salowey, Jun Zhang, Laurence
+   Lundblade, Michael Richardson, Muhammad Usama Sardar and Yogesh
+   Deshpande for providing comments, reviews and suggestions that
+   greatly improved this document.
 
    The authors would also like to thank Ken Takayama for providing an
    implementation of this specification in the veraison/eat package.
