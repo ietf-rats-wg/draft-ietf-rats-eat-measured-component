@@ -102,6 +102,7 @@ Meanwhile, the information model can be reused in future specifications to provi
 {::boilerplate bcp14-tagged}
 
 In this document, CDDL {{-cddl}} {{-cddlplus}} {{-cddlctls}} is used to describe the data formats.
+This specification uses the following CDDL control operators: `.b64u` defined in {{Section 2.1 of -cddlctls}}, `.json` defined in {{Section 2.4 of -cddlctls}} and `.cbor` defined in {{Section 3.8.4 of -cddl}}.
 
 # Information Model {#measured-component}
 
