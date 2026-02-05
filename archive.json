@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-01-29T01:09:25.263695+00:00",
+  "timestamp": "2026-02-05T01:09:45.834625+00:00",
   "repo": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
   "labels": [
     {
@@ -804,15 +804,39 @@
       "id": "I_kwDOLP05f87l2nz5",
       "title": "Joe\u2019s secdir review",
       "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/issues/74",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "thomas-fossati",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Archived-at: https://mailarchive.ietf.org/arch/msg/rats/3UxGpdehtDjqqiS_SObRjmGEf-Q/",
       "createdAt": "2026-01-26T14:51:56Z",
-      "updatedAt": "2026-01-26T14:51:56Z",
-      "closedAt": null,
+      "updatedAt": "2026-02-04T10:20:32Z",
+      "closedAt": "2026-02-04T10:20:32Z",
+      "comments": [
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Addressed in #75 ",
+          "createdAt": "2026-02-04T10:20:32Z",
+          "updatedAt": "2026-02-04T10:20:32Z"
+        }
+      ]
+    },
+    {
+      "number": 76,
+      "id": "I_kwDOLP05f87n8kDU",
+      "title": "Henry T\u2019s ARTART review",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/issues/76",
+      "state": "CLOSED",
+      "author": "thomas-fossati",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Archived-at: https://mailarchive.ietf.org/arch/msg/rats/o97dtbVmwO115SvQCimJwE5vtE8/\n\n### Minor points\n\n* [x] Section 4.1\n```\n  It took me 15 minutes of searching to find (in RFC9741) a definition\n  of .b64u, which occurs in the very first production.  I'm sure\n  regular users of CDDL won't need any help, but for the rest of us\n  please include, either in Appendix A or a separate Appendix, a list\n  of all externally defined CDDL types and controls and where their\n  definitions can be found, and add a clause to the last sentence in\n  section 2 pointing to that list.\n```\n\n* [ ] Figure 4\n```\n  The use of escaped double-quotes inside a double-quoted string makes\n  this example close to unreadable by humans, and makes me worry about\n  a design flaw.  Is this a property inherited from 9711?  I don't see\n  any examples therein which have this level of double-double-quoting?\n```\n\n> Figure 4 is a JSON-encoded measured component carried in a JSON EAT.  As per the definition in Figure 1, the whole JSON MC is encoded as a JSON string, so the escaping is as expected.\n\n## Niggles\n\n* [x] Section 4\n```\n  \"a JSON and CBOR data model that implements\" -> \"coordinated JSON\n  and CBOR data models that each implement\"\n```\n\n* [ ] Section 4.3.2\n```\n  \"For example, as in Unified Extensible Firmware Interface (UEFI)\n  Secure Boot [UEFI2] and Arm Trusted Board Boot [TBBR-CLIENT].\"\n\n  That's not a sentence.  Something like \"Boot-time examples include\n  Unified Extensible Firmware Interface (UEFI) Secure Boot [UEFI2] and\n  Arm Trusted Board Boot [TBBR-CLIENT]\" would be better.\n```\n\n> This has been rephrased slightly in response to the SecDir review (#75)\n\n* [x] Section 11.2\n```\n  Should include 8792\n```",
+      "createdAt": "2026-02-03T13:57:52Z",
+      "updatedAt": "2026-02-04T19:16:31Z",
+      "closedAt": "2026-02-04T19:16:30Z",
       "comments": []
     }
   ],
@@ -3414,24 +3438,26 @@
       "id": "PR_kwDOLP05f86_YlGC",
       "title": "add clarifying note about the authority's signature",
       "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/pull/75",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "thomas-fossati",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Address #74 ",
       "createdAt": "2026-01-26T14:56:58Z",
-      "updatedAt": "2026-01-27T20:06:44Z",
+      "updatedAt": "2026-02-04T10:20:04Z",
       "baseRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
       "baseRefName": "main",
       "baseRefOid": "57c4e4495f6957dfb8b2468d0577fb893ec15a5b",
       "headRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
       "headRefName": "secdir",
-      "headRefOid": "900dd3e674fa8b70a42be46e1e0f494887fad9bf",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "77963b685d3129447963abcd653cd84a008501ac",
+      "closedAt": "2026-02-04T10:20:01Z",
+      "mergedAt": "2026-02-04T10:20:01Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "44ffb8bbaec435aeaddc45dcf76e1b27b0338d08"
+      },
       "comments": [],
       "reviews": [
         {
@@ -3466,7 +3492,7 @@
             "abbreviatedOid": "46b3e32"
           },
           "author": "jsalowey",
-          "authorAssociation": "NONE",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-01-27T17:42:40Z",
@@ -3486,7 +3512,7 @@
             "abbreviatedOid": "46b3e32"
           },
           "author": "jsalowey",
-          "authorAssociation": "NONE",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2026-01-27T17:45:33Z",
@@ -3539,6 +3565,81 @@
               "updatedAt": "2026-01-27T20:06:44Z"
             }
           ]
+        },
+        {
+          "id": "PRR_kwDOLP05f87fIyQR",
+          "commit": {
+            "abbreviatedOid": "900dd3e"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-02-03T07:57:22Z",
+          "updatedAt": "2026-02-03T07:57:22Z",
+          "comments": [
+            {
+              "originalPosition": 14,
+              "body": "```suggestion\nThis signature is typically verified during installation ({{Section 7 of -suit-arch}}), or when the measured component is executed by the boot firmware, operating system, or application launcher, as in the case of Unified Extensible Firmware Interface (UEFI) Secure Boot {{UEFI2}} and Arm Trusted Board Boot {{TBBR-CLIENT}}.\n```",
+              "createdAt": "2026-02-03T07:57:22Z",
+              "updatedAt": "2026-02-03T07:57:22Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 77,
+      "id": "PR_kwDOLP05f87Bc219",
+      "title": "Address ARTART review",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/pull/77",
+      "state": "MERGED",
+      "author": "thomas-fossati",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Fix #76 ",
+      "createdAt": "2026-02-04T12:11:31Z",
+      "updatedAt": "2026-02-04T19:16:34Z",
+      "baseRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "baseRefName": "main",
+      "baseRefOid": "44ffb8bbaec435aeaddc45dcf76e1b27b0338d08",
+      "headRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "headRefName": "artart",
+      "headRefOid": "6360a358ec3113838d3f16c2e68e509576f49bb6",
+      "closedAt": "2026-02-04T19:16:29Z",
+      "mergedAt": "2026-02-04T19:16:29Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "2f34928d19e07911e83d996d1123383bff8f83a6"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOLP05f87fj6dN",
+          "commit": {
+            "abbreviatedOid": "6360a35"
+          },
+          "author": "SimonFrost-Arm",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2026-02-04T12:17:20Z",
+          "updatedAt": "2026-02-04T12:17:20Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOLP05f87fl1dA",
+          "commit": {
+            "abbreviatedOid": "6360a35"
+          },
+          "author": "ionut-arm",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "LGTM, thank you!",
+          "createdAt": "2026-02-04T14:01:05Z",
+          "updatedAt": "2026-02-04T14:01:05Z",
+          "comments": []
         }
       ]
     }
