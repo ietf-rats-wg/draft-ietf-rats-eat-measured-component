@@ -1,7 +1,7 @@
 ---
 v: 3
 
-title: EAT Measured Component
+title: Entity Attestation Token (EAT) Measured Component
 abbrev: "EAT Measured Component"
 docname: draft-ietf-rats-eat-measured-component-latest
 category: std
@@ -76,7 +76,7 @@ The term "measured component" refers to an object within the attester's target e
 Examples of measured components include firmware stored in flash memory, software loaded into memory at start time, data stored in a file system, or values in a CPU register.
 This document provides the information model for the "measured component" and two associated data models.
 This separation is intentional: the JSON and CBOR serializations, coupled with the media types and associated Constrained Application Protocol (CoAP) Content-Formats, enable the immediate use of the semantics within the Entity Attestation Token (EAT) framework.
-Meanwhile, the information model can be reused in future specifications to provide additional serializations, for example using ASN.1.
+Meanwhile, the information model can be reused in future specifications to provide additional serializations, for example, using ASN.1.
 
 --- middle
 
@@ -84,7 +84,8 @@ Meanwhile, the information model can be reused in future specifications to provi
 
 {{Section 4.2.16 of -rats-eat}} defines a `Measurements` claim that:
 
-> "[c]ontains descriptions, lists, evidence or measurements of the software that exists on the entity or any other measurable subsystem of the entity."
+{: quote}
+> contains descriptions, lists, evidence or measurements of the software that exists on the entity or any other measurable subsystem of the entity
 
 This claim allows for different measurement formats, each identified by a different CoAP Content-Format ({{Section 12.3 of -coap}}).
 Currently, the only specified format is Concise Software Identification (CoSWID) Tags of type "evidence", as per {{Section 2.9.4 of -coswid}}.
@@ -96,14 +97,16 @@ This includes, for example: the invariant part of a firmware component that is l
 
 This document provides the information model for the "measured component" and two associated data models {{-models}}.
 This separation is intentional: the JSON and CBOR serializations, coupled with the media types and associated CoAP Content-Formats, enable the immediate use of the semantics within the EAT framework.
-Meanwhile, the information model can be reused in future specifications to provide additional serializations, for example using ASN.1.
+Meanwhile, the information model can be reused in future specifications to provide additional serializations, for example, using ASN.1. This appraoch is consistent with the guidance in {{Section 5.2 of ?I-D.ietf-opsawg-rfc5706bis}}.
 
 # Conventions and Definitions
 
 {::boilerplate bcp14-tagged}
 
 In this document, CDDL {{-cddl}} {{-cddlplus}} {{-cddlctls}} is used to describe the data formats.
-This specification uses the following CDDL control operators: `.b64u` defined in {{Section 2.1 of -cddlctls}}, `.json` defined in {{Section 2.4 of -cddlctls}} and `.cbor` defined in {{Section 3.8.4 of -cddl}}.
+This specification uses the following CDDL control operators: `.b64u` defined in {{Section 2.1 of -cddlctls}}, `.json` defined in {{Section 2.4 of -cddlctls}}, and `.cbor` defined in {{Section 3.8.4 of -cddl}}.
+
+Examples are folded following the conventions in {{RFC8792}}.
 
 # Information Model {#measured-component}
 
@@ -112,7 +115,7 @@ This section presents the information model of a "measured component".
 A "measured component" information element includes the component's sampled state (in digested or raw form) along with metadata that helps in identifying the component.
 Optionally, any entities responsible for signing the installed component can also be specified.
 
-The information elements (IE) that constitute a "measured component" are described in {{tab-mc-info-elems}}.
+The information elements (IEs) that constitute a "measured component" are described in {{tab-mc-info-elems}}.
 
 | IE | Description | Requirement Level |
 |----|-------------|-------------------|
@@ -123,11 +126,11 @@ The information elements (IE) that constitute a "measured component" are describ
 | Authorities | One or more entities that can authoritatively identify the component being measured. | OPTIONAL |
 {: #tab-mc-info-elems title="Measured Component Information Elements"}
 
-A data model implementing this information model SHOULD also allow a limited amount of extensibility to accommodate profile-specific semantics.
+A data model implementing this information model SHOULD allow a limited amount of extensibility to accommodate profile-specific semantics.
 
-# Data Model
+# Data Models
 
-This section presents coordinated JSON and CBOR data models that each implement the information model outlined in {{measured-component}}.
+This section presents coordinated JSON and CBOR data models that each implements the information model outlined in {{measured-component}}.
 
 The data model is inspired by the "PSA software component" claim ({{Section 4.4.1 of -psa-token}}), which has been refactored to take into account the recommendations about the design of new EAT claims described in {{Appendix E of -rats-eat}}.
 
@@ -281,12 +284,13 @@ The example in {{ex-1}} is a digested measured component with all the fields pop
 ~~~
 {: #ex-1 title="Complete Measured Component"}
 
-The example in {{ex-eat-1}} is the same measured component as above but used as the format of a `measurements` claim in a EAT claims-set.
+The example depicted in {{ex-eat-1}} is the same measured component as above but used as the format of a `measurements` claim in a EAT claims-set.
 
 This example uses TBD1 as the `content-type` value of the `measurements-format` entry.
-(This will change to the value assigned by IANA to the `measured-component+cbor` Content-Format.)
 
-Note that the array contains only one measured component, but additional entries could be added if the measured TCB is made of multiple, individually measured components.
+[^rfced] Please change TBD1 to the value assigned by IANA to the `measured-component+cbor` Content-Format.
+
+Note that the array contains only one measured component, but additional entries could be added if the measured Trusted Compute Base (TCB) is made of multiple, individually measured components.
 
 ~~~ cbor-edn
 {::include cddl/eat-ex1.diag.in}
@@ -296,14 +300,15 @@ Note that the array contains only one measured component, but additional entries
 The example in {{ex-eat-2}} illustrates the inclusion of a JSON measured component inside a JSON EAT.
 
 This example uses TBD2 as the `content-type` value of the `measurements-format` entry.
-(This will change to the value assigned by IANA to the `measured-component+json` Content-Format.)
+
+[^rfced] Please change TBD2 to the value assigned by IANA to the `measured-component+cbor` Content-Format.
 
 ~~~ cbor-edn
 {::include-fold cddl/eat-ex1-json.diag.in}
 ~~~
 {: #ex-eat-2 title="EAT Measurements Claim using a Measured Component (JSON)"}
 
-The example in {{ex-2}} is a measured component representing a boot loader identified by its path name:
+The example shown in {{ex-2}} is a measured component representing a boot loader identified by its path name:
 
 ~~~ cbor-edn
 {::include cddl/ex2.diag}
@@ -319,7 +324,7 @@ The example in {{ex-3}} is a raw measured component.
 
 # Security Considerations {#seccons}
 
-Please review {{Sections 9.1 (Claim Trustworthiness), 9.4 (Multiple EAT Consumers) and 9.5 (Detached EAT Bundle Digest Security Considerations) of -rats-eat}}; these considerations apply to this document as well.
+The considerations discussed in {{Sections 9.1 (Claim Trustworthiness), 9.4 (Multiple EAT Consumers) and 9.5 (Detached EAT Bundle Digest Security Considerations) of -rats-eat}} apply to this document as well.
 Note that similar security considerations may apply when the Measured Component information model is serialized using different data models than the ones specified in this document.
 
 The Component Name and Component Version can give an attacker detailed information about the software running on a device and its configuration settings.
@@ -332,11 +337,11 @@ If the component measurement is digested, the digest must be computed using a st
 
 # Privacy Considerations {#privcons}
 
-Please review {{Section 9.1 (Multiple EAT Consumers) of -rats-eat}}; the differential encryption considerations discussed there also apply to this document.
+The differential encryption considerations discussed in {{Section 9.1 (Multiple EAT Consumers) of -rats-eat}} also apply to this document.
 
-The Component Name and Component Version could reveal private information about a device and its owner.
+The Component Name and Component Version may reveal private information about a device and its owner.
 
-Additionally, the stability requirement of the Component Name could enable tracking.
+Additionally, the stability requirement of the Component Name may enable tracking.
 
 # IANA Considerations
 
