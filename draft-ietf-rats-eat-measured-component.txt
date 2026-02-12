@@ -5,15 +5,15 @@
 Remote ATtestation ProcedureS                                   S. Frost
 Internet-Draft                                                       Arm
 Intended status: Standards Track                              T. Fossati
-Expires: 8 August 2026                                            Linaro
+Expires: 16 August 2026                                           Linaro
                                                            H. Tschofenig
                                                                    H-BRS
                                                              H. Birkholz
                                                           Fraunhofer SIT
-                                                         4 February 2026
+                                                        12 February 2026
 
 
-                         EAT Measured Component
+           Entity Attestation Token (EAT) Measured Component
              draft-ietf-rats-eat-measured-component-latest
 
 Abstract
@@ -30,7 +30,7 @@ Abstract
    Protocol (CoAP) Content-Formats, enable the immediate use of the
    semantics within the Entity Attestation Token (EAT) framework.
    Meanwhile, the information model can be reused in future
-   specifications to provide additional serializations, for example
+   specifications to provide additional serializations, for example,
    using ASN.1.
 
 Discussion Venues
@@ -60,7 +60,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 8 August 2026.
+   This Internet-Draft will expire on 16 August 2026.
 
 Copyright Notice
 
@@ -81,7 +81,7 @@ Table of Contents
    1.  Introduction
    2.  Conventions and Definitions
    3.  Information Model
-   4.  Data Model
+   4.  Data Models
      4.1.   Common Types
      4.2.  The digest Type
      4.3.  The measured-component Data Item
@@ -112,9 +112,9 @@ Table of Contents
 
    Section 4.2.16 of [RFC9711] defines a Measurements claim that:
 
-      "[c]ontains descriptions, lists, evidence or measurements of the
-      software that exists on the entity or any other measurable
-      subsystem of the entity."
+   |  [c]ontains descriptions, lists, evidence or measurements of the
+   |  software that exists on the entity or any other measurable
+   |  subsystem of the entity
 
    This claim allows for different measurement formats, each identified
    by a different CoAP Content-Format (Section 12.3 of [RFC7252]).
@@ -139,7 +139,9 @@ Table of Contents
    media types and associated CoAP Content-Formats, enable the immediate
    use of the semantics within the EAT framework.  Meanwhile, the
    information model can be reused in future specifications to provide
-   additional serializations, for example using ASN.1.
+   additional serializations, for example, using ASN.1.  This approach
+   is consistent with the guidance in Section 5.2 of
+   [I-D.ietf-opsawg-rfc5706bis].
 
 2.  Conventions and Definitions
 
@@ -152,8 +154,10 @@ Table of Contents
    In this document, CDDL [RFC8610] [RFC9165] [RFC9741] is used to
    describe the data formats.  This specification uses the following
    CDDL control operators: .b64u defined in Section 2.1 of [RFC9741],
-   .json defined in Section 2.4 of [RFC9741] and .cbor defined in
+   .json defined in Section 2.4 of [RFC9741], and .cbor defined in
    Section 3.8.4 of [RFC8610].
+
+   Examples are folded following the conventions in [RFC8792].
 
 3.  Information Model
 
@@ -166,7 +170,7 @@ Table of Contents
    responsible for signing the installed component can also be
    specified.
 
-   The information elements (IE) that constitute a "measured component"
+   The information elements (IEs) that constitute a "measured component"
    are described in Table 1.
 
    +=============+======================================+=============+
@@ -207,14 +211,14 @@ Table of Contents
 
              Table 1: Measured Component Information Elements
 
-   A data model implementing this information model SHOULD also allow a
+   A data model implementing this information model SHOULD allow a
    limited amount of extensibility to accommodate profile-specific
    semantics.
 
-4.  Data Model
+4.  Data Models
 
-   This section presents coordinated JSON and CBOR data models that each
-   implement the information model outlined in Section 3.
+   This section presents coordinated JSON and CBOR data models, each of
+   which implements the information model outlined in Section 3.
 
    The data model is inspired by the "PSA software component" claim
    (Section 4.4.1 of [RFC9783]), which has been refactored to take into
@@ -467,16 +471,20 @@ Table of Contents
 
                    Figure 2: Complete Measured Component
 
-   The example in Figure 3 is the same measured component as above but
-   used as the format of a measurements claim in a EAT claims-set.
+   The example depicted in Figure 3 is the same measured component as
+   above but used as the format of a measurements claim in a EAT claims-
+   set.
 
    This example uses TBD1 as the content-type value of the measurements-
-   format entry.  (This will change to the value assigned by IANA to the
-   measured-component+cbor Content-Format.)
+   format entry.
+
+
+   // RFC Editor: Please change TBD1 to the value assigned by IANA to
+   the measured-component+cbor Content-Format.
 
    Note that the array contains only one measured component, but
-   additional entries could be added if the measured TCB is made of
-   multiple, individually measured components.
+   additional entries could be added if the measured Trusted Compute
+   Base (TCB) is made of multiple, individually measured components.
 
    {
      273: [
@@ -514,8 +522,11 @@ Table of Contents
    component inside a JSON EAT.
 
    This example uses TBD2 as the content-type value of the measurements-
-   format entry.  (This will change to the value assigned by IANA to the
-   measured-component+json Content-Format.)
+   format entry.
+
+
+   // RFC Editor: Please change TBD2 to the value assigned by IANA to
+   the measured-component+cbor Content-Format.
 
    =============== NOTE: '\' line wrapping per RFC 8792 ================
 
@@ -534,8 +545,8 @@ Table of Contents
 
      Figure 4: EAT Measurements Claim using a Measured Component (JSON)
 
-   The example in Figure 5 is a measured component representing a boot
-   loader identified by its path name:
+   The example shown in Figure 5 is a measured component representing a
+   boot loader identified by its path name:
 
    {
      / id / 1: [
@@ -564,12 +575,12 @@ Table of Contents
 
 5.  Security Considerations
 
-   Please review Sections 9.1 (Claim Trustworthiness), 9.4 (Multiple EAT
-   Consumers) and 9.5 (Detached EAT Bundle Digest Security
-   Considerations) of [RFC9711]; these considerations apply to this
-   document as well.  Note that similar security considerations may
-   apply when the Measured Component information model is serialized
-   using different data models than the ones specified in this document.
+   The considerations discussed in Sections 9.1 (Claim Trustworthiness),
+   9.4 (Multiple EAT Consumers) and 9.5 (Detached EAT Bundle Digest
+   Security Considerations) of [RFC9711] apply to this document as well.
+   Note that similar security considerations may apply when the Measured
+   Component information model is serialized using different data models
+   than the ones specified in this document.
 
    The Component Name and Component Version can give an attacker
    detailed information about the software running on a device and its
@@ -587,14 +598,13 @@ Table of Contents
 
 6.  Privacy Considerations
 
-   Please review Section 9.1 (Multiple EAT Consumers) of [RFC9711]; the
-   differential encryption considerations discussed there also apply to
-   this document.
+   The differential encryption considerations discussed in Section 9.1
+   (Multiple EAT Consumers) of [RFC9711] also apply to this document.
 
-   The Component Name and Component Version could reveal private
+   The Component Name and Component Version may reveal private
    information about a device and its owner.
 
-   Additionally, the stability requirement of the Component Name could
+   Additionally, the stability requirement of the Component Name may
    enable tracking.
 
 7.  IANA Considerations
@@ -739,6 +749,14 @@ Table of Contents
               <https://semver.org/spec/v2.0.0.html>.
 
 8.2.  Informative References
+
+   [I-D.ietf-opsawg-rfc5706bis]
+              Claise, B., Clarke, J., Farrel, A., Barguil, S.,
+              Pignataro, C., and R. Chen, "Guidelines for Considering
+              Operations and Management in IETF Specifications", Work in
+              Progress, Internet-Draft, draft-ietf-opsawg-rfc5706bis-01,
+              17 December 2025, <https://datatracker.ietf.org/doc/html/
+              draft-ietf-opsawg-rfc5706bis-01>.
 
    [IANA.core-parameters]
               IANA, "Constrained RESTful Environments (CoRE)
