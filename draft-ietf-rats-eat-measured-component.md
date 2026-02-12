@@ -37,6 +37,7 @@ normative:
   RFC8610: cddl
   RFC8792:
   RFC9165: cddlplus
+  RFC9393: coswid
   RFC9741: cddlctls
   RFC9711: rats-eat
   SEMVER:
@@ -47,7 +48,6 @@ normative:
 informative:
   RFC3444: models
   RFC9783: psa-token
-  RFC9393: coswid
   RFC9839: unicode-subsets
   UEFI2:
     title: "Unified Extensible Firmware Interface (UEFI) Specification"
@@ -198,6 +198,7 @@ The `component-id` data item is as follows:
 
 `version`
 : A compound `version` data item that reuses the encoding and semantics of {{-rats-eat}} `sw-version-type`, extending it to non-software components.
+(Note that the complete definition of `sw-version-type` depends on the `$version-scheme` CDDL socket defined in {{Section 2.2 of -coswid}}.)
 
 ### Authority Identifier {#authority}
 
