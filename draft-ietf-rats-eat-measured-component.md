@@ -85,7 +85,7 @@ Meanwhile, the information model can be reused in future specifications to provi
 {{Section 4.2.16 of -rats-eat}} defines a `Measurements` claim that:
 
 {: quote}
-> contains descriptions, lists, evidence or measurements of the software that exists on the entity or any other measurable subsystem of the entity
+> [c]ontains descriptions, lists, evidence or measurements of the software that exists on the entity or any other measurable subsystem of the entity
 
 This claim allows for different measurement formats, each identified by a different CoAP Content-Format ({{Section 12.3 of -coap}}).
 Currently, the only specified format is Concise Software Identification (CoSWID) Tags of type "evidence", as per {{Section 2.9.4 of -coswid}}.
