@@ -325,7 +325,9 @@ Table of Contents
 
    version  A compound version data item that reuses the encoding and
       semantics of [RFC9711] sw-version-type, extending it to non-
-      software components.
+      software components.  (Note that the complete definition of sw-
+      version-type depends on the $version-scheme CDDL socket defined in
+      Section 2.2 of [RFC9393].)
 
 4.3.2.  Authority Identifier
 
@@ -735,6 +737,11 @@ Table of Contents
               DOI 10.17487/RFC9165, December 2021,
               <https://www.rfc-editor.org/rfc/rfc9165>.
 
+   [RFC9393]  Birkholz, H., Fitzgerald-McKay, J., Schmidt, C., and D.
+              Waltermire, "Concise Software Identification Tags",
+              RFC 9393, DOI 10.17487/RFC9393, June 2023,
+              <https://www.rfc-editor.org/rfc/rfc9393>.
+
    [RFC9711]  Lundblade, L., Mandyam, G., O'Donoghue, J., and C.
               Wallace, "The Entity Attestation Token (EAT)", RFC 9711,
               DOI 10.17487/RFC9711, April 2025,
@@ -776,11 +783,6 @@ Table of Contents
               Firmware Update Architecture for Internet of Things",
               RFC 9019, DOI 10.17487/RFC9019, April 2021,
               <https://www.rfc-editor.org/rfc/rfc9019>.
-
-   [RFC9393]  Birkholz, H., Fitzgerald-McKay, J., Schmidt, C., and D.
-              Waltermire, "Concise Software Identification Tags",
-              RFC 9393, DOI 10.17487/RFC9393, June 2023,
-              <https://www.rfc-editor.org/rfc/rfc9393>.
 
    [RFC9783]  Tschofenig, H., Frost, S., Brossard, M., Shaw, A., and T.
               Fossati, "Arm's Platform Security Architecture (PSA)
