@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-02-05T01:09:45.834625+00:00",
+  "timestamp": "2026-02-12T01:14:20.887546+00:00",
   "repo": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
   "labels": [
     {
@@ -3639,6 +3639,66 @@
           "body": "LGTM, thank you!",
           "createdAt": "2026-02-04T14:01:05Z",
           "updatedAt": "2026-02-04T14:01:05Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 78,
+      "id": "PR_kwDOLP05f87DC9uI",
+      "title": "minor edits/nits flagged in Med' IESG review",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/pull/78",
+      "state": "OPEN",
+      "author": "boucadair",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Feel free to grab whatever useful.\r\n\r\nThere is some inconsistency about one single DM vs. multiple DMs in part of the text. Please double check through the doc.",
+      "createdAt": "2026-02-11T15:58:48Z",
+      "updatedAt": "2026-02-11T19:23:56Z",
+      "baseRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "baseRefName": "main",
+      "baseRefOid": "2f34928d19e07911e83d996d1123383bff8f83a6",
+      "headRepository": "boucadair/draft-ietf-rats-eat-measured-component",
+      "headRefName": "patch-1",
+      "headRefOid": "6a8bb155a9c3340a82578ccaf8d0bc0787927b92",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOLP05f87htnHU",
+          "commit": {
+            "abbreviatedOid": "6a8bb15"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-02-11T19:22:06Z",
+          "updatedAt": "2026-02-11T19:22:06Z",
+          "comments": [
+            {
+              "originalPosition": 66,
+              "body": "I believe the original is correct as is.\n\nAn alternative may be:\n\n```suggestion\nThis section presents coordinated JSON and CBOR data models, each of which implements the information model outlined in {{measured-component}}.\n```",
+              "createdAt": "2026-02-11T19:22:06Z",
+              "updatedAt": "2026-02-11T19:22:06Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOLP05f87htqBX",
+          "commit": {
+            "abbreviatedOid": "6a8bb15"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "Awesome, thanks a lot Med!",
+          "createdAt": "2026-02-11T19:23:56Z",
+          "updatedAt": "2026-02-11T19:23:56Z",
           "comments": []
         }
       ]
