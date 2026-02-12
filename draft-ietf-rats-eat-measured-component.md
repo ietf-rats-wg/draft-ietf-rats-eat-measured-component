@@ -97,7 +97,7 @@ This includes, for example: the invariant part of a firmware component that is l
 
 This document provides the information model for the "measured component" and two associated data models {{-models}}.
 This separation is intentional: the JSON and CBOR serializations, coupled with the media types and associated CoAP Content-Formats, enable the immediate use of the semantics within the EAT framework.
-Meanwhile, the information model can be reused in future specifications to provide additional serializations, for example, using ASN.1. This appraoch is consistent with the guidance in {{Section 5.2 of ?I-D.ietf-opsawg-rfc5706bis}}.
+Meanwhile, the information model can be reused in future specifications to provide additional serializations, for example, using ASN.1. This approach is consistent with the guidance in {{Section 5.2 of ?I-D.ietf-opsawg-rfc5706bis}}.
 
 # Conventions and Definitions
 
