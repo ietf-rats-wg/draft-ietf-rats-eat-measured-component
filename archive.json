@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-02-12T01:14:20.887546+00:00",
+  "timestamp": "2026-02-15T01:16:51.982174+00:00",
   "repo": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
   "labels": [
     {
@@ -3648,24 +3648,26 @@
       "id": "PR_kwDOLP05f87DC9uI",
       "title": "minor edits/nits flagged in Med' IESG review",
       "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/pull/78",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "boucadair",
-      "authorAssociation": "NONE",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "Feel free to grab whatever useful.\r\n\r\nThere is some inconsistency about one single DM vs. multiple DMs in part of the text. Please double check through the doc.",
       "createdAt": "2026-02-11T15:58:48Z",
-      "updatedAt": "2026-02-11T19:23:56Z",
+      "updatedAt": "2026-02-12T08:24:31Z",
       "baseRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
       "baseRefName": "main",
       "baseRefOid": "2f34928d19e07911e83d996d1123383bff8f83a6",
       "headRepository": "boucadair/draft-ietf-rats-eat-measured-component",
       "headRefName": "patch-1",
-      "headRefOid": "6a8bb155a9c3340a82578ccaf8d0bc0787927b92",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "f91a1ed260e0d71d5283fc793f671fe7989b94fc",
+      "closedAt": "2026-02-12T08:24:31Z",
+      "mergedAt": "2026-02-12T08:24:31Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "920d1465ce786d970c97cd005a14a4a0270489b2"
+      },
       "comments": [],
       "reviews": [
         {
@@ -3700,8 +3702,170 @@
           "createdAt": "2026-02-11T19:23:56Z",
           "updatedAt": "2026-02-11T19:23:56Z",
           "comments": []
+        },
+        {
+          "id": "PRR_kwDOLP05f87h1xQp",
+          "commit": {
+            "abbreviatedOid": "6a8bb15"
+          },
+          "author": "boucadair",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-02-12T06:37:14Z",
+          "updatedAt": "2026-02-12T06:37:14Z",
+          "comments": [
+            {
+              "originalPosition": 67,
+              "body": "```suggestion\nThis section presents coordinated JSON and CBOR data models, each of which implements the information model outlined in {{measured-component}}.\n```",
+              "createdAt": "2026-02-12T06:37:14Z",
+              "updatedAt": "2026-02-12T06:37:14Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOLP05f87h3NjI",
+          "commit": {
+            "abbreviatedOid": "3563631"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-02-12T08:21:38Z",
+          "updatedAt": "2026-02-12T08:21:38Z",
+          "comments": [
+            {
+              "originalPosition": 33,
+              "body": "```suggestion\nMeanwhile, the information model can be reused in future specifications to provide additional serializations, for example, using ASN.1. This approach is consistent with the guidance in {{Section 5.2 of ?I-D.ietf-opsawg-rfc5706bis}}.\n```",
+              "createdAt": "2026-02-12T08:21:38Z",
+              "updatedAt": "2026-02-12T08:21:38Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOLP05f87h3O4s",
+          "commit": {
+            "abbreviatedOid": "0c65929"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-02-12T08:22:27Z",
+          "updatedAt": "2026-02-12T08:22:28Z",
+          "comments": [
+            {
+              "originalPosition": 24,
+              "body": "```suggestion\n> [c]ontains descriptions, lists, evidence or measurements of the software that exists on the entity or any other measurable subsystem of the entity\n```",
+              "createdAt": "2026-02-12T08:22:28Z",
+              "updatedAt": "2026-02-12T08:22:28Z"
+            }
+          ]
         }
       ]
+    },
+    {
+      "number": 79,
+      "id": "PR_kwDOLP05f87DPF0A",
+      "title": "RFC9393 is normative",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/pull/79",
+      "state": "MERGED",
+      "author": "thomas-fossati",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "As per the discussion with Med (*)\r\n\r\n(*) Archived-at: https://mailarchive.ietf.org/arch/msg/rats/9RongpuNe6IwUCLcq0_mRVcxbI4/",
+      "createdAt": "2026-02-12T10:26:36Z",
+      "updatedAt": "2026-02-12T12:53:22Z",
+      "baseRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "baseRefName": "main",
+      "baseRefOid": "920d1465ce786d970c97cd005a14a4a0270489b2",
+      "headRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "headRefName": "coswid-ref",
+      "headRefOid": "3d2322824bf4a6998f3543a0f1091968b4712374",
+      "closedAt": "2026-02-12T12:53:19Z",
+      "mergedAt": "2026-02-12T12:53:19Z",
+      "mergedBy": "thomas-fossati",
+      "mergeCommit": {
+        "oid": "8d1df73c0bc43e3c8579c5738e93f99bc11410f8"
+      },
+      "comments": [
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "body": "cc @boucadair ",
+          "createdAt": "2026-02-12T10:30:10Z",
+          "updatedAt": "2026-02-12T10:30:10Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOLP05f87h6R4R",
+          "commit": {
+            "abbreviatedOid": "3d23228"
+          },
+          "author": "boucadair",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "Thanks @thomas-fossati ",
+          "createdAt": "2026-02-12T10:43:35Z",
+          "updatedAt": "2026-02-12T10:43:35Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOLP05f87h6WyQ",
+          "commit": {
+            "abbreviatedOid": "3d23228"
+          },
+          "author": "ionut-arm",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2026-02-12T10:47:11Z",
+          "updatedAt": "2026-02-12T10:47:11Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOLP05f87h8V7m",
+          "commit": {
+            "abbreviatedOid": "3d23228"
+          },
+          "author": "SimonFrost-Arm",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2026-02-12T12:19:20Z",
+          "updatedAt": "2026-02-12T12:19:20Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 80,
+      "id": "PR_kwDOLP05f87Dkhyz",
+      "title": "acknowledging IESG reviewers",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/pull/80",
+      "state": "OPEN",
+      "author": "thomas-fossati",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "We can keep this open while the IESG review is ongoing.",
+      "createdAt": "2026-02-13T14:26:46Z",
+      "updatedAt": "2026-02-13T14:27:11Z",
+      "baseRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "baseRefName": "main",
+      "baseRefOid": "8d1df73c0bc43e3c8579c5738e93f99bc11410f8",
+      "headRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "headRefName": "ack++",
+      "headRefOid": "7208094f951e9d5fa0ddb0dbdc54af4baf57c3a9",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
     }
   ]
 }
