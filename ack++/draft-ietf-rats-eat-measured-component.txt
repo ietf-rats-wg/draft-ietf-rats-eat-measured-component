@@ -5,12 +5,12 @@
 Remote ATtestation ProcedureS                                   S. Frost
 Internet-Draft                                                       Arm
 Intended status: Standards Track                              T. Fossati
-Expires: 17 August 2026                                           Linaro
+Expires: 20 August 2026                                           Linaro
                                                            H. Tschofenig
                                                                    H-BRS
                                                              H. Birkholz
                                                           Fraunhofer SIT
-                                                        13 February 2026
+                                                        16 February 2026
 
 
            Entity Attestation Token (EAT) Measured Component
@@ -60,7 +60,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 17 August 2026.
+   This Internet-Draft will expire on 20 August 2026.
 
 Copyright Notice
 
@@ -869,10 +869,10 @@ Appendix B.  Open Issues
 Acknowledgments
 
    The authors would like to thank Carl Wallace, Carsten Bormann, Deb
-   Cooley, Dionna Glaze, Esko Dijk, Giridhar Mandyam, Henry Thompson,
-   Houda Labiod, Ionuț Mihalcea, Joe Salowey, Jun Zhang, Laurence
-   Lundblade, Michael Richardson, Mohamed Boucadair, Muhammad Usama
-   Sardar and Yogesh Deshpande for providing comments, reviews and
+   Cooley, Dionna Glaze, Esko Dijk, Giridhar Mandyam, Gorry Fairhurst,
+   Henry Thompson, Houda Labiod, Ionuț Mihalcea, Joe Salowey, Jun Zhang,
+   Laurence Lundblade, Michael Richardson, Mohamed Boucadair, Muhammad
+   Usama Sardar and Yogesh Deshpande for providing comments, reviews and
    suggestions that greatly improved this document.
 
    The authors would also like to thank Ken Takayama for providing an
