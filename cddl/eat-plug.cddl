@@ -2,9 +2,9 @@ mc-cbor = bytes .cbor measured-component
 mc-json = text .json measured-component
 
 ; EAT CBOR (`.feature "cbor"`)
-$measurements-body-cbor /= mc-cbor ; native
+$measurements-body-cbor /= mc-cbor ; homogeneous
 $measurements-body-cbor /= mc-json ; tunnel
 
 ; EAT JSON (`.feature "json"`)
-$measurements-body-json /= mc-json            ; native
+$measurements-body-json /= mc-json            ; homogeneous
 $measurements-body-json /= text .b64u mc-cbor ; tunnel
