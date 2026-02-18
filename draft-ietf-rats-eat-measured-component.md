@@ -285,7 +285,7 @@ The example in {{ex-1}} is a digested measured component with all the fields pop
 ~~~
 {: #ex-1 title="Complete Measured Component"}
 
-The example depicted in {{ex-eat-1}} is the same measured component as above but used as the format of a `measurements` claim in a EAT claims-set.
+The example depicted in {{ex-eat-1}} is the same measured component as above but used as the format of a `measurements` claim in an EAT claims-set.
 
 This example uses TBD1 as the `content-type` value of the `measurements-format` entry.
 
@@ -329,7 +329,7 @@ The considerations discussed in {{Sections 9.1 (Claim Trustworthiness), 9.4 (Mul
 Note that similar security considerations may apply when the Measured Component information model is serialized using different data models than the ones specified in this document.
 
 The Component Name and Component Version can give an attacker detailed information about the software running on a device and its configuration settings.
-This information could offer an attacker valuable insights.
+This information could offer an attacker valuable insight.
 
 Any textual fields (e.g., Component Name and Component Version) that are stored in a file, inserted into a database, or displayed to humans must be properly sanitized to prevent attacks and undesirable behavior.
 Further discussion and references on this topic can be found in {{Section 7 of -unicode-subsets}}.
