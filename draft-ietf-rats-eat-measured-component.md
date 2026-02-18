@@ -246,13 +246,13 @@ The CDDL in {{fig-eat-plug}} extends the `$measurements-body-cbor` and `$measure
 ~~~
 {: #fig-eat-plug title="EAT measurements-format Extensions"}
 
-Each socket is extended with two new types: a "native" representation that is used when `measured-component` and the EAT have the same serialization (e.g., they are both CBOR), and a "tunnel" representation that is used when the serializations differ.
+Each socket is extended with two new types: a "homogeneous" representation that is used when `measured-component` and the EAT have the same serialization (e.g., they are both CBOR), and a "tunnel" representation that is used when the serializations differ.
 
 ## `measurements-format` for CBOR EAT
 
 The entries in {{tab-mf-cbor}} are the allowed `content-type` / `content-format` pairs when the `measured-component` is carried in a CBOR EAT.
 
-Note the use of the "native" and "tunnel" formats from {{fig-eat-plug}}, and how the associated CoAP Content-Format is used to describe the original serialization.
+Note the use of the "homogeneous" and "tunnel" formats from {{fig-eat-plug}}, and how the associated CoAP Content-Format is used to describe the original serialization.
 
 | `content-type` (CoAP C-F equivalent) | `content-format` |
 |--|--|
