@@ -5,12 +5,12 @@
 Remote ATtestation ProcedureS                                   S. Frost
 Internet-Draft                                                       Arm
 Intended status: Standards Track                              T. Fossati
-Expires: 21 August 2026                                           Linaro
+Expires: 22 August 2026                                           Linaro
                                                            H. Tschofenig
                                                                    H-BRS
                                                              H. Birkholz
                                                           Fraunhofer SIT
-                                                        17 February 2026
+                                                        18 February 2026
 
 
            Entity Attestation Token (EAT) Measured Component
@@ -60,7 +60,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 21 August 2026.
+   This Internet-Draft will expire on 22 August 2026.
 
 Copyright Notice
 
@@ -871,10 +871,10 @@ Acknowledgments
    The authors would like to thank Carl Wallace, Carsten Bormann,
    Charles Nicas, Deb Cooley, Dionna Glaze, Esko Dijk, Giridhar Mandyam,
    Gorry Fairhurst, Henry Thompson, Houda Labiod, Ionuț Mihalcea, Joe
-   Salowey, Jun Zhang, Laurence Lundblade, Michael Richardson, Mohamed
-   Boucadair, Muhammad Usama Sardar and Yogesh Deshpande for providing
-   comments, reviews and suggestions that greatly improved this
-   document.
+   Salowey, Jun Zhang, Laurence Lundblade, Mahesh Jethanandani, Michael
+   Richardson, Mohamed Boucadair, Muhammad Usama Sardar and Yogesh
+   Deshpande for providing comments, reviews and suggestions that
+   greatly improved this document.
 
    The authors would also like to thank Ken Takayama for providing an
    implementation of this specification in the veraison/eat package.
