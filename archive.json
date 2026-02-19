@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-02-17T01:13:28.675851+00:00",
+  "timestamp": "2026-02-19T01:14:38.353238+00:00",
   "repo": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
   "labels": [
     {
@@ -3853,13 +3853,13 @@
       "labels": [],
       "body": "We can keep this open while the IESG review is ongoing.",
       "createdAt": "2026-02-13T14:26:46Z",
-      "updatedAt": "2026-02-16T13:18:36Z",
+      "updatedAt": "2026-02-18T13:50:18Z",
       "baseRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
       "baseRefName": "main",
       "baseRefOid": "8d1df73c0bc43e3c8579c5738e93f99bc11410f8",
       "headRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
       "headRefName": "ack++",
-      "headRefOid": "23f2ce270d784320082db40a241b363a0f3fed1f",
+      "headRefOid": "167829f4b7fdc3d0257c4980f6cf74b7dcb81c03",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
@@ -3879,19 +3879,132 @@
       "labels": [],
       "body": "Editorial clarification; no wire changes",
       "createdAt": "2026-02-16T22:17:48Z",
-      "updatedAt": "2026-02-16T22:17:48Z",
+      "updatedAt": "2026-02-17T10:37:44Z",
       "baseRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
       "baseRefName": "main",
       "baseRefOid": "8d1df73c0bc43e3c8579c5738e93f99bc11410f8",
       "headRepository": "charles-nicas/draft-ietf-rats-eat-measured-component",
       "headRefName": "patch-1",
-      "headRefOid": "01015af09e1a32d405bea8ef77e666ebad579321",
+      "headRefOid": "d4f749fcc1527271f852f18417ef20aae80bbe20",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOLP05f87jQmw7",
+          "commit": {
+            "abbreviatedOid": "01015af"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-02-17T09:44:52Z",
+          "updatedAt": "2026-02-17T09:44:53Z",
+          "comments": [
+            {
+              "originalPosition": 4,
+              "body": "NSNL\n\n```suggestion\nIn particular, the presence of an authority identifier does not, by itself, indicate the signer of the enclosing EAT-formatted evidence.\nAny consumer interpretation of the `authorities` array beyond the identification function described here is defined by the applicable EAT profile.\n```",
+              "createdAt": "2026-02-17T09:44:53Z",
+              "updatedAt": "2026-02-17T09:44:53Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOLP05f87jRzkk",
+          "commit": {
+            "abbreviatedOid": "d4f749f"
+          },
+          "author": "ionut-arm",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2026-02-17T10:31:50Z",
+          "updatedAt": "2026-02-17T10:31:50Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOLP05f87jQrGq",
+          "commit": {
+            "abbreviatedOid": "d4f749f"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-02-17T09:47:36Z",
+          "updatedAt": "2026-02-17T10:37:44Z",
+          "comments": [
+            {
+              "originalPosition": 4,
+              "body": "Trying to connect 209 to 208 a bit more strongly\n\n```suggestion\nBy extension, an authority identifier does not, by itself, indicate the signer of the enclosing EAT-formatted evidence.\n```",
+              "createdAt": "2026-02-17T09:47:37Z",
+              "updatedAt": "2026-02-17T10:37:44Z"
+            },
+            {
+              "originalPosition": 5,
+              "body": "I agree with the semantics, but I am not sure about the placement of the sentence within the flow of the section because it anticipates content introduced in L212\u2013216 and L218\u2013219.\n\nIt\u2019s not a big deal, but maybe there is a way to fine-tune this a bit.",
+              "createdAt": "2026-02-17T09:53:07Z",
+              "updatedAt": "2026-02-17T10:37:44Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 82,
+      "id": "PR_kwDOLP05f87EkvX9",
+      "title": "Mahesh\u2019s IESG review",
+      "url": "https://github.com/ietf-rats-wg/draft-ietf-rats-eat-measured-component/pull/82",
+      "state": "OPEN",
+      "author": "thomas-fossati",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Archived-at: https://mailarchive.ietf.org/arch/msg/rats/8oIXuf4Ok-AcBmowoH9fBtMIi7M/",
+      "createdAt": "2026-02-18T09:56:53Z",
+      "updatedAt": "2026-02-18T10:26:43Z",
+      "baseRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "baseRefName": "main",
+      "baseRefOid": "8d1df73c0bc43e3c8579c5738e93f99bc11410f8",
+      "headRepository": "ietf-rats-wg/draft-ietf-rats-eat-measured-component",
+      "headRefName": "mahesh",
+      "headRefOid": "577d02e89bc743b8934918faec83eb2a9daff7cd",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOLP05f87joMUW",
+          "commit": {
+            "abbreviatedOid": "577d02e"
+          },
+          "author": "ionut-arm",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2026-02-18T10:10:46Z",
+          "updatedAt": "2026-02-18T10:10:46Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOLP05f87jofQ2",
+          "commit": {
+            "abbreviatedOid": "577d02e"
+          },
+          "author": "SimonFrost-Arm",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2026-02-18T10:26:43Z",
+          "updatedAt": "2026-02-18T10:26:43Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
