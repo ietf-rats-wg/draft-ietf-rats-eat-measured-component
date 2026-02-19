@@ -5,12 +5,12 @@
 Remote ATtestation ProcedureS                                   S. Frost
 Internet-Draft                                                       Arm
 Intended status: Standards Track                              T. Fossati
-Expires: 16 August 2026                                           Linaro
+Expires: 23 August 2026                                           Linaro
                                                            H. Tschofenig
                                                                    H-BRS
                                                              H. Birkholz
                                                           Fraunhofer SIT
-                                                        12 February 2026
+                                                        19 February 2026
 
 
            Entity Attestation Token (EAT) Measured Component
@@ -60,7 +60,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 16 August 2026.
+   This Internet-Draft will expire on 23 August 2026.
 
 Copyright Notice
 
@@ -388,18 +388,18 @@ Table of Contents
    mc-json = text .json measured-component
 
    ; EAT CBOR (`.feature "cbor"`)
-   $measurements-body-cbor /= mc-cbor ; native
+   $measurements-body-cbor /= mc-cbor ; homogeneous
    $measurements-body-cbor /= mc-json ; tunnel
 
    ; EAT JSON (`.feature "json"`)
-   $measurements-body-json /= mc-json            ; native
+   $measurements-body-json /= mc-json            ; homogeneous
    $measurements-body-json /= text .b64u mc-cbor ; tunnel
 
                 Figure 1: EAT measurements-format Extensions
 
-   Each socket is extended with two new types: a "native" representation
-   that is used when measured-component and the EAT have the same
-   serialization (e.g., they are both CBOR), and a "tunnel"
+   Each socket is extended with two new types: a "homogeneous"
+   representation that is used when measured-component and the EAT have
+   the same serialization (e.g., they are both CBOR), and a "tunnel"
    representation that is used when the serializations differ.
 
 4.5.  measurements-format for CBOR EAT
@@ -407,8 +407,8 @@ Table of Contents
    The entries in Table 2 are the allowed content-type / content-format
    pairs when the measured-component is carried in a CBOR EAT.
 
-   Note the use of the "native" and "tunnel" formats from Figure 1, and
-   how the associated CoAP Content-Format is used to describe the
+   Note the use of the "homogeneous" and "tunnel" formats from Figure 1,
+   and how the associated CoAP Content-Format is used to describe the
    original serialization.
 
          +=====================================+================+
@@ -474,8 +474,8 @@ Table of Contents
                    Figure 2: Complete Measured Component
 
    The example depicted in Figure 3 is the same measured component as
-   above but used as the format of a measurements claim in a EAT claims-
-   set.
+   above but used as the format of a measurements claim in an EAT
+   claims-set.
 
    This example uses TBD1 as the content-type value of the measurements-
    format entry.
@@ -587,7 +587,7 @@ Table of Contents
    The Component Name and Component Version can give an attacker
    detailed information about the software running on a device and its
    configuration settings.  This information could offer an attacker
-   valuable insights.
+   valuable insight.
 
    Any textual fields (e.g., Component Name and Component Version) that
    are stored in a file, inserted into a database, or displayed to
@@ -761,9 +761,9 @@ Table of Contents
               Claise, B., Clarke, J., Farrel, A., Barguil, S.,
               Pignataro, C., and R. Chen, "Guidelines for Considering
               Operations and Management in IETF Specifications", Work in
-              Progress, Internet-Draft, draft-ietf-opsawg-rfc5706bis-01,
-              17 December 2025, <https://datatracker.ietf.org/doc/html/
-              draft-ietf-opsawg-rfc5706bis-01>.
+              Progress, Internet-Draft, draft-ietf-opsawg-rfc5706bis-02,
+              19 February 2026, <https://datatracker.ietf.org/doc/html/
+              draft-ietf-opsawg-rfc5706bis-02>.
 
    [IANA.core-parameters]
               IANA, "Constrained RESTful Environments (CoRE)
