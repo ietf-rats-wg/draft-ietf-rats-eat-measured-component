@@ -207,7 +207,6 @@ This signature is typically verified during installation ({{Section 7 of -suit-a
 Another example may be the controlling entity in an app store.
 Note that this signature is in no way related to the attester's signature on the EAT-formatted evidence.
 By extension, an authority identifier does not, by itself, indicate the signer of the enclosing EAT-formatted evidence.
-Any consumer interpretation of the `authorities` array beyond the identification function described here is defined by the applicable EAT profile.
 
 An authority is identified by its signing public key.
 It could be an X.509 certificate, a raw public key, a public key thumbprint, or some other identifier that can be uniquely associated with the signing entity.
