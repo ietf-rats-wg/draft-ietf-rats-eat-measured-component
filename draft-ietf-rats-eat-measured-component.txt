@@ -5,12 +5,12 @@
 Remote ATtestation ProcedureS                                   S. Frost
 Internet-Draft                                                       Arm
 Intended status: Standards Track                              T. Fossati
-Expires: 23 August 2026                                           Linaro
+Expires: 24 August 2026                                           Linaro
                                                            H. Tschofenig
                                                                    H-BRS
                                                              H. Birkholz
                                                           Fraunhofer SIT
-                                                        19 February 2026
+                                                        20 February 2026
 
 
            Entity Attestation Token (EAT) Measured Component
@@ -60,7 +60,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 23 August 2026.
+   This Internet-Draft will expire on 24 August 2026.
 
 Copyright Notice
 
@@ -339,7 +339,9 @@ Table of Contents
    Firmware Interface (UEFI) Secure Boot [UEFI2] and Arm Trusted Board
    Boot [TBBR-CLIENT].  Another example may be the controlling entity in
    an app store.  Note that this signature is in no way related to the
-   attester's signature on the EAT-formatted evidence.
+   attester's signature on the EAT-formatted evidence.  By extension, an
+   authority identifier does not, by itself, indicate the signer of the
+   enclosing EAT-formatted evidence.
 
    An authority is identified by its signing public key.  It could be an
    X.509 certificate, a raw public key, a public key thumbprint, or some
